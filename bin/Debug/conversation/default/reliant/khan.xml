@@ -1,0 +1,38 @@
+<DIALOG>
+	<STATEMENT id = "0" img = "khan.png">
+	    You still remember, Admiral. 
+	    I, cannot help but be touched. 
+	    Of course, I remember you.
+		<ANSWER next = "1" value = "0" >
+		What is the meaning of this attack? Where is the crew of the Reliant?
+		</ANSWER>
+	</STATEMENT>
+	<STATEMENT id = "1" img = "khan.png">
+	    Surely I have made my meaning plain. 
+	    I mean to avenge myself upon you, Admiral. 
+	    I've deprived your ship of power and when I swing
+	    round I mean to deprive you of your life.
+	    <ANSWER next = "2" value = "5" >
+          Khan, if its me you want, I'll have myself beamed aboard        		
+		</ANSWER>
+	</STATEMENT>
+	<STATEMENT id = "2" img = "khan.png">
+	    I make you a counter-proposal, 
+	    I will agree to your terms, 
+	    IF, if in addition to yourself, 
+	    you hand over to me all data and material
+	    regarding the project called ...Genesis.
+	    <ANSWER next = "-1" value = "0" >
+         Send Code  1 0 6 3 9      		
+		</ANSWER>
+		<ANSWER next = "-1" value = "0" >
+         Send Code  2 7 3 4 0        		
+		</ANSWER>
+		<ANSWER next = "-1" value = "1" >
+         Send Code  1 6 3 0 9      		
+		</ANSWER>
+		<ANSWER next = "-1" value = "2" >
+         Send Genesis project        		
+		</ANSWER>
+		</STATEMENT>
+</DIALOG>

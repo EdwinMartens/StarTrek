@@ -1,0 +1,78 @@
+<?xml version='1.0' encoding='windows-1252'?>
+<!--
+Wix Installer for StarTrek.
+
+compile with : Candle 
+Link with    : Light -ext WixUIExtension -loc WIX\L.wxl .wixobj
+
+Author       : Edwin Martens
+-->
+
+<Wix xmlns='http://schemas.microsoft.com/wix/2006/wi'>
+  <Product Name='Impressions 2.0' Id='5116B714-8DA2-4B4A-B9D9-47084752A838' UpgradeCode='AFF2E11E-869F-41F8-8D51-75C7B006460E'
+    Language='1033' Codepage='1252' Version='0.0.1' Manufacturer='Edwin Martens'>
+
+    <Package Id='*' Keywords='Installer' Description="Startrek Installer 1.0"
+      Comments='An open source `Star-Trek`game ' Manufacturer='Edwin Martens'
+      InstallerVersion='100' Languages='1033' Compressed='yes' SummaryCodepage='1252' />
+
+    <Media Id='1' Cabinet='Startrek.cab' EmbedCab='yes' DiskPrompt="CD-ROM #1" />
+    <Property Id='DiskPrompt' Value="StarTrek Installation [1]" />
+
+    <Directory Id='TARGETDIR' Name='SourceDir'>
+	  <!--Windows programfiles folder--> 
+      <Directory Id='ProgramFilesFolder' Name='PFiles'>
+	    <!--Program directory-->
+        <Directory Id='PROGRAMDIR' Name='StarTrek'>
+          
+		  
+		  
+			
+
+           
+			
+			
+			<!--
+            <Component Id='Manual' Guid='YOURGUID-574D-4A9A-A266-5B5EC2C022A4'>
+              <File Id='Manual' Name='Manual.pdf' DiskId='1' Source='Manual.pdf' KeyPath='yes'>
+                <Shortcut Id="startmenuManual" Directory="ProgramMenuDir" Name="Instruction Manual" Advertise="yes" />
+              </File>
+            </Component>
+			-->
+
+          
+        </Directory>
+      </Directory>
+      
+	  <!--Cleanup after uninstall -->
+      <Directory Id="ProgramMenuFolder" Name="Programs">
+        <Directory Id="ProgramMenuDir" Name="StarTrek">
+          <Component Id="ProgramMenuDir" Guid="5CBEA77E-7D9D-41A6-9704-6EFFDA567CE3">
+            <RemoveFolder Id='ProgramMenuDir' On='uninstall' />
+            <RegistryValue Root='HKCU' Key='Software\Startrek' Type='string' Value='' KeyPath='yes' />
+          </Component>
+        </Directory>
+      </Directory>
+
+      <Directory Id="DesktopFolder" Name="Desktop" />
+    </Directory>
+
+	<!--Install features -->
+    <Feature Id='Complete' Level='1'>
+      <ComponentRef Id='MainExecutable' />
+	  
+      <ComponentRef Id='ProgramMenuDir' />
+    </Feature>
+    
+	<!--Program icon -->
+    <Icon Id="StarTrek.exe" SourceFile="" />
+	
+	<!--Wizard user interface -->
+	<Property Id="WIXUI_INSTALLDIR">INSTALLDIR</Property>
+    <UIRef Id="WixUI_InstallDir" />
+    <UIRef Id="WixUI_ErrorProgressText" />
+	<WixVariable Id="WixUILicenseRtf" Value="License.rtf" />
+	<WixVariable Id="WixUIDialogBmp" Value="WIX\Background.bmp" />
+
+  </Product>
+</Wix>

@@ -1,0 +1,1097 @@
+/*
+Copyright (C) 2015  E.J.M. Martens
+
+This program is free software; you can redistribute it and/or
+modify it under the terms of the GNU General Public License
+as published by the Free Software Foundation; either version 2
+of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software
+Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+*/
+
+#include <stdio.h>
+#include <iostream>
+
+#include "Global.h"
+#include "Engine.h"
+#include "Ship.h"
+#include "Bullet.h"
+#include "Animation.h"
+#include "SpaceObject.h"
+#include "Enterprise.h"
+#include "Klingon_BC.h"
+#include "Klingon_BOP.h"
+#include "Romulan_BOP.h"
+#include "Federation_Ship.h"
+#include "Probe.h"
+#include "Universe.h"
+#include "SoundManager.h"
+
+#define Number_Of_Stars 300
+class TEnterprise;
+
+extern TEnterprise * g_pEnterprise;
+extern Universe * g_pUniverse;
+
+bool Comp(const TSprite *v1, const TSprite *v2);
+
+
+char g_szMessage[255];
+
+
+// Sprite methods..
+void TSprite::Draw(double a_dCamX,double a_dCamY)
+{
+	double DrawX=int(m_pEngine->m_nScreenMidX+(m_dX-a_dCamX))-m_nBitmapMidX;
+	double DrawY=int(m_pEngine->m_nScreenMidY+(m_dY-a_dCamY))-m_nBitmapMidY;
+	// only draw what we see
+	if ((DrawX+m_nBitmapWidth>0)&&(DrawX-m_nBitmapWidth<m_pEngine->m_nScreenWidth)&&(DrawY+m_nBitmapHeight>0)&& (DrawY-m_nBitmapHeight<m_pEngine->m_nScreenHeight))
+	{
+       al_draw_bitmap(m_pImage, DrawX, DrawY, 0);
+	}
+}
+
+void TSprite::Move(double a_dLagCount)
+{
+	if ((m_pEngine!=NULL)&&(m_pEngine->m_blHasBlackHole))
+    {
+        if ((m_ID >= ID_PROBE)&&(m_ID < ID_BASE_BOTTOM))
+        {
+            double DD = Distance(m_dX,m_dY,(double)g_pUniverse->m_nSectorCenter,(double)g_pUniverse->m_nSectorCenter);
+
+            m_dX-= (m_dX-g_pUniverse->m_nSectorCenter)/(DD+1 * 10);
+            m_dY-= (m_dY-g_pUniverse->m_nSectorCenter)/(DD+1 * 10);
+        }
+    }
+
+
+	m_dX+=cos(m_dAngle)*m_dSpeed * a_dLagCount;
+	m_dY+=sin(m_dAngle)*m_dSpeed * a_dLagCount;
+}
+
+
+void TSprite::SetImage(ALLEGRO_BITMAP * a_pImage)
+{
+	m_pImage		=	a_pImage;
+	m_nBitmapWidth	=	al_get_bitmap_width(m_pImage);
+    m_nBitmapHeight	=	al_get_bitmap_height(m_pImage);
+	m_nBitmapMidX = m_nBitmapWidth/2;
+	m_nBitmapMidY = m_nBitmapHeight/2;
+}
+
+
+double TSprite::GetX()
+{
+	return m_dX;
+}
+
+double TSprite::GetY()
+{
+	return m_dY;
+}
+
+
+void TSprite::Do_ai()
+{
+
+
+}
+
+void TSprite::DoCollision(TSprite * const a_pSprite)
+{
+
+}
+
+
+void TSprite::SetPosition(double a_dX, double a_dY, double a_dAngle)
+{
+	m_dX= a_dX;
+	m_dY= a_dY;
+	m_dAngle = a_dAngle;
+}
+
+void TSprite::SetPosition(double a_dX, double a_dY)
+{
+	m_dX= a_dX;
+	m_dY= a_dY;
+}
+
+
+void TSprite::SetHeight(int a_nHeight)
+{
+	m_nZ = a_nHeight;
+}
+
+void TSprite::SetSpeed(double a_dSpeed)
+{
+	m_dSpeed = a_dSpeed;
+}
+
+TSprite::TSprite()
+{
+	m_dX      =  0;
+    m_dY      =  0;
+    m_nZ      =  0;
+	m_dSpeed  =  0;
+    m_dAngle  =  0;
+
+    m_blDestroyed  = false;
+	m_blCanCollide = false;
+	m_blCanFind    = false;
+}
+
+TSprite::~TSprite()
+{
+
+}
+
+
+// Engine methods
+
+
+
+void TEngine::Add(TSprite * const sprite)
+{
+	sprite->m_pEngine = this;
+	if (sprite->m_ID==ID_BLACK_HOLE)
+    {
+         m_blHasBlackHole = true;
+    }
+
+	m_lstItems.push_back(sprite);
+    m_lstItems.sort(Comp);
+}
+
+void TEngine::Sort()
+{
+     m_lstItems.sort(Comp);
+}
+
+
+
+double TEngine::GetDx()
+{
+    return m_dX;
+}
+
+double TEngine::GetDy()
+{
+    return m_dY;
+}
+
+
+
+void TEngine::Kill()
+{
+
+	// set pointers to objects to be removed to null
+	std::list<TSprite *>::const_iterator p=m_lstItems.begin();
+	while (p!=m_lstItems.end())
+	{
+		TSprite*hulp=(TSprite *)(*p);
+		if ((hulp!=NULL)&&(!hulp->m_blDestroyed)&&(hulp->m_ID>ID_SHIP_BOTTOM)&&(hulp->m_ID<ID_SHIP_TOP))
+		{
+			if  ( (((TShip *) hulp)->m_pTarget!=NULL) && (((TShip *) hulp)->m_pTarget->m_blDestroyed) )
+			{
+				((TShip *) hulp)->m_pTarget=NULL;
+			}
+
+			if  ( (((TShip *) hulp)->m_pBaseTarget!=NULL) && (((TShip *) hulp)->m_pBaseTarget->m_blDestroyed) )
+			{
+				((TShip *) hulp)->m_pBaseTarget=NULL;
+			}
+		}
+		++p;
+   }
+
+	std::list<TSprite *>::iterator d=m_lstItems.begin();
+	while (d!=m_lstItems.end())
+	{
+		TSprite*hulp=(TSprite *)(*d);
+		if (hulp->m_blDestroyed)
+		{
+			if ((hulp->m_ID>ID_SHIP_BOTTOM)&&(hulp->m_ID<ID_SHIP_TOP))
+			{
+
+				if (((TShip *) hulp)->m_blMustSurvive)
+				{
+				     // Game over
+				     m_nGameOver=GO_LOOSE_CRITICAL;
+				     sprintf(g_szMessage,"Critical unit %s was destroyed",((TShip *) hulp)->m_strName.c_str());
+				}
+
+			}
+			if (hulp->m_ID==ID_PLAYER)
+			{
+				m_nGameOver=GO_ENTERPRISE;
+				sprintf(g_szMessage,"The enterprise was destroyed");
+
+			}
+			d=m_lstItems.erase(d);
+			delete hulp;
+		}
+		else
+		{
+			++d;
+		}
+	}
+}
+
+
+
+void TEngine::Draw()
+{
+	std::list<TSprite *>::iterator p=m_lstItems.begin();
+	while (p!=m_lstItems.end())
+	{
+		TSprite * hulp=(TSprite *)(*p);
+		if (hulp != NULL)
+        {
+            hulp->Draw(m_dX,m_dY);
+        }
+		else
+        {
+            // Something went horribly wrong
+            cout << "NULL in Spritelist !!";
+            exit(-1);
+
+        }
+		++p;
+	}
+
+}
+
+
+void TEngine::Move(double a_dLagCount)
+{
+    std::list<TSprite *>::const_iterator p=m_lstItems.begin();
+	while (p!=m_lstItems.end())
+	{
+		TSprite*hulp=(TSprite *)(*p);
+		if ((hulp != NULL)&&(!hulp->m_blDestroyed))
+        {
+            hulp->Move(a_dLagCount);
+        }
+		++p;
+	}
+}
+
+
+
+
+void TEngine::Do_ai()
+{
+	std::list<TSprite *>::const_iterator p=m_lstItems.begin();
+	while (p!=m_lstItems.end())
+	{
+		TSprite*hulp=(TSprite *)(*p);
+		if (hulp != NULL)
+        {
+
+        if (! hulp->m_blDestroyed)
+		{
+			hulp->Do_ai();
+
+			if ((hulp->m_ID>ID_SHIP_BOTTOM)&&(hulp->m_ID<ID_SHIP_TOP))
+			{
+
+				if ((((TShip *) hulp)->m_blMustReachPosition)&&(Distance(hulp->m_dX,hulp->m_dY,((TShip *) hulp)->m_dSafePosX,((TShip *) hulp)->m_dSafePosY)<=40))
+				{
+                    // Game over
+                    if (((TShip *) hulp)->m_blDock)
+                    {
+                        if (((TShip *) hulp)->m_blDocked)
+                        {
+                            m_nGameOver=GO_WIN_REACHED;
+                            sprintf(g_szMessage,"Mission Succes: %s safely docked",((TShip *) hulp)->m_strName.c_str());
+                        }
+                    }
+                    else
+                    {
+                        m_nGameOver=GO_WIN_REACHED;
+                        sprintf(g_szMessage,"Mission Succes: %s Was safely escorted",((TShip *) hulp)->m_strName.c_str());
+                    }
+				}
+
+			}
+
+
+
+			if (hulp->m_blCanCollide)
+			{
+				std::list<TSprite *>::const_iterator q=m_lstItems.begin();
+				while (q!=m_lstItems.end())
+				{
+					TSprite*hulp2=*q;
+
+					if ((hulp2!=hulp)&&(!hulp->m_blDestroyed)&&(!hulp2->m_blDestroyed))
+					{
+						// Check collision !!!
+						if (Detect_collision(hulp,hulp2)) hulp->DoCollision(hulp2);
+					}
+					++q;
+				}
+			}
+		}
+        }
+        else
+        {
+            // Something went horribly wrong
+            cout << "NULL in Spritelist !!";
+            exit(-1);
+
+        }
+
+		++p;
+
+	}
+}
+
+bool TEngine::Detect_collision(TSprite * const sprite1,TSprite * const sprite2)
+{
+bool hit=false;
+if ((sprite1!=NULL)&&(sprite2!=NULL)&&(sprite1->m_blDestroyed==false)&&(sprite2->m_blDestroyed==false))
+   {
+   if (sprite1->m_ID==ID_ASTEROID)
+   {
+       if((sprite2->m_ID > ID_SHIP_BOTTOM)&&(sprite2->m_ID < ID_SHIP_TOP)&&(Distance(sprite1->m_dX,sprite1->m_dY,sprite2->m_dX,sprite2->m_dY)<80))
+       {
+            hit=true;
+       }
+       if((sprite2->m_ID > ID_BULLET_BOTTOM)&&(sprite2->m_ID < ID_BULLET_TOP)&&(Distance(sprite1->m_dX,sprite1->m_dY,sprite2->m_dX,sprite2->m_dY)<80))
+       {
+           double V = CalcVolume(sprite2->GetX(),sprite2->GetY());
+	       SoundManager::PlaySound(SOUND::EXPLOSION_SMALL,V);
+
+		   TAnimation * pAnimation;
+		   pAnimation = new TAnimation( ANIMATION::SMOKE,
+                                        sprite2->GetX(),sprite2->GetY(),
+                                        0,
+                                        0,
+                                        sprite1->m_nZ+1);
+            Add(pAnimation);
+            sprite2->m_blDestroyed=true;
+
+            sprite1->m_dAngle = sprite2->m_dAngle;
+            Sprite1->m_dSpeed = Sprite2->m_dSpeed 
+
+
+
+       }
+   }
+
+   else if (Distance(sprite1->m_dX,sprite1->m_dY,sprite2->m_dX,sprite2->m_dY) < (sprite1->m_nBitmapMidX + (sprite2->m_nBitmapMidX/2)))
+      {
+			hit=true;
+      }
+   }
+return hit;
+}
+
+
+
+double TEngine::CalcVolume(double a_dX, double a_dY)
+{
+    double D = Distance(a_dX, a_dY,m_dX, m_dY);
+	double V =0;
+
+	if (D!=0)
+    {
+        V = (400.0/D);
+        if (V>1.0) V=1.0;
+    }
+    else
+    {
+        V=1.0;
+    }
+    return V;
+}
+
+
+
+
+TEngine::TEngine(int a_nWidth,int a_nHeight)
+{
+	m_blHasBlackHole = false;
+	m_blSensorStatic=false;
+	m_nCount    =   0;
+	m_nGameOver =   GO_PLAYING;
+	m_dX        =   5000;
+	m_dY        =   5000;
+	m_dPosx     =   m_dX;
+	m_dPosy     =   m_dY;
+
+	m_nScreenWidth = a_nWidth;
+	m_nScreenHeight = a_nHeight;
+	m_nScreenMidX = m_nScreenWidth/2;
+    m_nScreenMidY = m_nScreenHeight/2;
+
+	// set some colors
+	m_clBLACK   = al_map_rgb(0,0,0);
+	m_clRED     = al_map_rgb(255,0,0);
+	m_clGREEN   = al_map_rgb(0,255,0);
+	m_clBLUE    = al_map_rgb(0,0,255);
+	m_clYELLOW  = al_map_rgb(255,255,0);
+	m_clBROWN   = al_map_rgb(100,100,70);
+	m_clWHITE   = al_map_rgb(255,255,255);
+	m_clMAGENTA = al_map_rgb(255,0,255);
+    m_clAQUA    = al_map_rgb(0,255,255);
+    m_clATHM    = al_map_rgb(80,80,60);
+
+    for(int i=0; i<KEY_MAX;i++)
+	{
+		m_blKeys[i]=false;
+	}
+
+}
+
+TEngine::~TEngine()
+{
+	if (!m_lstItems.empty())
+    {
+      std::list<TSprite *>::iterator p=m_lstItems.begin();
+	  while (p!=m_lstItems.end())
+	  {
+		TSprite * pDummy=((TSprite *)*p);
+		p=m_lstItems.erase(p);
+		delete pDummy;
+      }
+    }
+}
+
+
+void TEngine::Clear(bool a_blKeepPlayer)
+{
+	m_blHasBlackHole = false;
+	if (!m_lstItems.empty())
+    {
+      std::list<TSprite *>::iterator p=m_lstItems.begin();
+	  while (p!=m_lstItems.end())
+	  {
+		TSprite * pDummy=((TSprite *)*p);
+
+		if ((!a_blKeepPlayer)||(pDummy->m_ID!=ID_PLAYER))
+		{
+			p=m_lstItems.erase(p);
+			delete pDummy;
+		}
+		else
+		{
+			++p;
+		}
+      }
+    }
+}
+
+
+
+
+
+
+void TEngine::SetOrigin(double a_dX, double a_dY)
+{
+	m_dX = a_dX;
+	m_dY = a_dY;
+}
+
+
+void TEngine::Folow(TSprite * const a_pSprite)
+{
+	m_dX=a_pSprite->m_dX;
+	m_dY=a_pSprite->m_dY;
+}
+
+
+
+void TEngine::DrawHud(TShip * const a_pPlayer)
+{
+	if ((a_pPlayer!=NULL)&&(!a_pPlayer->m_blDestroyed) && (a_pPlayer->m_pTarget!=NULL)&&(a_pPlayer->m_blDocked==false))
+    {
+          int S=45;
+		  int L=15;
+		  ALLEGRO_COLOR color = m_clRED;
+	      double dAngle=a_pPlayer->WayPoint(a_pPlayer->m_pTarget->GetX(),a_pPlayer->m_pTarget->GetY());
+          if (a_pPlayer->m_pTarget->m_Member==MEM_FEDERATION) color = m_clGREEN;
+          if ((a_pPlayer->m_pTarget->m_ID>ID_BASE_BOTTOM)&&(a_pPlayer->m_pTarget->m_ID<ID_BASE_TOP)&&(a_pPlayer->m_pTarget->m_Member==MEM_FEDERATION)) color = m_clBLUE;
+
+          double x1=(S*cos(dAngle));
+          double y1=(S*sin(dAngle));
+          double x2=((S+L)*cos(dAngle));
+          double y2=((S+L)*sin(dAngle));
+		  al_draw_line(m_nScreenMidX+x1, m_nScreenMidY+y1, m_nScreenMidX+x2, m_nScreenMidY+y2, color, 1);
+   }
+}
+
+
+TSprite * TEngine::Seek(int a_nID, double a_dViewDistance, double a_dX, double a_dY)
+{
+	TSprite * target=NULL;
+	int dist=a_dViewDistance;
+	int D;
+	std::list<TSprite *>::const_iterator p=m_lstItems.begin();
+	while (p!=m_lstItems.end())
+	{
+		TSprite*hulp=*p;
+		if ((hulp->m_ID==a_nID) && (hulp->m_blDestroyed==false)&&(((hulp->m_ID<ID_SHIP_BOTTOM)&&(hulp->m_ID>ID_BASE_TOP))||(((TShip *) hulp)->m_CloakState != CS_CLOAKED)))
+		{
+			D=int(Distance(a_dX,a_dY,hulp->m_dX,hulp->m_dY));
+			if ((D<=dist)&&(D!=0))
+			{
+				target=hulp;
+				dist=D;
+			}
+		}
+		++p;
+	}
+	return target;
+}
+
+
+
+TSprite * TEngine::Seek(int a_nMember, bool a_blEnemy,double a_dViewDistance, double a_dX, double a_dY)
+{
+	TSprite * target=NULL;
+	int dist=a_dViewDistance;
+	int D;
+	std::list<TSprite *>::const_iterator p=m_lstItems.begin();
+	while (p!=m_lstItems.end())
+	{
+		TSprite*hulp=*p;
+		if ((!hulp->m_blDestroyed)&&(hulp->m_blCanFind)&&(hulp->m_ID>ID_SHIP_BOTTOM)&&(hulp->m_ID<ID_BASE_TOP)&&(((TShip *)hulp)->m_CloakState != CS_CLOAKED))
+		{
+            if (a_blEnemy)
+            {
+                if (hulp->m_Member!=a_nMember)
+                {
+                    D=int(Distance(a_dX,a_dY,hulp->m_dX,hulp->m_dY));
+                    if ((D<=dist)&&(D!=0))
+                    {
+                        target=hulp;
+                        dist=D;
+                    }
+                }
+            }
+            else
+            {
+                if (hulp->m_Member==a_nMember)
+                {
+                    D=int(Distance(a_dX,a_dY,hulp->m_dX,hulp->m_dY));
+                    if ((D<=dist)&&(D!=0))
+                    {
+                        target=hulp;
+                        dist=D;
+                    }
+                }
+            }
+		}
+		++p;
+	}
+	return  target;
+}
+
+
+
+
+
+
+
+
+
+
+TSprite * TEngine::Seekstarbase(int a_nMember, bool a_blEnemy,double a_dViewDistance, double a_dX, double a_dY)
+{
+	TSprite * target=NULL;
+	int dist=a_dViewDistance;
+	int D;
+	std::list<TSprite *>::const_iterator p=m_lstItems.begin();
+	while (p!=m_lstItems.end())
+	{
+		TSprite*hulp=*p;
+		if (a_blEnemy)
+		{
+			if ((hulp->m_ID > ID_BASE_BOTTOM)&&(hulp->m_ID < ID_BASE_TOP)&&(hulp->m_blDestroyed==false)&&(hulp->m_Member!=a_nMember))
+			{
+				D=int(Distance(a_dX,a_dY,hulp->m_dX,hulp->m_dY));
+				if ((D<=dist)&&(D!=0))
+				{
+					target=hulp;
+					dist=D;
+				}
+			}
+		}
+		else
+		{
+			if ((hulp->m_ID > ID_BASE_BOTTOM)&&(hulp->m_ID < ID_BASE_TOP)&&(hulp->m_blDestroyed==false)&&(hulp->m_Member==a_nMember))
+			{
+				D=int(Distance(a_dX,a_dY,hulp->m_dX,hulp->m_dY));
+				if ((D<=dist)&&(D!=0))
+				{
+					target=hulp;
+					dist=D;
+				}
+			}
+		}
+		++p;
+	}
+	return target;
+}
+
+
+TSprite * TEngine::GetBlackHole()
+{
+    TSprite * target=NULL;
+	std::list<TSprite *>::const_iterator p=m_lstItems.begin();
+	while (p!=m_lstItems.end())
+	{
+		TSprite*hulp=*p;
+		if (hulp->m_ID > ID_BLACK_HOLE)
+        {
+			target=hulp;
+		}
+		++p;
+	}
+	return target;
+}
+
+
+
+
+void TEngine::Draw_sensor(int dx,int dy,TShip * const a_pPlayer)
+{
+
+	if ((a_pPlayer!=NULL)&&(! a_pPlayer->m_blDestroyed))
+	{
+		al_draw_filled_rectangle(dx+55, dy+50, dx+60, (dy+50)-(a_pPlayer->m_nShieldEnergy),m_clBLUE);
+		al_draw_filled_rectangle(dx+64, dy+50, dx+69, (dy+50)-(a_pPlayer->m_nPhaserEnergy),m_clRED);
+
+		int xx,yy;
+		float dd;
+		std::list<TSprite *>::const_iterator p=m_lstItems.begin();
+		ALLEGRO_COLOR col;
+		al_draw_filled_rectangle(dx-50, dy-50, dx+50, dy+50,m_clBLACK);
+		al_draw_rectangle(dx-50, dy-50, dx+50, dy+50,m_clWHITE,1);
+
+
+		if (m_blSensorStatic)
+		{
+			for (int i=0;i<25;i++)
+			{
+				xx=(rand()%100)-50;
+				yy=(rand()%100)-50;
+				al_draw_filled_circle(dx+xx, dy+yy, 1, m_clWHITE);
+			}
+
+		}
+		else
+		{
+			while (p!=m_lstItems.end())
+			{
+				if (((*p)->m_ID<ID_SHIP_BOTTOM) || (((TShip *)(*p))->m_CloakState != CS_CLOAKED))
+				{
+				dd=Distance(m_dX,m_dY,(*p)->m_dX,(*p)->m_dY);
+				if (dd<2500)
+				{
+					xx=int(((*p)->m_dX-m_dX)/50);
+					yy=int(((*p)->m_dY-m_dY)/50);
+					col = m_clGREEN;
+					if (((*p)->m_ID>=ID_STAR_BLUE)&&((*p)->m_ID<=ID_STAR_RED))
+					{
+						al_draw_filled_circle(dx+xx, dy+yy, 3, m_clYELLOW);
+					}
+					else if (((*p)->m_ID>=ID_CLASS_A)&&((*p)->m_ID<=ID_CLASS_M3))
+					{
+						al_draw_filled_circle(dx+xx, dy+yy, 2, m_clBROWN);
+					}
+					else if ((*p)->m_ID==ID_ASTEROID)
+                    {
+                        al_draw_filled_circle(dx+xx, dy+yy, 1, m_clYELLOW);
+                    }
+					else if ((*p)->m_ID==ID_FEDERATIONBASE)
+					{
+						al_draw_filled_circle(dx+xx, dy+yy, 2, m_clWHITE);
+					}
+					else if (((*p)->m_ID>ID_SHIP_BOTTOM)&&((*p)->m_ID<ID_SHIP_TOP))
+					{
+						if ( ((*p)->m_Member==MEM_KLINGON)||
+							((*p)->m_Member==MEM_ROMULAN)||
+							((*p)->m_Member==MEM_ENEMY) ) col = m_clRED;
+
+						al_draw_filled_circle(dx+xx, dy+yy, 1, col);
+					}
+				}
+				}
+				++p;
+			}
+		}
+	}
+
+}
+
+int TEngine::CountSaveObjects()
+{
+    int result = 0;
+    std::list<TSprite *>::const_iterator p=m_lstItems.begin();
+    while (p!=m_lstItems.end())
+	{
+        if ( (!(*p)->m_blDestroyed) && ((*p)->m_ID != ID_NONE) /* && ((*p)->m_ID != ID_SMOKE)*/ )
+        {
+            result++;
+        }
+	++p;
+	}
+	return result;
+}
+
+
+bool TEngine::Save(ofstream & a_SaveStream)
+{
+	char szVersion[18]="CURRENT_SECTOR_V1";
+    a_SaveStream.write((char*)szVersion,sizeof (szVersion));
+
+
+	std::list<TSprite *>::const_iterator p=m_lstItems.begin();
+	int m_nObjects = CountSaveObjects();
+	a_SaveStream.write((char*)&m_nObjects,sizeof (int));
+	while (p!=m_lstItems.end())
+	{
+        if ( (!(*p)->m_blDestroyed) && ((*p)->m_ID != ID_NONE) )
+        {
+            sGameObject object;
+            memset(&object, 0, sizeof(sGameObject));
+            object.m_ID = (*p)->m_ID;
+            object.m_Member = (*p)->m_Member;
+            object.m_dX = (*p)->m_dX;
+            object.m_dY = (*p)->m_dY;
+            object.m_nZ = (*p)->m_nZ;
+            object.m_dAngle = (*p)->m_dAngle;
+            object.m_blCanFind = (*p)->m_blCanFind;
+            object.m_dSpeed = (*p)->m_dSpeed;
+
+
+            if ((*p)->m_ID>ID_BULLET_BOTTOM && (*p)->m_ID<ID_BULLET_TOP)
+            {
+               // sprite is a bullet
+               object.m_nLife  = ((TBullet*)(*p))->m_nLife;
+               object.m_nCount = ((TBullet*)(*p))->m_nWait;
+            }
+            else if ((*p)->m_ID>ID_PLANET_BOTTOM && (*p)->m_ID<ID_STAR_TOP)
+            {
+                // sprite is a planet or a star
+
+            }
+
+            if ((*p)->m_ID == ID_ANIMATION)
+            {
+                // sprite is an explosion
+                object.m_nLife  = ((TAnimation*)(*p))->m_nFrame;
+                object.m_nCount = ((TAnimation*)(*p))->m_nWait;
+                object.m_AI     = ((TAnimation*)(*p))->m_Type;
+            }
+
+
+            if (((*p)->m_ID>ID_SHIP_BOTTOM)&&((*p)->m_ID<ID_BASE_TOP))
+            {
+                //sprite is a ship or a starbase
+
+                object.m_AI                     = ((TShip *)(*p))->m_AI;
+                object.m_blDocked               = ((TShip *)(*p))->m_blDocked;
+                object.m_blDocking              = ((TShip *)(*p))->m_blDocking;
+                object.m_blReleasing            = ((TShip *)(*p))->m_blReleasing;
+                object.m_blMustBeDestroyed      = ((TShip *)(*p))->m_blMustBeDestroyed;
+                object.m_blMustSurvive          = ((TShip *)(*p))->m_blMustSurvive;
+
+                object.m_blMustReachPosition    = ((TShip *)(*p))->m_blMustReachPosition;
+                object.m_blDock                 = ((TShip *)(*p))->m_blDock;
+                object.m_blNoRelease            = ((TShip *)(*p))->m_blNoRelease;
+                object.m_blCanFind              = ((TShip *)(*p))->m_blCanFind;
+                object.m_dWaypointX             = ((TShip *)(*p))->m_dWaypointX;
+
+                object.m_dWaypointY             = ((TShip *)(*p))->m_dWaypointY;
+                object.m_nTorpedoes             = ((TShip *)(*p))->m_nTorpedoes;
+                object.m_nRepairItem            = ((TShip *)(*p))->m_nRepairItem;
+                object.m_nCrew                  = ((TShip *)(*p))->m_nCrew;
+                object.m_nEnergy                = ((TShip *)(*p))->m_nEnergy;
+
+                object.m_nShieldEnergy          = ((TShip *)(*p))->m_nShieldEnergy;
+                object.m_nPhaserEnergy          = ((TShip *)(*p))->m_nPhaserEnergy;
+                object.m_nPreferedTarget        = ((TShip *)(*p))->m_nPreferedTarget;
+                object.m_nPhaserPower           = ((TShip *)(*p))->m_nPhaserPower;
+                object.m_blCanCloak             = ((TShip *)(*p))->m_blCanCloak;
+
+                object.m_blCanFind              = ((TShip *)(*p))->m_blCanFind;
+                object.m_blPhaserOn             = ((TShip *)(*p))->m_blPhaserOn;
+                object.m_nCloakCharge           = ((TShip *)(*p))->m_nCloakCharge;
+                object.m_nCloakCounter          = ((TShip *)(*p))->m_nCloakCounter;
+                object.m_nPhotonTimer           = ((TShip *)(*p))->m_nPhotonTimer;
+
+                object.m_nTranslucency          = ((TShip *)(*p))->m_nTranslucency;
+                object.m_nTask                  = ((TShip *)(*p))->m_nTask;
+                object.m_CloakState            = ((TShip *)(*p))->m_CloakState;
+                object.m_dAngleSeek             = ((TShip *)(*p))->m_dAngleSeek;
+
+                // store health
+                for (size_t i=0; i< ((TShip *)(*p))->m_lstHealth.size();i++)
+                {
+                    object.m_nHealth[(HEALTH)i]=((TShip *)(*p))->m_lstHealth[(HEALTH)i];
+                }
+
+                if ((*p)->m_ID==ID_PLAYER)
+                {
+                    // player specific ! sprite is the player
+                    object.m_nSectorPositionX = ((TEnterprise *) (*p))->m_nSectorPositionX;
+                    object.m_nSectorPositionY = ((TEnterprise *) (*p))->m_nSectorPositionY;
+                    object.m_nWarpFactor      = ((TEnterprise *) (*p))->m_nWarpFactor;
+                    object.m_nProbes          = ((TEnterprise *) (*p))->m_nProbes;
+                }
+            }
+
+            a_SaveStream.write((char*)&object,sizeof (sGameObject));
+       }
+	   ++p;
+	}
+	return true;
+}
+
+
+
+
+
+
+
+bool TEngine::Load(ifstream & a_LoadStream)
+{
+	Clear(false);
+	char szVersion[18];
+	a_LoadStream.read((char *)szVersion,sizeof(char)*18);
+
+	int m_nObjects;
+	a_LoadStream.read((char *)&m_nObjects,sizeof(int));
+
+	for (int i=0;i<m_nObjects;i++)
+	{
+       sGameObject object;
+       memset(&object, 0, sizeof(sGameObject));
+
+	   a_LoadStream.read((char *)&object,sizeof(object));
+       TSprite * pSprite=NULL;
+
+	   if ((object.m_ID>=ID_CLASS_A)&&(object.m_ID<ID_BLACK_HOLE))
+	   {
+		   pSprite = new TSpaceObject(object.m_ID);
+
+	   }
+	   if (object.m_ID == ID_PROBE)
+       {
+           pSprite = new TProbe(object.m_dX ,
+			                    object.m_dY,
+								object.m_dSpeed,
+								object.m_dAngle,
+								object.m_nZ,g_pEnterprise);
+       }
+	   else if ((object.m_ID>ID_BULLET_BOTTOM)&&(object.m_ID<ID_BULLET_TOP))
+	   {
+		   pSprite = new TBullet( object.m_dX ,
+			                      object.m_dY,
+								  object.m_dSpeed,
+								  object.m_dAngle,
+								  object.m_nZ,
+								  object.m_ID,
+								  object.m_Member);
+
+            ((TBullet *)pSprite)->m_nLife = object.m_nLife;
+            ((TBullet *)pSprite)->m_nWait = object.m_nCount;
+	   }
+	   else if (object.m_ID == ID_ANIMATION)
+       {
+            pSprite = new TAnimation((ANIMATION::TYPE) object.m_AI,
+                                     object.m_dX,
+                                     object.m_dY,
+                                     object.m_dSpeed,
+								     object.m_dAngle,
+								     object.m_nZ);
+
+
+       }
+       else if (object.m_ID>ID_SHIP_BOTTOM)
+	   {
+			switch (object.m_ID)
+			{
+			    case ID_PLAYER:
+                   {
+                        pSprite = new TEnterprise();
+                        g_pEnterprise = (TEnterprise *)pSprite;
+                        g_pEnterprise->m_nSectorPositionX = object.m_nSectorPositionX;
+                        g_pEnterprise->m_nSectorPositionY = object.m_nSectorPositionY;
+                        g_pEnterprise->m_nWarpFactor      = object.m_nWarpFactor;
+                        g_pEnterprise->m_nProbes          = object.m_nProbes;
+                   }
+
+
+				break;
+
+				case ID_GALAXYCLASS:
+                     pSprite = new TFederation_Ship();
+
+				break;
+
+				case ID_KLINGONBC:
+					{
+						pSprite = new TKlingonBC();
+
+
+
+					}
+				break;
+
+				case ID_KLINGONBOP:
+				     {
+				         pSprite = new TKlingonBOP();
+				     }
+
+				break;
+
+				case ID_ROMULANBOP:
+					{
+						pSprite = new TRomulanBop();
+
+
+
+					}
+				break;
+
+				case ID_FEDERATIONBASE:
+				{
+					    pSprite = new TStarbase(ID_FEDERATIONBASE);
+
+    			}
+				break;
+
+				case ID_ROMULAN_BASE:
+				{
+					    pSprite = new TStarbase(ID_ROMULAN_BASE);
+
+				}
+				break;
+
+				case ID_KLINGON_BASE:
+				{
+					    pSprite = new TStarbase(ID_KLINGON_BASE);
+
+				}
+				break;
+
+
+				default:
+				    throw A5Exception("Unknown shiptype");
+				break;
+
+
+			}
+
+			if (pSprite !=NULL)
+            {
+                // save TShip specific
+                ((TShip *)pSprite)->m_AI                  = (AI)object.m_AI;
+                ((TShip *)pSprite)->m_dSpeed              = object.m_dSpeed;
+                ((TShip *)pSprite)->m_dAngle              = object.m_dAngle;
+                ((TShip *)pSprite)->m_nCrew               = object.m_nCrew;
+				((TShip *)pSprite)->m_nRepairItem         = object.m_nRepairItem;
+				((TShip *)pSprite)->m_nTorpedoes          = object.m_nTorpedoes;
+				((TShip *)pSprite)->m_nShieldEnergy       = object.m_nShieldEnergy;
+				((TShip *)pSprite)->m_nPhaserEnergy       = object.m_nPhaserEnergy;
+
+				((TShip *)pSprite)->m_nPreferedTarget     = object.m_nPreferedTarget;
+				((TShip *)pSprite)->m_nPhaserPower        = object.m_nPhaserPower;
+				((TShip *)pSprite)->m_dWaypointX          = object.m_dWaypointX;
+    	        ((TShip *)pSprite)->m_dWaypointX          = object.m_dWaypointY;
+				((TShip *)pSprite)->m_blDocked            = object.m_blDocked;
+
+				((TShip *)pSprite)->m_blDocking           = object.m_blDocking;
+				((TShip *)pSprite)->m_blReleasing         = object.m_blReleasing;
+				((TShip *)pSprite)->m_blMustBeDestroyed   = object.m_blMustBeDestroyed;
+				((TShip *)pSprite)->m_blMustSurvive       = object.m_blMustSurvive;
+				((TShip *)pSprite)->m_blMustReachPosition = object.m_blMustReachPosition;
+
+				((TShip *)pSprite)->m_blNoRelease         = object.m_blNoRelease;
+				((TShip *)pSprite)->m_blCanFind           = object.m_blCanFind;
+				((TShip *)pSprite)->m_blCanCloak          = object.m_blCanCloak;
+                ((TShip *)pSprite)->m_blCanFind           = object.m_blCanFind;
+                ((TShip *)pSprite)->m_blPhaserOn          = object.m_blPhaserOn;
+
+                ((TShip *)pSprite)->m_nCloakCharge        = object.m_nCloakCharge;
+                ((TShip *)pSprite)->m_nCloakCounter       = object.m_nCloakCounter;
+                ((TShip *)pSprite)->m_nPhotonTimer        = object.m_nPhotonTimer;
+                ((TShip *)pSprite)->m_nTranslucency       = object.m_nTranslucency;
+                ((TShip *)pSprite)->m_nTask               = object.m_nTask;
+
+                ((TShip *)pSprite)->m_CloakState         = (CLOAK_STATE) object.m_CloakState;
+
+				for (size_t i=0;i<((TShip *)pSprite)->m_lstHealth.size();i++)
+				{
+						((TShip *)pSprite)->m_lstHealth[i]=object.m_nHealth[i];
+				}
+            }
+	      }
+
+	      if (pSprite !=NULL)
+            {
+                // save TSprite specific
+                pSprite->m_dX              = object.m_dX;
+		        pSprite->m_dY              = object.m_dY;
+		        pSprite->m_nZ              = object.m_nZ;
+				pSprite->m_dSpeed          = object.m_dSpeed;
+				pSprite->m_dAngle          = object.m_dAngle;
+                pSprite->m_Member         = object.m_Member;
+                pSprite->m_ID             = object.m_ID;
+                Add(pSprite);
+            }
+
+	   }
+
+std::list<TSprite *>::const_iterator p=m_lstItems.begin();
+while (p!=m_lstItems.end())
+{
+	if (((*p)->m_ID>ID_SHIP_BOTTOM)&&(((TShip *)(*p))->m_blDocked))
+	{
+		((TShip *)(*p))->m_blCanFind = false;
+		((TShip *)(*p))->m_blDocking = false;
+		((TShip *)(*p))->m_blReleasing = false;
+		((TShip *)(*p))->m_dSpeed      = 0;
+		((TShip *)(*p))->m_pBaseTarget=(TShip *) Seekstarbase(((TShip *)(*p))->m_Member,false,100000,((TShip *)(*p))->m_dX,((TShip *)(*p))->m_dY);
+		((TShip *)(*p))->m_pTarget = ((TShip *)(*p))->m_pBaseTarget;
+		((TShip *)(*p))->m_dAngleSeek = ((TShip *)(*p))->m_dAngle;
+
+	}
+	else if (((*p)->m_ID>ID_SHIP_BOTTOM)&&(((TShip *)(*p))->m_blDocking))
+	{
+		((TShip *)(*p))->m_blDocking=true;
+		((TShip *)(*p))->m_blReleasing = false;
+		((TShip *)(*p))->m_pBaseTarget=(TShip *) Seekstarbase(((TShip *)(*p))->m_Member,false,100000,((TShip *)(*p))->m_dX,((TShip *)(*p))->m_dY);
+		((TShip *)(*p))->m_pTarget = ((TShip *)(*p))->m_pBaseTarget;
+	}
+
+	++p;
+}
+
+
+return true;
+
+}
+
+bool Comp(const TSprite *v1, const TSprite *v2)
+{
+	return (v1->m_nZ < v2->m_nZ);
+}
+
+
+
+
+
+

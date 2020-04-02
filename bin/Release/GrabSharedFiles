@@ -1,0 +1,5 @@
+#!/bin/bash
+
+Echo Grabbing shared objects for Star Trek...
+
+ldd StarTrekV3 | grep "=> /" | awk '{print $3}' | xargs -I '{}' cp -v '{}' shared

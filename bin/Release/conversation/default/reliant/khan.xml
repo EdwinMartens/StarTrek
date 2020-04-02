@@ -1,0 +1,19 @@
+<DIALOG>
+	<STATEMENT id = "0" img = "khan.png">
+	    You still remember, Admiral. 
+	    I, of cannot help but be touched. 
+	    Of course, I remember you.
+		<ANSWER next = "1" value = "0" >
+		What is the meaning of this attack? Where is the crew of the Reliant?
+		</ANSWER>
+	</STATEMENT>
+	<STATEMENT id = "1" img = "khan.png">
+	    Surely I have made my meaning plain. 
+	    I mean to avenge myself upon you, Admiral. 
+	    I've deprived your ship of power and when I swing
+	    round I mean to deprive you of your life.
+	    <ANSWER next = "-1" value = "5" >
+         KHAAAAAANNNNN !         		
+		</ANSWER>
+		</STATEMENT>
+</DIALOG>

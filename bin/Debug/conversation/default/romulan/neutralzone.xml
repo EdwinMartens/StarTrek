@@ -1,0 +1,36 @@
+<DIALOG>
+	<STATEMENT id = "0" ing = "romulan1.png">
+	    Welcome Captain,
+		How can we be of assistance
+		<ANSWER next = "1" value = "5" >
+		we are in need of repairs
+		</ANSWER>
+		<ANSWER next = "2" value = "5" >
+		We need to resupply
+		</ANSWER>
+		<ANSWER next = "-1" value = "5" >
+		Goodbye !
+		</ANSWER>
+	</STATEMENT>
+	<STATEMENT id = "1" ing = "romulan1.png">
+	    Repairs starting now
+		<ANSWER next = "-1" value = "5" >
+		Goodbye
+		</ANSWER>
+		<ANSWER next = "0" value = "0" >
+		One more thing...
+		</ANSWER>
+	</STATEMENT>
+	<STATEMENT id = "2" ing = "romulan1.png">
+	    What do you want to repair
+		<ANSWER next = "-1" value = "5" >
+		Everything
+		</ANSWER>
+		<ANSWER next = "-1" value = "5" >
+		Just what is needed
+		</ANSWER>
+		<ANSWER next = "-1" value = "0" >
+		Goodbye
+		</ANSWER>
+	</STATEMENT>
+</DIALOG>
