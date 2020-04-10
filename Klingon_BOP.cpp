@@ -179,7 +179,7 @@ switch(m_AI)
                 m_dWaypointX=rand()% (SECTORSIZE * 80 / 100 );
                 m_dWaypointY=rand()% (SECTORSIZE * 80  / 100 );
            }
-		   if ((m_nCloakCharge>=CLOAK_DELAY)&&((m_lstHealth[HLT_CLOAK]>60)||(m_nEnergy>500))&&((m_CloakState == CS_UNCLOAKED)||(m_CloakState == CS_DECLOAKING)))
+		   if ((m_nCloakCharge>=CLOAK_DELAY)&&((m_lstHealth[HLT_CLOAK]>60)||(m_nEnergy>500))&&(m_CloakState == CS_UNCLOAKED))
 			  {
 					double V = CalcVolume();
                     SoundManager::PlaySound(SOUND::CLOACK,V);
@@ -191,7 +191,7 @@ switch(m_AI)
       case AI_CHASE:
         if (m_pTarget!=NULL)
            {
-              if (((m_CloakState == CS_CLOAKED)||(m_CloakState == CS_CLOAKING))&&(m_dTargetDistance<1000))
+              if ((m_CloakState == CS_CLOAKED)&&(m_dTargetDistance<1000))
 			  {
 					double V = CalcVolume();
                     SoundManager::PlaySound(SOUND::DECLOACK,V);
