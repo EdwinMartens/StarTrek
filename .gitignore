@@ -2,4 +2,7 @@ obj/
 *.save
 *.UNI
 *.bak
+*.log
+*.LOG
+*.layout
 
