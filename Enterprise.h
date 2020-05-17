@@ -11,7 +11,7 @@
       Credits go to Paramount pictures for the star - trek concept and universe.
 
 
-      Copyright (C) 2015 - 2016   E.J.M. Martens
+      Copyright (C) 2015 - 2020  E.J.M. Martens
 
       This program is free software; you can redistribute it and/or
       modify it under the terms of the GNU General Public License
@@ -45,7 +45,7 @@ class Universe;
 class TEnterprise:public TShip
 {
 private:
-    Universe * m_pUniverse;
+//    Universe * m_pUniverse;
     CTransporter * m_pTransporter;
     CDialog * m_pDialog;
 
@@ -59,8 +59,8 @@ private:
     bool m_blEnergyWarning;
     bool m_blPhaserKeyDown;
 
-	int m_nEngineeringStartX;
-	int m_nEngineeringStartY;
+//	int m_nEngineeringStartX;
+//  int m_nEngineeringStartY;
 
 	int m_nNavigationXOffset;
     int m_nNavigationYOffset;

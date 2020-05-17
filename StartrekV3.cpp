@@ -406,7 +406,7 @@ void LoadGame(string a_strLoadName)
 	delete g_pSlotManager;
     a_strLoadName+=".UNI";
     al_set_path_filename(g_pSavePath, a_strLoadName.c_str());
-    ifstream LoadFile( al_path_cstr(g_pSavePath,ALLEGRO_NATIVE_PATH_SEP),
+    std::ifstream LoadFile( al_path_cstr(g_pSavePath,ALLEGRO_NATIVE_PATH_SEP),
                        ios::in | ios::binary);
 
     if (LoadFile)
@@ -468,10 +468,10 @@ void SaveGame(string a_strSaveName)
         g_pCommunication->Clear();
     }
     al_stop_timer(g_pTimer);
-	string strFileName = a_strSaveName;
+    string strFileName = a_strSaveName;
     strFileName+=".UNI";
     al_set_path_filename(g_pSavePath, strFileName.c_str());
-    ofstream SaveFile(al_path_cstr(g_pSavePath,ALLEGRO_NATIVE_PATH_SEP),
+    std::ofstream SaveFile(al_path_cstr(g_pSavePath,ALLEGRO_NATIVE_PATH_SEP),
                       ios::out | ios::binary);
     if (SaveFile)
     {
@@ -493,9 +493,7 @@ void SaveGame(string a_strSaveName)
     al_destroy_path(g_pSavePath);
     g_pSavePath = al_get_standard_path(ALLEGRO_RESOURCES_PATH);
     al_append_path_component(g_pSavePath, "Save");
-	g_vGameState.pop_back();
-	al_start_timer(g_pTimer);
-    ReturnToGame();
+	ReturnToGame();
 }
 
 
@@ -522,10 +520,12 @@ void Quit()
 
 void ReturnToGame()
 {
+     g_vGameState.pop_back();
      g_vGameState.push_back(GS_GAME);
      Log("GAME STATE TO GAME");
      al_hide_mouse_cursor(g_pDisplay);
      g_dLastTime = al_get_time();
+     al_start_timer(g_pTimer);
 }
 
 

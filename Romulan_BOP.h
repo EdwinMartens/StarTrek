@@ -22,7 +22,7 @@
       Credits go to Paramount pictures for the star - trek concept and universe.
 
 
-      Copyright (C) 2015 - 2016   E.J.M. Martens
+      Copyright (C) 2015 - 2020  E.J.M. Martens
 
       This program is free software; you can redistribute it and/or
       modify it under the terms of the GNU General Public License
@@ -57,7 +57,7 @@
 class TRomulanBop:public TShip
 {
 private:
-ALLEGRO_SAMPLE_ID  m_beam_id;
+//ALLEGRO_SAMPLE_ID  m_beam_id;
 bool m_blBeamSound;
 int m_nDisposition;
 

@@ -4,13 +4,13 @@
 	<Project>
 		<Option title="StarTrekV3" />
 		<Option pch_mode="2" />
-		<Option compiler="gcc" />
+		<Option compiler="clang" />
 		<Build>
 			<Target title="Debug">
 				<Option output="bin/Debug/StarTrekV3" prefix_auto="1" extension_auto="1" />
 				<Option object_output="obj/Debug/" />
 				<Option type="1" />
-				<Option compiler="gcc" />
+				<Option compiler="clang" />
 				<Compiler>
 					<Add option="-g" />
 					<Add directory="/usr/include/allegro5" />
@@ -23,10 +23,11 @@
 				<Option output="bin/Release/StarTrekV3" prefix_auto="1" extension_auto="1" />
 				<Option object_output="obj/Release/" />
 				<Option type="1" />
-				<Option compiler="gcc" />
+				<Option compiler="clang" />
 				<Option use_console_runner="0" />
 				<Compiler>
 					<Add option="-O2" />
+					<Add directory="/usr/include/allegro5" />
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
@@ -112,10 +113,7 @@
 		<Unit filename="utils.h" />
 		<Unit filename="version.h" />
 		<Extensions>
-			<code_completion />
-			<envvars />
 			<lib_finder disable_auto="1" />
-			<debugger />
 		</Extensions>
 	</Project>
 </CodeBlocks_project_file>

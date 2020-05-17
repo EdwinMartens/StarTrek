@@ -12,7 +12,7 @@
       Credits go to Paramount pictures for the star - trek concept and universe.
 
 
-      Copyright (C) 2015 - 2016   E.J.M. Martens
+      Copyright (C) 2015 - 2020  E.J.M. Martens
 
       This program is free software; you can redistribute it and/or
       modify it under the terms of the GNU General Public License
@@ -55,7 +55,7 @@ string m_strCaption;
 bool   m_blActive;
 bool   m_blNewSave;
 bool   m_blHighLight;
-int    m_nIndex;
+//int    m_nIndex;
 int    m_nX;
 int    m_nY;
 int    m_nWidth;
