@@ -212,19 +212,22 @@ void TStarbase::Do_ai()
 			tsx=m_pTarget->GetX()+cos(m_pTarget->GetAngle())*shotlead;
             tsy=m_pTarget->GetY()+sin(m_pTarget->GetAngle())*shotlead;
 			m_dAngleSeek=WayPoint(tsx,tsy);
-			if ((m_dTargetDistance<=600)&&(m_dTargetDistance>150))
-			{
-				fire_photon(m_dAngleSeek);
-			}
 
-			if ((m_nPhaserEnergy>=100)&&(m_dTargetDistance<200))
-			{
-				StopPhaser();
-			}
 
 		}
 
 		DoEngineering();
+		if (m_nEnergy>0)
+        {
+            if ((m_dTargetDistance <= 600)&&(m_dTargetDistance>150))
+			{
+				fire_photon(m_dAngleSeek);
+			}
+        }
+        else if (m_lstHealth[HLT_WARPCORE]<20)
+        {
+            m_lstHealth[HLT_HULL]=0;
+        }
 	}
 }
 

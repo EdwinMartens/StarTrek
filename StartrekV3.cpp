@@ -791,7 +791,7 @@ bool Setup()
             Log("Game engine created");
 
 			// create Paralax system
-			g_pParalax = new Paralax(g_nScreenWidth,g_nScreenHeight,300,5);
+			g_pParalax = new Paralax(g_nScreenWidth,g_nScreenHeight,200,5);
 			Log("Paralax created");
 
 

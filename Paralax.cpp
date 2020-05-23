@@ -28,7 +28,7 @@ Paralax::Paralax(int a_nWidth, int a_nHeight,int a_nNumberOfStars,int a_nLayers)
     // initialize colors
     for (int i=0; i< m_nLayers;i++)
     {
-        ALLEGRO_COLOR col = al_map_rgb(((200/(i+1))+55),((200/(i+1))+55),((200/(i+1))+55));
+        ALLEGRO_COLOR col = al_map_rgb(((200/(i*2+1))+55),((200/(i*2+1))+55),((200/(i*2+1))+55));
         m_vStarColor.push_back(col);
     }
 
@@ -117,12 +117,13 @@ void Paralax::Draw(ALLEGRO_DISPLAY * a_pDisplay, int a_nWarp, double a_dAngle)
     }
     else
     {
-       pLockedRegion = al_lock_bitmap(al_get_backbuffer(a_pDisplay), ALLEGRO_PIXEL_FORMAT_ANY, 0);
        for (size_t i=0;i< m_vStar.size();i++)
        {
-            al_put_pixel(m_vStar[i].m_dX, m_vStar[i].m_dY, m_vStarColor[m_vStar[i].m_nZ]);
+            int nRadius = 4/(m_vStar[i].m_nZ+1) > 0 ? 4/(m_vStar[i].m_nZ+1):1;
+            nRadius = nRadius > 2 ? 2 : nRadius;
+            al_draw_filled_circle(m_vStar[i].m_dX, m_vStar[i].m_dY,nRadius, m_vStarColor[m_vStar[i].m_nZ]);
+            //al_put_pixel(m_vStar[i].m_dX, m_vStar[i].m_dY, m_vStarColor[m_vStar[i].m_nZ]);
        }
-       al_unlock_bitmap(al_get_backbuffer(a_pDisplay));
     }
 
 }

@@ -499,7 +499,7 @@ if (g_blGodMode)
 			m_lstHealth[i] = m_nMaxHealth;
     	}
 	}
-	m_nEnergy	   	   = 10000;
+	m_nEnergy  = 10000;
 }
 
 
@@ -795,8 +795,6 @@ if (g_blGodMode)
 			m_blDocking=false;
 		}
 
-
-
 		DoEngineering();
 
 		if ((m_pTarget!=NULL)&&(!m_pTarget->m_blDestroyed))
@@ -1010,11 +1008,27 @@ void TEnterprise::DrawTargetInfo(int a_nSelection,int a_nXLocation, int a_nYLoca
 				break;
 
 			case HLT_IMPULSE:
-				 strcpy(szShipPart,"IMPLS");
+				 if ( (m_pTarget->m_ID > ID_BASE_BOTTOM)&& (m_pTarget->m_ID < ID_BASE_TOP))
+				 {
+				    strcpy(szShipPart,"DOCK");
+				 }
+				 else
+				 {
+                    strcpy(szShipPart,"IMPLS");
+				 }
+
 				break;
 
 			case HLT_THRUSTER:
-				 strcpy(szShipPart,"THRST");
+				 if ( (m_pTarget->m_ID > ID_BASE_BOTTOM)&& (m_pTarget->m_ID < ID_BASE_TOP))
+				 {
+				    strcpy(szShipPart,"FACIL");
+				 }
+				 else
+				 {
+                    strcpy(szShipPart,"THRST");
+				 }
+
 				break;
 
 			case HLT_COMPUTER:
