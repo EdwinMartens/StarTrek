@@ -37,6 +37,7 @@ TStarbase::TStarbase(ID a_nStarbaseType)
 	m_nPhaserPower	=    1000;
 	m_dViewDistance	=    2000;
 	m_nPhaserPower	=	 2000;
+	 m_nPhotonTimer =      40;
 
 	m_nTask         =  TSK_STANDARD;
 	m_PreferedBase	=  ID_NONE;
@@ -147,9 +148,6 @@ TStarbase::TStarbase(ifstream & a_LoadStream,ID a_id)
 void TStarbase::Save(ofstream & a_SaveStream)
 {
     TShip::Save(a_SaveStream);
-
-
-
 }
 
 
@@ -158,7 +156,7 @@ void TStarbase::Save(ofstream & a_SaveStream)
 void TStarbase::fire_photon(double a_dFireAngle)
 {
 
-if ((m_nPhotonTimer<=0)&&(m_nTorpedoes>0)&&(m_lstHealth[HLT_PHOTON]>50)&&(m_nEnergy>200)&&(m_CloakState == CS_UNCLOAKED))
+if ((m_nPhotonTimer<=0)&&(m_nTorpedoes>0)&&(m_lstHealth[HLT_PHOTON]>50)&&(m_nEnergy>200))
    {
 	 TBullet * b=NULL;
 	 if (m_Member == MEM_ROMULAN)
@@ -191,39 +189,30 @@ void TStarbase::Do_ai()
 	{
 		double tsx,tsy,shotlead;
 
-
 		if (m_lstHealth[HLT_SENSOR]<30) m_pTarget=NULL;
 		// ****************** AI routines ***********************************************
-		m_pTarget = (TShip *) m_pEngine->Seek(m_Member,true,m_dViewDistance,m_dX,m_dY);
-		if ((m_pTarget!=NULL)&&(m_pTarget->m_blDestroyed==true)) m_pTarget=NULL;
 
-		if (m_pTarget!=NULL)
-		{
-			m_dTargetDistance = Distance(m_dX,m_dY,m_pTarget->GetX(),m_pTarget->GetX());
-			// what would be good to destroy....
-			m_nPreferedTarget=HLT_HULL;
-
-			if (m_pTarget->m_lstHealth[HLT_COMPUTER]>40) m_nPreferedTarget=HLT_COMPUTER;
-			if (m_pTarget->m_lstHealth[HLT_PHOTON]>30) m_nPreferedTarget=HLT_PHOTON;
-			if (m_pTarget->m_lstHealth[HLT_PHASER]>20) m_nPreferedTarget=HLT_PHASER;
-			if (m_pTarget->m_lstHealth[HLT_SHIELD]>10) m_nPreferedTarget=HLT_SHIELD;
-
-			shotlead= 100;
-			tsx=m_pTarget->GetX()+cos(m_pTarget->GetAngle())*shotlead;
-            tsy=m_pTarget->GetY()+sin(m_pTarget->GetAngle())*shotlead;
-			m_dAngleSeek=WayPoint(tsx,tsy);
-
-
-		}
-
-		DoEngineering();
 		if (m_nEnergy>0)
         {
-            if ((m_dTargetDistance <= 600)&&(m_dTargetDistance>150))
-			{
-				fire_photon(m_dAngleSeek);
-			}
-        }
+            m_pTarget = (TShip *) m_pEngine->Seek(m_Member,true,m_dViewDistance,m_dX,m_dY);
+            if ((m_pTarget!=NULL)&&(m_pTarget->m_blDestroyed==true)) m_pTarget=NULL;
+
+            if (m_pTarget!=NULL)
+            {
+                m_dTargetDistance = Distance(m_dX,m_dY,m_pTarget->GetX(),m_pTarget->GetY());
+			    shotlead= 100;
+			    tsx=m_pTarget->GetX()+cos(m_pTarget->GetAngle())*shotlead;
+                tsy=m_pTarget->GetY()+sin(m_pTarget->GetAngle())*shotlead;
+			    m_dAngleSeek=WayPoint(tsx,tsy);
+
+			   if ((m_dTargetDistance < 600)&&(m_dTargetDistance > 150))
+			   {
+				   fire_photon(m_dAngleSeek);
+			   }
+		   }
+
+		   DoEngineering();
+		}
         else if (m_lstHealth[HLT_WARPCORE]<20)
         {
             m_lstHealth[HLT_HULL]=0;
