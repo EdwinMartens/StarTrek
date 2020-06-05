@@ -135,7 +135,7 @@ void TKlingonBOP::Do_ai()
             }
    }
 
-if ((m_lstHealth[HLT_PHOTON]<40)||(m_nTorpedoes==0))
+if (((m_lstHealth[HLT_PHOTON]<40)||(m_nTorpedoes==0))&&(m_pTarget!=NULL))
    {
 	  if (! TryEnterDocking())
       {
@@ -152,7 +152,7 @@ if ((m_lstHealth[HLT_PHOTON]<40)||(m_nTorpedoes==0))
        }
        if (blShouldDock)
        {
-           if(! TryEnterDocking())
+           if ( (! TryEnterDocking()) && (m_AI!=AI_WANDER))
            {
                 m_dWaypointX=rand()% (SECTORSIZE * 80 / 100 );
                 m_dWaypointY=rand()% (SECTORSIZE * 80  / 100 );

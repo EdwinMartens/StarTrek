@@ -906,6 +906,15 @@ if ((DrawX+m_nBitmapMidX>0)&&(DrawX-m_nBitmapMidX<m_pEngine->m_nScreenWidth)&&(D
         break;
 
    }
+
+   if (m_ID != ID_PLAYER)
+   {
+       int DrawWX = int(m_pEngine->m_nScreenMidX+(m_dWaypointX-a_dCamX));
+       int DrawWY = int(m_pEngine->m_nScreenMidY+(m_dWaypointY-a_dCamY));
+       al_draw_line(DrawX, DrawY,DrawWX,DrawWY,m_pEngine->m_clBLUE,2);
+   }
+
+
 #endif // _DEBUG
 
 

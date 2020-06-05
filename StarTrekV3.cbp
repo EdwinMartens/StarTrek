@@ -13,6 +13,7 @@
 				<Option compiler="clang" />
 				<Compiler>
 					<Add option="-g" />
+					<Add option="-D_DEBUG" />
 					<Add directory="/usr/include/allegro5" />
 				</Compiler>
 				<Linker>

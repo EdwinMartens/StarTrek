@@ -146,7 +146,7 @@ void TKlingonBC::Do_ai()
             }
    }
 
-if ((m_lstHealth[HLT_PHOTON]<40)||(m_nTorpedoes==0))
+if (((m_lstHealth[HLT_PHOTON]<40)||(m_nTorpedoes==0))&&(m_pTarget!=NULL))
    {
 	  if (! TryEnterDocking())
       {
@@ -161,9 +161,10 @@ if ((m_lstHealth[HLT_PHOTON]<40)||(m_nTorpedoes==0))
            if (m_lstHealth[i] < (m_nMaxHealth-50)) blShouldDock = true;
            if (m_nTorpedoes<50) blShouldDock = true;
        }
+
        if (blShouldDock)
        {
-           if(! TryEnterDocking())
+           if ( (! TryEnterDocking()) && (m_AI!=AI_WANDER))
            {
                  m_dWaypointX=rand()% (SECTORSIZE * 60 / 100 );
                  m_dWaypointY=rand()% (SECTORSIZE * 60  / 100 );
@@ -183,6 +184,7 @@ switch(m_AI)
            SetSpeed(100);
            m_dAngleSeek=WayPoint(m_dWaypointX,m_dWaypointY);
 		   double dDistance = Distance(m_dX,m_dY,m_dWaypointX,m_dWaypointY);
+
 		   if (dDistance<40)
            {
                m_dWaypointX=rand()% (SECTORSIZE * 60 / 100 );
