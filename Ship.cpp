@@ -91,6 +91,7 @@ TShip::TShip()
 	m_strName               =   "UNKNOWN";
 	m_blPhaserSoundPlaying  = false;
 	m_blEvading             = false;
+	m_blShieldOn          = true;
 }
 
 TShip::~TShip()
@@ -176,6 +177,7 @@ TShip::TShip(ifstream & a_LoadStream,ID a_id)
 	m_dPhaserAngle          =      0;
 	m_blPhaserSoundPlaying  = false;
 	m_blEvading = false;
+	m_blShieldOn          = true;
 
 }
 

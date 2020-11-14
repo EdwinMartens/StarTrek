@@ -177,20 +177,22 @@ if (m_pTarget != NULL)
 {
      m_nPhaserEndX = m_pTarget->GetX();
      m_nPhaserEndY = m_pTarget->GetY();
+
+    if ((((m_lstHealth[HLT_PHOTON] < 40) && (m_lstHealth[HLT_PHASER] < 50) &&(m_Member == MEM_ENEMY)))|| (m_nDisposition>=500))
+    {
+        if (m_dTargetDistance < 1000)
+        {
+            m_AI = AI_EVADE;
+        }
+        else
+        {
+            m_AI = AI_HIDE;
+        }
+    }
 }
 
 
-if ((((m_lstHealth[HLT_PHOTON] < 40) && (m_lstHealth[HLT_PHASER] < 50) &&(m_Member == MEM_ENEMY)))|| (m_nDisposition>=500))
-{
-     if (m_dTargetDistance < 1000)
-     {
-         m_AI = AI_EVADE;
-     }
-     else
-     {
-         m_AI = AI_HIDE;
-     }
-}
+
 
 
 if (m_nDisposition>=500)

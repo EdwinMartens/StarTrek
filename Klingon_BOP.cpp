@@ -52,7 +52,7 @@ TKlingonBOP::TKlingonBOP()
 	m_CloakState        = CS_UNCLOAKED;
 	m_ID                 =  ID_KLINGONBOP;
 	m_AI			     =  AI_WANDER;
-
+    m_blShieldOn          = true;
 	m_strName           = "BIRD OF PREY";
 	SetImage(g_pKlingonBOPBitmap);
 
@@ -76,6 +76,7 @@ TKlingonBOP::TKlingonBOP(ifstream & a_LoadStream, ID a_id)
 	m_PreferedBase		  = ID_KLINGON_BASE;
 	m_ID                  = ID_KLINGONBOP;
     m_strName             = "BIRD OF PREY";
+    m_blShieldOn          = true;
 	SetImage(g_pKlingonBOPBitmap);
 }
 
