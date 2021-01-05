@@ -59,6 +59,7 @@ TEnterprise::TEnterprise()
 
 	m_blTorploading    = false;
 	m_blProbeloading   = false;
+	m_blCrewLoading    = false;
 	m_blRepaired       = false;
 	m_blWasDocked      = false;
 	m_blShieldOn       = false;
@@ -139,6 +140,7 @@ TEnterprise::TEnterprise(ifstream & a_LoadStream, ID a_id )
 
    m_blTorploading    = false;
    m_blProbeloading   = false;
+   m_blCrewLoading    = false;
    m_blRepaired       = false;
    m_blWasDocked      = false;
    m_blWasHinted      = false;
@@ -282,11 +284,29 @@ void TEnterprise::DoEngineering()
                     else
                     {
                         m_blProbeloading = false;
+                        //ToDo: if in home sector and crew not max  add crew
+
+                        if ( (m_nSectorPositionX == g_pUniverse->GetHomeX()) &&
+                              (m_nSectorPositionY == g_pUniverse->GetHomeY()) &&
+                              (m_nCrew < MAX_CREW_FEDERATION))
+                              {
+                                if (! m_blCrewLoading )
+                                {
+                                    g_pCommunication->AddMessage(9,CREW_KIRK," Crew is boarding");
+                                    m_blCrewLoading = true;
+                                }
+                                m_nCrew += 5;
+                              }
+                              else if ( m_blCrewLoading )
+                              {
+                                 g_pCommunication->AddMessage(9,CREW_SPOCK," The crew is ready Jim !");
+                                 m_blCrewLoading = false;
+                              }
                     }
                 }
 
 
-                if ((! m_blProbeloading ) && (! m_blTorploading)&&(! m_blWasHinted))
+                if ((! m_blProbeloading ) && (! m_blTorploading)&&(! m_blWasHinted) && (! m_blCrewLoading))
                 {
                     g_pCommunication->AddMessage(8,CREW_SPOCK," I'ts about time to go jim.");
                     m_blWasHinted = true;
@@ -296,7 +316,7 @@ void TEnterprise::DoEngineering()
 		}
 	}
 
-	if (m_nRepairItem>-1)
+	if ((m_nRepairItem>-1) && (!m_blDocked))
 	{
 		// repair item
 		m_nRepairTimer--;
@@ -552,6 +572,7 @@ if (g_blGodMode)
             else
             {
                 g_pCommunication->AddMessage(13,CREW_SPOCK," We are docked jim !");
+
             }
 
         }
@@ -842,6 +863,7 @@ if (g_blGodMode)
         g_pCommunication->AddMessage(3,CREW_CHECOV," Enterprise is docked captain !");
         m_blWasDocked = true;
         m_blWasHinted = false;
+        m_nRepairTimer=60;
     }
 
 }

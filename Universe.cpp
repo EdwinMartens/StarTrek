@@ -603,6 +603,7 @@ void Universe::StoreSector(int a_nX, int a_nY,TEngine * a_pEngine)
 Universe::Universe()
 {
 	m_nSectorCenter= SECTORSIZE / 2;
+	m_nHomeY = m_nHomeX = UNIVERSE_SIZE/2;
 	m_blWarWithRomulan = false;
     m_blWarWithKlingon = false;
 }

@@ -52,6 +52,7 @@ private:
     /// true if loading Photon torpedoes
     bool m_blTorploading;
     bool m_blProbeloading;
+    bool m_blCrewLoading;
     bool m_blRepaired;
     bool m_blWasDocked;
     bool m_blWasHinted;

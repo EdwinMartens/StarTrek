@@ -520,7 +520,7 @@ void Quit()
 
 void ReturnToGame()
 {
-     g_vGameState.pop_back();
+     //g_vGameState.pop_back();
      g_vGameState.push_back(GS_GAME);
      Log("GAME STATE TO GAME");
      al_hide_mouse_cursor(g_pDisplay);
