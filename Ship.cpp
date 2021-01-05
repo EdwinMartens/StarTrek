@@ -17,6 +17,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 */
 
 #include <cmath>
+#include <algorithm>
 #include "Ship.h"
 #include "Animation.h"
 //#include "Explosion.h"
@@ -135,9 +136,10 @@ TShip::TShip(ifstream & a_LoadStream,ID a_id)
     m_lstHealth.clear();
     size_t nSystems;
     a_LoadStream.read((char*)& nSystems, sizeof (nSystems));
+
     for (size_t i =0; i< nSystems; i++)
     {
-        HEALTH health;
+        int health;
         a_LoadStream.read((char*)& health, sizeof (health));
         m_lstHealth.push_back(health);
     }
@@ -547,7 +549,7 @@ void TShip::DoEngineering()
 	}
 	if (m_nPhaserTimer>0) m_nPhaserTimer--;
 
-	if ((m_blShieldOn)&&(m_nEnergy>0)&&(m_nShieldTimer<=0)&&(m_nShieldEnergy<(m_nMaxShieldEnergy*(m_lstHealth[HLT_SHIELD])/100)))
+	if ((m_blShieldOn)&&(m_nEnergy>0)&&(m_nShieldTimer<=0)&&(m_nShieldEnergy<(m_nMaxShieldEnergy*(m_lstHealth[HLT_SHIELD])/m_nMaxHealth)))
 	{
 		m_nShieldEnergy+=1;
 		m_nEnergy-=6;

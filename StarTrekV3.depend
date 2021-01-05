@@ -394,8 +394,9 @@
 	<iostream>
 	<sstream>
 
-1609860610 source:/media/edwin/Media/Development/StarTrekV3/Ship.cpp
+1609862422 source:/media/edwin/Media/Development/StarTrekV3/Ship.cpp
 	<cmath>
+	<algorithm>
 	"Ship.h"
 	"Animation.h"
 	"Bullet.h"
@@ -409,7 +410,7 @@
 1509743394 source:/media/edwin/Media/Development/StarTrekV3/SpaceObject.cpp
 	"SpaceObject.h"
 
-1590270735 source:/media/edwin/Media/Development/StarTrekV3/Starbase.cpp
+1609862422 source:/media/edwin/Media/Development/StarTrekV3/Starbase.cpp
 	"Starbase.h"
 	"Bullet.h"
 	"SoundManager.h"

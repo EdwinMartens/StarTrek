@@ -37,7 +37,7 @@ TStarbase::TStarbase(ID a_nStarbaseType)
 	m_nPhaserPower	=    1000;
 	m_dViewDistance	=    2000;
 	m_nPhaserPower	=	 2000;
-	 m_nPhotonTimer =      40;
+	m_nPhotonTimer =      40;
 
 	m_nTask         =  TSK_STANDARD;
 	m_PreferedBase	=  ID_NONE;
@@ -143,6 +143,13 @@ TStarbase::TStarbase(ifstream & a_LoadStream,ID a_id)
         break;
 
 	}
+
+	m_nShieldEnergy = std::min(m_nShieldEnergy, m_nMaxShieldEnergy);
+
+	for (int i=0;i<9;i++)
+    {
+		m_lstHealth[i] = std::min(m_lstHealth[i], m_nMaxHealth);
+    }
 }
 
 void TStarbase::Save(ofstream & a_SaveStream)
