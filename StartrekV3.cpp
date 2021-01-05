@@ -463,6 +463,7 @@ void LoadGame(string a_strLoadName)
 
 void SaveGame(string a_strSaveName)
 {
+    delete g_pSlotManager;
     if (g_pCommunication!=NULL)
     {
         g_pCommunication->Clear();
@@ -493,6 +494,7 @@ void SaveGame(string a_strSaveName)
     al_destroy_path(g_pSavePath);
     g_pSavePath = al_get_standard_path(ALLEGRO_RESOURCES_PATH);
     al_append_path_component(g_pSavePath, "Save");
+	g_vGameState.pop_back();
 	ReturnToGame();
 }
 
@@ -520,7 +522,6 @@ void Quit()
 
 void ReturnToGame()
 {
-     //g_vGameState.pop_back();
      g_vGameState.push_back(GS_GAME);
      Log("GAME STATE TO GAME");
      al_hide_mouse_cursor(g_pDisplay);
@@ -957,6 +958,60 @@ void Render()
 #ifdef _DEBUG
         //sprintf(g_szStates,"States: %d",g_vGameState.size());
         //al_draw_text(FontManager::GetFont(FONT::DBG),al_map_rgb(255,255,255), 10, 30, 0,g_szStates);
+
+        char szGameState[20];
+        for (size_t i=0; i < g_vGameState.size(); i++)
+        {
+            switch(g_vGameState[i])
+            {
+                case GS_EXIT:
+                    sprintf(szGameState,"GS_EXIT");
+                break;
+
+                case GS_MENU:
+                    sprintf(szGameState,"GS_MENU");
+                break;
+
+                case GS_LOAD:
+                     sprintf(szGameState,"GS_LOAD");
+                break;
+
+                case GS_SAVE:
+                    sprintf(szGameState,"GS_SAVE");
+                break;
+
+                case GS_GAME:
+                    sprintf(szGameState,"GS_GAME");
+                break;
+
+                case GS_GAMEOVER:
+                    sprintf(szGameState,"GS_GAME_OVER");
+                break;
+
+                case GS_TITLE:
+                    sprintf(szGameState,"GS_TITLE");
+                break;
+
+                case GS_CREDITS:
+                    sprintf(szGameState,"GS_CREDITS");
+                break;
+
+                case GS_INTRO:
+                sprintf(szGameState,"GS_INTRO");
+                break;
+
+                case GS_KEYMAP:
+                    sprintf(szGameState,"GS_KEYMAP");
+                break;
+
+                case GS_END:
+                    sprintf(szGameState,"GS_END");
+                break;
+
+            }
+            al_draw_text(FontManager::GetFont(FONT::DBG),al_map_rgb(255,255,255), 10, 30 + 15 * i, 0, szGameState);
+        }
+
 #endif
 
 

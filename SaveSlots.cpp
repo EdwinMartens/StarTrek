@@ -206,6 +206,7 @@ SlotManager::~SlotManager()
      {
         m_vSlots.clear();;
      }
+     delete m_pWindowDialog;
 }
 
 
