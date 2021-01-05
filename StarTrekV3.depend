@@ -176,7 +176,7 @@
 	<string>
 	<exception>
 
-1609799386 source:/media/edwin/Media/Development/StarTrekV3/Enterprise.cpp
+1609856371 source:/media/edwin/Media/Development/StarTrekV3/Enterprise.cpp
 	"Enterprise.h"
 	"Bullet.h"
 	"Probe.h"
@@ -394,8 +394,8 @@
 	<iostream>
 	<sstream>
 
-1605284855 source:/media/edwin/Media/Development/StarTrekV3/Ship.cpp
-	<math.h>
+1609860610 source:/media/edwin/Media/Development/StarTrekV3/Ship.cpp
+	<cmath>
 	"Ship.h"
 	"Animation.h"
 	"Bullet.h"

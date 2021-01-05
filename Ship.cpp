@@ -16,7 +16,7 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 */
 
-#include <math.h>
+#include <cmath>
 #include "Ship.h"
 #include "Animation.h"
 //#include "Explosion.h"
@@ -721,12 +721,17 @@ bool TShip::Dock(TShip * a_pBaseTarget)
 {
 	if ((a_pBaseTarget!=NULL)&&(a_pBaseTarget->m_ID>ID_BASE_BOTTOM)&&(a_pBaseTarget->m_ID<ID_BASE_TOP)&&(a_pBaseTarget->m_Member==m_Member))
 	{
-		SetSpeed(m_dMaxSpeed*80/100);
 		m_dTargetDistance = Distance(m_dX,m_dY,a_pBaseTarget->m_dX,a_pBaseTarget->m_dY);
-		if (m_dTargetDistance<250)
+
+		if ( (m_dTargetDistance < 250) || (m_blDocking))
 		{
-			SetSpeed(20);
 			m_dAngleSeek=WayPoint(a_pBaseTarget->m_dX,a_pBaseTarget->m_dY);
+
+			if (abs(m_dAngleSeek-m_dAngle) < 1.0)
+			{
+				SetSpeed(std::fmin( (m_dMaxSpeed * (m_dTargetDistance/500)), m_dMaxSpeed));
+            }
+
 			if ((m_dTargetDistance<150)&&(m_nZ>DOCK_HEIGHT))
 			{
 				m_dAngleSeek+=PI;
@@ -734,9 +739,24 @@ bool TShip::Dock(TShip * a_pBaseTarget)
 			else
 			{
 				m_nZ=DOCK_HEIGHT;
-				m_dAngleSeek=WayPoint(a_pBaseTarget->m_dX,a_pBaseTarget->m_dY);
 				m_pEngine->Sort();
 			}
+
+			Control();
+
+
+			if (m_dTargetDistance > 300)
+			{
+                m_blDocked=false;
+                m_blCanFind = true;
+                m_blDocking=false;
+                m_blReleasing=false;
+                m_nZ=m_nFlyheight;
+                m_pEngine->Sort();
+                return false;
+			}
+
+
 			if ((m_dTargetDistance<40)&&(m_nZ==DOCK_HEIGHT))
 			{
 				m_blDocked=true;
@@ -751,9 +771,9 @@ bool TShip::Dock(TShip * a_pBaseTarget)
 			}
 			else
 			{
-				Control();
 				return true;
 			}
+
 		}
 		else
 		{
@@ -908,15 +928,6 @@ if ((DrawX+m_nBitmapMidX>0)&&(DrawX-m_nBitmapMidX<m_pEngine->m_nScreenWidth)&&(D
         break;
 
    }
-
-   if (m_ID != ID_PLAYER)
-   {
-       int DrawWX = int(m_pEngine->m_nScreenMidX+(m_dWaypointX-a_dCamX));
-       int DrawWY = int(m_pEngine->m_nScreenMidY+(m_dWaypointY-a_dCamY));
-       al_draw_line(DrawX, DrawY,DrawWX,DrawWY,m_pEngine->m_clBLUE,2);
-   }
-
-
 #endif // _DEBUG
 
 

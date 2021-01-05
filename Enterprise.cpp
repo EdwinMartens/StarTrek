@@ -713,7 +713,7 @@ if (g_blGodMode)
 				if ((m_pBaseTarget!=NULL)&&(!m_pBaseTarget->m_blDestroyed))
 				{
 					double b_distance = Distance(m_dX,m_dY,m_pBaseTarget->GetX(),m_pBaseTarget->GetY());
-					if (b_distance< 250)
+					if (b_distance < 250)
 					{
 						g_pCommunication->AddMessage(5,CREW_SULU,"Docking at starbase sir.");
 						m_pTarget=m_pBaseTarget;
