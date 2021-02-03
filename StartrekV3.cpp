@@ -404,6 +404,8 @@ void LoadGame(string a_strLoadName)
 {
     al_stop_timer(g_pTimer);
 	delete g_pSlotManager;
+	g_pSlotManager = NULL;
+
     a_strLoadName+=".UNI";
     al_set_path_filename(g_pSavePath, a_strLoadName.c_str());
     std::ifstream LoadFile( al_path_cstr(g_pSavePath,ALLEGRO_NATIVE_PATH_SEP),
@@ -464,6 +466,7 @@ void LoadGame(string a_strLoadName)
 void SaveGame(string a_strSaveName)
 {
     delete g_pSlotManager;
+    g_pSlotManager = NULL;
     if (g_pCommunication!=NULL)
     {
         g_pCommunication->Clear();
@@ -905,7 +908,9 @@ void NewSector(int a_nX, int a_nY)
 void ShutDown()
 {
     delete g_pEngine;
+    g_pEngine = NULL;
     delete g_pParalax;
+    g_pParalax = NULL;
 
     DeInitObjects();
     SoundManager::DeInit_SoundManager();
