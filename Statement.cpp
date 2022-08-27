@@ -106,29 +106,39 @@ void CStatement::Draw()
 
 void CStatement::OnMouseButtonDown(const ALLEGRO_MOUSE_EVENT & a_MouseEvent)
 {
-     bool blFound = false;
-     vector<CAnswer *>::const_iterator p = m_vAnswer.begin();
-     while ((p!= m_vAnswer.end()) && (!blFound))
+     if (m_blMouseWasUp)
      {
-        if ((*p)->MouseOver(m_nX, m_nY,a_MouseEvent.x,a_MouseEvent.y))
+        bool blFound = false;
+        vector<CAnswer *>::const_iterator p = m_vAnswer.begin();
+        while ((p!= m_vAnswer.end()) && (!blFound))
         {
-            if (m_pParent != NULL)
+            if ((*p)->MouseOver(m_nX, m_nY,a_MouseEvent.x,a_MouseEvent.y))
             {
-                if ((*p)->m_nTo >= 0)
+                if (m_pParent != NULL)
                 {
-                    size_t sTo = (size_t)(*p)->m_nTo;
-                    m_pParent->SelectStatement(sTo);
+                    m_blMouseWasUp = false;
+                    if ((*p)->m_nTo >= 0)
+                    {
+                        size_t sTo = (size_t)(*p)->m_nTo;
+                        m_pParent->SelectStatement(sTo);
+                    }
+                    else
+                    {
+                        m_pParent->SetResult((*p)->m_nValue);
+                        m_pParent->EndDialog();
+                    }
+                    blFound = true;
                 }
-                else
-                {
-                    m_pParent->SetResult((*p)->m_nValue);
-                    m_pParent->EndDialog();
-                }
-                blFound = true;
             }
+            p++;
         }
-        p++;
-    }
+     }
+}
+
+
+void CStatement::OnMouseButtonUp(const ALLEGRO_MOUSE_EVENT & a_MouseEvent)
+{
+    m_blMouseWasUp = true;
 }
 
 void CStatement::OnMouseMove(const ALLEGRO_MOUSE_EVENT & a_MouseEvent)

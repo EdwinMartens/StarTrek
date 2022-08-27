@@ -29,6 +29,7 @@ public:
     bool IsBusy();
     void SetBusy();
     void OnMouseButtonDown(const ALLEGRO_MOUSE_EVENT & a_MouseEvent);
+    void OnMouseButtonUp(const ALLEGRO_MOUSE_EVENT & a_MouseEvent);
     void OnMouseMove(const ALLEGRO_MOUSE_EVENT & a_MouseEvent);
     void SelectStatement(size_t a_sIndex);
 

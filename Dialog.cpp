@@ -37,8 +37,17 @@ void CDialog::OnMouseButtonDown(const ALLEGRO_MOUSE_EVENT & a_MouseEvent)
    {
        m_vStatement[m_sIndex]->OnMouseButtonDown(a_MouseEvent);
    }
-
 }
+
+
+void CDialog::OnMouseButtonUp(const ALLEGRO_MOUSE_EVENT & a_MouseEvent)
+{
+   if (m_sIndex < m_vStatement.size())
+   {
+       m_vStatement[m_sIndex]->OnMouseButtonUp(a_MouseEvent);
+   }
+}
+
 
 void CDialog::SelectStatement(size_t a_sIndex)
 {

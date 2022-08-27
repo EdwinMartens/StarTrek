@@ -1901,7 +1901,10 @@ void TEnterprise::MouseButtonUp(const ALLEGRO_MOUSE_EVENT & mouse_event)
     switch (g_nScreenMode)
     {
         case MODE_COMMUNICATION:
-
+            if (m_pDialog != NULL )
+             {
+                m_pDialog->OnMouseButtonUp(mouse_event);
+             }
         break;
 
         default:

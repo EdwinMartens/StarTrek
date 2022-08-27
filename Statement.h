@@ -36,6 +36,7 @@ friend class CDialog;
     void Draw();
 
     void OnMouseButtonDown(const ALLEGRO_MOUSE_EVENT & a_MouseEvent);
+    void OnMouseButtonUp(const ALLEGRO_MOUSE_EVENT & a_MouseEvent);
     void OnMouseMove(const ALLEGRO_MOUSE_EVENT & a_MouseEvent);
 
     protected:
@@ -58,6 +59,7 @@ static ALLEGRO_COLOR  clAnswer;
 static ALLEGRO_COLOR  clAnswerHighlight;
 static ALLEGRO_FONT * pTextFont;
 static int            nFontHeight;
+bool m_blMouseWasUp;
 
 CDialog * m_pParent;
 ALLEGRO_BITMAP * m_pImage;

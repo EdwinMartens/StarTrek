@@ -95,6 +95,8 @@
 		<Unit filename="StarTrekV3.h" />
 		<Unit filename="Starbase.cpp" />
 		<Unit filename="Starbase.h" />
+		<Unit filename="Starfleet.cpp" />
+		<Unit filename="Starfleet.h" />
 		<Unit filename="StartrekV3.cpp" />
 		<Unit filename="Statement.cpp" />
 		<Unit filename="Statement.h" />
