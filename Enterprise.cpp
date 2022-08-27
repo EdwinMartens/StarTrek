@@ -1806,7 +1806,7 @@ void TEnterprise::MouseButtonDown(const ALLEGRO_MOUSE_EVENT & mouse_event)
 
              if (m_pDialog != NULL )
              {
-                m_pDialog->OnMouseMove(mouse_event);
+                m_pDialog->OnMouseButtonDown(mouse_event);
              }
 
              if (m_pTransporter != NULL)

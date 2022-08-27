@@ -150,7 +150,7 @@ CAnswer::CAnswer(int a_nTo, int a_nValue)
     m_nX      = 0;
     m_nY      = 0;
     m_nHeight = 24;
-    m_nWidth  = 300;
+    m_nWidth  = 550;
     m_blHighLight = false;
 }
 

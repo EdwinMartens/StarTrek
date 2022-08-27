@@ -1018,15 +1018,12 @@ void Universe::BuildFederationSpace()
         }
     }
 
-    int nX,nY;
-    do
-    {
-       nX = (rand() % 1000) / 100;
-       nY = (rand() % 1000) / 100;
-    }
-    while ((nX == 5) && (nY == 5));
 
-    CreateKahnQuest(m_nSector[(m_nHomeX-5)+nX][(m_nHomeY-5)+nY]);
+
+
+    CreateKahnQuest(m_nSector[(m_nHomeX-2)][(m_nHomeY-2)]);
+
+
     GenerateHomeSector(m_nSector[m_nHomeX][m_nHomeY]);
 }
 
