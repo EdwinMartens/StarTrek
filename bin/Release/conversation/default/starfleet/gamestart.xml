@@ -1,8 +1,22 @@
 <DIALOG>
 	<STATEMENT id = "0" img = "starfleet.png">
-        This is a test for the start of the game	    
-        <ANSWER next = "1" value = "0" >
-		Thank you admiral, Kirk out.
+        You take the role of captain James T. Kirk.
+        Together with your crew you will embark on 
+        a five year mission to seek out new life
+        and new civilisations.
+       	<ANSWER next = "1" value = "0" >
+        What is my first assignment ?
+		</ANSWER>
+        <ANSWER next = "-1" value = "0" >
+		Kirk out
+		</ANSWER>
+	</STATEMENT>
+    <STATEMENT id = "1" img = "starfleet.png">
+        As a matter of fact, MrSpock is on Earth
+        You should beam him up to the Enterprise
+        before proceeding
+       	<ANSWER next = "-1" value = "100" >
+		I will do that, Kirk out.
 		</ANSWER>
 	</STATEMENT>
 </DIALOG>

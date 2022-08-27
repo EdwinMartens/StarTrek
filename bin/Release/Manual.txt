@@ -1,9 +1,3 @@
-
-Star - Trek V3
-
-Author
-    Edwin (E.J.M.) Martens 2015 - 2016 
-
 INTRODUCTION
 
 \++================================|                    _=_
@@ -72,5 +66,3 @@ The standard controls are:
   F7           --->  Navigation Political mode
 
   F12          --->  Take a screenshot saved in screenshot folder
-
-
