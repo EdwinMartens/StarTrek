@@ -1,0 +1,524 @@
+/*
+Copyright (C) 2005  E.J.M. Martens
+
+This program is free software; you can redistribute it and/or
+modify it under the terms of the GNU General Public License
+as published by the Free Software Foundation; either version 2
+of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software
+Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+*/
+
+#include <math.h>
+#include "Ship.h"
+#include "Explosion.h"
+#include "Smoke.h"
+#include "particle.h"
+
+
+extern ALLEGRO_SAMPLE * g_pSample[];
+
+TShip::TShip()
+{
+	m_dSteer				=	  0.02;
+	m_nPhotonTimer          =     0;
+	m_dSpeed				=     0;
+	m_dMaxSpeed             =     8;
+	m_nTranslucency			=	  0;
+	m_nCloakState           =     CS_UNCLOAKED;
+	m_nCloakCharge          =     0;
+	m_blCanCloak            =     false;
+    m_nRepairItem			=	 -1;
+    m_nCrew					=	100;
+	m_nID					=	ID_SHIP;
+	m_nShieldTimer			=	  0;
+	m_nPhaserTimer			=     0;
+	m_nPhaserWait			=     0;
+	m_dViewDistance			=   800;
+    m_nMaxHealth			=   100;
+    m_nRepairTimer			=   10000/m_nCrew;
+	m_nMember				=	MEM_UNDEFINED;
+    m_blDocked				=	false;
+    m_blDocking				=	false;
+	m_blReleasing           =   false;
+    m_nPreferedTarget		=	-1;
+	m_pTarget				=   NULL;
+	m_pBaseTarget			=	NULL;
+    m_blPhaserOn			=  false;
+	m_nPhaserFireTimer		=     0;
+	m_PhaserColor			=	al_map_rgb(255,0,0);
+	m_nPhaserPower			=	1000;
+	m_dPhaserX				=	   0;
+	m_dPhaserY				=      0;
+	m_nZ					=	  38;
+    m_nFlyheight			=	m_nZ;
+	m_blCanFind				=  true;
+
+	m_blMustBeDestroyed		=	false;
+	m_blMustSurvive			=	false;
+	m_blMustReachPosition	=	false;
+	m_blDock				=	false;
+	m_blNoRelease			=	false;
+	m_dSafePosX				=	   -1;
+	m_dSafePosY				=      -1;
+	m_nPreferedBase			=	FED_BASE;
+	m_strName               = "UNKNOWN";
+}
+
+TShip::~TShip()
+{
+	m_lstHealth.clear();
+}
+
+double TShip::GetX()
+{
+	return m_dX;
+}
+
+double TShip::GetY()
+{
+	return m_dY;
+}
+
+double TShip::GetAngle()
+{
+	return m_dAngle;
+}
+
+double TShip::GetSpeed()
+{
+	return m_dSpeed;
+}
+
+int TShip::GetCloackState()
+{
+	return m_nCloakState;
+}
+
+void TShip::LooseTarget()
+{
+    m_pTarget=NULL;
+}
+
+void TShip::Explode()
+{
+	if (! m_blDestroyed)
+	{
+		al_play_sample(g_pSample[SND_EXPLOSION_MED], 1.8, ALLEGRO_AUDIO_PAN_NONE, 1.0,ALLEGRO_PLAYMODE_ONCE, NULL);
+		m_blDestroyed  = true;
+		m_pTarget      = NULL;
+		m_blCanCollide = false;
+		TExplosion * e;
+		e=new(TExplosion);
+		e->SetHeight(m_nZ);
+		e->SetPosition(m_dX,m_dY,m_dAngle);
+		e->SetSpeed(m_dSpeed);
+		m_pEngine->Add(e);
+	}
+}
+
+
+void TShip::DoCloak()
+{
+	if ((m_nCloakState == CS_CLOAKING)&&(m_nTranslucency<30))
+	{
+		m_nShieldEnergy=0;
+		m_nTranslucency+=1;
+	}
+	else if ((m_nCloakState == CS_DECLOAKING)&&(m_nTranslucency>0))
+	{
+		m_nTranslucency-=1;
+	}
+
+	if (m_nTranslucency==0)
+	{
+		m_nCloakState= CS_UNCLOAKED;
+
+	}
+	else if (m_nTranslucency==30)
+	{
+		m_nShieldEnergy=0;
+		m_nCloakState= CS_CLOAKED;
+	}
+}
+
+
+void TShip::DoCollision(TSprite * sprite)
+{
+	if ((sprite!=NULL)&& (sprite->m_nID>=ID_BULLET_BOTTOM)&&(sprite->m_nID<=ID_BULLET_TOP)&&(sprite->m_nMember!=m_nMember))
+	{
+      	int shielddec=((TBullet *)sprite)->m_nDamage;
+		int nRemainingDamage = ((TBullet *)sprite)->m_nDamage - m_nShieldEnergy;
+		if (nRemainingDamage<0) nRemainingDamage=0;
+		m_nShieldEnergy-=shielddec;
+		if (m_nShieldEnergy<0) m_nShieldEnergy=0;
+
+		if (nRemainingDamage>0)
+        {
+            for (size_t i=0;i < m_lstHealth.size();i++)
+            {
+                m_lstHealth[i] -= rand()% nRemainingDamage;
+                if (m_lstHealth[i]<0) m_lstHealth[i]=0;
+            }
+
+            int crewloss=nRemainingDamage-m_lstHealth[HLT_HULL];
+            if (crewloss<0) crewloss=0;
+            m_nCrew-=crewloss;
+            if (m_nCrew<0) m_nCrew=0;
+            m_lstHealth[HLT_HULL]-= nRemainingDamage/10;
+        }
+
+		al_play_sample(g_pSample[SND_EXPLOSION_SMALL], 1.0, ALLEGRO_AUDIO_PAN_NONE, 1.0,ALLEGRO_PLAYMODE_ONCE, NULL);
+
+		TSmoke *s=new TSmoke;
+		s->SetPosition(sprite->GetX(),sprite->GetY());
+		s->SetHeight(m_nZ);
+		m_pEngine->Add(s);
+
+		sprite->m_blDestroyed=true;
+	}
+
+}
+
+
+
+void TShip::DoEngineering()
+{
+	if ((m_blDocked)&&(!m_blReleasing))
+	{
+		m_nRepairItem	 =	-1;
+		m_nRepairTimer	--;
+		bool hlt_ok      =true;
+		if (m_nRepairTimer<=0)
+		{
+			for (size_t i=0;i < m_lstHealth.size();i++)
+			{
+				if (m_lstHealth[i]<m_nMaxHealth)
+				{
+					m_lstHealth[i]++;
+					hlt_ok=false;
+				}
+				if (m_lstHealth[i]>m_nMaxHealth) m_lstHealth[i]=m_nMaxHealth;
+			}
+			if ((m_nTorpedoes < 50)&&(hlt_ok)) m_nTorpedoes++;
+			m_nRepairTimer=60;
+		}
+	}
+
+	if (m_nRepairItem==-1)
+	{
+		for (size_t i=0;i < m_lstHealth.size();i++)
+		{
+			if (m_lstHealth[i]<m_nMaxHealth) m_nRepairItem=i;
+		}
+
+		if (m_lstHealth[HLT_IMPULSE]<40) m_nRepairItem = HLT_IMPULSE;
+		if (m_lstHealth[HLT_THRUSTER]<40) m_nRepairItem = HLT_THRUSTER;
+		if (m_lstHealth[HLT_PHOTON]<40) m_nRepairItem = HLT_PHOTON;
+	}
+	else
+	{
+		// repair item
+		m_nRepairTimer--;
+		if (m_nRepairTimer<=0)
+		{
+			m_lstHealth[m_nRepairItem]++;
+			if (m_nCrew<1)
+			{
+              m_nRepairTimer=10000;
+			}
+			else if (m_nCrew<200) m_nRepairTimer=10000/m_nCrew;
+			else m_nRepairTimer=80;
+
+			if (m_lstHealth[m_nRepairItem]>=m_nMaxHealth)
+			{
+				m_lstHealth[m_nRepairItem]=m_nMaxHealth;
+				m_nRepairItem=-1;
+			}
+		}
+	}
+
+
+	if (m_nPhaserFireTimer>0) m_nPhaserFireTimer--;
+	if (m_nPhotonTimer>0) m_nPhotonTimer--;
+
+	double dFireAngle = m_dAngleSeek-m_dAngle;
+    if (dFireAngle<0) dFireAngle=-dFireAngle;
+    if(dFireAngle>)
+
+
+
+	if ((m_blPhaserOn)&&(m_nPhaserFireTimer<=0)&&(m_lstHealth[HLT_PHASER]>20))
+	{
+		m_nPhaserEnergy--;
+		m_nPhaserFireTimer=10;
+
+		//ToDo: Target Damage calc.
+		if (m_pTarget!=NULL)
+		{
+			m_dTargetDistance = Distance(m_dX,m_dY,m_pTarget->m_dX,m_pTarget->m_dY);
+			float Eeff=m_nPhaserPower/(m_dTargetDistance+1);
+			if (Eeff>10) Eeff=10;
+			m_pTarget->CalcPhaserDamage(Eeff,m_nPreferedTarget);
+		}
+
+	}
+	if ((m_nPhaserEnergy<=0)||(m_lstHealth[HLT_PHASER]<=20)) m_blPhaserOn=false;
+
+	m_nEnergyTimer--;
+	if (m_nEnergyTimer<=0)
+	{
+		m_nEnergy-=int(m_dSpeed+22);
+		m_nEnergy+=int(m_lstHealth[HLT_WARPCORE]*0.5);
+		if (m_nEnergy<0) m_nEnergy=0;
+		if (m_nEnergy>10000) m_nEnergy=10000;
+		m_nEnergyTimer=50;
+	}
+
+	if ((m_nPhaserTimer<=0)&&(m_nEnergy>0)&&(m_nPhaserEnergy<(m_lstHealth[HLT_PHASER]*2)))
+	{
+		m_nPhaserEnergy++;
+		m_nEnergy-=6;
+		m_nPhaserTimer=60;
+	}
+	if (m_nPhaserTimer>0) m_nPhaserTimer--;
+
+	if ((m_nEnergy>0)&&(m_nShieldTimer<=0)&&(m_nShieldEnergy<(m_lstHealth[HLT_SHIELD])))
+	{
+		m_nShieldEnergy+=1;
+		m_nShieldTimer=8;
+	}
+	if (m_nShieldTimer>0) m_nShieldTimer--;
+	if (m_nPhaserWait>0) m_nPhaserWait--;
+	if ((m_nCloakCharge<CLOAK_DELAY)&&(m_nCloakState==CS_UNCLOAKED))
+	{
+		m_nCloakCharge++;
+	}
+
+	if ((m_lstHealth.size()>HLT_CLOAK)&&(m_nCloakCounter<=0))
+	{
+		if (((m_lstHealth[HLT_CLOAK]<60)||(m_nEnergy<500))&&(m_nCloakState = CS_CLOAKED))
+	    {
+		   m_nCloakState = CS_DECLOAKING;
+	    }
+		DoCloak();
+		m_nCloakCounter=5;
+    }
+
+	else if (m_nCloakCounter>0)
+	{
+		m_nCloakCounter--;
+	}
+
+
+}
+
+
+void TShip::CalcPhaserDamage(double a_dEnergy, int a_nTarget)
+{
+	int shielddec=int(a_dEnergy * 2);
+	a_dEnergy-=m_nShieldEnergy;
+	if (a_dEnergy<0) a_dEnergy=0;
+	m_nShieldEnergy-=shielddec;
+	if (m_nShieldEnergy<0) m_nShieldEnergy=0;
+	int place=0;
+	if (a_nTarget==-1) place=rand()% ((int)m_lstHealth.size());
+	else place=a_nTarget;
+	m_lstHealth[place]-=int(a_dEnergy);
+	if (m_lstHealth[place]<0) m_lstHealth[place]=0;
+	int crewloss=int(a_dEnergy-m_lstHealth[HLT_HULL]);
+	if (crewloss<0) crewloss=0;
+	m_nCrew-=crewloss;
+	if (m_nCrew<0) m_nCrew=0;
+
+}
+
+
+
+
+double TShip::WayPoint(double a_dX,double a_dY)
+{
+	double DX=m_dX-a_dX;
+	double DY=m_dY-a_dY;
+	if (DX!=0) return atan2(DY,DX)+PI;
+	else return 0;
+}
+
+
+void TShip::Dock()
+{
+	if ((m_pTarget!=NULL)&&(m_pTarget->m_nID>=ID_STARBASE)&&(m_pTarget->m_nMember==m_nMember))
+	{
+		m_dTargetDistance = Distance(m_dX,m_dY,m_pTarget->m_dX,m_pTarget->m_dY);
+		if (m_dTargetDistance<250)
+		{
+			m_dSpeed= 0.4;
+			m_dAngleSeek=WayPoint(m_pTarget->m_dX,m_pTarget->m_dY);
+			if ((m_dTargetDistance<150)&&(m_nZ>DOCK_HEIGHT))
+			{
+				m_dAngleSeek+=PI;
+			}
+			else
+			{
+				m_nZ=DOCK_HEIGHT;
+				m_dAngleSeek=WayPoint(m_pTarget->m_dX,m_pTarget->m_dY);
+			}
+			if ((m_dTargetDistance<40)&&(m_nZ==DOCK_HEIGHT))
+			{
+				m_blDocked=true;
+				m_blCanFind = false;
+				m_blDocking=false;
+				m_dSpeed=0;
+				if (m_pTarget->m_blDestroyed)
+				{
+					for (int i=0;i<int(m_lstHealth.size());i++)
+					{
+						m_lstHealth[i]=0;
+					}
+				}
+			}
+			else
+			{
+				Control();
+			}
+		}
+		else
+		{
+			m_blDocked=false;
+			m_blCanFind = true;
+			m_blDocking=false;
+			m_blReleasing=false;
+			m_nZ=m_nFlyheight;
+		}
+	}
+	else
+	{
+		m_blDocked=false;
+		m_blCanFind = true;
+		m_blDocking=false;
+		m_blReleasing=false;
+		m_nZ=m_nFlyheight;
+	}
+}
+
+
+void TShip::Release()
+{
+	if (m_pTarget!=NULL)
+	{
+		m_dTargetDistance = Distance(m_dX,m_dY,m_pTarget->m_dX,m_pTarget->m_dY);
+		m_dSpeed=0.8;
+		if (m_dTargetDistance>150)
+		{
+			m_nZ=m_nFlyheight;
+			m_blCanFind = true;
+			m_blDocked=false;
+			m_blDocking=false;
+			m_blReleasing=false;
+			m_pTarget=NULL;
+		}
+	}
+}
+
+
+
+void TShip::Draw(double a_dCamX, double a_dCamY)
+{
+	int DrawX=int(m_pEngine->m_nScreenMidX+(m_dX-a_dCamX));
+	int DrawY=int(m_pEngine->m_nScreenMidY+(m_dY-a_dCamY));
+// only draw what we see
+
+if ((m_blPhaserOn)&&(m_pTarget!=NULL)&&(!m_pTarget->m_blDestroyed))
+    {
+	int DrawXT=int(m_pEngine->m_nScreenMidX+(m_pTarget->m_dX-a_dCamX))+(rand()%8)-4;
+	int DrawYT=int(m_pEngine->m_nScreenMidY+(m_pTarget->m_dY-a_dCamY))+(rand()%8)-4;
+	int px,py;
+
+	if (m_dPhaserX==0) px=DrawX;
+        else px=int(DrawX+(m_dPhaserX *cos(m_dAngle)));
+
+    if (m_dPhaserY==0) py=DrawY;
+        else py=int(DrawY+(m_dPhaserY*sin(m_dAngle)));
+
+	al_draw_line(px,py,DrawXT,DrawYT,m_PhaserColor,2);
+
+	for (int i=0;i<10;i++)
+	{
+		TParticle *p=new TParticle;
+		p->SetPosition(m_pTarget->m_dX,m_pTarget->m_dY);
+		m_pEngine->Add(p);
+	}
+	}
+
+if ((DrawX+m_nBitmapMidX>0)&&(DrawX-m_nBitmapMidX<m_pEngine->m_nScreenWidth)&&(DrawY+m_nBitmapMidY>0)&& (DrawY-m_nBitmapMidY<m_pEngine->m_nScreenHeight))
+   {
+       if (m_nTranslucency>0)
+	   {
+		   if (m_nTranslucency<30)
+		   {
+				al_draw_tinted_rotated_bitmap(m_pImage,al_map_rgba_f(1.00/m_nTranslucency, 1.00/m_nTranslucency, 1.00/m_nTranslucency, 1.00/m_nTranslucency),m_nBitmapMidX, m_nBitmapMidY, DrawX, DrawY,m_dAngle, 0);
+		   }
+	   }
+	   else
+	   {
+	   	   al_draw_rotated_bitmap(m_pImage, m_nBitmapMidX, m_nBitmapMidY, DrawX, DrawY,m_dAngle, 0);
+	   }
+   }
+}
+
+
+void TShip::Control()
+{
+	float str=m_dSteer;
+	if ((m_dAngle<m_dAngleSeek)&&(m_dAngleSeek-m_dAngle>PI)) str=-str;
+	if ((m_dAngleSeek<m_dAngle)&&(m_dAngle-m_dAngleSeek>PI)) str=-str;
+	if (m_dAngleSeek-m_dAngle>0.05) m_dAngle=m_dAngle+str;
+	if (m_dAngle-m_dAngleSeek>0.05) m_dAngle=m_dAngle-str;
+	if (m_dAngle>2*PI) m_dAngle=m_dAngle-(2*PI);
+	if (m_dAngle<0)    m_dAngle=(2*PI)+m_dAngle;
+	if (m_dAngleSeek>2*PI) m_dAngleSeek=m_dAngleSeek-(2*PI);
+	if (m_dAngleSeek<0)    m_dAngleSeek=(2*PI)+m_dAngleSeek;
+}
+
+
+void TShip::PrecalcFireAngles(int a_nLimit)
+{
+	if ((m_lstHealth[HLT_SENSOR]>60)&&(m_lstHealth[HLT_COMPUTER]>80)&&(m_pTarget!=NULL)&&(!m_pTarget->m_blDestroyed))
+	{
+		for (int i=0;i<a_nLimit;i++)
+        {
+			double aimangleseek;
+			double shotlead=m_dTargetDistance/16;
+			int sx=int(m_pTarget->GetX()+cos(m_pTarget->GetAngle())*shotlead);
+			int sy=int(m_pTarget->GetY()+sin(m_pTarget->GetAngle())*shotlead);
+			aimangleseek=WayPoint(sx,sy);
+			double str=0.01;
+			if ((m_dAimangle<aimangleseek)&&(aimangleseek-m_dAimangle>PI)) str=-str;
+			if ((aimangleseek<m_dAimangle)&&(m_dAimangle-aimangleseek>PI)) str=-str;
+			if (aimangleseek-m_dAimangle>0.02) m_dAimangle += str;
+			if (m_dAimangle-aimangleseek>0.02) m_dAimangle -= str;
+			if (m_dAimangle>2*PI) m_dAimangle=m_dAimangle-(2*PI);
+			if (m_dAimangle<0)    m_dAimangle=(2*PI)+m_dAimangle;
+			if (aimangleseek>2*PI) aimangleseek=aimangleseek-(2*PI);
+			if (aimangleseek<0)    aimangleseek=(2*PI)+aimangleseek;
+		}
+	}
+	else
+	{
+
+	}
+
+}
+
+
+
+
+
+

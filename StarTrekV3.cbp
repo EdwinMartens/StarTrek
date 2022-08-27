@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="StarTrekV3" />
+		<Option pch_mode="2" />
+		<Option compiler="clang" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/StarTrekV3" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="clang" />
+				<Compiler>
+					<Add option="-g" />
+					<Add option="-D_DEBUG" />
+					<Add directory="/usr/include/allegro5" />
+				</Compiler>
+				<Linker>
+					<Add option="`pkg-config --libs allegro-5 allegro_dialog-5 allegro_acodec-5 allegro_audio-5 allegro_color-5 allegro_font-5 allegro_image-5 allegro_primitives-5 allegro_ttf-5`" />
+				</Linker>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/Release/StarTrekV3" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="0" />
+				<Option compiler="clang" />
+				<Compiler>
+					<Add option="-O2" />
+					<Add directory="/usr/include/allegro5" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+					<Add option="`pkg-config --libs allegro-5 allegro_dialog-5 allegro_acodec-5 allegro_audio-5 allegro_color-5 allegro_font-5 allegro_image-5 allegro_primitives-5 allegro_ttf-5`" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+			<Add option="-fexceptions" />
+		</Compiler>
+		<Unit filename="Animation.cpp" />
+		<Unit filename="Animation.h" />
+		<Unit filename="Bullet.cpp" />
+		<Unit filename="Bullet.h" />
+		<Unit filename="Button.cpp" />
+		<Unit filename="Button.h" />
+		<Unit filename="Communication.cpp" />
+		<Unit filename="Communication.h" />
+		<Unit filename="CoolMath.cpp" />
+		<Unit filename="CoolMath.h" />
+		<Unit filename="Dialog.cpp" />
+		<Unit filename="Dialog.h" />
+		<Unit filename="DialogParser.cpp" />
+		<Unit filename="DialogParser.h" />
+		<Unit filename="Engine.cpp" />
+		<Unit filename="Engine.h" />
+		<Unit filename="Enterprise.cpp" />
+		<Unit filename="Enterprise.cpp.save" />
+		<Unit filename="Enterprise.h" />
+		<Unit filename="Federation_Ship.cpp" />
+		<Unit filename="Federation_Ship.h" />
+		<Unit filename="FontManager.cpp" />
+		<Unit filename="FontManager.h" />
+		<Unit filename="Functions.h" />
+		<Unit filename="Global.h" />
+		<Unit filename="KeyMapper.cpp" />
+		<Unit filename="KeyMapper.h" />
+		<Unit filename="Klingon_BC.cpp" />
+		<Unit filename="Klingon_BC.h" />
+		<Unit filename="Klingon_BOP.cpp" />
+		<Unit filename="Klingon_BOP.h" />
+		<Unit filename="Licence.txt" />
+		<Unit filename="Menu.cpp" />
+		<Unit filename="Menu.h" />
+		<Unit filename="Paralax.cpp" />
+		<Unit filename="Paralax.h" />
+		<Unit filename="Probe.cpp" />
+		<Unit filename="Probe.h" />
+		<Unit filename="Reliant.cpp" />
+		<Unit filename="Reliant.h" />
+		<Unit filename="Romulan_BOP.cpp" />
+		<Unit filename="Romulan_BOP.h" />
+		<Unit filename="SaveSlots.cpp" />
+		<Unit filename="SaveSlots.h" />
+		<Unit filename="Sax.cpp" />
+		<Unit filename="Sax.h" />
+		<Unit filename="Ship.cpp" />
+		<Unit filename="Ship.cpp.bak" />
+		<Unit filename="Ship.h" />
+		<Unit filename="SoundManager.cpp" />
+		<Unit filename="SoundManager.h" />
+		<Unit filename="SpaceObject.cpp" />
+		<Unit filename="SpaceObject.h" />
+		<Unit filename="StarTrekV3.h" />
+		<Unit filename="Starbase.cpp" />
+		<Unit filename="Starbase.h" />
+		<Unit filename="StartrekV3.cpp" />
+		<Unit filename="Statement.cpp" />
+		<Unit filename="Statement.h" />
+		<Unit filename="Transporter.cpp" />
+		<Unit filename="Transporter.h" />
+		<Unit filename="Universe.cpp" />
+		<Unit filename="Universe.h" />
+		<Unit filename="WindowDialog.cpp" />
+		<Unit filename="WindowDialog.h" />
+		<Unit filename="particle.cpp" />
+		<Unit filename="particle.h" />
+		<Unit filename="release.h" />
+		<Unit filename="targetver.h" />
+		<Unit filename="types.h" />
+		<Unit filename="utils.cpp" />
+		<Unit filename="utils.h" />
+		<Unit filename="version.h" />
+		<Extensions>
+			<lib_finder disable_auto="1" />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

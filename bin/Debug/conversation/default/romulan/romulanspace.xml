@@ -1,0 +1,33 @@
+<DIALOG>
+	<STATEMENT id = "0" img = "romulan1.png">
+	    There is no excuse for a federation warship in romulan space !
+		We will end this pathetic attempt to start a war in our way.
+		<ANSWER next = "1" value = "25" >
+		Our mistake, we will leave
+		</ANSWER>
+		<ANSWER next = "-1" value = "0" >
+		Get that ugly face out of my sight
+		</ANSWER>
+		<ANSWER next = "2" value = "10" >
+		We want to negotiate
+		</ANSWER>
+	</STATEMENT>
+	<STATEMENT id = "1" img = "romulan1.png">
+	    Do not try again    
+		<ANSWER next = "-1" value = "25" >
+		Goodbye
+		</ANSWER>
+	</STATEMENT>
+	<STATEMENT id = "2" img = "romulan1.png">
+	    What do you want ?
+		<ANSWER next = "-1" value = "10" >
+		A treaty
+		</ANSWER>
+		<ANSWER next = "-1" value = "0" >
+		War !
+		</ANSWER>
+		<ANSWER next = "-1" value = "0" >
+		Goodbye
+		</ANSWER>
+	</STATEMENT>
+</DIALOG>

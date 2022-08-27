@@ -1,0 +1,6 @@
+#!/bin/bash
+
+export OLD_PATH=$LD_LIBRARY_PATH
+export LD_LIBRARY_PATH=./shared/:$LD_LIBRARY_PATH
+./StarTrekV3
+export LD_LIBRARY_PATH=$OLD_PATH
