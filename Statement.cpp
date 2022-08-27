@@ -72,6 +72,13 @@ void CStatement::AddAnswer(CAnswer * a_pAnswer)
     a_pAnswer->m_nY = m_nAnswerY;
     m_nAnswerY += a_pAnswer->m_nHeight + 6;
     a_pAnswer->m_nX = 10;
+
+    int nTextX,nTextY,nTextWidth,nTextHeight;
+    al_get_text_dimensions( CStatement::pTextFont,
+                             a_pAnswer->m_strText.c_str(),
+                             &nTextX,&nTextY,&nTextWidth,&nTextHeight);
+
+    a_pAnswer->m_nWidth = nTextWidth;
     m_vAnswer.push_back(a_pAnswer);
 }
 
@@ -162,6 +169,7 @@ void CAnswer::SetText(string a_strText)
 void CAnswer::SetText(const char * a_szText)
 {
     m_strText = a_szText;
+    //ToDo: Set width according to text
 }
 
 
