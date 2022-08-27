@@ -28,6 +28,8 @@ CStatement::CStatement(int a_nId)
     m_nX = 20;
     m_nY = 30;
     m_nAnswerY = 200;
+    m_pImage = NULL;
+    m_pParent = NULL;
 }
 
 
@@ -85,10 +87,12 @@ void CStatement::AddAnswer(CAnswer * a_pAnswer)
 
 void CStatement::Draw()
 {
+
     if (m_pImage != NULL)
     {
         al_draw_bitmap(m_pImage,1000 - al_get_bitmap_width(m_pImage),25,0);
     }
+
 
     for (size_t i =0; i< m_vStatement.size(); i++)
     {
@@ -101,6 +105,7 @@ void CStatement::Draw()
         (*p)->Draw(m_nX, m_nY,pTextFont,clAnswer, clAnswerHighlight);
         p++;
     }
+
 }
 
 

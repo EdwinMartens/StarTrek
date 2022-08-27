@@ -313,9 +313,7 @@ switch(m_AI)
                        {
                            m_pDialog = NULL;
                        }
-
                   }
-
               }
               else
               {

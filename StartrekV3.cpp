@@ -148,7 +148,7 @@
 
 //TODO (Edwin#2#) NPC-Player communication and correct behaviour
 //TODO (Edwin#3#) Spock analysis, click object to let spock tell about it
-//TODO (Edwin#1#) NPC intersector behaviour, timed instead of debug key F9
+
 
 #include <stdio.h>
 #include <iostream>
@@ -194,6 +194,7 @@
 #include "Menu.h"
 #include "SaveSlots.h"
 #include "Transporter.h"
+#include "Starfleet.h"
 
 
 //FILE  * g_pFile;
@@ -263,11 +264,11 @@ TEnterprise   * g_pEnterprise       = NULL;
 Communication * g_pCommunication    = NULL;
 /// Pointer to the menu system
 TMenu * g_pMenu = NULL;
-
+/// Pointer to starfleet
+Starfleet * g_pStarfleet = NULL;
 
 
 SlotManager * g_pSlotManager = NULL;
-
 
 //Forward declarations
 /// Get the desktop resolution
@@ -323,6 +324,10 @@ void NewGame()
 	 g_pEngine->Add(g_pEnterprise);
 	 Log("Enterprise created");
 
+	 delete g_pStarfleet;
+	 g_pStarfleet = new Starfleet();
+
+
 	 // Create the communication system
      delete g_pCommunication;
      g_pCommunication = new Communication((g_nScreenWidth/2) - 400 ,5);
@@ -365,6 +370,8 @@ void NewGame()
     {
         g_pCommunication->Clear();
     }
+
+    g_pStarfleet->sendMessage(GAMESTART);
 
 }
 
@@ -630,6 +637,13 @@ bool InitObjects()
         Log("Could not initialize Reliant");
         return false;
     }
+
+    if (!Starfleet::Init())
+    {
+        Log("Could not initialize Starfleet");
+        return false;
+    }
+
 
     Log("Objects initialized succesfully");
 	return true;

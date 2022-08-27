@@ -1,8 +1,18 @@
 # depslib dependency file v1.0
 1468522071 source:/media/edwin/Media/Development/StarTrekV3/A5Program.cpp
 	"A5Program.h"
+	"A5Program.h"
 
 1468522071 /media/edwin/Media/Development/StarTrekV3/A5Program.h
+	<allegro5/allegro.h>
+	<allegro5/allegro_font.h>
+	<allegro5/allegro_ttf.h>
+	<allegro5/allegro_image.h>
+	<allegro5/allegro_primitives.h>
+	<allegro5/allegro_audio.h>
+	<allegro5/allegro_acodec.h>
+	<exception>
+	<string>
 	<allegro5/allegro.h>
 	<allegro5/allegro_font.h>
 	<allegro5/allegro_ttf.h>
@@ -15,8 +25,12 @@
 
 1584010741 source:/media/edwin/Media/Development/StarTrekV3/Animation.cpp
 	"Animation.h"
+	"Animation.h"
 
 1588325846 /media/edwin/Media/Development/StarTrekV3/Animation.h
+	<vector>
+	"types.h"
+	"Engine.h"
 	<vector>
 	"types.h"
 	"Engine.h"
@@ -38,8 +52,23 @@
 	"types.h"
 	"CoolMath.h"
 	"KeyMapper.h"
+	<allegro5/allegro.h>
+	<allegro5/allegro_image.h>
+	<allegro5/allegro_primitives.h>
+	<allegro5/allegro_font.h>
+	<allegro5/allegro_ttf.h>
+	<exception>
+	<stdio.h>
+	<iostream>
+	<fstream>
+	<list>
+	<math.h>
+	"types.h"
+	"CoolMath.h"
+	"KeyMapper.h"
 
 1588325847 /media/edwin/Media/Development/StarTrekV3/CoolMath.h
+	<math.h>
 	<math.h>
 
 1588325847 /media/edwin/Media/Development/StarTrekV3/KeyMapper.h
@@ -49,8 +78,15 @@
 	<string>
 	<iostream>
 	<fstream>
+	<allegro5/allegro.h>
+	<allegro5/allegro_font.h>
+	<allegro5/allegro_ttf.h>
+	<string>
+	<iostream>
+	<fstream>
 
 1588325848 source:/media/edwin/Media/Development/StarTrekV3/Bullet.cpp
+	"Bullet.h"
 	"Bullet.h"
 
 1588325847 /media/edwin/Media/Development/StarTrekV3/Bullet.h
@@ -60,8 +96,20 @@
 	<vector>
 	"types.h"
 	"Engine.h"
+	<allegro5/allegro.h>
+	<allegro5/allegro_image.h>
+	<stdio.h>
+	<vector>
+	"types.h"
+	"Engine.h"
 
 1610036671 source:/media/edwin/Media/Development/StarTrekV3/Communication.cpp
+	"Communication.h"
+	<stdio.h>
+	<iostream>
+	"utils.h"
+	"SoundManager.h"
+	"FontManager.h"
 	"Communication.h"
 	<stdio.h>
 	<iostream>
@@ -83,11 +131,31 @@
 	<string>
 	<vector>
 	"types.h"
+	<stdio.h>
+	<iostream>
+	<allegro5/allegro.h>
+	<allegro5/allegro_image.h>
+	<allegro5/allegro_primitives.h>
+	<allegro5/allegro_font.h>
+	<allegro5/allegro_ttf.h>
+	<allegro5/allegro_audio.h>
+	<allegro5/allegro_acodec.h>
+	<list>
+	<string>
+	<vector>
+	"types.h"
 
 1585422916 /media/edwin/Media/Development/StarTrekV3/utils.h
 	"types.h"
+	"types.h"
 
 1588325848 /media/edwin/Media/Development/StarTrekV3/SoundManager.h
+	<vector>
+	<list>
+	<string>
+	<allegro5/allegro.h>
+	<allegro5/allegro_audio.h>
+	<allegro5/allegro_acodec.h>
 	<vector>
 	<list>
 	<string>
@@ -102,11 +170,20 @@
 	<allegro5/allegro.h>
 	<allegro5/allegro_font.h>
 	<allegro5/allegro_ttf.h>
+	<vector>
+	<list>
+	<string>
+	<allegro5/allegro.h>
+	<allegro5/allegro_font.h>
+	<allegro5/allegro_ttf.h>
 
 1509743393 source:/media/edwin/Media/Development/StarTrekV3/CoolMath.cpp
 	"CoolMath.h"
+	"CoolMath.h"
 
 1468522071 source:/media/edwin/Media/Development/StarTrekV3/CustomProgram.cpp
+	"CustomProgram.h"
+	<allegro5/allegro_primitives.h>
 	"CustomProgram.h"
 	<allegro5/allegro_primitives.h>
 
@@ -114,8 +191,15 @@
 	"A5Program.h"
 	"Paralax.h"
 	"GameEngine.h"
+	"A5Program.h"
+	"Paralax.h"
+	"GameEngine.h"
 
 1588325846 /media/edwin/Media/Development/StarTrekV3/Paralax.h
+	<allegro5/allegro.h>
+	<allegro5/allegro_primitives.h>
+	<vector>
+	<cmath>
 	<allegro5/allegro.h>
 	<allegro5/allegro_primitives.h>
 	<vector>
@@ -130,11 +214,25 @@
 	"types.h"
 	<stdio.h>
 	<list>
+	<allegro5/allegro.h>
+	<allegro5/allegro_image.h>
+	<allegro5/allegro_primitives.h>
+	<allegro5/allegro_font.h>
+	<allegro5/allegro_ttf.h>
+	"types.h"
+	<stdio.h>
+	<list>
 
 1584541017 source:/media/edwin/Media/Development/StarTrekV3/Dialog.cpp
 	"Dialog.h"
+	"Dialog.h"
 
 1523740745 /media/edwin/Media/Development/StarTrekV3/Dialog.h
+	<vector>
+	<string>
+	<allegro5/allegro.h>
+	"types.h"
+	"Statement.h"
 	<vector>
 	<string>
 	<allegro5/allegro.h>
@@ -150,8 +248,21 @@
 	<allegro5/allegro_ttf.h>
 	<allegro5/allegro_image.h>
 	<allegro5/allegro_primitives.h>
+	"Dialog.h"
+	<vector>
+	<string>
+	<allegro5/allegro.h>
+	<allegro5/allegro_font.h>
+	<allegro5/allegro_ttf.h>
+	<allegro5/allegro_image.h>
+	<allegro5/allegro_primitives.h>
 
 1585423444 source:/media/edwin/Media/Development/StarTrekV3/DialogParser.cpp
+	"DialogParser.h"
+	"Functions.h"
+	<iostream>
+	<math.h>
+	"utils.h"
 	"DialogParser.h"
 	"Functions.h"
 	<iostream>
@@ -163,6 +274,10 @@
 	"Sax.h"
 	"Statement.h"
 	"Dialog.h"
+	<vector>
+	"Sax.h"
+	"Statement.h"
+	"Dialog.h"
 
 1521722306 /media/edwin/Media/Development/StarTrekV3/Sax.h
 	<string>
@@ -170,8 +285,16 @@
 	<list>
 	<vector>
 	<cstring>
+	<string>
+	<fstream>
+	<list>
+	<vector>
+	<cstring>
 
 1521793454 /media/edwin/Media/Development/StarTrekV3/Functions.h
+	<sstream>
+	<string>
+	<exception>
 	<sstream>
 	<string>
 	<exception>
@@ -184,8 +307,23 @@
 	"SoundManager.h"
 	"FontManager.h"
 	"Statement.h"
+	"Enterprise.h"
+	"Bullet.h"
+	"Probe.h"
+	"Communication.h"
+	"SoundManager.h"
+	"FontManager.h"
+	"Statement.h"
 
 1609778609 /media/edwin/Media/Development/StarTrekV3/Enterprise.h
+	<vector>
+	<cmath>
+	"types.h"
+	"Engine.h"
+	"Ship.h"
+	"Universe.h"
+	"Transporter.h"
+	"Dialog.h"
 	<vector>
 	<cmath>
 	"types.h"
@@ -206,8 +344,24 @@
 	<string>
 	"types.h"
 	"Engine.h"
+	<allegro5/allegro.h>
+	<allegro5/allegro_image.h>
+	<allegro5/allegro_primitives.h>
+	<allegro5/allegro_font.h>
+	<allegro5/allegro_ttf.h>
+	<allegro5/allegro_audio.h>
+	<vector>
+	<string>
+	"types.h"
+	"Engine.h"
 
 1588325846 /media/edwin/Media/Development/StarTrekV3/Universe.h
+	"types.h"
+	"Engine.h"
+	"SpaceObject.h"
+	"Starbase.h"
+	<vector>
+	<math.h>
 	"types.h"
 	"Engine.h"
 	"SpaceObject.h"
@@ -219,8 +373,18 @@
 	"types.h"
 	"Engine.h"
 	<vector>
+	"types.h"
+	"Engine.h"
+	<vector>
 
 1588325679 /media/edwin/Media/Development/StarTrekV3/Starbase.h
+	"types.h"
+	"Engine.h"
+	"Ship.h"
+	"Universe.h"
+	<allegro5/allegro_audio.h>
+	<vector>
+	<cmath>
 	"types.h"
 	"Engine.h"
 	"Ship.h"
@@ -243,6 +407,19 @@
 	<string>
 	<vector>
 	"types.h"
+	<stdio.h>
+	<iostream>
+	<allegro5/allegro.h>
+	<allegro5/allegro_image.h>
+	<allegro5/allegro_primitives.h>
+	<allegro5/allegro_font.h>
+	<allegro5/allegro_ttf.h>
+	<allegro5/allegro_audio.h>
+	<allegro5/allegro_acodec.h>
+	<list>
+	<string>
+	<vector>
+	"types.h"
 
 1509743394 /media/edwin/Media/Development/StarTrekV3/Probe.h
 	<allegro5/allegro.h>
@@ -251,8 +428,35 @@
 	"types.h"
 	"Engine.h"
 	"Enterprise.h"
+	<allegro5/allegro.h>
+	<allegro5/allegro_image.h>
+	<stdio.h>
+	"types.h"
+	"Engine.h"
+	"Enterprise.h"
 
 1585663041 source:/media/edwin/Media/Development/StarTrekV3/Engine.cpp
+	<stdio.h>
+	<iostream>
+	"Global.h"
+	"Engine.h"
+	"Ship.h"
+	"Bullet.h"
+	"Animation.h"
+	"SpaceObject.h"
+	"Enterprise.h"
+	"Klingon_BC.h"
+	"Klingon_BOP.h"
+	"Romulan_BOP.h"
+	"Federation_Ship.h"
+	"Reliant.h"
+	"Probe.h"
+	"particle.h"
+	"Universe.h"
+	"SoundManager.h"
+	"Communication.h"
+	"utils.h"
+	"FontManager.h"
 	<stdio.h>
 	<iostream>
 	"Global.h"
@@ -285,8 +489,22 @@
 	<allegro5/allegro_audio.h>
 	<vector>
 	<cmath>
+	"types.h"
+	"Engine.h"
+	"Ship.h"
+	"Universe.h"
+	<allegro5/allegro_audio.h>
+	<vector>
+	<cmath>
 
 1588325846 /media/edwin/Media/Development/StarTrekV3/Klingon_BOP.h
+	"types.h"
+	"Engine.h"
+	"Ship.h"
+	"Universe.h"
+	<allegro5/allegro_audio.h>
+	<vector>
+	<cmath>
 	"types.h"
 	"Engine.h"
 	"Ship.h"
@@ -305,8 +523,24 @@
 	<allegro5/allegro_audio.h>
 	<vector>
 	<cmath>
+	"types.h"
+	"Engine.h"
+	"Ship.h"
+	"Universe.h"
+	"DialogParser.h"
+	"Dialog.h"
+	<allegro5/allegro_audio.h>
+	<vector>
+	<cmath>
 
 1588325846 /media/edwin/Media/Development/StarTrekV3/Federation_Ship.h
+	"types.h"
+	"Engine.h"
+	"Ship.h"
+	"Universe.h"
+	<allegro5/allegro_audio.h>
+	<vector>
+	<cmath>
 	"types.h"
 	"Engine.h"
 	"Ship.h"
@@ -318,8 +552,14 @@
 1588325848 /media/edwin/Media/Development/StarTrekV3/particle.h
 	"types.h"
 	"Engine.h"
+	"types.h"
+	"Engine.h"
 
 1591382116 source:/media/edwin/Media/Development/StarTrekV3/Federation_Ship.cpp
+	"Federation_Ship.h"
+	"Bullet.h"
+	"SoundManager.h"
+	<fstream>
 	"Federation_Ship.h"
 	"Bullet.h"
 	"SoundManager.h"
@@ -328,11 +568,17 @@
 1552226594 source:/media/edwin/Media/Development/StarTrekV3/FontManager.cpp
 	<stdio.h>
 	"FontManager.h"
+	<stdio.h>
+	"FontManager.h"
 
 1552226632 source:/media/edwin/Media/Development/StarTrekV3/KeyMapper.cpp
 	"KeyMapper.h"
+	"KeyMapper.h"
 
 1591381037 source:/media/edwin/Media/Development/StarTrekV3/Klingon_BC.cpp
+	"Klingon_BC.h"
+	"Bullet.h"
+	"SoundManager.h"
 	"Klingon_BC.h"
 	"Bullet.h"
 	"SoundManager.h"
@@ -341,8 +587,13 @@
 	"Klingon_BOP.h"
 	"Bullet.h"
 	"SoundManager.h"
+	"Klingon_BOP.h"
+	"Bullet.h"
+	"SoundManager.h"
 
 1584013200 source:/media/edwin/Media/Development/StarTrekV3/Menu.cpp
+	"Menu.h"
+	<allegro5/allegro_primitives.h>
 	"Menu.h"
 	<allegro5/allegro_primitives.h>
 
@@ -352,18 +603,34 @@
 	<allegro5/allegro_ttf.h>
 	<string>
 	<vector>
+	<allegro5/allegro.h>
+	<allegro5/allegro_font.h>
+	<allegro5/allegro_ttf.h>
+	<string>
+	<vector>
 
 1590175052 source:/media/edwin/Media/Development/StarTrekV3/Paralax.cpp
 	"Paralax.h"
+	"Paralax.h"
 
 1584018887 source:/media/edwin/Media/Development/StarTrekV3/particle.cpp
+	"particle.h"
 	"particle.h"
 
 1509743394 source:/media/edwin/Media/Development/StarTrekV3/Probe.cpp
 	"Probe.h"
 	"particle.h"
+	"Probe.h"
+	"particle.h"
 
 1591382039 source:/media/edwin/Media/Development/StarTrekV3/Romulan_BOP.cpp
+	"StarTrekV3.h"
+	"Romulan_BOP.h"
+	"Bullet.h"
+	"SoundManager.h"
+	"Enterprise.h"
+	"Communication.h"
+	<iostream>
 	"StarTrekV3.h"
 	"Romulan_BOP.h"
 	"Bullet.h"
@@ -379,6 +646,10 @@
 	"Engine.h"
 	"WindowDialog.h"
 	<allegro5/allegro_primitives.h>
+	"SaveSlots.h"
+	"Engine.h"
+	"WindowDialog.h"
+	<allegro5/allegro_primitives.h>
 
 1588325846 /media/edwin/Media/Development/StarTrekV3/SaveSlots.h
 	<allegro5/allegro.h>
@@ -387,8 +658,18 @@
 	<string>
 	<vector>
 	"WindowDialog.h"
+	<allegro5/allegro.h>
+	<allegro5/allegro_font.h>
+	<allegro5/allegro_ttf.h>
+	<string>
+	<vector>
+	"WindowDialog.h"
 
 1522514890 source:/media/edwin/Media/Development/StarTrekV3/Sax.cpp
+	"Sax.h"
+	<strings.h>
+	<iostream>
+	<sstream>
 	"Sax.h"
 	<strings.h>
 	<iostream>
@@ -402,20 +683,70 @@
 	"Bullet.h"
 	"SoundManager.h"
 	"FontManager.h"
+	<cmath>
+	<algorithm>
+	"Ship.h"
+	"Animation.h"
+	"Bullet.h"
+	"SoundManager.h"
+	"FontManager.h"
 
 1585586590 source:/media/edwin/Media/Development/StarTrekV3/SoundManager.cpp
 	<stdio.h>
 	"SoundManager.h"
+	<stdio.h>
+	"SoundManager.h"
 
 1509743394 source:/media/edwin/Media/Development/StarTrekV3/SpaceObject.cpp
+	"SpaceObject.h"
 	"SpaceObject.h"
 
 1609862624 source:/media/edwin/Media/Development/StarTrekV3/Starbase.cpp
 	"Starbase.h"
 	"Bullet.h"
 	"SoundManager.h"
+	"Starbase.h"
+	"Bullet.h"
+	"SoundManager.h"
 
 1610036671 source:/media/edwin/Media/Development/StarTrekV3/StartrekV3.cpp
+	<stdio.h>
+	<iostream>
+	<time.h>
+	<allegro5/allegro.h>
+	<allegro5/allegro_native_dialog.h>
+	<allegro5/allegro_image.h>
+	<allegro5/allegro_primitives.h>
+	<allegro5/allegro_audio.h>
+	<allegro5/allegro_acodec.h>
+	<map>
+	<vector>
+	"StarTrekV3.h"
+	"version.h"
+	"utils.h"
+	"FontManager.h"
+	"SoundManager.h"
+	"DialogParser.h"
+	"WindowDialog.h"
+	"Paralax.h"
+	"Engine.h"
+	"Bullet.h"
+	"Animation.h"
+	"Universe.h"
+	"Enterprise.h"
+	"Romulan_BOP.h"
+	"Klingon_BC.h"
+	"Klingon_BOP.h"
+	"SpaceObject.h"
+	"Reliant.h"
+	"Starbase.h"
+	"Federation_Ship.h"
+	"KeyMapper.h"
+	"Communication.h"
+	"Probe.h"
+	"Menu.h"
+	"SaveSlots.h"
+	"Transporter.h"
 	<stdio.h>
 	<iostream>
 	<time.h>
@@ -460,12 +791,30 @@
 	<iostream>
 	"types.h"
 	"Statement.h"
+	<iostream>
+	"types.h"
+	"Statement.h"
 
 1584014395 source:/media/edwin/Media/Development/StarTrekV3/Transporter.cpp
 	"Transporter.h"
 	"SoundManager.h"
+	"Transporter.h"
+	"SoundManager.h"
 
 1609845135 source:/media/edwin/Media/Development/StarTrekV3/Universe.cpp
+	"Universe.h"
+	<time.h>
+	"Communication.h"
+	"Engine.h"
+	"Enterprise.h"
+	"Romulan_BOP.h"
+	"Klingon_BC.h"
+	"Klingon_BOP.h"
+	"SpaceObject.h"
+	"Starbase.h"
+	"Federation_Ship.h"
+	"Reliant.h"
+	"Animation.h"
 	"Universe.h"
 	<time.h>
 	"Communication.h"
@@ -489,13 +838,28 @@
 	<allegro5/allegro.h>
 	<allegro5/allegro_image.h>
 	"utils.h"
+	<stdio.h>
+	<iostream>
+	<string>
+	<fstream>
+	<algorithm>
+	<allegro5/allegro.h>
+	<allegro5/allegro_image.h>
+	"utils.h"
 
 1584128358 source:/media/edwin/Media/Development/StarTrekV3/Button.cpp
 	"Button.h"
 	"WindowDialog.h"
 	<allegro5/allegro_primitives.h>
+	"Button.h"
+	"WindowDialog.h"
+	<allegro5/allegro_primitives.h>
 
 1588325846 /media/edwin/Media/Development/StarTrekV3/Button.h
+	<allegro5/allegro.h>
+	<allegro5/allegro_font.h>
+	<allegro5/allegro_ttf.h>
+	<string>
 	<allegro5/allegro.h>
 	<allegro5/allegro_font.h>
 	<allegro5/allegro_ttf.h>
@@ -508,13 +872,29 @@
 	<string>
 	"Button.h"
 	"SaveSlots.h"
+	<allegro5/allegro.h>
+	<allegro5/allegro_font.h>
+	<allegro5/allegro_ttf.h>
+	<string>
+	"Button.h"
+	"SaveSlots.h"
 
 1584185410 source:/media/edwin/Media/Development/StarTrekV3/WindowDialog.cpp
 	"WindowDialog.h"
 	"FontManager.h"
 	<allegro5/allegro_primitives.h>
+	"WindowDialog.h"
+	"FontManager.h"
+	<allegro5/allegro_primitives.h>
 
 1602784594 source:/media/edwin/Media/Development/StarTrekV3/Reliant.cpp
+	"Reliant.h"
+	"Reliant.h"
+	"Bullet.h"
+	"SoundManager.h"
+	"Communication.h"
+	"Enterprise.h"
+	<fstream>
 	"Reliant.h"
 	"Reliant.h"
 	"Bullet.h"
@@ -533,16 +913,31 @@
 	<allegro5/allegro_audio.h>
 	<vector>
 	<cmath>
+	"types.h"
+	"Engine.h"
+	"Ship.h"
+	"Universe.h"
+	"DialogParser.h"
+	"Dialog.h"
+	<allegro5/allegro_audio.h>
+	<vector>
+	<cmath>
 
 1631460677 source:/home/edwin/Programming/StarTrek_Linux/Animation.cpp
+	"Animation.h"
 	"Animation.h"
 
 1631460677 /home/edwin/Programming/StarTrek_Linux/Animation.h
 	<vector>
 	"types.h"
 	"Engine.h"
+	<vector>
+	"types.h"
+	"Engine.h"
 
 1639837652 /home/edwin/Programming/StarTrek_Linux/types.h
+	<string>
+	<vector>
 	<string>
 	<vector>
 
@@ -561,8 +956,23 @@
 	"types.h"
 	"CoolMath.h"
 	"KeyMapper.h"
+	<allegro5/allegro.h>
+	<allegro5/allegro_image.h>
+	<allegro5/allegro_primitives.h>
+	<allegro5/allegro_font.h>
+	<allegro5/allegro_ttf.h>
+	<exception>
+	<stdio.h>
+	<iostream>
+	<fstream>
+	<list>
+	<math.h>
+	"types.h"
+	"CoolMath.h"
+	"KeyMapper.h"
 
 1631460677 /home/edwin/Programming/StarTrek_Linux/CoolMath.h
+	<math.h>
 	<math.h>
 
 1631460677 /home/edwin/Programming/StarTrek_Linux/KeyMapper.h
@@ -572,11 +982,24 @@
 	<string>
 	<iostream>
 	<fstream>
+	<allegro5/allegro.h>
+	<allegro5/allegro_font.h>
+	<allegro5/allegro_ttf.h>
+	<string>
+	<iostream>
+	<fstream>
 
 1631460677 source:/home/edwin/Programming/StarTrek_Linux/Bullet.cpp
 	"Bullet.h"
+	"Bullet.h"
 
 1631460677 /home/edwin/Programming/StarTrek_Linux/Bullet.h
+	<allegro5/allegro.h>
+	<allegro5/allegro_image.h>
+	<stdio.h>
+	<vector>
+	"types.h"
+	"Engine.h"
 	<allegro5/allegro.h>
 	<allegro5/allegro_image.h>
 	<stdio.h>
@@ -588,14 +1011,27 @@
 	"Button.h"
 	"WindowDialog.h"
 	<allegro5/allegro_primitives.h>
+	"Button.h"
+	"WindowDialog.h"
+	<allegro5/allegro_primitives.h>
 
 1631460677 /home/edwin/Programming/StarTrek_Linux/Button.h
 	<allegro5/allegro.h>
 	<allegro5/allegro_font.h>
 	<allegro5/allegro_ttf.h>
 	<string>
+	<allegro5/allegro.h>
+	<allegro5/allegro_font.h>
+	<allegro5/allegro_ttf.h>
+	<string>
 
 1631460677 /home/edwin/Programming/StarTrek_Linux/WindowDialog.h
+	<allegro5/allegro.h>
+	<allegro5/allegro_font.h>
+	<allegro5/allegro_ttf.h>
+	<string>
+	"Button.h"
+	"SaveSlots.h"
 	<allegro5/allegro.h>
 	<allegro5/allegro_font.h>
 	<allegro5/allegro_ttf.h>
@@ -610,8 +1046,20 @@
 	<string>
 	<vector>
 	"WindowDialog.h"
+	<allegro5/allegro.h>
+	<allegro5/allegro_font.h>
+	<allegro5/allegro_ttf.h>
+	<string>
+	<vector>
+	"WindowDialog.h"
 
 1637513592 source:/home/edwin/Programming/StarTrek_Linux/Communication.cpp
+	"Communication.h"
+	<stdio.h>
+	<iostream>
+	"utils.h"
+	"SoundManager.h"
+	"FontManager.h"
 	"Communication.h"
 	<stdio.h>
 	<iostream>
@@ -633,11 +1081,31 @@
 	<string>
 	<vector>
 	"types.h"
+	<stdio.h>
+	<iostream>
+	<allegro5/allegro.h>
+	<allegro5/allegro_image.h>
+	<allegro5/allegro_primitives.h>
+	<allegro5/allegro_font.h>
+	<allegro5/allegro_ttf.h>
+	<allegro5/allegro_audio.h>
+	<allegro5/allegro_acodec.h>
+	<list>
+	<string>
+	<vector>
+	"types.h"
 
 1631460678 /home/edwin/Programming/StarTrek_Linux/utils.h
 	"types.h"
+	"types.h"
 
 1637428873 /home/edwin/Programming/StarTrek_Linux/SoundManager.h
+	<vector>
+	<list>
+	<string>
+	<allegro5/allegro.h>
+	<allegro5/allegro_audio.h>
+	<allegro5/allegro_acodec.h>
 	<vector>
 	<list>
 	<string>
@@ -652,14 +1120,27 @@
 	<allegro5/allegro.h>
 	<allegro5/allegro_font.h>
 	<allegro5/allegro_ttf.h>
+	<vector>
+	<list>
+	<string>
+	<allegro5/allegro.h>
+	<allegro5/allegro_font.h>
+	<allegro5/allegro_ttf.h>
 
 1631460677 source:/home/edwin/Programming/StarTrek_Linux/CoolMath.cpp
+	"CoolMath.h"
 	"CoolMath.h"
 
 1661622922 source:/home/edwin/Programming/StarTrek_Linux/Dialog.cpp
 	"Dialog.h"
+	"Dialog.h"
 
 1661622922 /home/edwin/Programming/StarTrek_Linux/Dialog.h
+	<vector>
+	<string>
+	<allegro5/allegro.h>
+	"types.h"
+	"Statement.h"
 	<vector>
 	<string>
 	<allegro5/allegro.h>
@@ -675,8 +1156,21 @@
 	<allegro5/allegro_ttf.h>
 	<allegro5/allegro_image.h>
 	<allegro5/allegro_primitives.h>
+	"Dialog.h"
+	<vector>
+	<string>
+	<allegro5/allegro.h>
+	<allegro5/allegro_font.h>
+	<allegro5/allegro_ttf.h>
+	<allegro5/allegro_image.h>
+	<allegro5/allegro_primitives.h>
 
-1631460677 source:/home/edwin/Programming/StarTrek_Linux/DialogParser.cpp
+1661625676 source:/home/edwin/Programming/StarTrek_Linux/DialogParser.cpp
+	"DialogParser.h"
+	"Functions.h"
+	<iostream>
+	<math.h>
+	"utils.h"
 	"DialogParser.h"
 	"Functions.h"
 	<iostream>
@@ -688,8 +1182,17 @@
 	"Sax.h"
 	"Statement.h"
 	"Dialog.h"
+	<vector>
+	"Sax.h"
+	"Statement.h"
+	"Dialog.h"
 
 1631460677 /home/edwin/Programming/StarTrek_Linux/Sax.h
+	<string>
+	<fstream>
+	<list>
+	<vector>
+	<cstring>
 	<string>
 	<fstream>
 	<list>
@@ -700,8 +1203,33 @@
 	<sstream>
 	<string>
 	<exception>
+	<sstream>
+	<string>
+	<exception>
 
 1653997107 source:/home/edwin/Programming/StarTrek_Linux/Engine.cpp
+	<stdio.h>
+	<iostream>
+	<ostream>
+	"Global.h"
+	"Engine.h"
+	"Ship.h"
+	"Bullet.h"
+	"Animation.h"
+	"SpaceObject.h"
+	"Enterprise.h"
+	"Klingon_BC.h"
+	"Klingon_BOP.h"
+	"Romulan_BOP.h"
+	"Federation_Ship.h"
+	"Reliant.h"
+	"Probe.h"
+	"particle.h"
+	"Universe.h"
+	"SoundManager.h"
+	"Communication.h"
+	"utils.h"
+	"FontManager.h"
 	<stdio.h>
 	<iostream>
 	<ostream>
@@ -738,14 +1266,36 @@
 	<string>
 	"types.h"
 	"Engine.h"
+	<allegro5/allegro.h>
+	<allegro5/allegro_image.h>
+	<allegro5/allegro_primitives.h>
+	<allegro5/allegro_font.h>
+	<allegro5/allegro_ttf.h>
+	<allegro5/allegro_audio.h>
+	<vector>
+	<string>
+	"types.h"
+	"Engine.h"
 
 1638013764 /home/edwin/Programming/StarTrek_Linux/SpaceObject.h
 	"types.h"
 	"Engine.h"
 	"Transporter.h"
 	<vector>
+	"types.h"
+	"Engine.h"
+	"Transporter.h"
+	<vector>
 
 1639837574 /home/edwin/Programming/StarTrek_Linux/Enterprise.h
+	<vector>
+	<cmath>
+	"types.h"
+	"Engine.h"
+	"Ship.h"
+	"Universe.h"
+	"Transporter.h"
+	"Dialog.h"
 	<vector>
 	<cmath>
 	"types.h"
@@ -763,8 +1313,22 @@
 	"Transporter.h"
 	<vector>
 	<math.h>
+	"types.h"
+	"Engine.h"
+	"SpaceObject.h"
+	"Starbase.h"
+	"Transporter.h"
+	<vector>
+	<math.h>
 
 1631460677 /home/edwin/Programming/StarTrek_Linux/Starbase.h
+	"types.h"
+	"Engine.h"
+	"Ship.h"
+	"Universe.h"
+	<allegro5/allegro_audio.h>
+	<vector>
+	<cmath>
 	"types.h"
 	"Engine.h"
 	"Ship.h"
@@ -789,6 +1353,21 @@
 	<string>
 	<vector>
 	"types.h"
+	<stdio.h>
+	<iostream>
+	<allegro5/allegro.h>
+	<allegro5/allegro_image.h>
+	<allegro5/allegro_primitives.h>
+	<allegro5/allegro_font.h>
+	<allegro5/allegro_ttf.h>
+	<allegro5/allegro_audio.h>
+	<allegro5/allegro_acodec.h>
+	<iostream>
+	<fstream>
+	<vector>
+	<string>
+	<vector>
+	"types.h"
 
 1631460677 /home/edwin/Programming/StarTrek_Linux/Klingon_BC.h
 	"types.h"
@@ -798,8 +1377,22 @@
 	<allegro5/allegro_audio.h>
 	<vector>
 	<cmath>
+	"types.h"
+	"Engine.h"
+	"Ship.h"
+	"Universe.h"
+	<allegro5/allegro_audio.h>
+	<vector>
+	<cmath>
 
 1631460677 /home/edwin/Programming/StarTrek_Linux/Klingon_BOP.h
+	"types.h"
+	"Engine.h"
+	"Ship.h"
+	"Universe.h"
+	<allegro5/allegro_audio.h>
+	<vector>
+	<cmath>
 	"types.h"
 	"Engine.h"
 	"Ship.h"
@@ -818,8 +1411,24 @@
 	<allegro5/allegro_audio.h>
 	<vector>
 	<cmath>
+	"types.h"
+	"Engine.h"
+	"Ship.h"
+	"Universe.h"
+	"DialogParser.h"
+	"Dialog.h"
+	<allegro5/allegro_audio.h>
+	<vector>
+	<cmath>
 
 1631460677 /home/edwin/Programming/StarTrek_Linux/Federation_Ship.h
+	"types.h"
+	"Engine.h"
+	"Ship.h"
+	"Universe.h"
+	<allegro5/allegro_audio.h>
+	<vector>
+	<cmath>
 	"types.h"
 	"Engine.h"
 	"Ship.h"
@@ -838,8 +1447,24 @@
 	<allegro5/allegro_audio.h>
 	<vector>
 	<cmath>
+	"types.h"
+	"Engine.h"
+	"Ship.h"
+	"Universe.h"
+	"DialogParser.h"
+	"Dialog.h"
+	<allegro5/allegro_audio.h>
+	<vector>
+	<cmath>
 
 1639838034 /home/edwin/Programming/StarTrek_Linux/Probe.h
+	<allegro5/allegro.h>
+	<allegro5/allegro_image.h>
+	<stdio.h>
+	"types.h"
+	"Engine.h"
+	"Enterprise.h"
+	<vector>
 	<allegro5/allegro.h>
 	<allegro5/allegro_image.h>
 	<stdio.h>
@@ -851,8 +1476,17 @@
 1631460678 /home/edwin/Programming/StarTrek_Linux/particle.h
 	"types.h"
 	"Engine.h"
+	"types.h"
+	"Engine.h"
 
-1661623001 source:/home/edwin/Programming/StarTrek_Linux/Enterprise.cpp
+1661623330 source:/home/edwin/Programming/StarTrek_Linux/Enterprise.cpp
+	"Enterprise.h"
+	"Bullet.h"
+	"Probe.h"
+	"Communication.h"
+	"SoundManager.h"
+	"FontManager.h"
+	"Statement.h"
 	"Enterprise.h"
 	"Bullet.h"
 	"Probe.h"
@@ -866,15 +1500,25 @@
 	"Bullet.h"
 	"SoundManager.h"
 	<fstream>
+	"Federation_Ship.h"
+	"Bullet.h"
+	"SoundManager.h"
+	<fstream>
 
 1631460677 source:/home/edwin/Programming/StarTrek_Linux/FontManager.cpp
+	<stdio.h>
+	"FontManager.h"
 	<stdio.h>
 	"FontManager.h"
 
 1631460677 source:/home/edwin/Programming/StarTrek_Linux/KeyMapper.cpp
 	"KeyMapper.h"
+	"KeyMapper.h"
 
 1637594003 source:/home/edwin/Programming/StarTrek_Linux/Klingon_BC.cpp
+	"Klingon_BC.h"
+	"Bullet.h"
+	"SoundManager.h"
 	"Klingon_BC.h"
 	"Bullet.h"
 	"SoundManager.h"
@@ -883,8 +1527,13 @@
 	"Klingon_BOP.h"
 	"Bullet.h"
 	"SoundManager.h"
+	"Klingon_BOP.h"
+	"Bullet.h"
+	"SoundManager.h"
 
 1654001051 source:/home/edwin/Programming/StarTrek_Linux/Menu.cpp
+	"Menu.h"
+	<allegro5/allegro_primitives.h>
 	"Menu.h"
 	<allegro5/allegro_primitives.h>
 
@@ -894,8 +1543,14 @@
 	<allegro5/allegro_ttf.h>
 	<string>
 	<vector>
+	<allegro5/allegro.h>
+	<allegro5/allegro_font.h>
+	<allegro5/allegro_ttf.h>
+	<string>
+	<vector>
 
 1631460677 source:/home/edwin/Programming/StarTrek_Linux/Paralax.cpp
+	"Paralax.h"
 	"Paralax.h"
 
 1631460677 /home/edwin/Programming/StarTrek_Linux/Paralax.h
@@ -903,11 +1558,18 @@
 	<allegro5/allegro_primitives.h>
 	<vector>
 	<cmath>
+	<allegro5/allegro.h>
+	<allegro5/allegro_primitives.h>
+	<vector>
+	<cmath>
 
 1631460678 source:/home/edwin/Programming/StarTrek_Linux/particle.cpp
 	"particle.h"
+	"particle.h"
 
 1639838529 source:/home/edwin/Programming/StarTrek_Linux/Probe.cpp
+	"Probe.h"
+	"particle.h"
 	"Probe.h"
 	"particle.h"
 
@@ -919,8 +1581,22 @@
 	"Communication.h"
 	"Enterprise.h"
 	<fstream>
+	"Reliant.h"
+	"Reliant.h"
+	"Bullet.h"
+	"SoundManager.h"
+	"Communication.h"
+	"Enterprise.h"
+	<fstream>
 
-1637595221 source:/home/edwin/Programming/StarTrek_Linux/Romulan_BOP.cpp
+1661628671 source:/home/edwin/Programming/StarTrek_Linux/Romulan_BOP.cpp
+	"StarTrekV3.h"
+	"Romulan_BOP.h"
+	"Bullet.h"
+	"SoundManager.h"
+	"Enterprise.h"
+	"Communication.h"
+	<iostream>
 	"StarTrekV3.h"
 	"Romulan_BOP.h"
 	"Bullet.h"
@@ -936,8 +1612,16 @@
 	"Engine.h"
 	"WindowDialog.h"
 	<allegro5/allegro_primitives.h>
+	"SaveSlots.h"
+	"Engine.h"
+	"WindowDialog.h"
+	<allegro5/allegro_primitives.h>
 
 1631460677 source:/home/edwin/Programming/StarTrek_Linux/Sax.cpp
+	"Sax.h"
+	<strings.h>
+	<iostream>
+	<sstream>
 	"Sax.h"
 	<strings.h>
 	<iostream>
@@ -951,20 +1635,33 @@
 	"Bullet.h"
 	"SoundManager.h"
 	"FontManager.h"
+	<cmath>
+	<algorithm>
+	"Ship.h"
+	"Animation.h"
+	"Bullet.h"
+	"SoundManager.h"
+	"FontManager.h"
 
 1637422310 source:/home/edwin/Programming/StarTrek_Linux/SoundManager.cpp
 	<stdio.h>
 	"SoundManager.h"
+	<stdio.h>
+	"SoundManager.h"
 
 1638013764 source:/home/edwin/Programming/StarTrek_Linux/SpaceObject.cpp
+	"SpaceObject.h"
 	"SpaceObject.h"
 
 1631460677 source:/home/edwin/Programming/StarTrek_Linux/Starbase.cpp
 	"Starbase.h"
 	"Bullet.h"
 	"SoundManager.h"
+	"Starbase.h"
+	"Bullet.h"
+	"SoundManager.h"
 
-1661524845 source:/home/edwin/Programming/StarTrek_Linux/StartrekV3.cpp
+1661630387 source:/home/edwin/Programming/StarTrek_Linux/StartrekV3.cpp
 	<stdio.h>
 	<iostream>
 	<time.h>
@@ -1002,10 +1699,11 @@
 	"Menu.h"
 	"SaveSlots.h"
 	"Transporter.h"
+	"Starfleet.h"
 
 1631460678 /home/edwin/Programming/StarTrek_Linux/version.h
 
-1661622922 source:/home/edwin/Programming/StarTrek_Linux/Statement.cpp
+1661631158 source:/home/edwin/Programming/StarTrek_Linux/Statement.cpp
 	<iostream>
 	"types.h"
 	"Statement.h"
@@ -1013,8 +1711,25 @@
 1661531138 source:/home/edwin/Programming/StarTrek_Linux/Transporter.cpp
 	"Transporter.h"
 	"SoundManager.h"
+	"Transporter.h"
+	"SoundManager.h"
 
 1661608625 source:/home/edwin/Programming/StarTrek_Linux/Universe.cpp
+	<time.h>
+	<ostream>
+	"Universe.h"
+	"Communication.h"
+	"Engine.h"
+	"Enterprise.h"
+	"Romulan_BOP.h"
+	"Klingon_BC.h"
+	"Klingon_BOP.h"
+	"SpaceObject.h"
+	"Starbase.h"
+	"Federation_Ship.h"
+	"Reliant.h"
+	"Transporter.h"
+	"Animation.h"
 	<time.h>
 	<ostream>
 	"Universe.h"
@@ -1040,12 +1755,42 @@
 	<allegro5/allegro.h>
 	<allegro5/allegro_image.h>
 	"utils.h"
+	<stdio.h>
+	<iostream>
+	<string>
+	<fstream>
+	<algorithm>
+	<allegro5/allegro.h>
+	<allegro5/allegro_image.h>
+	"utils.h"
 
 1631460677 source:/home/edwin/Programming/StarTrek_Linux/WindowDialog.cpp
 	"WindowDialog.h"
 	"FontManager.h"
 	<allegro5/allegro_primitives.h>
+	"WindowDialog.h"
+	"FontManager.h"
+	<allegro5/allegro_primitives.h>
 
-1661621047 source:/home/edwin/Programming/StarTrek_Linux/Starfleet.cpp
-	"Starbase.h"
+1661629426 source:/home/edwin/Programming/StarTrek_Linux/Starfleet.cpp
+	<iostream>
+	"StarTrekV3.h"
+	"Enterprise.h"
+	"Communication.h"
+	"Starfleet.h"
+	"utils.h"
+	<iostream>
+	"StarTrekV3.h"
+	"Enterprise.h"
+	"Communication.h"
+	"Starfleet.h"
+	"utils.h"
+
+1661628671 /home/edwin/Programming/StarTrek_Linux/Starfleet.h
+	"Universe.h"
+	"DialogParser.h"
+	"Dialog.h"
+	"Universe.h"
+	"DialogParser.h"
+	"Dialog.h"
 

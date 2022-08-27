@@ -43,7 +43,6 @@ void CDialogParser::StartNode(string & a_strNodeName, string & a_strAttributes)
         if (a_strNodeName == "DIALOG")
         {
             m_blReadDialog = true;
-
         }
         else if (a_strNodeName == "STATEMENT")
         {

@@ -1,0 +1,8 @@
+<DIALOG>
+	<STATEMENT id = "0" img = "starfleet.png">
+        This is a test for the start of the game	    
+        <ANSWER next = "1" value = "0" >
+		Thank you admiral, Kirk out.
+		</ANSWER>
+	</STATEMENT>
+</DIALOG>
