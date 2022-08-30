@@ -101,8 +101,13 @@ void CDialog::AddStatement(CStatement * a_pStatement)
 {
     if ( a_pStatement != NULL)
     {
+        if (m_vStatement.size() == 0)
+        {
+            a_pStatement->ReleaseMouse();
+        }
         a_pStatement->m_pParent = this;
         m_vStatement.push_back(a_pStatement);
+
     }
 }
 

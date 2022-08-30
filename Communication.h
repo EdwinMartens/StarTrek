@@ -57,7 +57,8 @@ enum crewmember
      CREW_SCOTTY = 3,
      CREW_UHURA  = 4,
      CREW_SULU   = 5,
-     CREW_CHECOV = 6
+     CREW_CHECOV = 6,
+     CREW_END
 };
 
 class Communication;

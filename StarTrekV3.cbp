@@ -30,7 +30,6 @@
 					<Add directory="/usr/include/allegro5" />
 				</Compiler>
 				<Linker>
-					<Add option="-s" />
 					<Add option="`pkg-config --libs allegro-5 allegro_dialog-5 allegro_acodec-5 allegro_audio-5 allegro_color-5 allegro_font-5 allegro_image-5 allegro_primitives-5 allegro_ttf-5`" />
 				</Linker>
 			</Target>

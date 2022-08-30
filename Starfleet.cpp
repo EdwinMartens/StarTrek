@@ -46,6 +46,9 @@ void Starfleet::sendMessage(GENERICMESSAGE message)
 
                     case FORBIDDEN:
                     break;
+
+                    default:
+                    break;
                 }
                 StartDialog();
             }

@@ -1,10 +1,13 @@
 #include "Transporter.h"
 #include "SoundManager.h"
+#include "Enterprise.h"
+#include "Communication.h"
+
+extern TEnterprise * g_pEnterprise;
+extern Communication * g_pCommunication;
 
 static std::vector<ALLEGRO_BITMAP *> g_lstInventoryImages;
-
 ALLEGRO_COLOR g_BeamColor;
-
 ALLEGRO_BITMAP * g_pTransporterControl = NULL;
 
 CTransporter::CTransporter()
@@ -259,7 +262,17 @@ void CTransporter::draw(int a_nX, int a_nY, int a_nHeight,ALLEGRO_DISPLAY * a_pD
 
 void CTransporter::addToInventory(TInventoryItem a_Item)
 {
-     m_lstInventory.push_back(a_Item);
+     if (a_Item.imageID == INV_SPOCK)
+     {
+         g_pEnterprise->SetCrewMember(CREW_SPOCK);
+         g_pCommunication->AddMessage(12,CREW_KIRK,"Welcome aboard mr Spock");
+         g_pCommunication->AddMessage(13,CREW_SPOCK,"Thank you sir !");
+     }
+     else
+     {
+         m_lstInventory.push_back(a_Item);
+     }
+
 }
 
 void CTransporter::removeFromInventory(int a_nIndex)

@@ -87,7 +87,20 @@ TEnterprise::TEnterprise()
 		m_lstHealth.push_back(m_nMaxHealth);
     }
 
-	SetImage(g_pEnterpriseBitmap);
+    for (int i =0; i < PLAYED_END; i++)
+    {
+        m_blPlayed[i] = false;
+    }
+
+    for (int i =0; i < CREW_END; i++)
+    {
+        m_blHasCrewMember[i] = true;
+    }
+
+    ResetCrewMember(CREW_SPOCK);
+
+
+    SetImage(g_pEnterpriseBitmap);
 	m_pTransporter = new CTransporter();
     m_pDialog      = new CDialog();
     m_ScanInfo.m_Valid = false;
@@ -96,11 +109,13 @@ TEnterprise::TEnterprise()
 TEnterprise::TEnterprise(ifstream & a_LoadStream, ID a_id )
 :TShip(a_LoadStream, a_id)
 {
+   char chCrewmembers=0;
    a_LoadStream.read((char*)& m_nSectorPositionX, sizeof (m_nSectorPositionX));
    a_LoadStream.read((char*)& m_nSectorPositionY, sizeof (m_nSectorPositionY));
    a_LoadStream.read((char*)& m_nWarpFactor, sizeof (m_nWarpFactor));
    a_LoadStream.read((char*)& m_nProbes, sizeof (m_nProbes));
    a_LoadStream.read((char*)& m_blShieldOn, sizeof (m_blShieldOn));
+   a_LoadStream.read(&chCrewmembers, sizeof (char));
    m_pTransporter = new CTransporter(a_LoadStream);
    m_pTransportTarget = NULL;
 
@@ -127,13 +142,21 @@ TEnterprise::TEnterprise(ifstream & a_LoadStream, ID a_id )
    m_nDestructTimer   = 600;
    m_blSelfDestruct   = false;
 
-
    m_nEnergyTimer     =    50;
    m_nMaxShieldEnergy =   100;
    m_nMaxHealth       =   100;
    m_dMaxSpeed        =   200;
    m_ScanInfo.m_Valid = false;
 
+   for (int i =0; i < CREW_END; i++)
+   {
+        m_blHasCrewMember[i] = (chCrewmembers >> i) & 1;
+   }
+
+   for (int i =0; i < PLAYED_END; i++)
+   {
+        m_blPlayed[i] = false;
+   }
 }
 
 
@@ -141,16 +164,31 @@ void TEnterprise::Save(ofstream & a_SaveStream)
 {
    TShip::Save(a_SaveStream);
 
+   char chCrewmembers=0;
+   for (int i =0; i < CREW_END; i++)
+   {
+        if (m_blHasCrewMember[i])
+        {
+            chCrewmembers |= (1 << i);
+        }
+        else
+        {
+            chCrewmembers &= ~(1 << i);
+        }
+   }
+
    a_SaveStream.write((char*)& m_nSectorPositionX, sizeof (m_nSectorPositionX));
    a_SaveStream.write((char*)& m_nSectorPositionY, sizeof (m_nSectorPositionY));
    a_SaveStream.write((char*)& m_nWarpFactor, sizeof (m_nWarpFactor));
    a_SaveStream.write((char*)& m_nProbes, sizeof (m_nProbes));
    a_SaveStream.write((char*)& m_blShieldOn, sizeof (m_blShieldOn));
+   a_SaveStream.write(&chCrewmembers, sizeof(char));
 
    if (m_pTransporter != NULL)
    {
        m_pTransporter->Save(a_SaveStream);
    }
+
 }
 
 
@@ -1152,6 +1190,21 @@ void TEnterprise::SetPhaserTarget(HEALTH a_Subsystem)
     m_nPreferedTarget = a_Subsystem;
 }
 
+
+bool TEnterprise::HasCrewMember(crewmember member)
+{
+    return m_blHasCrewMember[member];
+}
+
+void TEnterprise::SetCrewMember(crewmember member)
+{
+      m_blHasCrewMember[member] = true;
+}
+
+void TEnterprise::ResetCrewMember(crewmember member)
+{
+      m_blHasCrewMember[member] = false;
+}
 
 
 void TEnterprise::draw_engineering()

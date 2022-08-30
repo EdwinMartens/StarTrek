@@ -1053,34 +1053,16 @@
 	<vector>
 	"WindowDialog.h"
 
-1637513592 source:/home/edwin/Programming/StarTrek_Linux/Communication.cpp
+1661863161 source:/home/edwin/Programming/StarTrek_Linux/Communication.cpp
 	"Communication.h"
 	<stdio.h>
 	<iostream>
 	"utils.h"
 	"SoundManager.h"
 	"FontManager.h"
-	"Communication.h"
-	<stdio.h>
-	<iostream>
-	"utils.h"
-	"SoundManager.h"
-	"FontManager.h"
+	"Enterprise.h"
 
-1631460677 /home/edwin/Programming/StarTrek_Linux/Communication.h
-	<stdio.h>
-	<iostream>
-	<allegro5/allegro.h>
-	<allegro5/allegro_image.h>
-	<allegro5/allegro_primitives.h>
-	<allegro5/allegro_font.h>
-	<allegro5/allegro_ttf.h>
-	<allegro5/allegro_audio.h>
-	<allegro5/allegro_acodec.h>
-	<list>
-	<string>
-	<vector>
-	"types.h"
+1661862089 /home/edwin/Programming/StarTrek_Linux/Communication.h
 	<stdio.h>
 	<iostream>
 	<allegro5/allegro.h>
@@ -1131,8 +1113,7 @@
 	"CoolMath.h"
 	"CoolMath.h"
 
-1661622922 source:/home/edwin/Programming/StarTrek_Linux/Dialog.cpp
-	"Dialog.h"
+1661872612 source:/home/edwin/Programming/StarTrek_Linux/Dialog.cpp
 	"Dialog.h"
 
 1661622922 /home/edwin/Programming/StarTrek_Linux/Dialog.h
@@ -1147,15 +1128,7 @@
 	"types.h"
 	"Statement.h"
 
-1661622922 /home/edwin/Programming/StarTrek_Linux/Statement.h
-	"Dialog.h"
-	<vector>
-	<string>
-	<allegro5/allegro.h>
-	<allegro5/allegro_font.h>
-	<allegro5/allegro_ttf.h>
-	<allegro5/allegro_image.h>
-	<allegro5/allegro_primitives.h>
+1661872612 /home/edwin/Programming/StarTrek_Linux/Statement.h
 	"Dialog.h"
 	<vector>
 	<string>
@@ -1287,7 +1260,7 @@
 	"Transporter.h"
 	<vector>
 
-1639837574 /home/edwin/Programming/StarTrek_Linux/Enterprise.h
+1661862708 /home/edwin/Programming/StarTrek_Linux/Enterprise.h
 	<vector>
 	<cmath>
 	"types.h"
@@ -1296,14 +1269,7 @@
 	"Universe.h"
 	"Transporter.h"
 	"Dialog.h"
-	<vector>
-	<cmath>
-	"types.h"
-	"Engine.h"
-	"Ship.h"
-	"Universe.h"
-	"Transporter.h"
-	"Dialog.h"
+	"Communication.h"
 
 1637942311 /home/edwin/Programming/StarTrek_Linux/Universe.h
 	"types.h"
@@ -1479,14 +1445,7 @@
 	"types.h"
 	"Engine.h"
 
-1661623330 source:/home/edwin/Programming/StarTrek_Linux/Enterprise.cpp
-	"Enterprise.h"
-	"Bullet.h"
-	"Probe.h"
-	"Communication.h"
-	"SoundManager.h"
-	"FontManager.h"
-	"Statement.h"
+1661866551 source:/home/edwin/Programming/StarTrek_Linux/Enterprise.cpp
 	"Enterprise.h"
 	"Bullet.h"
 	"Probe.h"
@@ -1703,16 +1662,16 @@
 
 1631460678 /home/edwin/Programming/StarTrek_Linux/version.h
 
-1661631158 source:/home/edwin/Programming/StarTrek_Linux/Statement.cpp
+1661872612 source:/home/edwin/Programming/StarTrek_Linux/Statement.cpp
 	<iostream>
 	"types.h"
 	"Statement.h"
 
-1661531138 source:/home/edwin/Programming/StarTrek_Linux/Transporter.cpp
+1661866946 source:/home/edwin/Programming/StarTrek_Linux/Transporter.cpp
 	"Transporter.h"
 	"SoundManager.h"
-	"Transporter.h"
-	"SoundManager.h"
+	"Enterprise.h"
+	"Communication.h"
 
 1661608625 source:/home/edwin/Programming/StarTrek_Linux/Universe.cpp
 	<time.h>
@@ -1772,13 +1731,7 @@
 	"FontManager.h"
 	<allegro5/allegro_primitives.h>
 
-1661629426 source:/home/edwin/Programming/StarTrek_Linux/Starfleet.cpp
-	<iostream>
-	"StarTrekV3.h"
-	"Enterprise.h"
-	"Communication.h"
-	"Starfleet.h"
-	"utils.h"
+1661862778 source:/home/edwin/Programming/StarTrek_Linux/Starfleet.cpp
 	<iostream>
 	"StarTrekV3.h"
 	"Enterprise.h"

@@ -34,6 +34,7 @@ friend class CDialog;
     void AddText(const char * a_szText);
     void AddAnswer(CAnswer * a_pAnswer);
     void Draw();
+    void ReleaseMouse();
 
     void OnMouseButtonDown(const ALLEGRO_MOUSE_EVENT & a_MouseEvent);
     void OnMouseButtonUp(const ALLEGRO_MOUSE_EVENT & a_MouseEvent);

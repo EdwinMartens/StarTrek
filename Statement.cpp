@@ -69,6 +69,11 @@ void CStatement::AddText(const char * a_szText)
     m_vStatement.push_back(strText);
 }
 
+void CStatement::ReleaseMouse()
+{
+    m_blMouseWasUp = true;
+}
+
 void CStatement::AddAnswer(CAnswer * a_pAnswer)
 {
     a_pAnswer->m_nY = m_nAnswerY;

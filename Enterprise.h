@@ -39,7 +39,7 @@
 #include "Universe.h"
 #include "Transporter.h"
 #include "Dialog.h"
-
+#include "Communication.h"
 
 enum PLAYED
 {
@@ -79,6 +79,7 @@ private:
     int m_nDestructTimer;
     bool m_blSelfDestruct;
     bool m_blPlayed[PLAYED_END];
+    bool m_blHasCrewMember[CREW_END];
     TScanInfo m_ScanInfo;
 
 	NAVIGATION_MODE m_NavigationMode;
@@ -121,6 +122,9 @@ public:
     void SignalTargetDesytoyed();
     void GetTransportTarget();
     void SetScanInfo(TScanInfo scaninfo);
+    bool HasCrewMember(crewmember member);
+    void SetCrewMember(crewmember member);
+    void ResetCrewMember(crewmember member);
 
 
     void   IncNavX();

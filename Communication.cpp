@@ -5,9 +5,10 @@
 #include "utils.h"
 #include "SoundManager.h"
 #include "FontManager.h"
+#include "Enterprise.h"
 
 extern ofstream logfile;
-
+extern TEnterprise * g_pEnterprise;
 
 
 static std::vector<ALLEGRO_BITMAP *> g_lstAvatar;
@@ -95,31 +96,34 @@ void Communication::Clear()
 
 void Communication::AddMessage(int a_nID, crewmember a_CrewMember,const char * a_szMessage)
 {
-    list<Message *>::const_iterator p = messagequeue.begin();
-    bool blFound = false;
-    while ((!blFound) && (p != messagequeue.end()))
+    if ((g_pEnterprise != NULL) && (g_pEnterprise->HasCrewMember(a_CrewMember)))
     {
-        if ((*p)->m_nID == a_nID )
+        list<Message *>::const_iterator p = messagequeue.begin();
+        bool blFound = false;
+
+        while ((!blFound) && (p != messagequeue.end()))
         {
-            blFound = true;
+            if ((*p)->m_nID == a_nID )
+            {
+                blFound = true;
+            }
+            p++;
         }
-        p++;
+
+        if (!blFound)
+        {
+            if (messagequeue.empty())
+            {
+                m_nPos = 80;
+                m_nCounter = 60 * MESSAGE_READ_TIME;
+                SoundManager::PlaySound(SOUND::INTERCOM,1.0);
+            }
+
+            Message * pMessage = new Message(a_nID,a_szMessage, a_CrewMember);
+            pMessage->m_pOwner = this;
+            messagequeue.push_back(pMessage);
+        }
     }
-
-    if (!blFound)
-    {
-       if (messagequeue.empty())
-       {
-           m_nPos = 80;
-           m_nCounter = 60 * MESSAGE_READ_TIME;
-           SoundManager::PlaySound(SOUND::INTERCOM,1.0);
-       }
-
-       Message * pMessage = new Message(a_nID,a_szMessage, a_CrewMember);
-       pMessage->m_pOwner = this;
-       messagequeue.push_back(pMessage);
-    }
-
 }
 
 void Communication::Draw()
