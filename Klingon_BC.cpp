@@ -82,12 +82,17 @@ TKlingonBC::TKlingonBC(ifstream & a_LoadStream, ID a_id)
 	m_ID                  = ID_KLINGONBC;
     m_strName             = "KLINGON BC";
 	SetImage(g_pKlingonBCBitmap);
+	#ifdef _DEBUG
+	std::cout << "-Klingon BC loaded\n";
+	#endif // _DEBUG
 }
 
 void TKlingonBC::Save(ofstream & a_SaveStream)
 {
      TShip::Save(a_SaveStream);
-
+     #ifdef _DEBUG
+	std::cout << "-Klingon BC saved\n";
+	#endif // _DEBUG
 
 }
 

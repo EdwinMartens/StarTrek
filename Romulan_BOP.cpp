@@ -95,16 +95,24 @@ TRomulanBop::TRomulanBop(ifstream & a_LoadStream,ID a_id)
     m_Member			  = MEM_ROMULAN;
 	m_PreferedBase		  = ID_ROMULAN_BASE;
 	m_ID                  = ID_ROMULANBOP;
-    m_strName             = "ROMULAN BOP";
+    m_strName             = "ROMULAN WB";
     m_blBeamSound         = false;
 
 	SetImage(g_pRomulanBOPBitmap);
+
+	#ifdef _DEBUG
+	std::cout << "-Romulan WB loaded\n";
+	#endif // _DEBUG
 }
 
 void TRomulanBop::Save(ofstream & a_SaveStream)
 {
     TShip::Save(a_SaveStream);
     a_SaveStream.write((char*)& m_nDisposition, sizeof (m_nDisposition));
+
+    #ifdef _DEBUG
+	std::cout << "-Romulan WB saved\n";
+	#endif // _DEBUG
 }
 
 

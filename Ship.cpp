@@ -182,6 +182,10 @@ TShip::TShip(ifstream & a_LoadStream,ID a_id)
 	m_blEvading = false;
 	m_blShieldOn          = true;
 
+	#ifdef _DEBUG
+	std::cout << "-- Ship loaded\n";
+	#endif // _DEBUG
+
 }
 
 
@@ -227,8 +231,9 @@ void TShip::Save(ofstream & a_SaveStream)
          int Health = m_lstHealth[(HEALTH)i];
          a_SaveStream.write((char*)& Health, sizeof (Health));
     }
-
-
+    #ifdef _DEBUG
+	std::cout << "-- Ship saved\n";
+	#endif // _DEBUG
 }
 
 

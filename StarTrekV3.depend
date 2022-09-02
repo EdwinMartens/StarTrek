@@ -1250,14 +1250,11 @@
 	"types.h"
 	"Engine.h"
 
-1638013764 /home/edwin/Programming/StarTrek_Linux/SpaceObject.h
+1662126048 /home/edwin/Programming/StarTrek_Linux/SpaceObject.h
 	"types.h"
 	"Engine.h"
 	"Transporter.h"
-	<vector>
-	"types.h"
-	"Engine.h"
-	"Transporter.h"
+	"InventoryHolder.h"
 	<vector>
 
 1661862708 /home/edwin/Programming/StarTrek_Linux/Enterprise.h
@@ -1271,14 +1268,7 @@
 	"Dialog.h"
 	"Communication.h"
 
-1637942311 /home/edwin/Programming/StarTrek_Linux/Universe.h
-	"types.h"
-	"Engine.h"
-	"SpaceObject.h"
-	"Starbase.h"
-	"Transporter.h"
-	<vector>
-	<math.h>
+1662124296 /home/edwin/Programming/StarTrek_Linux/Universe.h
 	"types.h"
 	"Engine.h"
 	"SpaceObject.h"
@@ -1287,18 +1277,12 @@
 	<vector>
 	<math.h>
 
-1631460677 /home/edwin/Programming/StarTrek_Linux/Starbase.h
+1662128145 /home/edwin/Programming/StarTrek_Linux/Starbase.h
 	"types.h"
 	"Engine.h"
 	"Ship.h"
 	"Universe.h"
-	<allegro5/allegro_audio.h>
-	<vector>
-	<cmath>
-	"types.h"
-	"Engine.h"
-	"Ship.h"
-	"Universe.h"
+	"InventoryHolder.h"
 	<allegro5/allegro_audio.h>
 	<vector>
 	<cmath>
@@ -1445,7 +1429,7 @@
 	"types.h"
 	"Engine.h"
 
-1661866551 source:/home/edwin/Programming/StarTrek_Linux/Enterprise.cpp
+1662128145 source:/home/edwin/Programming/StarTrek_Linux/Enterprise.cpp
 	"Enterprise.h"
 	"Bullet.h"
 	"Probe.h"
@@ -1454,11 +1438,7 @@
 	"FontManager.h"
 	"Statement.h"
 
-1637594003 source:/home/edwin/Programming/StarTrek_Linux/Federation_Ship.cpp
-	"Federation_Ship.h"
-	"Bullet.h"
-	"SoundManager.h"
-	<fstream>
+1662128145 source:/home/edwin/Programming/StarTrek_Linux/Federation_Ship.cpp
 	"Federation_Ship.h"
 	"Bullet.h"
 	"SoundManager.h"
@@ -1474,18 +1454,12 @@
 	"KeyMapper.h"
 	"KeyMapper.h"
 
-1637594003 source:/home/edwin/Programming/StarTrek_Linux/Klingon_BC.cpp
-	"Klingon_BC.h"
-	"Bullet.h"
-	"SoundManager.h"
+1662128145 source:/home/edwin/Programming/StarTrek_Linux/Klingon_BC.cpp
 	"Klingon_BC.h"
 	"Bullet.h"
 	"SoundManager.h"
 
-1631460677 source:/home/edwin/Programming/StarTrek_Linux/Klingon_BOP.cpp
-	"Klingon_BOP.h"
-	"Bullet.h"
-	"SoundManager.h"
+1662128145 source:/home/edwin/Programming/StarTrek_Linux/Klingon_BOP.cpp
 	"Klingon_BOP.h"
 	"Bullet.h"
 	"SoundManager.h"
@@ -1526,20 +1500,11 @@
 	"particle.h"
 	"particle.h"
 
-1639838529 source:/home/edwin/Programming/StarTrek_Linux/Probe.cpp
-	"Probe.h"
-	"particle.h"
+1662128145 source:/home/edwin/Programming/StarTrek_Linux/Probe.cpp
 	"Probe.h"
 	"particle.h"
 
-1637594003 source:/home/edwin/Programming/StarTrek_Linux/Reliant.cpp
-	"Reliant.h"
-	"Reliant.h"
-	"Bullet.h"
-	"SoundManager.h"
-	"Communication.h"
-	"Enterprise.h"
-	<fstream>
+1662128145 source:/home/edwin/Programming/StarTrek_Linux/Reliant.cpp
 	"Reliant.h"
 	"Reliant.h"
 	"Bullet.h"
@@ -1548,14 +1513,7 @@
 	"Enterprise.h"
 	<fstream>
 
-1661628671 source:/home/edwin/Programming/StarTrek_Linux/Romulan_BOP.cpp
-	"StarTrekV3.h"
-	"Romulan_BOP.h"
-	"Bullet.h"
-	"SoundManager.h"
-	"Enterprise.h"
-	"Communication.h"
-	<iostream>
+1662128145 source:/home/edwin/Programming/StarTrek_Linux/Romulan_BOP.cpp
 	"StarTrekV3.h"
 	"Romulan_BOP.h"
 	"Bullet.h"
@@ -1586,14 +1544,7 @@
 	<iostream>
 	<sstream>
 
-1637595221 source:/home/edwin/Programming/StarTrek_Linux/Ship.cpp
-	<cmath>
-	<algorithm>
-	"Ship.h"
-	"Animation.h"
-	"Bullet.h"
-	"SoundManager.h"
-	"FontManager.h"
+1662128145 source:/home/edwin/Programming/StarTrek_Linux/Ship.cpp
 	<cmath>
 	<algorithm>
 	"Ship.h"
@@ -1608,19 +1559,15 @@
 	<stdio.h>
 	"SoundManager.h"
 
-1638013764 source:/home/edwin/Programming/StarTrek_Linux/SpaceObject.cpp
-	"SpaceObject.h"
+1662128145 source:/home/edwin/Programming/StarTrek_Linux/SpaceObject.cpp
 	"SpaceObject.h"
 
-1631460677 source:/home/edwin/Programming/StarTrek_Linux/Starbase.cpp
-	"Starbase.h"
-	"Bullet.h"
-	"SoundManager.h"
+1662128145 source:/home/edwin/Programming/StarTrek_Linux/Starbase.cpp
 	"Starbase.h"
 	"Bullet.h"
 	"SoundManager.h"
 
-1661630387 source:/home/edwin/Programming/StarTrek_Linux/StartrekV3.cpp
+1662122475 source:/home/edwin/Programming/StarTrek_Linux/StartrekV3.cpp
 	<stdio.h>
 	<iostream>
 	<time.h>
@@ -1673,22 +1620,7 @@
 	"Enterprise.h"
 	"Communication.h"
 
-1661608625 source:/home/edwin/Programming/StarTrek_Linux/Universe.cpp
-	<time.h>
-	<ostream>
-	"Universe.h"
-	"Communication.h"
-	"Engine.h"
-	"Enterprise.h"
-	"Romulan_BOP.h"
-	"Klingon_BC.h"
-	"Klingon_BOP.h"
-	"SpaceObject.h"
-	"Starbase.h"
-	"Federation_Ship.h"
-	"Reliant.h"
-	"Transporter.h"
-	"Animation.h"
+1662126366 source:/home/edwin/Programming/StarTrek_Linux/Universe.cpp
 	<time.h>
 	<ostream>
 	"Universe.h"
@@ -1739,11 +1671,22 @@
 	"Starfleet.h"
 	"utils.h"
 
-1661628671 /home/edwin/Programming/StarTrek_Linux/Starfleet.h
+1662122475 /home/edwin/Programming/StarTrek_Linux/Starfleet.h
 	"Universe.h"
 	"DialogParser.h"
 	"Dialog.h"
-	"Universe.h"
-	"DialogParser.h"
-	"Dialog.h"
+
+1662124335 source:/home/edwin/Programming/StarTrek_Linux/Mission.cpp
+	"Mission.h"
+
+1662124315 /home/edwin/Programming/StarTrek_Linux/Mission.h
+	<stdio.h>
+	<iostream>
+	<ostream>
+
+1662128263 /home/edwin/Programming/StarTrek_Linux/InventoryHolder.h
+	"Transporter.h"
+
+1662128145 source:/home/edwin/Programming/StarTrek_Linux/InventoryHolder.cpp
+	"InventoryHolder.h"
 

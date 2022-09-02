@@ -83,14 +83,19 @@ TFederation_Ship::TFederation_Ship(ifstream & a_LoadStream, ID a_id)
 	m_ID                  = ID_GALAXYCLASS;
     m_strName          = "GALAXY";
 	SetImage(g_pFederation_Ship1);
+
+	#ifdef _DEBUG
+	std::cout << "-Federation ship loaded\n";
+	#endif // _DEBUG
 }
 
 void TFederation_Ship::Save(ofstream & a_SaveStream)
 {
     TShip::Save(a_SaveStream);
 
-
-
+    #ifdef _DEBUG
+	std::cout << "-Federation ship saved\n";
+	#endif // _DEBUG
 }
 
 

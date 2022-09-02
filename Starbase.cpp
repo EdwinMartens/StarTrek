@@ -102,7 +102,7 @@ TStarbase::TStarbase(ID a_nStarbaseType)
 
 
 TStarbase::TStarbase(ifstream & a_LoadStream,ID a_id)
-:TShip(a_LoadStream, a_id)
+:TShip(a_LoadStream, a_id), CInventoryHolder(a_LoadStream)
 {
     	switch (a_id)
 	{
@@ -150,11 +150,18 @@ TStarbase::TStarbase(ifstream & a_LoadStream,ID a_id)
     {
 		m_lstHealth[i] = std::min(m_lstHealth[i], m_nMaxHealth);
     }
+    #ifdef _DEBUG
+	std::cout << "-Starbase loaded\n";
+	#endif // _DEBUG
 }
 
 void TStarbase::Save(ofstream & a_SaveStream)
 {
     TShip::Save(a_SaveStream);
+    CInventoryHolder::Save(a_SaveStream);
+    #ifdef _DEBUG
+	std::cout << "-Starbase saved\n";
+	#endif // _DEBUG
 }
 
 

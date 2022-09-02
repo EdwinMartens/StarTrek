@@ -27,8 +27,7 @@ TSpaceObject::TSpaceObject(ID a_Type)
    	m_nZ	 = 10;
 	m_blDestroyed=false;
 	m_blCanCollide=false;
-	m_blHasInventoryItem = false;
-	m_ID = a_Type;
+    m_ID = a_Type;
 
 
 	switch (m_ID)
@@ -97,38 +96,10 @@ TSpaceObject::TSpaceObject(ID a_Type)
 	}
 }
 
-bool TSpaceObject::HasInventoryItem()
-{
-    return m_blHasInventoryItem;
-}
-
-TInventoryItem TSpaceObject::GetInventoryItem()
-{
-    return m_InventoryItem;
-}
-
-void TSpaceObject::RemoveInventoryItem()
-{
-    m_blHasInventoryItem = false;
-    m_InventoryItem.m_blValid = false;
-}
-
-void TSpaceObject::SetInventoryItem(TInventoryItem item)
-{
-    if (item.m_blValid)
-    {
-        m_InventoryItem = item;
-        m_blHasInventoryItem = true;
-    }
-}
-
 
 TSpaceObject::TSpaceObject(ifstream & a_LoadStream,ID a_id)
-:TSprite(a_LoadStream, a_id)
+:TSprite(a_LoadStream, a_id),CInventoryHolder(a_LoadStream)
 {
-	a_LoadStream.read((char*)& m_blHasInventoryItem, sizeof (m_blHasInventoryItem));
-    a_LoadStream.read((char*)& m_InventoryItem, sizeof (TInventoryItem));
-
 	m_nZ	 = 10;
 	m_blDestroyed=false;
 	m_blCanCollide=false;
@@ -198,13 +169,18 @@ TSpaceObject::TSpaceObject(ifstream & a_LoadStream,ID a_id)
 		break;
 
 	}
+	#ifdef _DEBUG
+	std::cout << "-Space Object loaded\n";
+	#endif // _DEBUG
 }
 
 void TSpaceObject::Save(ofstream & a_SaveStream)
 {
 	TSprite::Save(a_SaveStream);
-    a_SaveStream.write((char*)& m_blHasInventoryItem, sizeof (m_blHasInventoryItem));
-    a_SaveStream.write((char*)& m_InventoryItem, sizeof (TInventoryItem));
+	CInventoryHolder::Save(a_SaveStream);
+	#ifdef _DEBUG
+	std::cout << "-Space Object saved\n";
+	#endif // _DEBUG
 }
 
 

@@ -9,8 +9,8 @@ ALLEGRO_BITMAP * g_pProbeBitmap=NULL;
 
 TProbe::TProbe(double a_dX, double a_dY,double a_dSpeed, double a_dAngle, int a_nZ, TEnterprise * a_pOwner)
 {
-    m_pOwner        =   a_pOwner;
-    m_dX		    =   a_dX;
+  m_pOwner        =   a_pOwner;
+  m_dX		    =   a_dX;
 	m_dY			=   a_dY;
 	m_dAngle		=   a_dAngle;
 	m_nZ            =   a_nZ;
@@ -39,11 +39,18 @@ TProbe::TProbe(ifstream & a_LoadStream, ID a_id)
     m_blCanCollide	=   true;
 	m_nBitmapWidth	=    10;
 	m_nBitmapHeight =    10;
+
+	#ifdef _DEBUG
+	std::cout << "-Probe loaded\n";
+	#endif // _DEBUG
 }
 
 void TProbe::Save(ofstream & a_SaveStream)
 {
     TSprite::Save(a_SaveStream);
+    #ifdef _DEBUG
+	std::cout << "-Probe saved\n";
+	#endif // _DEBUG
 }
 
 

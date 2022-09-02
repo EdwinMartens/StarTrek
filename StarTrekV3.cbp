@@ -63,6 +63,8 @@
 		<Unit filename="FontManager.h" />
 		<Unit filename="Functions.h" />
 		<Unit filename="Global.h" />
+		<Unit filename="InventoryHolder.cpp" />
+		<Unit filename="InventoryHolder.h" />
 		<Unit filename="KeyMapper.cpp" />
 		<Unit filename="KeyMapper.h" />
 		<Unit filename="Klingon_BC.cpp" />
@@ -72,6 +74,8 @@
 		<Unit filename="Licence.txt" />
 		<Unit filename="Menu.cpp" />
 		<Unit filename="Menu.h" />
+		<Unit filename="Mission.cpp" />
+		<Unit filename="Mission.h" />
 		<Unit filename="Paralax.cpp" />
 		<Unit filename="Paralax.h" />
 		<Unit filename="Probe.cpp" />

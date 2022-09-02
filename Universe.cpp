@@ -195,15 +195,16 @@ void Sector::Build(TEngine * a_pEngine)
 
 		if (m_Planet[i].m_Item != INV_NONE)
 		{
-            pObject->m_blHasInventoryItem = true;
-            pObject->m_InventoryItem.imageID = m_Planet[i].m_Item;
-            pObject->m_InventoryItem.m_blValid = true;
+
+            TInventoryItem item;
+            item.imageID = m_Planet[i].m_Item;
+            item.m_blValid = true;
+            pObject->SetInventoryItem(item);
 		}
 		else
 		{
-            pObject->m_InventoryItem.m_blValid = false;
-            pObject->m_blHasInventoryItem = false;
-		}
+            pObject->RemoveInventoryItem();
+        }
 
 		a_pEngine->Add(pObject);
 	}

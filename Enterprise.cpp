@@ -157,6 +157,10 @@ TEnterprise::TEnterprise(ifstream & a_LoadStream, ID a_id )
    {
         m_blPlayed[i] = false;
    }
+
+   #ifdef _DEBUG
+	std::cout << "-Enterprise loaded\n";
+   #endif // _DEBUG
 }
 
 
@@ -189,6 +193,9 @@ void TEnterprise::Save(ofstream & a_SaveStream)
        m_pTransporter->Save(a_SaveStream);
    }
 
+   #ifdef _DEBUG
+	std::cout << "-Enterprise saved\n";
+   #endif // _DEBUG
 }
 
 

@@ -105,6 +105,10 @@ CReliant::CReliant(ifstream & a_LoadStream, ID a_id)
 	m_blSpockMessage      = false;
     m_strName             = "RELIANT";
 	SetImage(g_pReliant);
+
+	#ifdef _DEBUG
+	std::cout << "-Reliant loaded\n";
+	#endif // _DEBUG
 }
 
 void CReliant::Save(ofstream & a_SaveStream)
@@ -112,6 +116,10 @@ void CReliant::Save(ofstream & a_SaveStream)
     TShip::Save(a_SaveStream);
     a_SaveStream.write((char*)& m_nDisposition, sizeof (m_nDisposition));
     a_SaveStream.write((char*)& m_Member, sizeof (m_Member));
+
+    #ifdef _DEBUG
+	std::cout << "-Reliant saved\n";
+	#endif // _DEBUG
 }
 
 

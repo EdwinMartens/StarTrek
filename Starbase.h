@@ -37,15 +37,15 @@
 #include "Engine.h"
 #include "Ship.h"
 #include "Universe.h"
+#include "InventoryHolder.h"
 #include <allegro5/allegro_audio.h>
 #include <vector>
 #include <cmath>
 
 
-class TStarbase:public TShip
+class TStarbase:public TShip, public CInventoryHolder
 {
 private:
-
 
 //double	m_dAimAngle,
 //	    dd;

@@ -78,11 +78,18 @@ TKlingonBOP::TKlingonBOP(ifstream & a_LoadStream, ID a_id)
     m_strName             = "BIRD OF PREY";
     m_blShieldOn          = true;
 	SetImage(g_pKlingonBOPBitmap);
+
+	#ifdef _DEBUG
+	std::cout << "-Klingon BOP loaded\n";
+	#endif // _DEBUG
 }
 
 void TKlingonBOP::Save(ofstream & a_SaveStream)
 {
     TShip::Save(a_SaveStream);
+    #ifdef _DEBUG
+	std::cout << "-Klingon BOP saved\n";
+	#endif // _DEBUG
 }
 
 

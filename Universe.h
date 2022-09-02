@@ -62,7 +62,7 @@ public:
 	int  m_nY;
 	int  m_nPopulation;
 	TInventoryImage m_Item;
-    GamePlanetRec();
+  GamePlanetRec();
 };
 
 class GameSpecialRec

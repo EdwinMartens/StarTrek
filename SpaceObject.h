@@ -35,16 +35,16 @@
 #include "types.h"
 #include "Engine.h"
 #include "Transporter.h"
+#include "InventoryHolder.h"
 #include <vector>
 
 class Sector;
 
-class TSpaceObject:public TSprite
+class TSpaceObject:public TSprite, public CInventoryHolder
 {
 
 private:
-    bool m_blHasInventoryItem;
-	TInventoryItem m_InventoryItem;
+
 
 public:
     TSpaceObject(ID a_Type);
@@ -52,12 +52,8 @@ public:
     void Save(ofstream & a_SaveStream);
 	void Do_ai();
 
-	double GetX();
+	  double GetX();
     double GetY();
-    bool HasInventoryItem();
-    TInventoryItem GetInventoryItem();
-    void RemoveInventoryItem();
-    void SetInventoryItem(TInventoryItem item);
 
 	static bool Init();
 	static void DeInit();

@@ -763,6 +763,7 @@ bool Setup()
 			al_register_event_source(g_pEventQueue, al_get_keyboard_event_source());
 			al_register_event_source(g_pEventQueue, al_get_mouse_event_source());
 			al_register_event_source(g_pEventQueue, al_get_display_event_source(g_pDisplay));
+
 			Log("Event sources registered");
 
 

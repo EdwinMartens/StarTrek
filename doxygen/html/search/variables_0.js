@@ -1,0 +1,19 @@
+var searchData=
+[
+  ['g_5fdlasttime_361',['g_dLastTime',['../_startrek_v3_8cpp.html#af49435ec5cbee93cf47d88760c8fb309',1,'StartrekV3.cpp']]],
+  ['g_5fncyclespersecond_362',['g_nCyclesPerSecond',['../_startrek_v3_8cpp.html#af75e97943bf4138db61b526b8b617da5',1,'StartrekV3.cpp']]],
+  ['g_5fnscreenmode_363',['g_nScreenMode',['../_startrek_v3_8cpp.html#a1efeb90cef3bb7d11a3f96c146d06cf8',1,'StartrekV3.cpp']]],
+  ['g_5fpcommunication_364',['g_pCommunication',['../_startrek_v3_8cpp.html#a6137c1768751df295d2ee17f71230f14',1,'StartrekV3.cpp']]],
+  ['g_5fpdisplay_365',['g_pDisplay',['../_startrek_v3_8cpp.html#a123b1d157add238a673978e60d95cd3d',1,'StartrekV3.cpp']]],
+  ['g_5fpengine_366',['g_pEngine',['../_startrek_v3_8cpp.html#ac859e645c4f40d5f6b9aa1cfa67a918e',1,'StartrekV3.cpp']]],
+  ['g_5fpenterprise_367',['g_pEnterprise',['../_startrek_v3_8cpp.html#aa0e17959edafd27baf63a6262aa3ec59',1,'StartrekV3.cpp']]],
+  ['g_5fpeventqueue_368',['g_pEventQueue',['../_startrek_v3_8cpp.html#a33c31a42c4f8857e0171d50638c36352',1,'StartrekV3.cpp']]],
+  ['g_5fpkeymapper_369',['g_pKeyMapper',['../_startrek_v3_8cpp.html#a3d8915382b1d3b9148c7f101f44bce5d',1,'StartrekV3.cpp']]],
+  ['g_5fpmenu_370',['g_pMenu',['../_startrek_v3_8cpp.html#a627c82ade497e59d9d672ab5397bdf1a',1,'StartrekV3.cpp']]],
+  ['g_5fpparalax_371',['g_pParalax',['../_startrek_v3_8cpp.html#a9e97f3dbc004026c4e72bef374281eb5',1,'StartrekV3.cpp']]],
+  ['g_5fpsavepath_372',['g_pSavePath',['../_startrek_v3_8cpp.html#a65a67a16224d83293fa4232769d773ea',1,'StartrekV3.cpp']]],
+  ['g_5fpscreenshotpath_373',['g_pScreenshotPath',['../_startrek_v3_8cpp.html#a2729de2d9d8317581decc10bc522cc11',1,'StartrekV3.cpp']]],
+  ['g_5fpstarfleet_374',['g_pStarfleet',['../_startrek_v3_8cpp.html#a409b22563ea950a396ff240fdaf7e099',1,'StartrekV3.cpp']]],
+  ['g_5fpuniverse_375',['g_pUniverse',['../_startrek_v3_8cpp.html#ab63ca3b9c71226a3085349ec96370b5c',1,'StartrekV3.cpp']]],
+  ['g_5fvgamestate_376',['g_vGameState',['../_startrek_v3_8cpp.html#aed37eb9b506dbbc627d4944f46a61f48',1,'StartrekV3.cpp']]]
+];

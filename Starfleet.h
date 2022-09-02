@@ -16,6 +16,13 @@ enum GENERICMESSAGE
 
 
 
+
+
+
+
+
+
+
 class Starfleet
 {
 public:

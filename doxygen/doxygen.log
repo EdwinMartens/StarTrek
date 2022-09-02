@@ -1,0 +1,255 @@
+/home/edwin/Programming/StarTrek_Linux/Sax.h:12: warning: the name 'InnoSax.h' supplied as the argument in the \file statement is not an input file
+/home/edwin/Programming/StarTrek_Linux/StartrekV3.cpp:859: warning: argument 'int' of command @param is not found in the argument list of get_desktop_resolution(int a_nAdapter, int *a_pWidth, int *a_pHeighth)
+/home/edwin/Programming/StarTrek_Linux/StartrekV3.cpp:859: warning: argument 'int' of command @param is not found in the argument list of get_desktop_resolution(int a_nAdapter, int *a_pWidth, int *a_pHeighth)
+/home/edwin/Programming/StarTrek_Linux/StartrekV3.cpp:859: warning: argument 'int' of command @param is not found in the argument list of get_desktop_resolution(int a_nAdapter, int *a_pWidth, int *a_pHeighth)
+/home/edwin/Programming/StarTrek_Linux/StartrekV3.cpp:871: warning: The following parameters of get_desktop_resolution(int a_nAdapter, int *a_pWidth, int *a_pHeighth) are not documented:
+  parameter 'a_nAdapter'
+  parameter 'a_pWidth'
+  parameter 'a_pHeighth'
+/home/edwin/Programming/StarTrek_Linux/StartrekV3.cpp:1242: warning: argument 'int' of command @param is not found in the argument list of KeyDown(int a_nKey)
+/home/edwin/Programming/StarTrek_Linux/StartrekV3.cpp:1247: warning: The following parameter of KeyDown(int a_nKey) is not documented:
+  parameter 'a_nKey'
+/home/edwin/Programming/StarTrek_Linux/StartrekV3.cpp:1424: warning: argument 'int' of command @param is not found in the argument list of KeyUp(int a_nKey)
+/home/edwin/Programming/StarTrek_Linux/StartrekV3.cpp:1429: warning: The following parameter of KeyUp(int a_nKey) is not documented:
+  parameter 'a_nKey'
+/home/edwin/Programming/StarTrek_Linux/StartrekV3.cpp:1857: warning: argument 'int' of command @param is not found in the argument list of main(int argc, char **argv)
+/home/edwin/Programming/StarTrek_Linux/StartrekV3.cpp:1857: warning: argument 'char' of command @param is not found in the argument list of main(int argc, char **argv)
+/home/edwin/Programming/StarTrek_Linux/StartrekV3.cpp:1866: warning: The following parameters of main(int argc, char **argv) are not documented:
+  parameter 'argc'
+  parameter 'argv'
+/home/edwin/Programming/StarTrek_Linux/StartrekV3.cpp:1554: warning: argument 'ALLEGRO_MOUSE_EVENT' of command @param is not found in the argument list of Mouse(const ALLEGRO_MOUSE_EVENT &mouse_event)
+/home/edwin/Programming/StarTrek_Linux/StartrekV3.cpp:1559: warning: The following parameter of Mouse(const ALLEGRO_MOUSE_EVENT &mouse_event) is not documented:
+  parameter 'mouse_event'
+/home/edwin/Programming/StarTrek_Linux/StartrekV3.cpp:1597: warning: argument 'ALLEGRO_MOUSE_EVENT' of command @param is not found in the argument list of MouseButtonDown(const ALLEGRO_MOUSE_EVENT &mouse_event)
+/home/edwin/Programming/StarTrek_Linux/StartrekV3.cpp:1602: warning: The following parameter of MouseButtonDown(const ALLEGRO_MOUSE_EVENT &mouse_event) is not documented:
+  parameter 'mouse_event'
+/home/edwin/Programming/StarTrek_Linux/StartrekV3.cpp:1638: warning: argument 'ALLEGRO_MOUSE_EVENT' of command @param is not found in the argument list of MouseButtonUp(const ALLEGRO_MOUSE_EVENT &mouse_event)
+/home/edwin/Programming/StarTrek_Linux/StartrekV3.cpp:1643: warning: The following parameter of MouseButtonUp(const ALLEGRO_MOUSE_EVENT &mouse_event) is not documented:
+  parameter 'mouse_event'
+/home/edwin/Programming/StarTrek_Linux/StartrekV3.cpp:903: warning: argument 'int' of command @param is not found in the argument list of NewSector(int a_nX, int a_nY)
+/home/edwin/Programming/StarTrek_Linux/StartrekV3.cpp:903: warning: argument 'int' of command @param is not found in the argument list of NewSector(int a_nX, int a_nY)
+/home/edwin/Programming/StarTrek_Linux/StartrekV3.cpp:912: warning: The following parameters of NewSector(int a_nX, int a_nY) are not documented:
+  parameter 'a_nX'
+  parameter 'a_nY'
+/home/edwin/Programming/StarTrek_Linux/StartrekV3.cpp:1656: warning: argument 'ALLEGRO_TIMER_EVENT' of command @param is not found in the argument list of Timer(ALLEGRO_TIMER_EVENT *timer_event)
+/home/edwin/Programming/StarTrek_Linux/StartrekV3.cpp:1661: warning: The following parameter of Timer(ALLEGRO_TIMER_EVENT *timer_event) is not documented:
+  parameter 'timer_event'
+/home/edwin/Programming/StarTrek_Linux/Engine.h:508: warning: argument 'string' of command @param is not found in the argument list of A5Exception::A5Exception(string a_strError)
+/home/edwin/Programming/StarTrek_Linux/Engine.h:513: warning: The following parameter of A5Exception::A5Exception(string a_strError) is not documented:
+  parameter 'a_strError'
+/home/edwin/Programming/StarTrek_Linux/Button.h:64: warning: argument 'int' of command @param is not found in the argument list of CButton::CButton(int a_nX, int a_nY, std::string a_strCaption, CWindowDialog *a_pParent, void(*a_pCallBack)(CWindowDialog *))
+/home/edwin/Programming/StarTrek_Linux/Button.h:64: warning: argument 'int' of command @param is not found in the argument list of CButton::CButton(int a_nX, int a_nY, std::string a_strCaption, CWindowDialog *a_pParent, void(*a_pCallBack)(CWindowDialog *))
+/home/edwin/Programming/StarTrek_Linux/Button.h:64: warning: argument 'int' of command @param is not found in the argument list of CButton::CButton(int a_nX, int a_nY, std::string a_strCaption, CWindowDialog *a_pParent, void(*a_pCallBack)(CWindowDialog *))
+/home/edwin/Programming/StarTrek_Linux/Button.h:64: warning: argument 'int' of command @param is not found in the argument list of CButton::CButton(int a_nX, int a_nY, std::string a_strCaption, CWindowDialog *a_pParent, void(*a_pCallBack)(CWindowDialog *))
+/home/edwin/Programming/StarTrek_Linux/Button.h:64: warning: argument 'TMenu' of command @param is not found in the argument list of CButton::CButton(int a_nX, int a_nY, std::string a_strCaption, CWindowDialog *a_pParent, void(*a_pCallBack)(CWindowDialog *))
+/home/edwin/Programming/StarTrek_Linux/Button.h:64: warning: argument 'void' of command @param is not found in the argument list of CButton::CButton(int a_nX, int a_nY, std::string a_strCaption, CWindowDialog *a_pParent, void(*a_pCallBack)(CWindowDialog *))
+/home/edwin/Programming/StarTrek_Linux/Button.h:80: warning: The following parameters of CButton::CButton(int a_nX, int a_nY, std::string a_strCaption, CWindowDialog *a_pParent, void(*a_pCallBack)(CWindowDialog *)) are not documented:
+  parameter 'a_nX'
+  parameter 'a_nY'
+  parameter 'a_strCaption'
+  parameter 'a_pParent'
+  parameter 'a_pCallBack'
+/home/edwin/Programming/StarTrek_Linux/Button.h:88: warning: argument 'ALLEGRO_FONT' of command @param is not found in the argument list of CButton::Draw(int a_nX, int a_nY)
+/home/edwin/Programming/StarTrek_Linux/Button.h:93: warning: The following parameters of CButton::Draw(int a_nX, int a_nY) are not documented:
+  parameter 'a_nX'
+  parameter 'a_nY'
+/home/edwin/Programming/StarTrek_Linux/Button.h:81: warning: argument 'ALLEGRO_MOUSE_EVENT' of command @param is not found in the argument list of CButton::ProcessMouseEvent(const ALLEGRO_MOUSE_EVENT &mouse_event, int a_nX, int a_nY)
+/home/edwin/Programming/StarTrek_Linux/Button.h:86: warning: The following parameters of CButton::ProcessMouseEvent(const ALLEGRO_MOUSE_EVENT &mouse_event, int a_nX, int a_nY) are not documented:
+  parameter 'mouse_event'
+  parameter 'a_nX'
+  parameter 'a_nY'
+/home/edwin/Programming/StarTrek_Linux/WindowDialog.h:94: warning: argument 'ALLEGRO_MOUSE_EVENT' of command @param is not found in the argument list of CWindowDialog::ProcessMouseEvent(const ALLEGRO_MOUSE_EVENT &mouse_event)
+/home/edwin/Programming/StarTrek_Linux/WindowDialog.h:99: warning: The following parameter of CWindowDialog::ProcessMouseEvent(const ALLEGRO_MOUSE_EVENT &mouse_event) is not documented:
+  parameter 'mouse_event'
+/home/edwin/Programming/StarTrek_Linux/Bullet.h:65: warning: argument 'double' of command @param is not found in the argument list of TBullet::Draw(double a_dCamX, double a_dCamY) inherited from member Draw at line 102 in file /home/edwin/Programming/StarTrek_Linux/Engine.h
+/home/edwin/Programming/StarTrek_Linux/Bullet.h:65: warning: argument 'double' of command @param is not found in the argument list of TBullet::Draw(double a_dCamX, double a_dCamY) inherited from member Draw at line 102 in file /home/edwin/Programming/StarTrek_Linux/Engine.h
+/home/edwin/Programming/StarTrek_Linux/Bullet.h:65: warning: The following parameters of TBullet::Draw(double a_dCamX, double a_dCamY) are not documented:
+  parameter 'a_dCamX'
+  parameter 'a_dCamY'
+/home/edwin/Programming/StarTrek_Linux/Engine.h:459: warning: argument 'int' of command @param is not found in the argument list of TEngine::TEngine(int a_nWidth, int a_nHeight)
+/home/edwin/Programming/StarTrek_Linux/Engine.h:459: warning: argument 'int' of command @param is not found in the argument list of TEngine::TEngine(int a_nWidth, int a_nHeight)
+/home/edwin/Programming/StarTrek_Linux/Engine.h:466: warning: The following parameters of TEngine::TEngine(int a_nWidth, int a_nHeight) are not documented:
+  parameter 'a_nWidth'
+  parameter 'a_nHeight'
+/home/edwin/Programming/StarTrek_Linux/Engine.h:280: warning: argument 'TSprite' of command @param is not found in the argument list of TEngine::Add(TSprite *const a_pSprite)
+/home/edwin/Programming/StarTrek_Linux/Engine.h:286: warning: The following parameter of TEngine::Add(TSprite *const a_pSprite) is not documented:
+  parameter 'a_pSprite'
+/home/edwin/Programming/StarTrek_Linux/Engine.h:341: warning: argument 'bool' of command @param is not found in the argument list of TEngine::Clear(bool a_blKeepPlayer)
+/home/edwin/Programming/StarTrek_Linux/Engine.h:346: warning: The following parameter of TEngine::Clear(bool a_blKeepPlayer) is not documented:
+  parameter 'a_blKeepPlayer'
+/home/edwin/Programming/StarTrek_Linux/Engine.h:445: warning: argument 'TSprite' of command @param is not found in the argument list of TEngine::Detect_collision(TSprite *a_pSprite1, TSprite *a_pSprite2)
+/home/edwin/Programming/StarTrek_Linux/Engine.h:445: warning: argument 'TSprite' of command @param is not found in the argument list of TEngine::Detect_collision(TSprite *a_pSprite1, TSprite *a_pSprite2)
+/home/edwin/Programming/StarTrek_Linux/Engine.h:455: warning: The following parameters of TEngine::Detect_collision(TSprite *a_pSprite1, TSprite *a_pSprite2) are not documented:
+  parameter 'a_pSprite1'
+  parameter 'a_pSprite2'
+/home/edwin/Programming/StarTrek_Linux/Engine.h:289: warning: argument 'int' of command @param is not found in the argument list of TEngine::Draw_sensor(int a_nX, int a_nY, TEnterprise *const a_pPlayer)
+/home/edwin/Programming/StarTrek_Linux/Engine.h:289: warning: argument 'int' of command @param is not found in the argument list of TEngine::Draw_sensor(int a_nX, int a_nY, TEnterprise *const a_pPlayer)
+/home/edwin/Programming/StarTrek_Linux/Engine.h:289: warning: argument 'TShip' of command @param is not found in the argument list of TEngine::Draw_sensor(int a_nX, int a_nY, TEnterprise *const a_pPlayer)
+/home/edwin/Programming/StarTrek_Linux/Engine.h:298: warning: The following parameters of TEngine::Draw_sensor(int a_nX, int a_nY, TEnterprise *const a_pPlayer) are not documented:
+  parameter 'a_nX'
+  parameter 'a_nY'
+  parameter 'a_pPlayer'
+/home/edwin/Programming/StarTrek_Linux/Engine.h:300: warning: argument 'TShip' of command @param is not found in the argument list of TEngine::DrawHud(TShip *const a_pPlayer)
+/home/edwin/Programming/StarTrek_Linux/Engine.h:305: warning: The following parameter of TEngine::DrawHud(TShip *const a_pPlayer) is not documented:
+  parameter 'a_pPlayer'
+/home/edwin/Programming/StarTrek_Linux/Engine.h:319: warning: argument 'TSprite' of command @param is not found in the argument list of TEngine::Folow(TSprite *const a_pSprite)
+/home/edwin/Programming/StarTrek_Linux/Engine.h:324: warning: The following parameter of TEngine::Folow(TSprite *const a_pSprite) is not documented:
+  parameter 'a_pSprite'
+/home/edwin/Programming/StarTrek_Linux/Engine.h:483: warning: argument 'ifstream' of command @param is not found in the argument list of TEngine::Load(ifstream &a_LoadStream)
+/home/edwin/Programming/StarTrek_Linux/Engine.h:490: warning: The following parameter of TEngine::Load(ifstream &a_LoadStream) is not documented:
+  parameter 'a_LoadStream'
+/home/edwin/Programming/StarTrek_Linux/Engine.h:268: warning: argument 'double' of command @param is not found in the argument list of TEngine::Move(double a_dLagCount)
+/home/edwin/Programming/StarTrek_Linux/Engine.h:273: warning: The following parameter of TEngine::Move(double a_dLagCount) is not documented:
+  parameter 'a_dLagCount'
+/home/edwin/Programming/StarTrek_Linux/Engine.h:473: warning: argument 'ofstream' of command @param is not found in the argument list of TEngine::Save(ofstream &a_SaveStream)
+/home/edwin/Programming/StarTrek_Linux/Engine.h:481: warning: The following parameter of TEngine::Save(ofstream &a_SaveStream) is not documented:
+  parameter 'a_SaveStream'
+/home/edwin/Programming/StarTrek_Linux/Engine.h:359: warning: argument 'int' of command @param is not found in the argument list of TEngine::Seek(int a_nID, double a_dViewDistance, double a_dX, double a_dY)
+/home/edwin/Programming/StarTrek_Linux/Engine.h:359: warning: argument 'double' of command @param is not found in the argument list of TEngine::Seek(int a_nID, double a_dViewDistance, double a_dX, double a_dY)
+/home/edwin/Programming/StarTrek_Linux/Engine.h:359: warning: argument 'double' of command @param is not found in the argument list of TEngine::Seek(int a_nID, double a_dViewDistance, double a_dX, double a_dY)
+/home/edwin/Programming/StarTrek_Linux/Engine.h:359: warning: argument 'double' of command @param is not found in the argument list of TEngine::Seek(int a_nID, double a_dViewDistance, double a_dX, double a_dY)
+/home/edwin/Programming/StarTrek_Linux/Engine.h:372: warning: The following parameters of TEngine::Seek(int a_nID, double a_dViewDistance, double a_dX, double a_dY) are not documented:
+  parameter 'a_nID'
+  parameter 'a_dViewDistance'
+  parameter 'a_dX'
+  parameter 'a_dY'
+/home/edwin/Programming/StarTrek_Linux/Engine.h:376: warning: argument 'int' of command @param is not found in the argument list of TEngine::Seek(int a_nID, double a_dViewDistance, double a_dX, double a_dY, double a_dAngle, double a_dRadius)
+/home/edwin/Programming/StarTrek_Linux/Engine.h:376: warning: argument 'double' of command @param is not found in the argument list of TEngine::Seek(int a_nID, double a_dViewDistance, double a_dX, double a_dY, double a_dAngle, double a_dRadius)
+/home/edwin/Programming/StarTrek_Linux/Engine.h:376: warning: argument 'double' of command @param is not found in the argument list of TEngine::Seek(int a_nID, double a_dViewDistance, double a_dX, double a_dY, double a_dAngle, double a_dRadius)
+/home/edwin/Programming/StarTrek_Linux/Engine.h:376: warning: argument 'double' of command @param is not found in the argument list of TEngine::Seek(int a_nID, double a_dViewDistance, double a_dX, double a_dY, double a_dAngle, double a_dRadius)
+/home/edwin/Programming/StarTrek_Linux/Engine.h:376: warning: argument 'double' of command @param is not found in the argument list of TEngine::Seek(int a_nID, double a_dViewDistance, double a_dX, double a_dY, double a_dAngle, double a_dRadius)
+/home/edwin/Programming/StarTrek_Linux/Engine.h:376: warning: argument 'double' of command @param is not found in the argument list of TEngine::Seek(int a_nID, double a_dViewDistance, double a_dX, double a_dY, double a_dAngle, double a_dRadius)
+/home/edwin/Programming/StarTrek_Linux/Engine.h:393: warning: The following parameters of TEngine::Seek(int a_nID, double a_dViewDistance, double a_dX, double a_dY, double a_dAngle, double a_dRadius) are not documented:
+  parameter 'a_nID'
+  parameter 'a_dViewDistance'
+  parameter 'a_dX'
+  parameter 'a_dY'
+  parameter 'a_dAngle'
+  parameter 'a_dRadius'
+/home/edwin/Programming/StarTrek_Linux/Engine.h:396: warning: argument 'int' of command @param is not found in the argument list of TEngine::Seek(int a_nMember, bool a_blEnemy, double a_dViewDistance, double a_dX, double a_dY)
+/home/edwin/Programming/StarTrek_Linux/Engine.h:396: warning: argument 'bool' of command @param is not found in the argument list of TEngine::Seek(int a_nMember, bool a_blEnemy, double a_dViewDistance, double a_dX, double a_dY)
+/home/edwin/Programming/StarTrek_Linux/Engine.h:396: warning: argument 'double' of command @param is not found in the argument list of TEngine::Seek(int a_nMember, bool a_blEnemy, double a_dViewDistance, double a_dX, double a_dY)
+/home/edwin/Programming/StarTrek_Linux/Engine.h:396: warning: argument 'double' of command @param is not found in the argument list of TEngine::Seek(int a_nMember, bool a_blEnemy, double a_dViewDistance, double a_dX, double a_dY)
+/home/edwin/Programming/StarTrek_Linux/Engine.h:396: warning: argument 'double' of command @param is not found in the argument list of TEngine::Seek(int a_nMember, bool a_blEnemy, double a_dViewDistance, double a_dX, double a_dY)
+/home/edwin/Programming/StarTrek_Linux/Engine.h:411: warning: The following parameters of TEngine::Seek(int a_nMember, bool a_blEnemy, double a_dViewDistance, double a_dX, double a_dY) are not documented:
+  parameter 'a_nMember'
+  parameter 'a_blEnemy'
+  parameter 'a_dViewDistance'
+  parameter 'a_dX'
+  parameter 'a_dY'
+/home/edwin/Programming/StarTrek_Linux/Engine.h:413: warning: argument 'int' of command @param is not found in the argument list of TEngine::Seekstarbase(int a_nMember, bool a_blEnemy, double a_dViewDistance, double a_dX, double a_dY)
+/home/edwin/Programming/StarTrek_Linux/Engine.h:413: warning: argument 'bool' of command @param is not found in the argument list of TEngine::Seekstarbase(int a_nMember, bool a_blEnemy, double a_dViewDistance, double a_dX, double a_dY)
+/home/edwin/Programming/StarTrek_Linux/Engine.h:413: warning: argument 'double' of command @param is not found in the argument list of TEngine::Seekstarbase(int a_nMember, bool a_blEnemy, double a_dViewDistance, double a_dX, double a_dY)
+/home/edwin/Programming/StarTrek_Linux/Engine.h:413: warning: argument 'double' of command @param is not found in the argument list of TEngine::Seekstarbase(int a_nMember, bool a_blEnemy, double a_dViewDistance, double a_dX, double a_dY)
+/home/edwin/Programming/StarTrek_Linux/Engine.h:413: warning: argument 'double' of command @param is not found in the argument list of TEngine::Seekstarbase(int a_nMember, bool a_blEnemy, double a_dViewDistance, double a_dX, double a_dY)
+/home/edwin/Programming/StarTrek_Linux/Engine.h:428: warning: The following parameters of TEngine::Seekstarbase(int a_nMember, bool a_blEnemy, double a_dViewDistance, double a_dX, double a_dY) are not documented:
+  parameter 'a_nMember'
+  parameter 'a_blEnemy'
+  parameter 'a_dViewDistance'
+  parameter 'a_dX'
+  parameter 'a_dY'
+/home/edwin/Programming/StarTrek_Linux/Engine.h:307: warning: argument 'int' of command @param is not found in the argument list of TEngine::SetOrigin(double a_dX, double a_dY)
+/home/edwin/Programming/StarTrek_Linux/Engine.h:307: warning: argument 'int' of command @param is not found in the argument list of TEngine::SetOrigin(double a_dX, double a_dY)
+/home/edwin/Programming/StarTrek_Linux/Engine.h:314: warning: The following parameters of TEngine::SetOrigin(double a_dX, double a_dY) are not documented:
+  parameter 'a_dX'
+  parameter 'a_dY'
+/home/edwin/Programming/StarTrek_Linux/Menu.h:70: warning: argument 'int' of command @param is not found in the argument list of TMenuItem::TMenuItem(int a_nX, int a_nY, int a_nWidth, int a_nHeight, TMenu *a_pParent, void(*a_pCallback)())
+/home/edwin/Programming/StarTrek_Linux/Menu.h:70: warning: argument 'int' of command @param is not found in the argument list of TMenuItem::TMenuItem(int a_nX, int a_nY, int a_nWidth, int a_nHeight, TMenu *a_pParent, void(*a_pCallback)())
+/home/edwin/Programming/StarTrek_Linux/Menu.h:70: warning: argument 'int' of command @param is not found in the argument list of TMenuItem::TMenuItem(int a_nX, int a_nY, int a_nWidth, int a_nHeight, TMenu *a_pParent, void(*a_pCallback)())
+/home/edwin/Programming/StarTrek_Linux/Menu.h:70: warning: argument 'int' of command @param is not found in the argument list of TMenuItem::TMenuItem(int a_nX, int a_nY, int a_nWidth, int a_nHeight, TMenu *a_pParent, void(*a_pCallback)())
+/home/edwin/Programming/StarTrek_Linux/Menu.h:70: warning: argument 'TMenu' of command @param is not found in the argument list of TMenuItem::TMenuItem(int a_nX, int a_nY, int a_nWidth, int a_nHeight, TMenu *a_pParent, void(*a_pCallback)())
+/home/edwin/Programming/StarTrek_Linux/Menu.h:70: warning: argument 'void' of command @param is not found in the argument list of TMenuItem::TMenuItem(int a_nX, int a_nY, int a_nWidth, int a_nHeight, TMenu *a_pParent, void(*a_pCallback)())
+/home/edwin/Programming/StarTrek_Linux/Menu.h:86: warning: The following parameters of TMenuItem::TMenuItem(int a_nX, int a_nY, int a_nWidth, int a_nHeight, TMenu *a_pParent, void(*a_pCallback)()) are not documented:
+  parameter 'a_nX'
+  parameter 'a_nY'
+  parameter 'a_nWidth'
+  parameter 'a_nHeight'
+  parameter 'a_pParent'
+  parameter 'a_pCallback'
+/home/edwin/Programming/StarTrek_Linux/Menu.h:94: warning: argument 'ALLEGRO_FONT' of command @param is not found in the argument list of TMenuItem::Draw(ALLEGRO_FONT *a_pFont)
+/home/edwin/Programming/StarTrek_Linux/Menu.h:99: warning: The following parameter of TMenuItem::Draw(ALLEGRO_FONT *a_pFont) is not documented:
+  parameter 'a_pFont'
+/home/edwin/Programming/StarTrek_Linux/Menu.h:87: warning: argument 'ALLEGRO_MOUSE_EVENT' of command @param is not found in the argument list of TMenuItem::ProcessMouseEvent(const ALLEGRO_MOUSE_EVENT &mouse_event)
+/home/edwin/Programming/StarTrek_Linux/Menu.h:92: warning: The following parameter of TMenuItem::ProcessMouseEvent(const ALLEGRO_MOUSE_EVENT &mouse_event) is not documented:
+  parameter 'mouse_event'
+/home/edwin/Programming/StarTrek_Linux/particle.h:48: warning: argument 'double' of command @param is not found in the argument list of TParticle::Draw(double a_dCamX, double a_dCamY) inherited from member Draw at line 102 in file /home/edwin/Programming/StarTrek_Linux/Engine.h
+/home/edwin/Programming/StarTrek_Linux/particle.h:48: warning: argument 'double' of command @param is not found in the argument list of TParticle::Draw(double a_dCamX, double a_dCamY) inherited from member Draw at line 102 in file /home/edwin/Programming/StarTrek_Linux/Engine.h
+/home/edwin/Programming/StarTrek_Linux/particle.h:48: warning: The following parameters of TParticle::Draw(double a_dCamX, double a_dCamY) are not documented:
+  parameter 'a_dCamX'
+  parameter 'a_dCamY'
+/home/edwin/Programming/StarTrek_Linux/Probe.h:51: warning: The following parameter of TProbe::TProbe(double a_dX, double a_dY, double a_dSpeed, double a_dAngle, int a_nZ, TEnterprise *a_pOwner) is not documented:
+  parameter 'a_pOwner'
+/home/edwin/Programming/StarTrek_Linux/Probe.h:51: warning: documented empty return type of TProbe::TProbe
+/home/edwin/Programming/StarTrek_Linux/Romulan_BOP.h:81: warning: argument 'TSprite' of command @param is not found in the argument list of TRomulanBop::DoCollision(TSprite *a_pSprite) inherited from member DoCollision at line 254 in file /home/edwin/Programming/StarTrek_Linux/Ship.h
+/home/edwin/Programming/StarTrek_Linux/Romulan_BOP.h:81: warning: The following parameter of TRomulanBop::DoCollision(TSprite *a_pSprite) is not documented:
+  parameter 'a_pSprite'
+/home/edwin/Programming/StarTrek_Linux/Ship.h:244: warning: argument 'double' of command @param is not found in the argument list of TShip::CalcPhaserDamage(double a_dEnergy, int a_nTarget)
+/home/edwin/Programming/StarTrek_Linux/Ship.h:244: warning: argument 'int' of command @param is not found in the argument list of TShip::CalcPhaserDamage(double a_dEnergy, int a_nTarget)
+/home/edwin/Programming/StarTrek_Linux/Ship.h:252: warning: The following parameters of TShip::CalcPhaserDamage(double a_dEnergy, int a_nTarget) are not documented:
+  parameter 'a_dEnergy'
+  parameter 'a_nTarget'
+/home/edwin/Programming/StarTrek_Linux/Ship.h:316: warning: argument 'TShip' of command @param is not found in the argument list of TShip::Dock(TShip *a_pBaseTarget)
+/home/edwin/Programming/StarTrek_Linux/Ship.h:323: warning: The following parameter of TShip::Dock(TShip *a_pBaseTarget) is not documented:
+  parameter 'a_pBaseTarget'
+/home/edwin/Programming/StarTrek_Linux/Ship.h:254: warning: argument 'TSprite' of command @param is not found in the argument list of TShip::DoCollision(TSprite *a_pSprite)
+/home/edwin/Programming/StarTrek_Linux/Ship.h:262: warning: The following parameter of TShip::DoCollision(TSprite *a_pSprite) is not documented:
+  parameter 'a_pSprite'
+/home/edwin/Programming/StarTrek_Linux/Ship.h:272: warning: argument 'double' of command @param is not found in the argument list of TShip::Draw(double a_dCamX, double a_dCamY)
+/home/edwin/Programming/StarTrek_Linux/Ship.h:272: warning: argument 'double' of command @param is not found in the argument list of TShip::Draw(double a_dCamX, double a_dCamY)
+/home/edwin/Programming/StarTrek_Linux/Ship.h:282: warning: The following parameters of TShip::Draw(double a_dCamX, double a_dCamY) are not documented:
+  parameter 'a_dCamX'
+  parameter 'a_dCamY'
+/home/edwin/Programming/StarTrek_Linux/Ship.h:301: warning: argument 'double' of command @param is not found in the argument list of TShip::GetEvasiveAngle(double a_dDefaultAngle)
+/home/edwin/Programming/StarTrek_Linux/Ship.h:308: warning: The following parameter of TShip::GetEvasiveAngle(double a_dDefaultAngle) is not documented:
+  parameter 'a_dDefaultAngle'
+/home/edwin/Programming/StarTrek_Linux/Ship.h:339: warning: argument 'int' of command @param is not found in the argument list of TShip::PrecalcFireAngles(int a_nLimit)
+/home/edwin/Programming/StarTrek_Linux/Ship.h:346: warning: The following parameter of TShip::PrecalcFireAngles(int a_nLimit) is not documented:
+  parameter 'a_nLimit'
+/home/edwin/Programming/StarTrek_Linux/Ship.h:332: warning: argument 'TShip' of command @param is not found in the argument list of TShip::Release(TShip *a_pBaseTarget)
+/home/edwin/Programming/StarTrek_Linux/Ship.h:337: warning: The following parameter of TShip::Release(TShip *a_pBaseTarget) is not documented:
+  parameter 'a_pBaseTarget'
+/home/edwin/Programming/StarTrek_Linux/Ship.h:71: warning: argument 'double' of command @param is not found in the argument list of TShip::SetSpeed(double a_dSpeed)
+/home/edwin/Programming/StarTrek_Linux/Ship.h:76: warning: The following parameter of TShip::SetSpeed(double a_dSpeed) is not documented:
+  parameter 'a_dSpeed'
+/home/edwin/Programming/StarTrek_Linux/Ship.h:209: warning: argument 'double' of command @param is not found in the argument list of TShip::WayPoint(double a_dX, double a_dY)
+/home/edwin/Programming/StarTrek_Linux/Ship.h:209: warning: argument 'double' of command @param is not found in the argument list of TShip::WayPoint(double a_dX, double a_dY)
+/home/edwin/Programming/StarTrek_Linux/Ship.h:218: warning: The following parameters of TShip::WayPoint(double a_dX, double a_dY) are not documented:
+  parameter 'a_dX'
+  parameter 'a_dY'
+/home/edwin/Programming/StarTrek_Linux/Engine.h:130: warning: argument 'TSprite' of command @param is not found in the argument list of TSprite::DoCollision(TSprite *const a_pSprite)
+/home/edwin/Programming/StarTrek_Linux/Engine.h:137: warning: The following parameter of TSprite::DoCollision(TSprite *const a_pSprite) is not documented:
+  parameter 'a_pSprite'
+/home/edwin/Programming/StarTrek_Linux/Engine.h:102: warning: argument 'double' of command @param is not found in the argument list of TSprite::Draw(double a_dCamX, double a_dCamY)
+/home/edwin/Programming/StarTrek_Linux/Engine.h:102: warning: argument 'double' of command @param is not found in the argument list of TSprite::Draw(double a_dCamX, double a_dCamY)
+/home/edwin/Programming/StarTrek_Linux/Engine.h:112: warning: The following parameters of TSprite::Draw(double a_dCamX, double a_dCamY) are not documented:
+  parameter 'a_dCamX'
+  parameter 'a_dCamY'
+/home/edwin/Programming/StarTrek_Linux/Engine.h:114: warning: argument 'double' of command @param is not found in the argument list of TSprite::Move(double a_dLagCount)
+/home/edwin/Programming/StarTrek_Linux/Engine.h:121: warning: The following parameter of TSprite::Move(double a_dLagCount) is not documented:
+  parameter 'a_dLagCount'
+/home/edwin/Programming/StarTrek_Linux/Engine.h:159: warning: argument 'int' of command @param is not found in the argument list of TSprite::SetHeight(int a_nHeight)
+/home/edwin/Programming/StarTrek_Linux/Engine.h:164: warning: The following parameter of TSprite::SetHeight(int a_nHeight) is not documented:
+  parameter 'a_nHeight'
+/home/edwin/Programming/StarTrek_Linux/Engine.h:173: warning: argument 'ALLEGRO_BITMAP' of command @param is not found in the argument list of TSprite::SetImage(ALLEGRO_BITMAP *a_pImage)
+/home/edwin/Programming/StarTrek_Linux/Engine.h:178: warning: The following parameter of TSprite::SetImage(ALLEGRO_BITMAP *a_pImage) is not documented:
+  parameter 'a_pImage'
+/home/edwin/Programming/StarTrek_Linux/Engine.h:150: warning: argument 'double' of command @param is not found in the argument list of TSprite::SetPosition(double a_dX, double a_dY)
+/home/edwin/Programming/StarTrek_Linux/Engine.h:150: warning: argument 'double' of command @param is not found in the argument list of TSprite::SetPosition(double a_dX, double a_dY)
+/home/edwin/Programming/StarTrek_Linux/Engine.h:157: warning: The following parameters of TSprite::SetPosition(double a_dX, double a_dY) are not documented:
+  parameter 'a_dX'
+  parameter 'a_dY'
+/home/edwin/Programming/StarTrek_Linux/Engine.h:139: warning: argument 'double' of command @param is not found in the argument list of TSprite::SetPosition(double a_dX, double a_dY, double a_dAngle)
+/home/edwin/Programming/StarTrek_Linux/Engine.h:139: warning: argument 'double' of command @param is not found in the argument list of TSprite::SetPosition(double a_dX, double a_dY, double a_dAngle)
+/home/edwin/Programming/StarTrek_Linux/Engine.h:139: warning: argument 'double' of command @param is not found in the argument list of TSprite::SetPosition(double a_dX, double a_dY, double a_dAngle)
+/home/edwin/Programming/StarTrek_Linux/Engine.h:148: warning: The following parameters of TSprite::SetPosition(double a_dX, double a_dY, double a_dAngle) are not documented:
+  parameter 'a_dX'
+  parameter 'a_dY'
+  parameter 'a_dAngle'
+/home/edwin/Programming/StarTrek_Linux/Engine.h:166: warning: argument 'double' of command @param is not found in the argument list of TSprite::SetSpeed(double a_dSpeed)
+/home/edwin/Programming/StarTrek_Linux/Engine.h:171: warning: The following parameter of TSprite::SetSpeed(double a_dSpeed) is not documented:
+  parameter 'a_dSpeed'
+/home/edwin/Programming/StarTrek_Linux/Engine.h:532: warning: argument 'const' of command @param is not found in the argument list of TSprite::Comp(const TSprite *a_pV1, const TSprite *a_p_V2)
+/home/edwin/Programming/StarTrek_Linux/Engine.h:532: warning: argument 'const' of command @param is not found in the argument list of TSprite::Comp(const TSprite *a_pV1, const TSprite *a_p_V2)
+/home/edwin/Programming/StarTrek_Linux/Engine.h:210: warning: The following parameters of TSprite::Comp(const TSprite *a_pV1, const TSprite *a_p_V2) are not documented:
+  parameter 'a_pV1'
+  parameter 'a_p_V2'
