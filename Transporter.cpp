@@ -97,8 +97,8 @@ void CTransporter::Enter(TInventoryItem a_Item)
      {
         m_TransporterItem = a_Item;
         m_TransporterItem.m_blValid = true;
-        m_TransporterItem.m_nHeight = al_get_bitmap_height(g_lstInventoryImages[m_TransporterItem.imageID-1]);
-        m_TransporterItem.m_nWidth = al_get_bitmap_width(g_lstInventoryImages[m_TransporterItem.imageID-1]);
+        m_TransporterItem.m_nHeight = al_get_bitmap_height(g_lstInventoryImages[m_TransporterItem.imageID]);
+        m_TransporterItem.m_nWidth = al_get_bitmap_width(g_lstInventoryImages[m_TransporterItem.imageID]);
         m_blBeamUp = false;
         m_State = TS_OCCUPIED;
      }
@@ -110,8 +110,11 @@ void CTransporter::Target(TInventoryItem a_Item)
      {
         m_TransporterItem = a_Item;
         m_TransporterItem.m_blValid = true;
-        m_TransporterItem.m_nHeight = al_get_bitmap_height(g_lstInventoryImages[m_TransporterItem.imageID-1]);
-        m_TransporterItem.m_nWidth = al_get_bitmap_width(g_lstInventoryImages[m_TransporterItem.imageID-1]);
+        int n = m_TransporterItem.imageID-1;
+        int m = g_lstInventoryImages.size();
+
+        m_TransporterItem.m_nHeight = al_get_bitmap_height(g_lstInventoryImages[m_TransporterItem.imageID]);
+        m_TransporterItem.m_nWidth = al_get_bitmap_width(g_lstInventoryImages[m_TransporterItem.imageID]);
         m_blBeamUp = true;
         m_State = TS_EMPTY;
      }

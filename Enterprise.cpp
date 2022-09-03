@@ -1286,8 +1286,9 @@ void TEnterprise::draw_engineering()
 void TEnterprise::draw_communication()
 {
     int nStartX = m_pEngine->m_nScreenMidX-510;
+
 	al_draw_bitmap(g_pCommunicationBitmap, nStartX, 0, 0);
-	if (! m_pDialog->IsEmpty())
+	if ((m_pDialog!= NULL)&&(! m_pDialog->IsEmpty()))
     {
         m_pDialog->Draw();
     }
@@ -1660,7 +1661,7 @@ void TEnterprise::DecNavY()
 void TEnterprise::Draw_Navigation(Universe * a_pUniverse)
 {
 // To_Do: Implement Long range screen !
-    int XStart = m_pEngine->m_nScreenMidX-600;
+    int XStart = m_pEngine->m_nScreenMidX-500;
     int YStart = 50;
     int XEnd   = XStart + 638;
     int YEnd   = 688;
@@ -1864,18 +1865,31 @@ void TEnterprise::MouseButtonDown(const ALLEGRO_MOUSE_EVENT & mouse_event)
 
         case MODE_COMMUNICATION:
 
-             if (m_pDialog != NULL )
+             if ((m_pDialog != NULL )&&
+                 (mouse_event.y < 380))
              {
                 m_pDialog->OnMouseButtonDown(mouse_event);
              }
-
-             if (m_pTransporter != NULL)
+             else if ((m_pTransporter != NULL)&&
+                      (mouse_event.button == 1) && (mouse_event.y > 380))
              {
                 if ((m_pTransporter->IsEmpty()) && (m_pTransportTarget!= NULL))
                 {
                     if ((m_pTransportTarget->m_ID>ID_PLANET_BOTTOM) && (m_pTransportTarget->m_ID<ID_PLANET_TOP))
                     {
                         TSpaceObject * pTarget = (TSpaceObject * )m_pTransportTarget;
+                        if (pTarget->HasInventoryItem())
+                        {
+                            TInventoryItem item = pTarget->GetInventoryItem();
+                            if (item.m_blValid)
+                            {
+                                m_pTransporter->Target(item);
+                            }
+                        }
+                    }
+                    else if (m_pTransportTarget->m_ID == ID_FEDERATIONBASE)
+                    {
+                        TStarbase * pTarget = (TStarbase * )m_pTransportTarget;
                         if (pTarget->HasInventoryItem())
                         {
                             TInventoryItem item = pTarget->GetInventoryItem();
@@ -1922,6 +1936,10 @@ void TEnterprise::MouseButtonDown(const ALLEGRO_MOUSE_EVENT & mouse_event)
                         {
                            ((TSpaceObject *) m_pTransportTarget)->RemoveInventoryItem();
                         }
+                        else if (m_pTransportTarget->m_ID == ID_FEDERATIONBASE)
+                        {
+                          ((TStarbase *) m_pTransportTarget)->RemoveInventoryItem();
+                        }
                     }
                     break;
 
@@ -1933,6 +1951,10 @@ void TEnterprise::MouseButtonDown(const ALLEGRO_MOUSE_EVENT & mouse_event)
                             if ((m_pTransportTarget->m_ID>ID_PLANET_BOTTOM) && (m_pTransportTarget->m_ID<ID_PLANET_TOP))
                             {
                                 ((TSpaceObject *) m_pTransportTarget)->SetInventoryItem(item);
+                            }
+                            else if (m_pTransportTarget->m_ID == ID_FEDERATIONBASE)
+                            {
+                                ((TStarbase *) m_pTransportTarget)->SetInventoryItem(item);
                             }
                         }
                     }

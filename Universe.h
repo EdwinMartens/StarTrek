@@ -94,6 +94,7 @@ public:
 	int m_nX;
 	int m_nY;
 	int m_nHealth[11];
+	TInventoryImage m_Item;
 	GameStarbaseRec(ID a_nStarbaseType);
 };
 

@@ -28,6 +28,7 @@ int CDialog::GetResult()
 void CDialog::EndDialog()
 {
     Clear();
+    m_blBusy = false;
     g_nScreenMode = MODE_MAINSCREEN;
 }
 
@@ -69,7 +70,7 @@ void CDialog::SetBusy()
 
 bool CDialog::IsBusy()
 {
-    return m_blBusy;
+    return IsEmpty();
 }
 
 void CDialog::Clear()

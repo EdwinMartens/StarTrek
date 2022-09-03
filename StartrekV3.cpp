@@ -203,6 +203,7 @@ char   g_szFileName[] = "MyGame.sav"; // temporary hardcoded savefile
 
 #ifdef _DEBUG
 char   g_szSector[20];  // sector position storage for debug version
+char   g_szMouse[20];
 //char   g_szStates[20];
 #endif // DEBUG
 
@@ -1559,6 +1560,10 @@ void KeyPressed(int a_nCharacter)
  */
 void Mouse(const ALLEGRO_MOUSE_EVENT & mouse_event)
 {
+    #ifdef _DEBUG
+    sprintf(g_szMouse,"Mouse: %d,%d",mouse_event.x,mouse_event.y);
+    #endif // _DEBUG
+
     switch(g_vGameState.back())
     {
 
@@ -1829,15 +1834,25 @@ void DoGame()
 
          case MODE_ENGINEERING:
               g_pEnterprise->draw_engineering();
+              #ifdef _DEBUG
+              al_draw_text(FontManager::GetFont(FONT::DBG),al_map_rgb(255,255,255), 10, 10, 0,g_szMouse);
+              #endif // DEBUG
          break;
 
          case MODE_NAVIGATION:
               g_pEnterprise->Draw_Navigation(g_pUniverse);
+              #ifdef _DEBUG
+              al_draw_text(FontManager::GetFont(FONT::DBG),al_map_rgb(255,255,255), 10, 10, 0,g_szMouse);
+              #endif // DEBUG
          break;
 
          case MODE_COMMUNICATION:
               g_pEnterprise->draw_communication();
               g_pEnterprise->GetTransporter()->draw(130,480,250,g_pDisplay);
+              #ifdef _DEBUG
+              al_draw_text(FontManager::GetFont(FONT::DBG),al_map_rgb(255,255,255), 10, 10, 0,g_szMouse);
+              #endif // DEBUG
+
          break;
 
 

@@ -100,6 +100,7 @@ GameStarbaseRec::GameStarbaseRec(ID a_nStarbaseType)
 
 	m_nX=0;
 	m_nY=0;
+	m_Item = INV_NONE;
 }
 
 
@@ -195,7 +196,6 @@ void Sector::Build(TEngine * a_pEngine)
 
 		if (m_Planet[i].m_Item != INV_NONE)
 		{
-
             TInventoryItem item;
             item.imageID = m_Planet[i].m_Item;
             item.m_blValid = true;
@@ -229,7 +229,6 @@ void Sector::Build(TEngine * a_pEngine)
             break;
         }
 
-
     }
 
    //size_t s= m_Starbase.size();
@@ -242,10 +241,20 @@ void Sector::Build(TEngine * a_pEngine)
 		  pStarbase->m_lstHealth[j] = m_Starbase[i].m_nHealth[j];
        }
 
+       if (m_Starbase[i].m_Item != INV_NONE)
+		{
+            TInventoryItem item;
+            item.imageID = m_Starbase[i].m_Item;
+            item.m_blValid = true;
+            pStarbase->SetInventoryItem(item);
+		}
+		else
+		{
+            pStarbase->RemoveInventoryItem();
+        }
+
 	   a_pEngine->Add(pStarbase);
 	}
-
-
 
 	for (int i=0;i<m_nKlingonBC; i++)
 	{
@@ -312,6 +321,15 @@ void Sector::StoreStarbase(TStarbase * a_pStarbase)
         {
             SRec.m_nHealth[i] = *p;
             i++;
+        }
+
+        if (a_pStarbase->HasInventoryItem())
+        {
+            SRec.m_Item   = a_pStarbase->GetInventoryItem().imageID;
+        }
+        else
+        {
+            SRec.m_Item  = INV_NONE;
         }
         m_Starbase.push_back(SRec);
     }
@@ -952,6 +970,7 @@ void Universe::GenerateHomeSector(Sector & a_Sector)
     GameStarbaseRec starbase(ID_FEDERATIONBASE);
     starbase.m_nX           = m_nSectorCenter + 800;
 	starbase.m_nY           = m_nSectorCenter + 100;
+	starbase.m_Item         = INV_GORKON;
     a_Sector.m_Starbase.push_back(starbase);
 
     a_Sector.m_blKnown = true;
