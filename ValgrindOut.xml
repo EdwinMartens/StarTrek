@@ -12,8 +12,8 @@
   <line>Command: /home/edwin/Programming/StarTrek_Linux/bin/Debug/StarTrekV3</line>
 </preamble>
 
-<pid>3690</pid>
-<ppid>2877</ppid>
+<pid>19664</pid>
+<ppid>15223</ppid>
 <tool>memcheck</tool>
 
 <args>
@@ -31,7 +31,7 @@
 
 <status>
   <state>RUNNING</state>
-  <time>00:00:00:00.182 </time>
+  <time>00:00:00:00.213 </time>
 </status>
 
 <error>
@@ -73,7 +73,7 @@
       <obj>/usr/lib/x86_64-linux-gnu/liballegro_audio.so.5.2.7</obj>
     </frame>
     <frame>
-      <ip>0x435EFF</ip>
+      <ip>0x435F1F</ip>
       <obj>/home/edwin/Programming/StarTrek_Linux/bin/Debug/StarTrekV3</obj>
       <fn>SoundManager::Init_SoundManager(int)</fn>
       <dir>/home/edwin/Programming/StarTrek_Linux</dir>
@@ -81,20 +81,20 @@
       <line>18</line>
     </frame>
     <frame>
-      <ip>0x43CB19</ip>
+      <ip>0x43CF39</ip>
       <obj>/home/edwin/Programming/StarTrek_Linux/bin/Debug/StarTrekV3</obj>
       <fn>Setup()</fn>
       <dir>/home/edwin/Programming/StarTrek_Linux</dir>
       <file>StartrekV3.cpp</file>
-      <line>767</line>
+      <line>786</line>
     </frame>
     <frame>
-      <ip>0x43FBED</ip>
+      <ip>0x44001D</ip>
       <obj>/home/edwin/Programming/StarTrek_Linux/bin/Debug/StarTrekV3</obj>
       <fn>main</fn>
       <dir>/home/edwin/Programming/StarTrek_Linux</dir>
       <file>StartrekV3.cpp</file>
-      <line>1896</line>
+      <line>1916</line>
     </frame>
   </stack>
   <auxwhat>Uninitialised value was created by a heap allocation</auxwhat>
@@ -161,7 +161,7 @@
       <obj>/usr/lib/x86_64-linux-gnu/liballegro_audio.so.5.2.7</obj>
     </frame>
     <frame>
-      <ip>0x435EFF</ip>
+      <ip>0x435F1F</ip>
       <obj>/home/edwin/Programming/StarTrek_Linux/bin/Debug/StarTrekV3</obj>
       <fn>SoundManager::Init_SoundManager(int)</fn>
       <dir>/home/edwin/Programming/StarTrek_Linux</dir>
@@ -169,78 +169,36 @@
       <line>18</line>
     </frame>
     <frame>
-      <ip>0x43CB19</ip>
+      <ip>0x43CF39</ip>
       <obj>/home/edwin/Programming/StarTrek_Linux/bin/Debug/StarTrekV3</obj>
       <fn>Setup()</fn>
       <dir>/home/edwin/Programming/StarTrek_Linux</dir>
       <file>StartrekV3.cpp</file>
-      <line>767</line>
+      <line>786</line>
     </frame>
     <frame>
-      <ip>0x43FBED</ip>
+      <ip>0x44001D</ip>
       <obj>/home/edwin/Programming/StarTrek_Linux/bin/Debug/StarTrekV3</obj>
       <fn>main</fn>
       <dir>/home/edwin/Programming/StarTrek_Linux</dir>
       <file>StartrekV3.cpp</file>
-      <line>1896</line>
+      <line>1916</line>
     </frame>
   </stack>
 </error>
-
-<fatal_signal>
-  <tid>2</tid>
-  <signo>1</signo>
-  <signame>SIGHUP</signame>
-  <sicode>0</sicode>
-  <stack>
-    <frame>
-      <ip>0x4E7AFCB</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libc-2.31.so</obj>
-      <fn>select</fn>
-      <dir>/build/glibc-SzIz7B/glibc-2.31/misc/../sysdeps/unix/sysv/linux</dir>
-      <file>select.c</file>
-      <line>41</line>
-    </frame>
-    <frame>
-      <ip>0x49ABF4C</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/liballegro.so.5.2.7</obj>
-      <fn>_al_xwin_background_thread</fn>
-    </frame>
-    <frame>
-      <ip>0x49A76BE</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/liballegro.so.5.2.7</obj>
-    </frame>
-    <frame>
-      <ip>0x59A1608</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libpthread-2.31.so</obj>
-      <fn>start_thread</fn>
-      <dir>/build/glibc-SzIz7B/glibc-2.31/nptl</dir>
-      <file>pthread_create.c</file>
-      <line>477</line>
-    </frame>
-    <frame>
-      <ip>0x4E85132</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libc-2.31.so</obj>
-      <fn>clone</fn>
-      <dir>/build/glibc-SzIz7B/glibc-2.31/misc/../sysdeps/unix/sysv/linux/x86_64</dir>
-      <file>clone.S</file>
-      <line>95</line>
-    </frame>
-  </stack>
-</fatal_signal>
 
 
 <status>
   <state>FINISHED</state>
-  <time>00:00:08:24.140 </time>
+  <time>00:00:18:40.965 </time>
 </status>
 
 <error>
-  <unique>0x16b</unique>
+  <unique>0xa5</unique>
   <tid>1</tid>
   <kind>Leak_PossiblyLost</kind>
   <xwhat>
-    <text>16 bytes in 1 blocks are possibly lost in loss record 362 of 4,235</text>
+    <text>16 bytes in 1 blocks are possibly lost in loss record 164 of 507</text>
     <leakedbytes>16</leakedbytes>
     <leakedblocks>1</leakedblocks>
   </xwhat>
@@ -304,11 +262,11 @@
 </error>
 
 <error>
-  <unique>0x16c</unique>
+  <unique>0xa6</unique>
   <tid>1</tid>
   <kind>Leak_PossiblyLost</kind>
   <xwhat>
-    <text>16 bytes in 1 blocks are possibly lost in loss record 363 of 4,235</text>
+    <text>16 bytes in 1 blocks are possibly lost in loss record 165 of 507</text>
     <leakedbytes>16</leakedbytes>
     <leakedblocks>1</leakedblocks>
   </xwhat>
@@ -377,11 +335,11 @@
 </error>
 
 <error>
-  <unique>0x16d</unique>
+  <unique>0xa7</unique>
   <tid>1</tid>
   <kind>Leak_PossiblyLost</kind>
   <xwhat>
-    <text>16 bytes in 1 blocks are possibly lost in loss record 364 of 4,235</text>
+    <text>16 bytes in 1 blocks are possibly lost in loss record 166 of 507</text>
     <leakedbytes>16</leakedbytes>
     <leakedblocks>1</leakedblocks>
   </xwhat>
@@ -445,11 +403,11 @@
 </error>
 
 <error>
-  <unique>0x16e</unique>
+  <unique>0xa8</unique>
   <tid>1</tid>
   <kind>Leak_PossiblyLost</kind>
   <xwhat>
-    <text>16 bytes in 1 blocks are possibly lost in loss record 365 of 4,235</text>
+    <text>16 bytes in 1 blocks are possibly lost in loss record 167 of 507</text>
     <leakedbytes>16</leakedbytes>
     <leakedblocks>1</leakedblocks>
   </xwhat>
@@ -518,11 +476,11 @@
 </error>
 
 <error>
-  <unique>0x16f</unique>
+  <unique>0xa9</unique>
   <tid>1</tid>
   <kind>Leak_PossiblyLost</kind>
   <xwhat>
-    <text>16 bytes in 1 blocks are possibly lost in loss record 366 of 4,235</text>
+    <text>16 bytes in 1 blocks are possibly lost in loss record 168 of 507</text>
     <leakedbytes>16</leakedbytes>
     <leakedblocks>1</leakedblocks>
   </xwhat>
@@ -586,11 +544,11 @@
 </error>
 
 <error>
-  <unique>0x170</unique>
+  <unique>0xaa</unique>
   <tid>1</tid>
   <kind>Leak_PossiblyLost</kind>
   <xwhat>
-    <text>16 bytes in 1 blocks are possibly lost in loss record 367 of 4,235</text>
+    <text>16 bytes in 1 blocks are possibly lost in loss record 169 of 507</text>
     <leakedbytes>16</leakedbytes>
     <leakedblocks>1</leakedblocks>
   </xwhat>
@@ -659,11 +617,11 @@
 </error>
 
 <error>
-  <unique>0x171</unique>
+  <unique>0xab</unique>
   <tid>1</tid>
   <kind>Leak_PossiblyLost</kind>
   <xwhat>
-    <text>16 bytes in 1 blocks are possibly lost in loss record 368 of 4,235</text>
+    <text>16 bytes in 1 blocks are possibly lost in loss record 170 of 507</text>
     <leakedbytes>16</leakedbytes>
     <leakedblocks>1</leakedblocks>
   </xwhat>
@@ -727,11 +685,11 @@
 </error>
 
 <error>
-  <unique>0x172</unique>
+  <unique>0xac</unique>
   <tid>1</tid>
   <kind>Leak_PossiblyLost</kind>
   <xwhat>
-    <text>16 bytes in 1 blocks are possibly lost in loss record 369 of 4,235</text>
+    <text>16 bytes in 1 blocks are possibly lost in loss record 171 of 507</text>
     <leakedbytes>16</leakedbytes>
     <leakedblocks>1</leakedblocks>
   </xwhat>
@@ -800,129 +758,11 @@
 </error>
 
 <error>
-  <unique>0x603</unique>
+  <unique>0x1a7</unique>
   <tid>1</tid>
   <kind>Leak_PossiblyLost</kind>
   <xwhat>
-    <text>80 bytes in 1 blocks are possibly lost in loss record 1,538 of 4,235</text>
-    <leakedbytes>80</leakedbytes>
-    <leakedblocks>1</leakedblocks>
-  </xwhat>
-  <stack>
-    <frame>
-      <ip>0x483B7F3</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
-      <fn>malloc</fn>
-    </frame>
-    <frame>
-      <ip>0x6D0A356</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libGLdispatch.so.0.0.0</obj>
-    </frame>
-    <frame>
-      <ip>0x6D0A6B4</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libGLdispatch.so.0.0.0</obj>
-      <fn>__glDispatchInit</fn>
-    </frame>
-    <frame>
-      <ip>0x632678C</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libGLX.so.0.0.0</obj>
-    </frame>
-    <frame>
-      <ip>0x4011B99</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/ld-2.31.so</obj>
-      <fn>call_init.part.0</fn>
-      <dir>/build/glibc-SzIz7B/glibc-2.31/elf</dir>
-      <file>dl-init.c</file>
-      <line>72</line>
-    </frame>
-    <frame>
-      <ip>0x4011CA0</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/ld-2.31.so</obj>
-      <fn>call_init</fn>
-      <dir>/build/glibc-SzIz7B/glibc-2.31/elf</dir>
-      <file>dl-init.c</file>
-      <line>30</line>
-    </frame>
-    <frame>
-      <ip>0x4011CA0</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/ld-2.31.so</obj>
-      <fn>_dl_init</fn>
-      <dir>/build/glibc-SzIz7B/glibc-2.31/elf</dir>
-      <file>dl-init.c</file>
-      <line>119</line>
-    </frame>
-    <frame>
-      <ip>0x4001139</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/ld-2.31.so</obj>
-    </frame>
-  </stack>
-</error>
-
-<error>
-  <unique>0x604</unique>
-  <tid>1</tid>
-  <kind>Leak_PossiblyLost</kind>
-  <xwhat>
-    <text>80 bytes in 1 blocks are possibly lost in loss record 1,539 of 4,235</text>
-    <leakedbytes>80</leakedbytes>
-    <leakedblocks>1</leakedblocks>
-  </xwhat>
-  <stack>
-    <frame>
-      <ip>0x483B7F3</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
-      <fn>malloc</fn>
-    </frame>
-    <frame>
-      <ip>0x6D0A356</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libGLdispatch.so.0.0.0</obj>
-    </frame>
-    <frame>
-      <ip>0x6D0A8A0</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libGLdispatch.so.0.0.0</obj>
-      <fn>__glDispatchRegisterStubCallbacks</fn>
-    </frame>
-    <frame>
-      <ip>0x5EC91E9</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libOpenGL.so.0.0.0</obj>
-    </frame>
-    <frame>
-      <ip>0x4011B99</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/ld-2.31.so</obj>
-      <fn>call_init.part.0</fn>
-      <dir>/build/glibc-SzIz7B/glibc-2.31/elf</dir>
-      <file>dl-init.c</file>
-      <line>72</line>
-    </frame>
-    <frame>
-      <ip>0x4011CA0</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/ld-2.31.so</obj>
-      <fn>call_init</fn>
-      <dir>/build/glibc-SzIz7B/glibc-2.31/elf</dir>
-      <file>dl-init.c</file>
-      <line>30</line>
-    </frame>
-    <frame>
-      <ip>0x4011CA0</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/ld-2.31.so</obj>
-      <fn>_dl_init</fn>
-      <dir>/build/glibc-SzIz7B/glibc-2.31/elf</dir>
-      <file>dl-init.c</file>
-      <line>119</line>
-    </frame>
-    <frame>
-      <ip>0x4001139</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/ld-2.31.so</obj>
-    </frame>
-  </stack>
-</error>
-
-<error>
-  <unique>0xbc0</unique>
-  <tid>1</tid>
-  <kind>Leak_PossiblyLost</kind>
-  <xwhat>
-    <text>96 bytes in 1 blocks are possibly lost in loss record 3,007 of 4,235</text>
+    <text>96 bytes in 1 blocks are possibly lost in loss record 422 of 507</text>
     <leakedbytes>96</leakedbytes>
     <leakedblocks>1</leakedblocks>
   </xwhat>
@@ -981,11 +821,11 @@
 </error>
 
 <error>
-  <unique>0xbc1</unique>
+  <unique>0x1a8</unique>
   <tid>1</tid>
   <kind>Leak_PossiblyLost</kind>
   <xwhat>
-    <text>96 bytes in 1 blocks are possibly lost in loss record 3,008 of 4,235</text>
+    <text>96 bytes in 1 blocks are possibly lost in loss record 423 of 507</text>
     <leakedbytes>96</leakedbytes>
     <leakedblocks>1</leakedblocks>
   </xwhat>
@@ -1053,11 +893,11 @@
 </error>
 
 <error>
-  <unique>0xbc2</unique>
+  <unique>0x1a9</unique>
   <tid>1</tid>
   <kind>Leak_PossiblyLost</kind>
   <xwhat>
-    <text>96 bytes in 1 blocks are possibly lost in loss record 3,009 of 4,235</text>
+    <text>96 bytes in 1 blocks are possibly lost in loss record 424 of 507</text>
     <leakedbytes>96</leakedbytes>
     <leakedblocks>1</leakedblocks>
   </xwhat>
@@ -1125,11 +965,11 @@
 </error>
 
 <error>
-  <unique>0xbc3</unique>
+  <unique>0x1aa</unique>
   <tid>1</tid>
   <kind>Leak_PossiblyLost</kind>
   <xwhat>
-    <text>96 bytes in 1 blocks are possibly lost in loss record 3,010 of 4,235</text>
+    <text>96 bytes in 1 blocks are possibly lost in loss record 425 of 507</text>
     <leakedbytes>96</leakedbytes>
     <leakedblocks>1</leakedblocks>
   </xwhat>
@@ -1197,11 +1037,11 @@
 </error>
 
 <error>
-  <unique>0xbc4</unique>
+  <unique>0x1ab</unique>
   <tid>1</tid>
   <kind>Leak_PossiblyLost</kind>
   <xwhat>
-    <text>96 bytes in 1 blocks are possibly lost in loss record 3,011 of 4,235</text>
+    <text>96 bytes in 1 blocks are possibly lost in loss record 426 of 507</text>
     <leakedbytes>96</leakedbytes>
     <leakedblocks>1</leakedblocks>
   </xwhat>
@@ -1269,11 +1109,11 @@
 </error>
 
 <error>
-  <unique>0xde6</unique>
+  <unique>0x1bd</unique>
   <tid>1</tid>
   <kind>Leak_PossiblyLost</kind>
   <xwhat>
-    <text>132 bytes in 1 blocks are possibly lost in loss record 3,557 of 4,235</text>
+    <text>132 bytes in 1 blocks are possibly lost in loss record 444 of 507</text>
     <leakedbytes>132</leakedbytes>
     <leakedblocks>1</leakedblocks>
   </xwhat>
@@ -1337,11 +1177,11 @@
 </error>
 
 <error>
-  <unique>0xde7</unique>
+  <unique>0x1be</unique>
   <tid>1</tid>
   <kind>Leak_PossiblyLost</kind>
   <xwhat>
-    <text>132 bytes in 1 blocks are possibly lost in loss record 3,558 of 4,235</text>
+    <text>132 bytes in 1 blocks are possibly lost in loss record 445 of 507</text>
     <leakedbytes>132</leakedbytes>
     <leakedblocks>1</leakedblocks>
   </xwhat>
@@ -1405,11 +1245,11 @@
 </error>
 
 <error>
-  <unique>0xdfa</unique>
+  <unique>0x1c0</unique>
   <tid>1</tid>
   <kind>Leak_PossiblyLost</kind>
   <xwhat>
-    <text>148 bytes in 1 blocks are possibly lost in loss record 3,577 of 4,235</text>
+    <text>148 bytes in 1 blocks are possibly lost in loss record 447 of 507</text>
     <leakedbytes>148</leakedbytes>
     <leakedblocks>1</leakedblocks>
   </xwhat>
@@ -1473,11 +1313,11 @@
 </error>
 
 <error>
-  <unique>0xdfb</unique>
+  <unique>0x1c1</unique>
   <tid>1</tid>
   <kind>Leak_PossiblyLost</kind>
   <xwhat>
-    <text>148 bytes in 1 blocks are possibly lost in loss record 3,578 of 4,235</text>
+    <text>148 bytes in 1 blocks are possibly lost in loss record 448 of 507</text>
     <leakedbytes>148</leakedbytes>
     <leakedblocks>1</leakedblocks>
   </xwhat>
@@ -1541,569 +1381,11 @@
 </error>
 
 <error>
-  <unique>0xe09</unique>
+  <unique>0x1cd</unique>
   <tid>1</tid>
   <kind>Leak_PossiblyLost</kind>
   <xwhat>
-    <text>167 bytes in 1 blocks are possibly lost in loss record 3,592 of 4,235</text>
-    <leakedbytes>167</leakedbytes>
-    <leakedblocks>1</leakedblocks>
-  </xwhat>
-  <stack>
-    <frame>
-      <ip>0x483DD99</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
-      <fn>calloc</fn>
-    </frame>
-    <frame>
-      <ip>0x8642952</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libGLX_nvidia.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x9B0BC40</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x98B4285</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x98B486D</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x976970E</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x9B1CC88</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x9B1EBEB</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x9AF845B</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x85E1D0F</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libGLX_nvidia.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x85E1F3C</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libGLX_nvidia.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x8616439</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libGLX_nvidia.so.390.154</obj>
-    </frame>
-  </stack>
-</error>
-
-<error>
-  <unique>0xe0a</unique>
-  <tid>1</tid>
-  <kind>Leak_PossiblyLost</kind>
-  <xwhat>
-    <text>167 bytes in 1 blocks are possibly lost in loss record 3,593 of 4,235</text>
-    <leakedbytes>167</leakedbytes>
-    <leakedblocks>1</leakedblocks>
-  </xwhat>
-  <stack>
-    <frame>
-      <ip>0x483DD99</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
-      <fn>calloc</fn>
-    </frame>
-    <frame>
-      <ip>0x8642952</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libGLX_nvidia.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x9B0BC40</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x98B4369</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x98B486D</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x976970E</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x9B1CC88</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x9B1EBEB</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x9AF845B</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x85E1D0F</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libGLX_nvidia.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x85E1F3C</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libGLX_nvidia.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x8616439</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libGLX_nvidia.so.390.154</obj>
-    </frame>
-  </stack>
-</error>
-
-<error>
-  <unique>0xe0b</unique>
-  <tid>1</tid>
-  <kind>Leak_PossiblyLost</kind>
-  <xwhat>
-    <text>167 bytes in 1 blocks are possibly lost in loss record 3,594 of 4,235</text>
-    <leakedbytes>167</leakedbytes>
-    <leakedblocks>1</leakedblocks>
-  </xwhat>
-  <stack>
-    <frame>
-      <ip>0x483DD99</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
-      <fn>calloc</fn>
-    </frame>
-    <frame>
-      <ip>0x8642952</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libGLX_nvidia.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x9B0BC40</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x98B438D</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x98B486D</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x976970E</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x9B1CC88</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x9B1EBEB</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x9AF845B</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x85E1D0F</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libGLX_nvidia.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x85E1F3C</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libGLX_nvidia.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x8616439</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libGLX_nvidia.so.390.154</obj>
-    </frame>
-  </stack>
-</error>
-
-<error>
-  <unique>0xe0c</unique>
-  <tid>1</tid>
-  <kind>Leak_PossiblyLost</kind>
-  <xwhat>
-    <text>167 bytes in 1 blocks are possibly lost in loss record 3,595 of 4,235</text>
-    <leakedbytes>167</leakedbytes>
-    <leakedblocks>1</leakedblocks>
-  </xwhat>
-  <stack>
-    <frame>
-      <ip>0x483DD99</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
-      <fn>calloc</fn>
-    </frame>
-    <frame>
-      <ip>0x8642952</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libGLX_nvidia.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x9B0BC40</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x98B43B1</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x98B486D</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x976970E</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x9B1CC88</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x9B1EBEB</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x9AF845B</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x85E1D0F</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libGLX_nvidia.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x85E1F3C</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libGLX_nvidia.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x8616439</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libGLX_nvidia.so.390.154</obj>
-    </frame>
-  </stack>
-</error>
-
-<error>
-  <unique>0xe0d</unique>
-  <tid>1</tid>
-  <kind>Leak_PossiblyLost</kind>
-  <xwhat>
-    <text>167 bytes in 1 blocks are possibly lost in loss record 3,596 of 4,235</text>
-    <leakedbytes>167</leakedbytes>
-    <leakedblocks>1</leakedblocks>
-  </xwhat>
-  <stack>
-    <frame>
-      <ip>0x483DD99</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
-      <fn>calloc</fn>
-    </frame>
-    <frame>
-      <ip>0x8642952</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libGLX_nvidia.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x9B0BC40</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x98B43D5</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x98B486D</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x976970E</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x9B1CC88</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x9B1EBEB</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x9AF845B</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x85E1D0F</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libGLX_nvidia.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x85E1F3C</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libGLX_nvidia.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x8616439</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libGLX_nvidia.so.390.154</obj>
-    </frame>
-  </stack>
-</error>
-
-<error>
-  <unique>0xe0e</unique>
-  <tid>1</tid>
-  <kind>Leak_PossiblyLost</kind>
-  <xwhat>
-    <text>167 bytes in 1 blocks are possibly lost in loss record 3,597 of 4,235</text>
-    <leakedbytes>167</leakedbytes>
-    <leakedblocks>1</leakedblocks>
-  </xwhat>
-  <stack>
-    <frame>
-      <ip>0x483DD99</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
-      <fn>calloc</fn>
-    </frame>
-    <frame>
-      <ip>0x8642952</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libGLX_nvidia.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x9B0BC40</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x98B43F9</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x98B486D</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x976970E</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x9B1CC88</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x9B1EBEB</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x9AF845B</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x85E1D0F</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libGLX_nvidia.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x85E1F3C</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libGLX_nvidia.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x8616439</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libGLX_nvidia.so.390.154</obj>
-    </frame>
-  </stack>
-</error>
-
-<error>
-  <unique>0xe0f</unique>
-  <tid>1</tid>
-  <kind>Leak_PossiblyLost</kind>
-  <xwhat>
-    <text>167 bytes in 1 blocks are possibly lost in loss record 3,598 of 4,235</text>
-    <leakedbytes>167</leakedbytes>
-    <leakedblocks>1</leakedblocks>
-  </xwhat>
-  <stack>
-    <frame>
-      <ip>0x483DD99</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
-      <fn>calloc</fn>
-    </frame>
-    <frame>
-      <ip>0x8642952</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libGLX_nvidia.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x9B0BC40</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x98B441D</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x98B486D</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x976970E</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x9B1CC88</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x9B1EBEB</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x9AF845B</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x85E1D0F</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libGLX_nvidia.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x85E1F3C</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libGLX_nvidia.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x8616439</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libGLX_nvidia.so.390.154</obj>
-    </frame>
-  </stack>
-</error>
-
-<error>
-  <unique>0xe10</unique>
-  <tid>1</tid>
-  <kind>Leak_PossiblyLost</kind>
-  <xwhat>
-    <text>167 bytes in 1 blocks are possibly lost in loss record 3,599 of 4,235</text>
-    <leakedbytes>167</leakedbytes>
-    <leakedblocks>1</leakedblocks>
-  </xwhat>
-  <stack>
-    <frame>
-      <ip>0x483DD99</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
-      <fn>calloc</fn>
-    </frame>
-    <frame>
-      <ip>0x8642952</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libGLX_nvidia.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x9B0BC40</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x98B4441</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x98B486D</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x976970E</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x9B1CC88</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x9B1EBEB</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x9AF845B</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x85E1D0F</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libGLX_nvidia.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x85E1F3C</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libGLX_nvidia.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x8616439</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libGLX_nvidia.so.390.154</obj>
-    </frame>
-  </stack>
-</error>
-
-<error>
-  <unique>0xe11</unique>
-  <tid>1</tid>
-  <kind>Leak_PossiblyLost</kind>
-  <xwhat>
-    <text>167 bytes in 1 blocks are possibly lost in loss record 3,600 of 4,235</text>
-    <leakedbytes>167</leakedbytes>
-    <leakedblocks>1</leakedblocks>
-  </xwhat>
-  <stack>
-    <frame>
-      <ip>0x483DD99</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
-      <fn>calloc</fn>
-    </frame>
-    <frame>
-      <ip>0x8642952</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libGLX_nvidia.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x9B0BC40</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x98B4465</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x98B486D</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x976970E</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x9B1CC88</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x9B1EBEB</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x9AF845B</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x85E1D0F</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libGLX_nvidia.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x85E1F3C</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libGLX_nvidia.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x8616439</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libGLX_nvidia.so.390.154</obj>
-    </frame>
-  </stack>
-</error>
-
-<error>
-  <unique>0xe30</unique>
-  <tid>1</tid>
-  <kind>Leak_PossiblyLost</kind>
-  <xwhat>
-    <text>184 bytes in 1 blocks are possibly lost in loss record 3,631 of 4,235</text>
+    <text>184 bytes in 1 blocks are possibly lost in loss record 460 of 507</text>
     <leakedbytes>184</leakedbytes>
     <leakedblocks>1</leakedblocks>
   </xwhat>
@@ -2167,1325 +1449,6 @@
     <frame>
       <ip>0x4001139</ip>
       <obj>/usr/lib/x86_64-linux-gnu/ld-2.31.so</obj>
-    </frame>
-  </stack>
-</error>
-
-<error>
-  <unique>0xe9d</unique>
-  <tid>1</tid>
-  <kind>Leak_PossiblyLost</kind>
-  <xwhat>
-    <text>256 bytes in 8 blocks are possibly lost in loss record 3,740 of 4,235</text>
-    <leakedbytes>256</leakedbytes>
-    <leakedblocks>8</leakedblocks>
-  </xwhat>
-  <stack>
-    <frame>
-      <ip>0x483DD99</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
-      <fn>calloc</fn>
-    </frame>
-    <frame>
-      <ip>0x8642952</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libGLX_nvidia.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x9AF66FE</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x9B0172B</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x9AF6ADE</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x9B0190B</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x85E390C</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libGLX_nvidia.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x97788AE</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x977E230</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x977E88C</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x977F31F</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x49D0709</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/liballegro.so.5.2.7</obj>
-      <fn>_al_ogl_bind_framebuffer</fn>
-    </frame>
-  </stack>
-</error>
-
-<error>
-  <unique>0xeb6</unique>
-  <tid>1</tid>
-  <kind>Leak_PossiblyLost</kind>
-  <xwhat>
-    <text>311 bytes in 1 blocks are possibly lost in loss record 3,765 of 4,235</text>
-    <leakedbytes>311</leakedbytes>
-    <leakedblocks>1</leakedblocks>
-  </xwhat>
-  <stack>
-    <frame>
-      <ip>0x483DD99</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
-      <fn>calloc</fn>
-    </frame>
-    <frame>
-      <ip>0x8642952</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libGLX_nvidia.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x9B0BC40</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x98B4345</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x98B486D</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x976970E</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x9B1CC88</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x9B1EBEB</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x9AF845B</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x85E1D0F</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libGLX_nvidia.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x85E1F3C</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libGLX_nvidia.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x8616439</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libGLX_nvidia.so.390.154</obj>
-    </frame>
-  </stack>
-</error>
-
-<error>
-  <unique>0xee9</unique>
-  <tid>1</tid>
-  <kind>Leak_PossiblyLost</kind>
-  <xwhat>
-    <text>432 bytes in 1 blocks are possibly lost in loss record 3,816 of 4,235</text>
-    <leakedbytes>432</leakedbytes>
-    <leakedblocks>1</leakedblocks>
-  </xwhat>
-  <stack>
-    <frame>
-      <ip>0x483DD99</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
-      <fn>calloc</fn>
-    </frame>
-    <frame>
-      <ip>0x40149DA</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/ld-2.31.so</obj>
-      <fn>allocate_dtv</fn>
-      <dir>/build/glibc-SzIz7B/glibc-2.31/elf/../elf</dir>
-      <file>dl-tls.c</file>
-      <line>286</line>
-    </frame>
-    <frame>
-      <ip>0x40149DA</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/ld-2.31.so</obj>
-      <fn>_dl_allocate_tls</fn>
-      <dir>/build/glibc-SzIz7B/glibc-2.31/elf/../elf</dir>
-      <file>dl-tls.c</file>
-      <line>532</line>
-    </frame>
-    <frame>
-      <ip>0x59A2322</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libpthread-2.31.so</obj>
-      <fn>allocate_stack</fn>
-      <dir>/build/glibc-SzIz7B/glibc-2.31/nptl</dir>
-      <file>allocatestack.c</file>
-      <line>622</line>
-    </frame>
-    <frame>
-      <ip>0x59A2322</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libpthread-2.31.so</obj>
-      <fn>pthread_create@@GLIBC_2.2.5</fn>
-      <dir>/build/glibc-SzIz7B/glibc-2.31/nptl</dir>
-      <file>pthread_create.c</file>
-      <line>660</line>
-    </frame>
-    <frame>
-      <ip>0x49A7719</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/liballegro.so.5.2.7</obj>
-      <fn>_al_thread_create</fn>
-    </frame>
-    <frame>
-      <ip>0x49B4104</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/liballegro.so.5.2.7</obj>
-    </frame>
-    <frame>
-      <ip>0x4967285</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/liballegro.so.5.2.7</obj>
-    </frame>
-    <frame>
-      <ip>0x4967ADF</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/liballegro.so.5.2.7</obj>
-      <fn>al_install_system</fn>
-    </frame>
-    <frame>
-      <ip>0x43C8FE</ip>
-      <obj>/home/edwin/Programming/StarTrek_Linux/bin/Debug/StarTrekV3</obj>
-      <fn>Setup()</fn>
-      <dir>/home/edwin/Programming/StarTrek_Linux</dir>
-      <file>StartrekV3.cpp</file>
-      <line>689</line>
-    </frame>
-    <frame>
-      <ip>0x43FBED</ip>
-      <obj>/home/edwin/Programming/StarTrek_Linux/bin/Debug/StarTrekV3</obj>
-      <fn>main</fn>
-      <dir>/home/edwin/Programming/StarTrek_Linux</dir>
-      <file>StartrekV3.cpp</file>
-      <line>1896</line>
-    </frame>
-  </stack>
-</error>
-
-<error>
-  <unique>0xf0b</unique>
-  <tid>1</tid>
-  <kind>Leak_PossiblyLost</kind>
-  <xwhat>
-    <text>448 bytes in 1 blocks are possibly lost in loss record 3,850 of 4,235</text>
-    <leakedbytes>448</leakedbytes>
-    <leakedblocks>1</leakedblocks>
-  </xwhat>
-  <stack>
-    <frame>
-      <ip>0x483DD99</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
-      <fn>calloc</fn>
-    </frame>
-    <frame>
-      <ip>0x40149DA</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/ld-2.31.so</obj>
-      <fn>allocate_dtv</fn>
-      <dir>/build/glibc-SzIz7B/glibc-2.31/elf/../elf</dir>
-      <file>dl-tls.c</file>
-      <line>286</line>
-    </frame>
-    <frame>
-      <ip>0x40149DA</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/ld-2.31.so</obj>
-      <fn>_dl_allocate_tls</fn>
-      <dir>/build/glibc-SzIz7B/glibc-2.31/elf/../elf</dir>
-      <file>dl-tls.c</file>
-      <line>532</line>
-    </frame>
-    <frame>
-      <ip>0x59A2322</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libpthread-2.31.so</obj>
-      <fn>allocate_stack</fn>
-      <dir>/build/glibc-SzIz7B/glibc-2.31/nptl</dir>
-      <file>allocatestack.c</file>
-      <line>622</line>
-    </frame>
-    <frame>
-      <ip>0x59A2322</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libpthread-2.31.so</obj>
-      <fn>pthread_create@@GLIBC_2.2.5</fn>
-      <dir>/build/glibc-SzIz7B/glibc-2.31/nptl</dir>
-      <file>pthread_create.c</file>
-      <line>660</line>
-    </frame>
-    <frame>
-      <ip>0x6C14EB3</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/pulseaudio/libpulsecommon-13.99.so</obj>
-      <fn>pa_thread_new</fn>
-    </frame>
-    <frame>
-      <ip>0x5C8539A</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libpulse.so.0.21.2</obj>
-      <fn>pa_threaded_mainloop_start</fn>
-    </frame>
-    <frame>
-      <ip>0x5C49B8F</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libpulse-simple.so.0.1.1</obj>
-      <fn>pa_simple_new</fn>
-    </frame>
-    <frame>
-      <ip>0x48A45BC</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/liballegro_audio.so.5.2.7</obj>
-    </frame>
-    <frame>
-      <ip>0x48A16CD</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/liballegro_audio.so.5.2.7</obj>
-      <fn>al_create_voice</fn>
-    </frame>
-    <frame>
-      <ip>0x489E8A7</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/liballegro_audio.so.5.2.7</obj>
-      <fn>al_restore_default_mixer</fn>
-    </frame>
-    <frame>
-      <ip>0x489EB79</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/liballegro_audio.so.5.2.7</obj>
-      <fn>al_reserve_samples</fn>
-    </frame>
-    <frame>
-      <ip>0x435F38</ip>
-      <obj>/home/edwin/Programming/StarTrek_Linux/bin/Debug/StarTrekV3</obj>
-      <fn>SoundManager::Init_SoundManager(int)</fn>
-      <dir>/home/edwin/Programming/StarTrek_Linux</dir>
-      <file>SoundManager.cpp</file>
-      <line>24</line>
-    </frame>
-    <frame>
-      <ip>0x43CB19</ip>
-      <obj>/home/edwin/Programming/StarTrek_Linux/bin/Debug/StarTrekV3</obj>
-      <fn>Setup()</fn>
-      <dir>/home/edwin/Programming/StarTrek_Linux</dir>
-      <file>StartrekV3.cpp</file>
-      <line>767</line>
-    </frame>
-  </stack>
-</error>
-
-<error>
-  <unique>0xf0c</unique>
-  <tid>1</tid>
-  <kind>Leak_PossiblyLost</kind>
-  <xwhat>
-    <text>448 bytes in 1 blocks are possibly lost in loss record 3,851 of 4,235</text>
-    <leakedbytes>448</leakedbytes>
-    <leakedblocks>1</leakedblocks>
-  </xwhat>
-  <stack>
-    <frame>
-      <ip>0x483DD99</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
-      <fn>calloc</fn>
-    </frame>
-    <frame>
-      <ip>0x40149DA</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/ld-2.31.so</obj>
-      <fn>allocate_dtv</fn>
-      <dir>/build/glibc-SzIz7B/glibc-2.31/elf/../elf</dir>
-      <file>dl-tls.c</file>
-      <line>286</line>
-    </frame>
-    <frame>
-      <ip>0x40149DA</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/ld-2.31.so</obj>
-      <fn>_dl_allocate_tls</fn>
-      <dir>/build/glibc-SzIz7B/glibc-2.31/elf/../elf</dir>
-      <file>dl-tls.c</file>
-      <line>532</line>
-    </frame>
-    <frame>
-      <ip>0x59A2322</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libpthread-2.31.so</obj>
-      <fn>allocate_stack</fn>
-      <dir>/build/glibc-SzIz7B/glibc-2.31/nptl</dir>
-      <file>allocatestack.c</file>
-      <line>622</line>
-    </frame>
-    <frame>
-      <ip>0x59A2322</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libpthread-2.31.so</obj>
-      <fn>pthread_create@@GLIBC_2.2.5</fn>
-      <dir>/build/glibc-SzIz7B/glibc-2.31/nptl</dir>
-      <file>pthread_create.c</file>
-      <line>660</line>
-    </frame>
-    <frame>
-      <ip>0x49A7719</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/liballegro.so.5.2.7</obj>
-      <fn>_al_thread_create</fn>
-    </frame>
-    <frame>
-      <ip>0x49681D6</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/liballegro.so.5.2.7</obj>
-      <fn>al_create_thread</fn>
-    </frame>
-    <frame>
-      <ip>0x48A4644</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/liballegro_audio.so.5.2.7</obj>
-    </frame>
-    <frame>
-      <ip>0x48A16CD</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/liballegro_audio.so.5.2.7</obj>
-      <fn>al_create_voice</fn>
-    </frame>
-    <frame>
-      <ip>0x489E8A7</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/liballegro_audio.so.5.2.7</obj>
-      <fn>al_restore_default_mixer</fn>
-    </frame>
-    <frame>
-      <ip>0x489EB79</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/liballegro_audio.so.5.2.7</obj>
-      <fn>al_reserve_samples</fn>
-    </frame>
-    <frame>
-      <ip>0x435F38</ip>
-      <obj>/home/edwin/Programming/StarTrek_Linux/bin/Debug/StarTrekV3</obj>
-      <fn>SoundManager::Init_SoundManager(int)</fn>
-      <dir>/home/edwin/Programming/StarTrek_Linux</dir>
-      <file>SoundManager.cpp</file>
-      <line>24</line>
-    </frame>
-    <frame>
-      <ip>0x43CB19</ip>
-      <obj>/home/edwin/Programming/StarTrek_Linux/bin/Debug/StarTrekV3</obj>
-      <fn>Setup()</fn>
-      <dir>/home/edwin/Programming/StarTrek_Linux</dir>
-      <file>StartrekV3.cpp</file>
-      <line>767</line>
-    </frame>
-    <frame>
-      <ip>0x43FBED</ip>
-      <obj>/home/edwin/Programming/StarTrek_Linux/bin/Debug/StarTrekV3</obj>
-      <fn>main</fn>
-      <dir>/home/edwin/Programming/StarTrek_Linux</dir>
-      <file>StartrekV3.cpp</file>
-      <line>1896</line>
-    </frame>
-  </stack>
-</error>
-
-<error>
-  <unique>0xf0d</unique>
-  <tid>1</tid>
-  <kind>Leak_PossiblyLost</kind>
-  <xwhat>
-    <text>448 bytes in 1 blocks are possibly lost in loss record 3,852 of 4,235</text>
-    <leakedbytes>448</leakedbytes>
-    <leakedblocks>1</leakedblocks>
-  </xwhat>
-  <stack>
-    <frame>
-      <ip>0x483DD99</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
-      <fn>calloc</fn>
-    </frame>
-    <frame>
-      <ip>0x40149DA</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/ld-2.31.so</obj>
-      <fn>allocate_dtv</fn>
-      <dir>/build/glibc-SzIz7B/glibc-2.31/elf/../elf</dir>
-      <file>dl-tls.c</file>
-      <line>286</line>
-    </frame>
-    <frame>
-      <ip>0x40149DA</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/ld-2.31.so</obj>
-      <fn>_dl_allocate_tls</fn>
-      <dir>/build/glibc-SzIz7B/glibc-2.31/elf/../elf</dir>
-      <file>dl-tls.c</file>
-      <line>532</line>
-    </frame>
-    <frame>
-      <ip>0x59A2322</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libpthread-2.31.so</obj>
-      <fn>allocate_stack</fn>
-      <dir>/build/glibc-SzIz7B/glibc-2.31/nptl</dir>
-      <file>allocatestack.c</file>
-      <line>622</line>
-    </frame>
-    <frame>
-      <ip>0x59A2322</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libpthread-2.31.so</obj>
-      <fn>pthread_create@@GLIBC_2.2.5</fn>
-      <dir>/build/glibc-SzIz7B/glibc-2.31/nptl</dir>
-      <file>pthread_create.c</file>
-      <line>660</line>
-    </frame>
-    <frame>
-      <ip>0x49A7719</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/liballegro.so.5.2.7</obj>
-      <fn>_al_thread_create</fn>
-    </frame>
-    <frame>
-      <ip>0x43D708</ip>
-      <obj>/home/edwin/Programming/StarTrek_Linux/bin/Debug/StarTrekV3</obj>
-      <fn>Setup()</fn>
-      <dir>/home/edwin/Programming/StarTrek_Linux</dir>
-      <file>StartrekV3.cpp</file>
-      <line>854</line>
-    </frame>
-    <frame>
-      <ip>0x43FBED</ip>
-      <obj>/home/edwin/Programming/StarTrek_Linux/bin/Debug/StarTrekV3</obj>
-      <fn>main</fn>
-      <dir>/home/edwin/Programming/StarTrek_Linux</dir>
-      <file>StartrekV3.cpp</file>
-      <line>1896</line>
-    </frame>
-  </stack>
-</error>
-
-<error>
-  <unique>0xf19</unique>
-  <tid>1</tid>
-  <kind>Leak_DefinitelyLost</kind>
-  <xwhat>
-    <text>472 (64 direct, 408 indirect) bytes in 1 blocks are definitely lost in loss record 3,864 of 4,235</text>
-    <leakedbytes>472</leakedbytes>
-    <leakedblocks>1</leakedblocks>
-  </xwhat>
-  <stack>
-    <frame>
-      <ip>0x483B7F3</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
-      <fn>malloc</fn>
-    </frame>
-    <frame>
-      <ip>0x4964E31</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/liballegro.so.5.2.7</obj>
-      <fn>al_create_path</fn>
-    </frame>
-    <frame>
-      <ip>0x49A6C81</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/liballegro.so.5.2.7</obj>
-    </frame>
-    <frame>
-      <ip>0x49A7284</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/liballegro.so.5.2.7</obj>
-      <fn>_al_unix_get_path</fn>
-    </frame>
-    <frame>
-      <ip>0x43AE51</ip>
-      <obj>/home/edwin/Programming/StarTrek_Linux/bin/Debug/StarTrekV3</obj>
-      <fn>LoadMapping()</fn>
-      <dir>/home/edwin/Programming/StarTrek_Linux</dir>
-      <file>StartrekV3.cpp</file>
-      <line>402</line>
-    </frame>
-    <frame>
-      <ip>0x43D6FB</ip>
-      <obj>/home/edwin/Programming/StarTrek_Linux/bin/Debug/StarTrekV3</obj>
-      <fn>Setup()</fn>
-      <dir>/home/edwin/Programming/StarTrek_Linux</dir>
-      <file>StartrekV3.cpp</file>
-      <line>852</line>
-    </frame>
-    <frame>
-      <ip>0x43FBED</ip>
-      <obj>/home/edwin/Programming/StarTrek_Linux/bin/Debug/StarTrekV3</obj>
-      <fn>main</fn>
-      <dir>/home/edwin/Programming/StarTrek_Linux</dir>
-      <file>StartrekV3.cpp</file>
-      <line>1896</line>
-    </frame>
-  </stack>
-</error>
-
-<error>
-  <unique>0xf57</unique>
-  <tid>1</tid>
-  <kind>Leak_PossiblyLost</kind>
-  <xwhat>
-    <text>599 bytes in 1 blocks are possibly lost in loss record 3,926 of 4,235</text>
-    <leakedbytes>599</leakedbytes>
-    <leakedblocks>1</leakedblocks>
-  </xwhat>
-  <stack>
-    <frame>
-      <ip>0x483DD99</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
-      <fn>calloc</fn>
-    </frame>
-    <frame>
-      <ip>0x8642952</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libGLX_nvidia.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x9B0BC40</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x98B4264</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x98B486D</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x976970E</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x9B1CC88</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x9B1EBEB</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x9AF845B</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x85E1D0F</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libGLX_nvidia.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x85E1F3C</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libGLX_nvidia.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x8616439</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libGLX_nvidia.so.390.154</obj>
-    </frame>
-  </stack>
-</error>
-
-<error>
-  <unique>0xf64</unique>
-  <tid>1</tid>
-  <kind>Leak_DefinitelyLost</kind>
-  <xwhat>
-    <text>664 (64 direct, 600 indirect) bytes in 1 blocks are definitely lost in loss record 3,939 of 4,235</text>
-    <leakedbytes>664</leakedbytes>
-    <leakedblocks>1</leakedblocks>
-  </xwhat>
-  <stack>
-    <frame>
-      <ip>0x483B7F3</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
-      <fn>malloc</fn>
-    </frame>
-    <frame>
-      <ip>0x4964E31</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/liballegro.so.5.2.7</obj>
-      <fn>al_create_path</fn>
-    </frame>
-    <frame>
-      <ip>0x49A6C81</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/liballegro.so.5.2.7</obj>
-    </frame>
-    <frame>
-      <ip>0x49A7284</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/liballegro.so.5.2.7</obj>
-      <fn>_al_unix_get_path</fn>
-    </frame>
-    <frame>
-      <ip>0x44407F</ip>
-      <obj>/home/edwin/Programming/StarTrek_Linux/bin/Debug/StarTrekV3</obj>
-      <fn>CTransporter::Init()</fn>
-      <dir>/home/edwin/Programming/StarTrek_Linux</dir>
-      <file>Transporter.cpp</file>
-      <line>406</line>
-    </frame>
-    <frame>
-      <ip>0x43BF5F</ip>
-      <obj>/home/edwin/Programming/StarTrek_Linux/bin/Debug/StarTrekV3</obj>
-      <fn>InitObjects()</fn>
-      <dir>/home/edwin/Programming/StarTrek_Linux</dir>
-      <file>StartrekV3.cpp</file>
-      <line>577</line>
-    </frame>
-    <frame>
-      <ip>0x43CDD2</ip>
-      <obj>/home/edwin/Programming/StarTrek_Linux/bin/Debug/StarTrekV3</obj>
-      <fn>Setup()</fn>
-      <dir>/home/edwin/Programming/StarTrek_Linux</dir>
-      <file>StartrekV3.cpp</file>
-      <line>795</line>
-    </frame>
-    <frame>
-      <ip>0x43FBED</ip>
-      <obj>/home/edwin/Programming/StarTrek_Linux/bin/Debug/StarTrekV3</obj>
-      <fn>main</fn>
-      <dir>/home/edwin/Programming/StarTrek_Linux</dir>
-      <file>StartrekV3.cpp</file>
-      <line>1896</line>
-    </frame>
-  </stack>
-</error>
-
-<error>
-  <unique>0xf9f</unique>
-  <tid>1</tid>
-  <kind>Leak_PossiblyLost</kind>
-  <xwhat>
-    <text>1,127 bytes in 1 blocks are possibly lost in loss record 3,998 of 4,235</text>
-    <leakedbytes>1127</leakedbytes>
-    <leakedblocks>1</leakedblocks>
-  </xwhat>
-  <stack>
-    <frame>
-      <ip>0x483B7F3</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
-      <fn>malloc</fn>
-    </frame>
-    <frame>
-      <ip>0x8642B18</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libGLX_nvidia.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x9B0BBD6</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x9D1C715</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x9D1C7C6</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x976ABE0</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x9B21CE5</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x9AF6BFA</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x85E28B8</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libGLX_nvidia.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x8612100</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libGLX_nvidia.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x8617247</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libGLX_nvidia.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x8610827</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libGLX_nvidia.so.390.154</obj>
-      <fn>glXCreateNewContext</fn>
-    </frame>
-  </stack>
-</error>
-
-<error>
-  <unique>0x100f</unique>
-  <tid>1</tid>
-  <kind>Leak_PossiblyLost</kind>
-  <xwhat>
-    <text>4,631 bytes in 1 blocks are possibly lost in loss record 4,110 of 4,235</text>
-    <leakedbytes>4631</leakedbytes>
-    <leakedblocks>1</leakedblocks>
-  </xwhat>
-  <stack>
-    <frame>
-      <ip>0x483DD99</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
-      <fn>calloc</fn>
-    </frame>
-    <frame>
-      <ip>0x8642952</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libGLX_nvidia.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x9B0BC40</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x98B4243</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x98B486D</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x976970E</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x9B1CC88</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x9B1EBEB</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x9AF845B</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x85E1D0F</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libGLX_nvidia.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x85E1F3C</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libGLX_nvidia.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x8616439</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libGLX_nvidia.so.390.154</obj>
-    </frame>
-  </stack>
-</error>
-
-<error>
-  <unique>0x1010</unique>
-  <tid>1</tid>
-  <kind>Leak_PossiblyLost</kind>
-  <xwhat>
-    <text>4,631 bytes in 1 blocks are possibly lost in loss record 4,111 of 4,235</text>
-    <leakedbytes>4631</leakedbytes>
-    <leakedblocks>1</leakedblocks>
-  </xwhat>
-  <stack>
-    <frame>
-      <ip>0x483DD99</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
-      <fn>calloc</fn>
-    </frame>
-    <frame>
-      <ip>0x8642952</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libGLX_nvidia.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x9B0BC40</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x98B4489</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x98B486D</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x976970E</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x9B1CC88</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x9B1EBEB</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x9AF845B</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x85E1D0F</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libGLX_nvidia.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x85E1F3C</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libGLX_nvidia.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x8616439</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libGLX_nvidia.so.390.154</obj>
-    </frame>
-  </stack>
-</error>
-
-<error>
-  <unique>0x1039</unique>
-  <tid>1</tid>
-  <kind>Leak_PossiblyLost</kind>
-  <xwhat>
-    <text>11,704 bytes in 8 blocks are possibly lost in loss record 4,152 of 4,235</text>
-    <leakedbytes>11704</leakedbytes>
-    <leakedblocks>8</leakedblocks>
-  </xwhat>
-  <stack>
-    <frame>
-      <ip>0x483DD99</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
-      <fn>calloc</fn>
-    </frame>
-    <frame>
-      <ip>0x8642952</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libGLX_nvidia.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x9B0BC40</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x98B42FC</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x98B486D</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x976970E</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x9B1CC88</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x9B1EBEB</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x9AF845B</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x85E1D0F</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libGLX_nvidia.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x85E1F3C</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libGLX_nvidia.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x8616439</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libGLX_nvidia.so.390.154</obj>
-    </frame>
-  </stack>
-</error>
-
-<error>
-  <unique>0x104c</unique>
-  <tid>1</tid>
-  <kind>Leak_PossiblyLost</kind>
-  <xwhat>
-    <text>15,636 bytes in 12 blocks are possibly lost in loss record 4,171 of 4,235</text>
-    <leakedbytes>15636</leakedbytes>
-    <leakedblocks>12</leakedblocks>
-  </xwhat>
-  <stack>
-    <frame>
-      <ip>0x483B7F3</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
-      <fn>malloc</fn>
-    </frame>
-    <frame>
-      <ip>0x8642B18</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libGLX_nvidia.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x9B0BBD6</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x9768CD8</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x9BD98C3</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x9BDB23A</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x983EFB8</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x9844D2F</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x9848AC7</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x9866806</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x49CDD5B</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/liballegro.so.5.2.7</obj>
-    </frame>
-    <frame>
-      <ip>0x493C490</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/liballegro.so.5.2.7</obj>
-      <fn>_al_create_bitmap_params</fn>
-    </frame>
-  </stack>
-</error>
-
-<error>
-  <unique>0x1063</unique>
-  <tid>1</tid>
-  <kind>Leak_PossiblyLost</kind>
-  <xwhat>
-    <text>35,328 bytes in 8 blocks are possibly lost in loss record 4,194 of 4,235</text>
-    <leakedbytes>35328</leakedbytes>
-    <leakedblocks>8</leakedblocks>
-  </xwhat>
-  <stack>
-    <frame>
-      <ip>0x483DD99</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
-      <fn>calloc</fn>
-    </frame>
-    <frame>
-      <ip>0x8642952</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libGLX_nvidia.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x9B01712</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x9AF6ADE</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x9B0190B</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x85E390C</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libGLX_nvidia.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x97788AE</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x977E230</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x977E88C</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x977F31F</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x49D0709</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/liballegro.so.5.2.7</obj>
-      <fn>_al_ogl_bind_framebuffer</fn>
-    </frame>
-    <frame>
-      <ip>0x49D0E7A</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/liballegro.so.5.2.7</obj>
-      <fn>_al_ogl_setup_fbo_non_backbuffer</fn>
-    </frame>
-  </stack>
-</error>
-
-<error>
-  <unique>0x106d</unique>
-  <tid>1</tid>
-  <kind>Leak_PossiblyLost</kind>
-  <xwhat>
-    <text>81,223 bytes in 1 blocks are possibly lost in loss record 4,204 of 4,235</text>
-    <leakedbytes>81223</leakedbytes>
-    <leakedblocks>1</leakedblocks>
-  </xwhat>
-  <stack>
-    <frame>
-      <ip>0x483B7F3</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
-      <fn>malloc</fn>
-    </frame>
-    <frame>
-      <ip>0x8642B18</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libGLX_nvidia.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x9B0BBD6</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x9AF6C8C</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x8643F40</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libGLX_nvidia.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x9BD98C3</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x9BDB23A</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x983EFB8</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x9844D2F</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x9848AC7</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x9866806</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x49CE03C</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/liballegro.so.5.2.7</obj>
-    </frame>
-  </stack>
-</error>
-
-<error>
-  <unique>0x107d</unique>
-  <tid>1</tid>
-  <kind>Leak_PossiblyLost</kind>
-  <xwhat>
-    <text>287,535 bytes in 1 blocks are possibly lost in loss record 4,220 of 4,235</text>
-    <leakedbytes>287535</leakedbytes>
-    <leakedblocks>1</leakedblocks>
-  </xwhat>
-  <stack>
-    <frame>
-      <ip>0x483DD99</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
-      <fn>calloc</fn>
-    </frame>
-    <frame>
-      <ip>0x8642952</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libGLX_nvidia.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x9B0BC40</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x9777580</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x8612350</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libGLX_nvidia.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x8619928</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libGLX_nvidia.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x85DF5DF</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libGLX_nvidia.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x4011B5B</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/ld-2.31.so</obj>
-      <fn>call_init.part.0</fn>
-      <dir>/build/glibc-SzIz7B/glibc-2.31/elf</dir>
-      <file>dl-init.c</file>
-      <line>58</line>
-    </frame>
-    <frame>
-      <ip>0x4011CA0</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/ld-2.31.so</obj>
-      <fn>call_init</fn>
-      <dir>/build/glibc-SzIz7B/glibc-2.31/elf</dir>
-      <file>dl-init.c</file>
-      <line>30</line>
-    </frame>
-    <frame>
-      <ip>0x4011CA0</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/ld-2.31.so</obj>
-      <fn>_dl_init</fn>
-      <dir>/build/glibc-SzIz7B/glibc-2.31/elf</dir>
-      <file>dl-init.c</file>
-      <line>119</line>
-    </frame>
-    <frame>
-      <ip>0x4EC6984</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libc-2.31.so</obj>
-      <fn>_dl_catch_exception</fn>
-      <dir>/build/glibc-SzIz7B/glibc-2.31/elf</dir>
-      <file>dl-error-skeleton.c</file>
-      <line>182</line>
-    </frame>
-    <frame>
-      <ip>0x40160CE</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/ld-2.31.so</obj>
-      <fn>dl_open_worker</fn>
-      <dir>/build/glibc-SzIz7B/glibc-2.31/elf</dir>
-      <file>dl-open.c</file>
-      <line>758</line>
-    </frame>
-    <frame>
-      <ip>0x4EC6927</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libc-2.31.so</obj>
-      <fn>_dl_catch_exception</fn>
-      <dir>/build/glibc-SzIz7B/glibc-2.31/elf</dir>
-      <file>dl-error-skeleton.c</file>
-      <line>208</line>
-    </frame>
-  </stack>
-</error>
-
-<error>
-  <unique>0x1085</unique>
-  <tid>1</tid>
-  <kind>Leak_PossiblyLost</kind>
-  <xwhat>
-    <text>1,306,087 bytes in 65 blocks are possibly lost in loss record 4,228 of 4,235</text>
-    <leakedbytes>1306087</leakedbytes>
-    <leakedblocks>65</leakedblocks>
-  </xwhat>
-  <stack>
-    <frame>
-      <ip>0x483B7F3</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
-      <fn>malloc</fn>
-    </frame>
-    <frame>
-      <ip>0x8642B18</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libGLX_nvidia.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x9B0BBD6</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x9768CD8</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x9BD98C3</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x9BDB23A</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x983EFB8</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x9844D2F</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x9848AC7</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x9866806</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x49CE03C</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/liballegro.so.5.2.7</obj>
-    </frame>
-    <frame>
-      <ip>0x493C490</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/liballegro.so.5.2.7</obj>
-      <fn>_al_create_bitmap_params</fn>
-    </frame>
-  </stack>
-</error>
-
-<error>
-  <unique>0x108c</unique>
-  <tid>1</tid>
-  <kind>Leak_PossiblyLost</kind>
-  <xwhat>
-    <text>12,950,289 bytes in 15 blocks are possibly lost in loss record 4,235 of 4,235</text>
-    <leakedbytes>12950289</leakedbytes>
-    <leakedblocks>15</leakedblocks>
-  </xwhat>
-  <stack>
-    <frame>
-      <ip>0x483B7F3</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
-      <fn>malloc</fn>
-    </frame>
-    <frame>
-      <ip>0x8642B18</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libGLX_nvidia.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x9B0BBD6</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x9AF6C8C</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x9BD98C3</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x9BDB23A</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x983EFB8</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x9844D2F</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x9848AC7</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x9866806</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.390.154</obj>
-    </frame>
-    <frame>
-      <ip>0x49CE03C</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/liballegro.so.5.2.7</obj>
-    </frame>
-    <frame>
-      <ip>0x493C490</ip>
-      <obj>/usr/lib/x86_64-linux-gnu/liballegro.so.5.2.7</obj>
-      <fn>_al_create_bitmap_params</fn>
     </frame>
   </stack>
 </error>

@@ -423,7 +423,7 @@ bool CTransporter::Init()
             return false;
 	    }
 	}
-
+    al_destroy_path(pPath);
 	pPath = al_get_standard_path(ALLEGRO_RESOURCES_PATH);
     al_append_path_component(pPath, "graphics");
     al_append_path_component(pPath, "Interface");

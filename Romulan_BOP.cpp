@@ -174,7 +174,7 @@ void TRomulanBop::Do_ai()
                 {
                     if (m_AI!=AI_ESCORT)
                     {
-                       m_nEscortTimer = 500;
+                       m_nEscortTimer = 2000;
                     }
                     m_AI=AI_ESCORT;
                 }
@@ -335,7 +335,7 @@ switch(m_AI)
           if (m_blConversing)
           {
 
-              if (!m_pDialog->IsBusy())
+              if ((m_pDialog->IsEmpty()) && (m_nDisposition > 20))
               {
                   m_nEscortTimer--;
               }
@@ -389,7 +389,6 @@ switch(m_AI)
 					m_CloakState = CS_DECLOAKING;
 					m_nCloakCharge= 0;
 			  }
-
 
 			  tsx=m_pTarget->GetX()+cos(m_pTarget->GetAngle())*m_pTarget->GetSpeed()*shotlead;
               tsy=m_pTarget->GetY()+sin(m_pTarget->GetAngle())*m_pTarget->GetSpeed()*shotlead;
@@ -594,9 +593,9 @@ void TRomulanBop::DoCollision(TSprite * a_pSprite)
          (a_pSprite->m_ID<=ID_BULLET_TOP) &&
          (a_pSprite->m_Member==MEM_FEDERATION) )
     {
-        if (m_AI == AI_CONVERSE)
+        if ((m_AI == AI_CONVERSE)||(m_AI == AI_ESCORT))
         {
-            m_AI = AI_WANDER;
+            m_AI = AI_CHASE;
         }
         m_nDisposition = 0;
 

@@ -430,6 +430,7 @@ void LoadMapping()
       // Set default
       g_pKeyMapper->SetDefaultMapping();
    }
+   al_destroy_path(pLoadPath);
 }
 
 

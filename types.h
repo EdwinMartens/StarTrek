@@ -50,7 +50,7 @@
 #define GO_WIN_REACHED   10
 
 
-#define RESERVED_SAMPLES    20
+#define RESERVED_SAMPLES     8
 #define CLOAK_DELAY        900
 #define MAX_ENERGY       10000
 #define MAX_TORPEDOES       25
