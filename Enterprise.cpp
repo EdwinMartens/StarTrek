@@ -65,6 +65,7 @@ TEnterprise::TEnterprise()
 	m_blShieldOn       = false;
 	m_blPhaserKeyDown  = false;
 	m_blToggleEnable   = true;
+	m_blEnergyWarning  = false;
 
 	m_nDestructTimer = 600;
     m_blSelfDestruct = false;
@@ -104,6 +105,7 @@ TEnterprise::TEnterprise()
 	m_pTransporter = new CTransporter();
     m_pDialog      = new CDialog();
     m_ScanInfo.m_Valid = false;
+    m_MissionCritical = MC_SURVIVE;
 }
 
 TEnterprise::TEnterprise(ifstream & a_LoadStream, ID a_id )
@@ -137,6 +139,7 @@ TEnterprise::TEnterprise(ifstream & a_LoadStream, ID a_id )
    m_blRepaired       = false;
    m_blWasDocked      = false;
    m_blWasHinted      = false;
+   m_blEnergyWarning  = false;
    m_nWarpFactor      =     0;
 
    m_nDestructTimer   = 600;
@@ -2009,44 +2012,54 @@ bool TEnterprise::Init()
     al_append_path_component(pPath, "Ships");
     al_set_path_filename(pPath,"ent01.png");
     g_pEnterpriseBitmap = al_load_bitmap(al_path_cstr(pPath,ALLEGRO_NATIVE_PATH_SEP));
+	al_destroy_path(pPath);
 	if (g_pEnterpriseBitmap == NULL)  return false;
+
 
 	pPath = al_get_standard_path(ALLEGRO_RESOURCES_PATH);
     al_append_path_component(pPath, "graphics");
     al_append_path_component(pPath, "Interface");
     al_set_path_filename(pPath,"eng01.png");
     g_pEngineeringBitmap = al_load_bitmap(al_path_cstr(pPath,ALLEGRO_NATIVE_PATH_SEP));
+	al_destroy_path(pPath);
 	if (g_pEngineeringBitmap == NULL)  return false;
+
 
 	pPath = al_get_standard_path(ALLEGRO_RESOURCES_PATH);
     al_append_path_component(pPath, "graphics");
     al_append_path_component(pPath, "Interface");
     al_set_path_filename(pPath,"Com_Trans.png");
     g_pCommunicationBitmap = al_load_bitmap(al_path_cstr(pPath,ALLEGRO_NATIVE_PATH_SEP));
+	al_destroy_path(pPath);
 	if (g_pCommunicationBitmap == NULL)  return false;
+
 
 	pPath = al_get_standard_path(ALLEGRO_RESOURCES_PATH);
     al_append_path_component(pPath, "graphics");
     al_append_path_component(pPath, "Interface");
     al_set_path_filename(pPath,"Switch.png");
     g_pSwitchBitmap = al_load_bitmap(al_path_cstr(pPath,ALLEGRO_NATIVE_PATH_SEP));
+	al_destroy_path(pPath);
 	if (g_pSwitchBitmap == NULL)  return false;
+
 
     pPath = al_get_standard_path(ALLEGRO_RESOURCES_PATH);
     al_append_path_component(pPath, "graphics");
     al_append_path_component(pPath, "Photon");
     al_set_path_filename(pPath,"casing.png");
     g_pPhotonCasing = al_load_bitmap(al_path_cstr(pPath,ALLEGRO_NATIVE_PATH_SEP));
+	al_destroy_path(pPath);
 	if (g_pPhotonCasing == NULL)  return false;
+
 
 	pPath = al_get_standard_path(ALLEGRO_RESOURCES_PATH);
     al_append_path_component(pPath, "graphics");
     al_append_path_component(pPath, "probe");
     al_set_path_filename(pPath,"casing.png");
     g_pProbeCasing = al_load_bitmap(al_path_cstr(pPath,ALLEGRO_NATIVE_PATH_SEP));
+	al_destroy_path(pPath);
 	if (g_pProbeCasing == NULL)  return false;
 
 
-	al_destroy_path(pPath);
 	return true;
 }

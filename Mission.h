@@ -5,6 +5,17 @@
 #include <iostream>
 #include <ostream>
 
+
+
+enum MISSIONSTATE
+{
+    MS_CONTINUE,
+    MS_SUCCESS,
+    MS_FAIL,
+};
+
+
+
 class CMission
 {
 public:
@@ -28,7 +39,7 @@ private:
     int m_nTargetPositionX;
     int m_nTargetPositionY;
 
-
+    MISSIONSTATE m_MissionState;
 };
 
 

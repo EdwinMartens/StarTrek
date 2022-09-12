@@ -71,7 +71,6 @@ CReliant::CReliant()
 	m_PreferedBase	   = ID_FEDERATIONBASE;
 	m_nShieldEnergy    = m_nMaxShieldEnergy;
 	m_nCrew	           = MAX_CREW_FEDERATION;
-	m_nTask            = TSK_STANDARD;
 	m_ID               = ID_RELIANT;
 	m_AI        	   = AI_WANDER;
 

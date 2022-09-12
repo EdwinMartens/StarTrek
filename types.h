@@ -101,6 +101,14 @@
 
 
 
+enum MISSION_CRITICAL
+{
+    MC_NONE,
+    MC_SURVIVE,
+    MC_DESTROY,
+    MC_REACH
+};
+
 
 
 enum GAME_STATE

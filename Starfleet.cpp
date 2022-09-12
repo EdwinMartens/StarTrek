@@ -15,11 +15,13 @@ extern Universe      * g_pUniverse;
 ALLEGRO_PATH   * pStarfleetConversationPath = NULL;
 ALLEGRO_FS_ENTRY * pStarfleetDialogs = NULL;
 
+void (* g_pGameOverFunc)() = NULL;
+
 
 Starfleet::Starfleet()
 {
     m_pDialog = NULL;
-
+    m_lstEvents.clear();
 }
 
 
@@ -77,6 +79,50 @@ void Starfleet::StartDialog()
  }
 
 
+void Starfleet::PostEvent(missionEvent event)
+{
+     m_lstEvents.push_back(event);
+}
+
+
+void Starfleet::CheckMission()
+{
+     bool blMissionFail = false;
+     bool blGameOver = true;
+     if (!m_lstEvents.empty())
+     {
+        for (std::size_t i = 0; i < m_lstEvents.size(); i++)
+        {
+            missionEvent event = m_lstEvents.at(i);
+
+            if (event.m_blFailMission)
+            {
+
+
+                blMissionFail = true;
+            }
+         else
+            {
+
+            }
+        }
+     }
+
+     if (blMissionFail)
+     {
+         m_lstEvents.clear();
+         if (g_pGameOverFunc != NULL)
+         {
+             g_pGameOverFunc();
+         }
+     }
+}
+
+
+void Starfleet::SetGameoverFunc(void (* a_pGameOverFunc)())
+{
+     g_pGameOverFunc= a_pGameOverFunc;
+}
 
 
 bool Starfleet::Init()
@@ -98,3 +144,6 @@ bool Starfleet::Init()
         return false;
     }
 }
+
+
+

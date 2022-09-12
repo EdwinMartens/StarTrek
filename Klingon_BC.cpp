@@ -47,7 +47,6 @@ TKlingonBC::TKlingonBC()
 	m_blCanCloak        = false;
 
 	m_nCrew			    =  MAX_CREW_KLINGON_BC;
-	m_nTask             =  TSK_STANDARD;
 	m_Member			=  MEM_KLINGON;
 	m_PreferedBase		=  ID_KLINGON_BASE;
 

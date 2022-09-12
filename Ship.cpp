@@ -26,9 +26,11 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 #include "Bullet.h"
 #include "SoundManager.h"
 #include "FontManager.h"
+#include "Starfleet.h"
+#include "Enterprise.h"
 
-
-
+extern Starfleet * g_pStarfleet;
+extern TEnterprise   * g_pEnterprise;
 
 TShip::TShip()
 {
@@ -92,7 +94,9 @@ TShip::TShip()
 	m_strName               =   "UNKNOWN";
 	m_blPhaserSoundPlaying  = false;
 	m_blEvading             = false;
-	m_blShieldOn          = true;
+	m_blShieldOn            = true;
+	m_nTask                 = TSK_STANDARD;
+	m_MissionCritical       = MC_NONE;
 }
 
 TShip::~TShip()
@@ -132,6 +136,7 @@ TShip::TShip(ifstream & a_LoadStream,ID a_id)
     a_LoadStream.read((char*)& m_nCloakCharge, sizeof (m_nCloakCharge));
     a_LoadStream.read((char*)& m_nCloakCounter, sizeof (m_nCloakCounter));
     a_LoadStream.read((char*)& m_nTask, sizeof (m_nTask));
+    a_LoadStream.read((char*)& m_MissionCritical, sizeof (m_MissionCritical));
 
     m_lstHealth.clear();
     size_t nSystems;
@@ -221,6 +226,7 @@ void TShip::Save(ofstream & a_SaveStream)
     a_SaveStream.write((char*)& m_nCloakCharge, sizeof (m_nCloakCharge));
     a_SaveStream.write((char*)& m_nCloakCounter, sizeof (m_nCloakCounter));
     a_SaveStream.write((char*)& m_nTask, sizeof (m_nTask));
+    a_SaveStream.write((char*)& m_MissionCritical, sizeof (m_MissionCritical));
 
 
     size_t nSystems = m_lstHealth.size();
@@ -335,6 +341,35 @@ void TShip::Explode()
 		    m_pEngine->Add(pAnimation);
         }
 
+        missionEvent event;
+        //event.m_strObject = m_strName;
+        if (g_pEnterprise != NULL)
+        {
+            event.m_nSectorX = g_pEnterprise->GetX();
+            event.m_nSectorY = g_pEnterprise->GetY();
+        }
+
+        switch (m_MissionCritical)
+        {
+            case MC_DESTROY:
+                event.m_blFailMission=false;
+            break;
+
+            case MC_SURVIVE:
+                event.m_blFailMission=true;
+            break;
+
+            case MC_REACH:
+            break;
+
+            default:
+            break;
+        }
+
+        if (g_pStarfleet != NULL)
+        {
+            g_pStarfleet->PostEvent(event);
+        }
     }
 }
 

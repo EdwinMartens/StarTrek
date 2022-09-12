@@ -62,7 +62,6 @@ TRomulanBop::TRomulanBop()
 	m_blBeamSound         = false;
 
     m_nCrew			      = MAX_CREW_ROMULAN;
-	m_nTask               = TSK_STANDARD;
 	m_Member			  = MEM_ROMULAN;
 	m_PreferedBase		  = ID_ROMULAN_BASE;
 	m_ID                  = ID_ROMULANBOP;

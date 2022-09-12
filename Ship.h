@@ -64,6 +64,7 @@ bool m_blPhaserSoundPlaying;
 bool m_blEvading;
 double m_dEvadeAngle;
 
+
 protected:
     /// AI state
     AI m_AI;
@@ -143,6 +144,8 @@ int m_nRepairItem,
 	/// Can this ship Cloak
 	bool m_blCanCloak;
 
+
+	MISSION_CRITICAL m_MissionCritical;
 
 public:
 

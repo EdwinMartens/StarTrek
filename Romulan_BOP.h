@@ -74,9 +74,8 @@ double m_dFireDelay,
 
 public:
 int m_nFrame,
-	m_nTask,
-	m_nSequence,
-	m_nEscortTimer;
+		m_nSequence,
+	  m_nEscortTimer;
 
 virtual void DoCollision(TSprite * a_pSprite);
 

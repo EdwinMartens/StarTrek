@@ -231,6 +231,10 @@ bool g_blFullScreen = false;
 int g_nUniverseCycleInterval = 6000;
 int g_nUniverseCycle = g_nUniverseCycleInterval;
 
+int g_nMissionCycleInterval = 500;
+int g_nMissionCycle = g_nMissionCycleInterval;
+
+
 /// game logic cycles per second
 double g_nCyclesPerSecond = 50;
 
@@ -311,8 +315,8 @@ void SaveMapping();
 void LoadMapping();
 /// get the date and time
 const string currentDateTime();
-
-
+/// gameover function
+void DoGameOver();
 
 // Menu event handlers
 
@@ -372,8 +376,30 @@ void NewGame()
         g_pCommunication->Clear();
     }
 
-    g_pStarfleet->sendMessage(GAMESTART);
+    if (g_pStarfleet!= NULL)
+    {
+        g_pStarfleet->sendMessage(GAMESTART);
+    }
+}
 
+
+void DoGameOver()
+{
+    if (g_pMenu != NULL)
+    {
+        g_pMenu->ClearItems();
+        g_pMenu->AddMenuItem(g_nScreenWidth/2,"New Game",NewGame);
+        g_pMenu->AddMenuItem(g_nScreenWidth/2,"Load",SetupLoadScreen);
+        g_pMenu->AddMenuItem(g_nScreenWidth/2,"Map Keys",DoKeymap);
+        g_pMenu->AddMenuItem(g_nScreenWidth/2,"Quit",Quit);
+    }
+
+    while (g_vGameState.back()!= GS_MENU)
+    {
+        g_vGameState.pop_back();
+    }
+    Log("GAME STATE TO MENU");
+    al_show_mouse_cursor(g_pDisplay);
 }
 
 
@@ -435,6 +461,10 @@ void LoadGame(string a_strLoadName)
           Log("GAME STATE TO GAME");
           al_hide_mouse_cursor(g_pDisplay);
           g_dLastTime = al_get_time();
+
+
+          delete g_pStarfleet;
+	      g_pStarfleet = new Starfleet();
 
 #ifdef _DEBUG
           sprintf(g_szSector,"SECTOR: %d,%d",g_pEnterprise->m_nSectorPositionX,g_pEnterprise->m_nSectorPositionY);
@@ -836,6 +866,7 @@ bool Setup()
 			g_pTimer=al_create_timer(1.000/g_nCyclesPerSecond);
             al_register_event_source(g_pEventQueue, al_get_timer_event_source(g_pTimer));
 
+            Starfleet::SetGameoverFunc(DoGameOver);
 
             LoadMapping();
 			// start the timer
@@ -1057,12 +1088,29 @@ void GameCycle()
 	g_pEngine->Do_ai();
 	if (g_pEnterprise!=NULL)
     {
-       g_pCommunication->Next();
        CTransporter * pTransporter = g_pEnterprise->GetTransporter();
        if ((pTransporter != NULL) && (g_nScreenMode == MODE_COMMUNICATION))
        {
            pTransporter->update();
        }
+    }
+
+    g_pCommunication->Next();
+
+     if (g_nMissionCycle > 0)
+       {
+           g_nMissionCycle--;
+       }
+       else
+       {
+           if (g_pStarfleet!= NULL)
+           {
+                g_pStarfleet->CheckMission();
+           }
+
+           g_nMissionCycle = g_nMissionCycleInterval;
+       }
+
 
        if (g_nUniverseCycle > 0)
        {
@@ -1100,7 +1148,6 @@ void GameCycle()
 
            g_nUniverseCycle = g_nUniverseCycleInterval;
        }
-    }
 }
 
 
@@ -1664,7 +1711,7 @@ void MouseButtonUp(const ALLEGRO_MOUSE_EVENT & mouse_event)
  *  \param ALLEGRO_TIMER_EVENT * timer_event
  *
  */
-void Timer(ALLEGRO_TIMER_EVENT * timer_event)
+void Timer(ALLEGRO_TIMER_EVENT & timer_event)
 {
 	if (!g_vGameState.empty())
     {
@@ -1764,6 +1811,8 @@ void DoGame()
      double dDeltaTime = al_get_time() - g_dLastTime;
      g_dLastTime = al_get_time();
      g_pEngine->Move(dDeltaTime);
+     g_pParalax->Move(g_pEngine->GetDx(), g_pEngine->GetDy());
+
      if ((g_pEnterprise!=NULL) && (g_pEnterprise->m_blDestroyed))
      {
         g_pEnterprise=NULL;
@@ -1774,51 +1823,13 @@ void DoGame()
      {
         CheckSectorBounds();
         g_pEngine->Folow(g_pEnterprise);
-     }
-     else
-     {
-        g_nScreenMode = MODE_MAINSCREEN;
 
-        if (g_pEngine->m_blKeys[UP])
+
+        switch (g_nScreenMode)
         {
-            g_pEngine->Pan(0, -4);
-        }
-        else if (g_pEngine->m_blKeys[DOWN])
-        {
-            g_pEngine->Pan(0, 4);
-        }
-
-        if (g_pEngine->m_blKeys[LEFT])
-        {
-            g_pEngine->Pan(-4,0);
-        }
-        else if (g_pEngine->m_blKeys[RIGHT])
-        {
-            g_pEngine->Pan(4,0);
-        }
-
-
-
-     }
-     g_pParalax->Move(g_pEngine->GetDx(), g_pEngine->GetDy());
-
-     switch (g_nScreenMode)
-     {
-        case MODE_MAINSCREEN:
-        if (g_pEnterprise!=NULL)
-        {
-           g_pParalax->Draw(g_pDisplay,g_pEnterprise->GetWarp(),g_pEnterprise->GetAngle());
-        }
-        else
-        {
-           g_pParalax->Draw(g_pDisplay);
-        }
-
-
-        g_pEngine->Draw();
-
-        if (g_pEnterprise!=NULL)
-        {
+            case MODE_MAINSCREEN:
+            g_pParalax->Draw(g_pDisplay,g_pEnterprise->GetWarp(),g_pEnterprise->GetAngle());
+            g_pEngine->Draw();
             g_pEngine->DrawHud(g_pEnterprise);
             g_pEngine->Draw_sensor(60,g_nScreenHeight-60,g_pEnterprise);
             g_pEnterprise->DrawTargetInfo(0,g_nScreenWidth-140, g_nScreenHeight-120);
@@ -1829,7 +1840,7 @@ void DoGame()
                 al_draw_text(FontManager::GetFont(FONT::DBG),al_map_rgb(255,255,255), 10, 30, 0,"GOD MODE !");
             }
 #endif // DEBUG
-         }
+
          break;
 
          case MODE_ENGINEERING:
@@ -1855,18 +1866,35 @@ void DoGame()
 
          break;
 
+       }
 
-
-   }
-
-   if (g_pEnterprise!=NULL)
-   {
        g_pCommunication->Draw();
-   }
-   else
-   {
-       //g_pCommunication->
-   }
+
+     }
+     else
+     {
+        g_nScreenMode = MODE_MAINSCREEN;
+
+        if (g_pEngine->m_blKeys[UP])
+        {
+            g_pEngine->Pan(0, -4);
+        }
+        else if (g_pEngine->m_blKeys[DOWN])
+        {
+            g_pEngine->Pan(0, 4);
+        }
+
+        if (g_pEngine->m_blKeys[LEFT])
+        {
+            g_pEngine->Pan(-4,0);
+        }
+        else if (g_pEngine->m_blKeys[RIGHT])
+        {
+            g_pEngine->Pan(4,0);
+        }
+        g_pParalax->Draw(g_pDisplay);
+        g_pEngine->Draw();
+     }
 }
 
 
@@ -1924,7 +1952,7 @@ int main(int argc, char **argv)
 					 break;
 
                     case ALLEGRO_EVENT_TIMER:
-					 Timer(&ev.timer);
+					 Timer(ev.timer);
 					 break;
                     }
 

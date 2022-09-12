@@ -4,7 +4,7 @@
 #include "Universe.h"
 #include "DialogParser.h"
 #include "Dialog.h"
-
+#include <vector>
 
 enum GENERICMESSAGE
 {
@@ -15,12 +15,13 @@ enum GENERICMESSAGE
 };
 
 
-
-
-
-
-
-
+struct missionEvent
+{
+    bool m_blFailMission;
+    //std::string m_strObject;
+    int m_nSectorX;
+    int m_nSectorY;
+};
 
 
 class Starfleet
@@ -28,18 +29,20 @@ class Starfleet
 public:
 
 static bool Init();
+static void SetGameoverFunc(void (* a_pGameOverFunc)());
 Starfleet();
-
 void sendMessage(GENERICMESSAGE message);
-
+void PostEvent(missionEvent event);
+void CheckMission();
 
 protected:
 void StartDialog();
 
 
 private:
-
 CDialog * m_pDialog;
+std::vector<missionEvent> m_lstEvents;
+
 
 };
 

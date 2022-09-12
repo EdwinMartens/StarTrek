@@ -270,6 +270,9 @@ bool TStarbase::Init()
     pBitmap = NULL;
     al_set_path_filename(pPath,"KlinBase.png");
     pBitmap = al_load_bitmap(al_path_cstr(pPath,ALLEGRO_NATIVE_PATH_SEP));
+    al_destroy_path(pPath);
+
+
 
 	if (pBitmap!=NULL)
 	{
@@ -280,10 +283,6 @@ bool TStarbase::Init()
 	{
 		return false;
     }
-
-
-
-    al_destroy_path(pPath);
 }
 
 

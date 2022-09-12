@@ -70,8 +70,7 @@ double m_dFireDelay,
 
 public:
 int m_nFrame,
-	m_nTask,
-	m_nSequence;
+		m_nSequence;
 
 virtual void Do_ai();
 void fire_photon();

@@ -46,7 +46,6 @@ TKlingonBOP::TKlingonBOP()
 	m_nFlyheight		 =  m_nZ;
 	m_nShieldEnergy      =  m_nMaxShieldEnergy;
 	m_nCrew			     =  MAX_CREW_KLINGON_BOP;
-	m_nTask              =  TSK_STANDARD;
 	m_Member			 =  MEM_KLINGON;
 	m_PreferedBase		 =  ID_KLINGON_BASE;
 	m_CloakState        = CS_UNCLOAKED;

@@ -797,8 +797,8 @@ TSprite * TEngine::SeekClosestTransportTarget(double a_dX, double a_dY)
 	{
 		TSprite*hulp=*p;
 		if ( (hulp->m_blDestroyed == false) &&
-		     ((hulp->m_ID> ID_PLANET_BOTTOM) &&
-		     (hulp->m_ID<ID_PLANET_TOP))||(hulp->m_ID== ID_FEDERATIONBASE))
+		     ((((hulp->m_ID> ID_PLANET_BOTTOM) &&
+		     (hulp->m_ID<ID_PLANET_TOP))||(hulp->m_ID== ID_FEDERATIONBASE))))
 		{
 			D=int(Distance(a_dX,a_dY,hulp->m_dX,hulp->m_dY));
 			if ((D<=dist)&&(D!=0))
