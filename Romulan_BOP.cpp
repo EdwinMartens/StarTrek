@@ -170,15 +170,16 @@ void TRomulanBop::Do_ai()
 
             if ((m_pTarget->m_ID == ID_PLAYER)&&(g_pEnterprise!=NULL))
             {
-                if (m_nDisposition > 20)
+                bool blWar = g_pUniverse->WarWithRomulan();
+                if ((m_nDisposition > 20) && (!blWar))
                 {
                     if (m_AI!=AI_ESCORT)
                     {
-                       m_nEscortTimer = 2000;
+                       m_nEscortTimer = 1000;
                     }
                     m_AI=AI_ESCORT;
                 }
-                else if (m_nDisposition > 5)
+                else if ((m_nDisposition > 5)&& (!blWar))
                 {
                     if (m_dTargetDistance <= 600)
                     {
@@ -189,7 +190,7 @@ void TRomulanBop::Do_ai()
                 {
                     if (m_AI==AI_WANDER) m_AI=AI_CHASE;
                     int nState = GetCurrentSectorState();
-                    if ((nState == MEM_ROMULAN)||(nState == MEM_NEUTRAL_ZONE))
+                    if ((!blWar)&&((nState == MEM_ROMULAN)||(nState == MEM_NEUTRAL_ZONE)))
                     {
                         g_pUniverse->StartRomulanWar();
                     }
@@ -255,14 +256,17 @@ switch(m_AI)
 
 
       case AI_ESCORT:
-           m_pTarget = g_pEnterprise;
-           m_dAngleSeek=WayPoint(g_pEnterprise->GetX(),g_pEnterprise->GetY());
-           SetSpeed(m_dMaxSpeed);
-           m_nEscortTimer--;
-           if (m_nEscortTimer<=0)
+           if ((g_pEnterprise != NULL) && (!g_pEnterprise->IsDestroyed()))
            {
-               m_nDisposition = 0;
-               m_AI = AI_CHASE;
+                m_pTarget = g_pEnterprise;
+                m_dAngleSeek=WayPoint(g_pEnterprise->GetX(),g_pEnterprise->GetY());
+                SetSpeed(m_dMaxSpeed);
+                m_nEscortTimer--;
+                if (m_nEscortTimer<=0)
+                {
+                    m_nDisposition = 0;
+                    m_AI = AI_CHASE;
+                }
            }
 
       break;
@@ -379,12 +383,13 @@ switch(m_AI)
       }
       break;
 
+
       case AI_CHASE:
         if (m_pTarget!=NULL)
            {
               if (((m_CloakState == CS_CLOAKED)||(m_CloakState == CS_CLOAKING))&&(m_dTargetDistance<1000))
 			  {
-					double V = CalcVolume();
+			  		double V = CalcVolume();
                     SoundManager::PlaySound(SOUND::DECLOACK,V);
 					m_CloakState = CS_DECLOAKING;
 					m_nCloakCharge= 0;
