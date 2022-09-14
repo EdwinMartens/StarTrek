@@ -125,6 +125,7 @@ void TRomulanBop::Do_ai()
 	}
 	else
 	{
+        int nState = GetCurrentSectorState();
 
 		double tsx,tsy,t,shotlead;
 		shotlead=0;
@@ -173,28 +174,39 @@ void TRomulanBop::Do_ai()
                 bool blWar = g_pUniverse->WarWithRomulan();
                 if ((m_nDisposition > 20) && (!blWar))
                 {
-                    if (m_AI!=AI_ESCORT)
+                    if (nState == MEM_ROMULAN)
                     {
-                       m_nEscortTimer = 1000;
+                        if (m_AI!=AI_ESCORT)
+                        {
+                            m_nEscortTimer = 1000;
+                        }
+                        m_AI=AI_ESCORT;
                     }
-                    m_AI=AI_ESCORT;
+                    else
+                    {
+                        m_AI=AI_WANDER;
+                    }
+
                 }
-                else if ((m_nDisposition > 5)&& (!blWar))
+                else if ((m_nDisposition > 5) && (!blWar) && (!m_blHadConversation))
                 {
                     if (m_dTargetDistance <= 600)
                     {
                         m_AI = AI_CONVERSE;
                     }
                 }
-                else
+                else if ((m_nDisposition <= 0)||(blWar))
                 {
                     if (m_AI==AI_WANDER) m_AI=AI_CHASE;
                     int nState = GetCurrentSectorState();
-                    if ((!blWar)&&((nState == MEM_ROMULAN)||(nState == MEM_NEUTRAL_ZONE)))
+                    if ((!blWar)&&((nState == MEM_ROMULAN)))
                     {
                         g_pUniverse->StartRomulanWar();
                     }
-
+                }
+                else
+                {
+                    m_AI=AI_WANDER;
                 }
             }
 
@@ -256,7 +268,7 @@ switch(m_AI)
 
 
       case AI_ESCORT:
-           if ((g_pEnterprise != NULL) && (!g_pEnterprise->IsDestroyed()))
+           if ((nState == MEM_ROMULAN)&&(g_pEnterprise != NULL) && (!g_pEnterprise->IsDestroyed()))
            {
                 m_pTarget = g_pEnterprise;
                 m_dAngleSeek=WayPoint(g_pEnterprise->GetX(),g_pEnterprise->GetY());
@@ -267,6 +279,10 @@ switch(m_AI)
                     m_nDisposition = 0;
                     m_AI = AI_CHASE;
                 }
+           }
+           else
+           {
+               m_AI = AI_WANDER;
            }
 
       break;
@@ -282,7 +298,7 @@ switch(m_AI)
                   if (m_pDialog->IsEmpty())
                   {
                        bool blOk = false;
-                       int nState = GetCurrentSectorState();
+
                        switch (nState)
                        {
                             case MEM_ROMULAN:
@@ -332,6 +348,7 @@ switch(m_AI)
                   {
                       m_pDialog = NULL;
                       m_blConversing = false;
+
                   }
               }
           }
@@ -347,6 +364,7 @@ switch(m_AI)
               if (m_nEscortTimer <= 0)
               {
                   m_AI=AI_WANDER;
+                  m_blHadConversation = true;
                   m_nDisposition = 0;
               }
 
@@ -354,6 +372,7 @@ switch(m_AI)
               {
                    m_pDialog = NULL;
                    m_AI=AI_WANDER;
+                   m_blHadConversation = true;
                    m_blConversing = false;
               }
               else
@@ -374,6 +393,7 @@ switch(m_AI)
                   {
                       m_nDisposition = m_pDialog->GetResult();
                       m_AI=AI_WANDER;
+                      m_blHadConversation = true;
                       m_pDialog = NULL;
                       m_blConversing = false;
                   }

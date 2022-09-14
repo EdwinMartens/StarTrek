@@ -10,14 +10,15 @@ Game engine created
 Paralax created
 Key Mapper created
 GAME STATE TO MENU
-Enterprise created
+Gamestate to GS_LOAD
 Create communications ***
 Communication created
-Delete old universe
-Create new universe Object
-Generate random universe
-Set enterprise position
-New universe generated
-New Sector
 GAME STATE TO GAME
-Dialog opened
+Gamestate to GS_LOAD
+Create communications ***
+Communication created
+GAME STATE TO GAME
+Gamestate to GS_LOAD
+Create communications ***
+Communication created
+GAME STATE TO GAME

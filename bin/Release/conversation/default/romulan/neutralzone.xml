@@ -1,5 +1,5 @@
 <DIALOG>
-	<STATEMENT id = "0" ing = "romulan1.png">
+	<STATEMENT id = "0" ing = "romulan2.png">
 	    Welcome Captain,
 		How can we be of assistance
 		<ANSWER next = "1" value = "5" >
@@ -12,7 +12,7 @@
 		Goodbye !
 		</ANSWER>
 	</STATEMENT>
-	<STATEMENT id = "1" ing = "romulan1.png">
+	<STATEMENT id = "1" ing = "romulan2.png">
 	    Repairs starting now
 		<ANSWER next = "-1" value = "5" >
 		Goodbye
@@ -21,7 +21,7 @@
 		One more thing...
 		</ANSWER>
 	</STATEMENT>
-	<STATEMENT id = "2" ing = "romulan1.png">
+	<STATEMENT id = "2" ing = "romulan2.png">
 	    What do you want to repair
 		<ANSWER next = "-1" value = "5" >
 		Everything

@@ -95,6 +95,7 @@ TShip::TShip()
 	m_blPhaserSoundPlaying  = false;
 	m_blEvading             = false;
 	m_blShieldOn            = true;
+	m_blHadConversation     = false;
 	m_nTask                 = TSK_STANDARD;
 	m_MissionCritical       = MC_NONE;
 }

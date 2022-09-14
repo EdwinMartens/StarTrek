@@ -144,6 +144,8 @@ int m_nRepairItem,
 	/// Can this ship Cloak
 	bool m_blCanCloak;
 
+	bool m_blHadConversation;
+
 
 	MISSION_CRITICAL m_MissionCritical;
 
