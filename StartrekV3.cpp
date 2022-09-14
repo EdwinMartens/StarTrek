@@ -965,6 +965,7 @@ void ShutDown()
 
     DeInitObjects();
     SoundManager::DeInit_SoundManager();
+    al_uninstall_keyboard();
     al_destroy_path(g_pSavePath);
     al_destroy_path(g_pScreenshotPath);
 	al_destroy_event_queue(g_pEventQueue);

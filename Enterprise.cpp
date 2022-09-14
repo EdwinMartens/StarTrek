@@ -577,17 +577,17 @@ void TEnterprise::SignalTargetDesytoyed()
 void TEnterprise::Do_ai()
 {
 
-if (g_blGodMode)
-{
-    for (size_t i=0;i< m_lstHealth.size();i++)
-	{
-		if (m_lstHealth[i]<m_nMaxHealth)
-		{
-			m_lstHealth[i] = m_nMaxHealth;
-    	}
-	}
+    if (g_blGodMode)
+    {
+        for (size_t i=0;i< m_lstHealth.size();i++)
+        {
+            if (m_lstHealth[i]<m_nMaxHealth)
+            {
+                m_lstHealth[i] = m_nMaxHealth;
+            }
+        }
 	m_nEnergy  = 10000;
-}
+    }
 
 
 	// Destruction rules
@@ -1141,7 +1141,15 @@ void TEnterprise::DrawTargetInfo(int a_nSelection,int a_nXLocation, int a_nYLoca
 				break;
 
 			case HLT_PHASER:
-				 strcpy(szShipPart,"PHAS ");
+				 if (m_pTarget->m_ID == ID_KLINGONBOP)
+                 {
+                   strcpy(szShipPart,"DISRU");
+                 }
+                 else
+                 {
+                   strcpy(szShipPart,"PHAS ");
+                 }
+
 				break;
 
 			case HLT_PHOTON:
@@ -1269,9 +1277,9 @@ void TEnterprise::draw_engineering()
 
 	for (int i=0;i < m_nProbes;i++)
     {
-        al_draw_bitmap(g_pProbeCasing, nStartX+((m_nTorpedoes+2) * 20)  +(24*i), 35, 0);
+        al_draw_bitmap(g_pProbeCasing, nStartX+100+((m_nTorpedoes) * 20)  +(24*i), 35, 0);
     }
-	al_draw_text(FontManager::GetFont(FONT::SMALL),m_pEngine->m_clWHITE, nStartX+((m_nTorpedoes+2) * 20), 20, 0,"Probes");
+	al_draw_text(FontManager::GetFont(FONT::SMALL),m_pEngine->m_clWHITE, nStartX+100+((m_nTorpedoes) * 20), 20, 0,"Probes");
 
 	al_draw_text(FontManager::GetFont(FONT::SMALL),m_pEngine->m_clWHITE, nStartX, 82, 0,"Crew");
 	for (int i=0; i < (m_nCrew/2); i++)

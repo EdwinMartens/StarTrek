@@ -12,8 +12,8 @@
   <line>Command: /home/edwin/Programming/StarTrek_Linux/bin/Debug/StarTrekV3</line>
 </preamble>
 
-<pid>19664</pid>
-<ppid>15223</ppid>
+<pid>10353</pid>
+<ppid>9236</ppid>
 <tool>memcheck</tool>
 
 <args>
@@ -31,7 +31,7 @@
 
 <status>
   <state>RUNNING</state>
-  <time>00:00:00:00.213 </time>
+  <time>00:00:00:00.286 </time>
 </status>
 
 <error>
@@ -73,7 +73,7 @@
       <obj>/usr/lib/x86_64-linux-gnu/liballegro_audio.so.5.2.7</obj>
     </frame>
     <frame>
-      <ip>0x435F1F</ip>
+      <ip>0x435FCF</ip>
       <obj>/home/edwin/Programming/StarTrek_Linux/bin/Debug/StarTrekV3</obj>
       <fn>SoundManager::Init_SoundManager(int)</fn>
       <dir>/home/edwin/Programming/StarTrek_Linux</dir>
@@ -81,7 +81,7 @@
       <line>18</line>
     </frame>
     <frame>
-      <ip>0x43CF39</ip>
+      <ip>0x43CFE9</ip>
       <obj>/home/edwin/Programming/StarTrek_Linux/bin/Debug/StarTrekV3</obj>
       <fn>Setup()</fn>
       <dir>/home/edwin/Programming/StarTrek_Linux</dir>
@@ -89,7 +89,7 @@
       <line>786</line>
     </frame>
     <frame>
-      <ip>0x44001D</ip>
+      <ip>0x4400CD</ip>
       <obj>/home/edwin/Programming/StarTrek_Linux/bin/Debug/StarTrekV3</obj>
       <fn>main</fn>
       <dir>/home/edwin/Programming/StarTrek_Linux</dir>
@@ -161,7 +161,7 @@
       <obj>/usr/lib/x86_64-linux-gnu/liballegro_audio.so.5.2.7</obj>
     </frame>
     <frame>
-      <ip>0x435F1F</ip>
+      <ip>0x435FCF</ip>
       <obj>/home/edwin/Programming/StarTrek_Linux/bin/Debug/StarTrekV3</obj>
       <fn>SoundManager::Init_SoundManager(int)</fn>
       <dir>/home/edwin/Programming/StarTrek_Linux</dir>
@@ -169,7 +169,7 @@
       <line>18</line>
     </frame>
     <frame>
-      <ip>0x43CF39</ip>
+      <ip>0x43CFE9</ip>
       <obj>/home/edwin/Programming/StarTrek_Linux/bin/Debug/StarTrekV3</obj>
       <fn>Setup()</fn>
       <dir>/home/edwin/Programming/StarTrek_Linux</dir>
@@ -177,7 +177,7 @@
       <line>786</line>
     </frame>
     <frame>
-      <ip>0x44001D</ip>
+      <ip>0x4400CD</ip>
       <obj>/home/edwin/Programming/StarTrek_Linux/bin/Debug/StarTrekV3</obj>
       <fn>main</fn>
       <dir>/home/edwin/Programming/StarTrek_Linux</dir>
@@ -187,18 +187,176 @@
   </stack>
 </error>
 
+<error>
+  <unique>0x2</unique>
+  <tid>1</tid>
+  <kind>UninitCondition</kind>
+  <what>Conditional jump or move depends on uninitialised value(s)</what>
+  <stack>
+    <frame>
+      <ip>0x4340AC</ip>
+      <obj>/home/edwin/Programming/StarTrek_Linux/bin/Debug/StarTrekV3</obj>
+      <fn>TShip::DoEngineering()</fn>
+      <dir>/home/edwin/Programming/StarTrek_Linux</dir>
+      <file>Ship.cpp</file>
+      <line>549</line>
+    </frame>
+    <frame>
+      <ip>0x4214F7</ip>
+      <obj>/home/edwin/Programming/StarTrek_Linux/bin/Debug/StarTrekV3</obj>
+      <fn>TKlingonBC::Do_ai()</fn>
+      <dir>/home/edwin/Programming/StarTrek_Linux</dir>
+      <file>Klingon_BC.cpp</file>
+      <line>333</line>
+    </frame>
+    <frame>
+      <ip>0x40F29F</ip>
+      <obj>/home/edwin/Programming/StarTrek_Linux/bin/Debug/StarTrekV3</obj>
+      <fn>TEngine::Do_ai()</fn>
+      <dir>/home/edwin/Programming/StarTrek_Linux</dir>
+      <file>Engine.cpp</file>
+      <line>371</line>
+    </frame>
+    <frame>
+      <ip>0x43E7E4</ip>
+      <obj>/home/edwin/Programming/StarTrek_Linux/bin/Debug/StarTrekV3</obj>
+      <fn>GameCycle()</fn>
+      <dir>/home/edwin/Programming/StarTrek_Linux</dir>
+      <file>StartrekV3.cpp</file>
+      <line>1089</line>
+    </frame>
+    <frame>
+      <ip>0x44008C</ip>
+      <obj>/home/edwin/Programming/StarTrek_Linux/bin/Debug/StarTrekV3</obj>
+      <fn>Timer(ALLEGRO_TIMER_EVENT&amp;)</fn>
+      <dir>/home/edwin/Programming/StarTrek_Linux</dir>
+      <file>StartrekV3.cpp</file>
+      <line>1737</line>
+    </frame>
+    <frame>
+      <ip>0x4402C9</ip>
+      <obj>/home/edwin/Programming/StarTrek_Linux/bin/Debug/StarTrekV3</obj>
+      <fn>main</fn>
+      <dir>/home/edwin/Programming/StarTrek_Linux</dir>
+      <file>StartrekV3.cpp</file>
+      <line>1956</line>
+    </frame>
+  </stack>
+  <auxwhat>Uninitialised value was created by a heap allocation</auxwhat>
+  <stack>
+    <frame>
+      <ip>0x483BE63</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
+      <fn>operator new(unsigned long)</fn>
+    </frame>
+    <frame>
+      <ip>0x412124</ip>
+      <obj>/home/edwin/Programming/StarTrek_Linux/bin/Debug/StarTrekV3</obj>
+      <fn>TEngine::Load(std::basic_ifstream&lt;char, std::char_traits&lt;char&gt; &gt;&amp;)</fn>
+      <dir>/home/edwin/Programming/StarTrek_Linux</dir>
+      <file>Engine.cpp</file>
+      <line>1097</line>
+    </frame>
+    <frame>
+      <ip>0x43B539</ip>
+      <obj>/home/edwin/Programming/StarTrek_Linux/bin/Debug/StarTrekV3</obj>
+      <fn>LoadGame(std::__cxx11::basic_string&lt;char, std::char_traits&lt;char&gt;, std::allocator&lt;char&gt; &gt;)</fn>
+      <dir>/home/edwin/Programming/StarTrek_Linux</dir>
+      <file>StartrekV3.cpp</file>
+      <line>451</line>
+    </frame>
+    <frame>
+      <ip>0x42DCB1</ip>
+      <obj>/home/edwin/Programming/StarTrek_Linux/bin/Debug/StarTrekV3</obj>
+      <fn>SlotManager::ProcessMouseEvent(ALLEGRO_MOUSE_EVENT const&amp;)</fn>
+      <dir>/home/edwin/Programming/StarTrek_Linux</dir>
+      <file>SaveSlots.cpp</file>
+      <line>258</line>
+    </frame>
+    <frame>
+      <ip>0x43FF3C</ip>
+      <obj>/home/edwin/Programming/StarTrek_Linux/bin/Debug/StarTrekV3</obj>
+      <fn>MouseButtonDown(ALLEGRO_MOUSE_EVENT const&amp;)</fn>
+      <dir>/home/edwin/Programming/StarTrek_Linux</dir>
+      <file>StartrekV3.cpp</file>
+      <line>1671</line>
+    </frame>
+    <frame>
+      <ip>0x4402A3</ip>
+      <obj>/home/edwin/Programming/StarTrek_Linux/bin/Debug/StarTrekV3</obj>
+      <fn>main</fn>
+      <dir>/home/edwin/Programming/StarTrek_Linux</dir>
+      <file>StartrekV3.cpp</file>
+      <line>1948</line>
+    </frame>
+  </stack>
+</error>
+
 
 <status>
   <state>FINISHED</state>
-  <time>00:00:18:40.965 </time>
+  <time>00:00:04:52.456 </time>
 </status>
 
 <error>
-  <unique>0xa5</unique>
+  <unique>0x3c4</unique>
+  <tid>1</tid>
+  <kind>Leak_DefinitelyLost</kind>
+  <xwhat>
+    <text>9 bytes in 1 blocks are definitely lost in loss record 28 of 510</text>
+    <leakedbytes>9</leakedbytes>
+    <leakedblocks>1</leakedblocks>
+  </xwhat>
+  <stack>
+    <frame>
+      <ip>0x483B7F3</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
+      <fn>malloc</fn>
+    </frame>
+    <frame>
+      <ip>0x5FFC756</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/libX11.so.6.3.0</obj>
+      <fn>_XlcDefaultMapModifiers</fn>
+    </frame>
+    <frame>
+      <ip>0x5FFCB2A</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/libX11.so.6.3.0</obj>
+      <fn>XSetLocaleModifiers</fn>
+    </frame>
+    <frame>
+      <ip>0x49B0033</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/liballegro.so.5.2.7</obj>
+    </frame>
+    <frame>
+      <ip>0x4961321</ip>
+      <obj>/usr/lib/x86_64-linux-gnu/liballegro.so.5.2.7</obj>
+      <fn>al_install_keyboard</fn>
+    </frame>
+    <frame>
+      <ip>0x43CF72</ip>
+      <obj>/home/edwin/Programming/StarTrek_Linux/bin/Debug/StarTrekV3</obj>
+      <fn>Setup()</fn>
+      <dir>/home/edwin/Programming/StarTrek_Linux</dir>
+      <file>StartrekV3.cpp</file>
+      <line>781</line>
+    </frame>
+    <frame>
+      <ip>0x4400CD</ip>
+      <obj>/home/edwin/Programming/StarTrek_Linux/bin/Debug/StarTrekV3</obj>
+      <fn>main</fn>
+      <dir>/home/edwin/Programming/StarTrek_Linux</dir>
+      <file>StartrekV3.cpp</file>
+      <line>1916</line>
+    </frame>
+  </stack>
+</error>
+
+<error>
+  <unique>0x450</unique>
   <tid>1</tid>
   <kind>Leak_PossiblyLost</kind>
   <xwhat>
-    <text>16 bytes in 1 blocks are possibly lost in loss record 164 of 507</text>
+    <text>16 bytes in 1 blocks are possibly lost in loss record 168 of 510</text>
     <leakedbytes>16</leakedbytes>
     <leakedblocks>1</leakedblocks>
   </xwhat>
@@ -262,11 +420,11 @@
 </error>
 
 <error>
-  <unique>0xa6</unique>
+  <unique>0x451</unique>
   <tid>1</tid>
   <kind>Leak_PossiblyLost</kind>
   <xwhat>
-    <text>16 bytes in 1 blocks are possibly lost in loss record 165 of 507</text>
+    <text>16 bytes in 1 blocks are possibly lost in loss record 169 of 510</text>
     <leakedbytes>16</leakedbytes>
     <leakedblocks>1</leakedblocks>
   </xwhat>
@@ -335,11 +493,11 @@
 </error>
 
 <error>
-  <unique>0xa7</unique>
+  <unique>0x452</unique>
   <tid>1</tid>
   <kind>Leak_PossiblyLost</kind>
   <xwhat>
-    <text>16 bytes in 1 blocks are possibly lost in loss record 166 of 507</text>
+    <text>16 bytes in 1 blocks are possibly lost in loss record 170 of 510</text>
     <leakedbytes>16</leakedbytes>
     <leakedblocks>1</leakedblocks>
   </xwhat>
@@ -403,11 +561,11 @@
 </error>
 
 <error>
-  <unique>0xa8</unique>
+  <unique>0x453</unique>
   <tid>1</tid>
   <kind>Leak_PossiblyLost</kind>
   <xwhat>
-    <text>16 bytes in 1 blocks are possibly lost in loss record 167 of 507</text>
+    <text>16 bytes in 1 blocks are possibly lost in loss record 171 of 510</text>
     <leakedbytes>16</leakedbytes>
     <leakedblocks>1</leakedblocks>
   </xwhat>
@@ -476,11 +634,11 @@
 </error>
 
 <error>
-  <unique>0xa9</unique>
+  <unique>0x454</unique>
   <tid>1</tid>
   <kind>Leak_PossiblyLost</kind>
   <xwhat>
-    <text>16 bytes in 1 blocks are possibly lost in loss record 168 of 507</text>
+    <text>16 bytes in 1 blocks are possibly lost in loss record 172 of 510</text>
     <leakedbytes>16</leakedbytes>
     <leakedblocks>1</leakedblocks>
   </xwhat>
@@ -544,11 +702,11 @@
 </error>
 
 <error>
-  <unique>0xaa</unique>
+  <unique>0x455</unique>
   <tid>1</tid>
   <kind>Leak_PossiblyLost</kind>
   <xwhat>
-    <text>16 bytes in 1 blocks are possibly lost in loss record 169 of 507</text>
+    <text>16 bytes in 1 blocks are possibly lost in loss record 173 of 510</text>
     <leakedbytes>16</leakedbytes>
     <leakedblocks>1</leakedblocks>
   </xwhat>
@@ -617,11 +775,11 @@
 </error>
 
 <error>
-  <unique>0xab</unique>
+  <unique>0x456</unique>
   <tid>1</tid>
   <kind>Leak_PossiblyLost</kind>
   <xwhat>
-    <text>16 bytes in 1 blocks are possibly lost in loss record 170 of 507</text>
+    <text>16 bytes in 1 blocks are possibly lost in loss record 174 of 510</text>
     <leakedbytes>16</leakedbytes>
     <leakedblocks>1</leakedblocks>
   </xwhat>
@@ -685,11 +843,11 @@
 </error>
 
 <error>
-  <unique>0xac</unique>
+  <unique>0x457</unique>
   <tid>1</tid>
   <kind>Leak_PossiblyLost</kind>
   <xwhat>
-    <text>16 bytes in 1 blocks are possibly lost in loss record 171 of 507</text>
+    <text>16 bytes in 1 blocks are possibly lost in loss record 175 of 510</text>
     <leakedbytes>16</leakedbytes>
     <leakedblocks>1</leakedblocks>
   </xwhat>
@@ -758,11 +916,11 @@
 </error>
 
 <error>
-  <unique>0x1a7</unique>
+  <unique>0x552</unique>
   <tid>1</tid>
   <kind>Leak_PossiblyLost</kind>
   <xwhat>
-    <text>96 bytes in 1 blocks are possibly lost in loss record 422 of 507</text>
+    <text>96 bytes in 1 blocks are possibly lost in loss record 426 of 510</text>
     <leakedbytes>96</leakedbytes>
     <leakedblocks>1</leakedblocks>
   </xwhat>
@@ -821,11 +979,11 @@
 </error>
 
 <error>
-  <unique>0x1a8</unique>
+  <unique>0x553</unique>
   <tid>1</tid>
   <kind>Leak_PossiblyLost</kind>
   <xwhat>
-    <text>96 bytes in 1 blocks are possibly lost in loss record 423 of 507</text>
+    <text>96 bytes in 1 blocks are possibly lost in loss record 427 of 510</text>
     <leakedbytes>96</leakedbytes>
     <leakedblocks>1</leakedblocks>
   </xwhat>
@@ -893,11 +1051,11 @@
 </error>
 
 <error>
-  <unique>0x1a9</unique>
+  <unique>0x554</unique>
   <tid>1</tid>
   <kind>Leak_PossiblyLost</kind>
   <xwhat>
-    <text>96 bytes in 1 blocks are possibly lost in loss record 424 of 507</text>
+    <text>96 bytes in 1 blocks are possibly lost in loss record 428 of 510</text>
     <leakedbytes>96</leakedbytes>
     <leakedblocks>1</leakedblocks>
   </xwhat>
@@ -965,11 +1123,11 @@
 </error>
 
 <error>
-  <unique>0x1aa</unique>
+  <unique>0x555</unique>
   <tid>1</tid>
   <kind>Leak_PossiblyLost</kind>
   <xwhat>
-    <text>96 bytes in 1 blocks are possibly lost in loss record 425 of 507</text>
+    <text>96 bytes in 1 blocks are possibly lost in loss record 429 of 510</text>
     <leakedbytes>96</leakedbytes>
     <leakedblocks>1</leakedblocks>
   </xwhat>
@@ -1037,11 +1195,11 @@
 </error>
 
 <error>
-  <unique>0x1ab</unique>
+  <unique>0x556</unique>
   <tid>1</tid>
   <kind>Leak_PossiblyLost</kind>
   <xwhat>
-    <text>96 bytes in 1 blocks are possibly lost in loss record 426 of 507</text>
+    <text>96 bytes in 1 blocks are possibly lost in loss record 430 of 510</text>
     <leakedbytes>96</leakedbytes>
     <leakedblocks>1</leakedblocks>
   </xwhat>
@@ -1109,11 +1267,11 @@
 </error>
 
 <error>
-  <unique>0x1bd</unique>
+  <unique>0x566</unique>
   <tid>1</tid>
   <kind>Leak_PossiblyLost</kind>
   <xwhat>
-    <text>132 bytes in 1 blocks are possibly lost in loss record 444 of 507</text>
+    <text>132 bytes in 1 blocks are possibly lost in loss record 446 of 510</text>
     <leakedbytes>132</leakedbytes>
     <leakedblocks>1</leakedblocks>
   </xwhat>
@@ -1177,11 +1335,11 @@
 </error>
 
 <error>
-  <unique>0x1be</unique>
+  <unique>0x567</unique>
   <tid>1</tid>
   <kind>Leak_PossiblyLost</kind>
   <xwhat>
-    <text>132 bytes in 1 blocks are possibly lost in loss record 445 of 507</text>
+    <text>132 bytes in 1 blocks are possibly lost in loss record 447 of 510</text>
     <leakedbytes>132</leakedbytes>
     <leakedblocks>1</leakedblocks>
   </xwhat>
@@ -1245,11 +1403,11 @@
 </error>
 
 <error>
-  <unique>0x1c0</unique>
+  <unique>0x569</unique>
   <tid>1</tid>
   <kind>Leak_PossiblyLost</kind>
   <xwhat>
-    <text>148 bytes in 1 blocks are possibly lost in loss record 447 of 507</text>
+    <text>148 bytes in 1 blocks are possibly lost in loss record 449 of 510</text>
     <leakedbytes>148</leakedbytes>
     <leakedblocks>1</leakedblocks>
   </xwhat>
@@ -1313,11 +1471,11 @@
 </error>
 
 <error>
-  <unique>0x1c1</unique>
+  <unique>0x56a</unique>
   <tid>1</tid>
   <kind>Leak_PossiblyLost</kind>
   <xwhat>
-    <text>148 bytes in 1 blocks are possibly lost in loss record 448 of 507</text>
+    <text>148 bytes in 1 blocks are possibly lost in loss record 450 of 510</text>
     <leakedbytes>148</leakedbytes>
     <leakedblocks>1</leakedblocks>
   </xwhat>
@@ -1381,11 +1539,11 @@
 </error>
 
 <error>
-  <unique>0x1cd</unique>
+  <unique>0x576</unique>
   <tid>1</tid>
   <kind>Leak_PossiblyLost</kind>
   <xwhat>
-    <text>184 bytes in 1 blocks are possibly lost in loss record 460 of 507</text>
+    <text>184 bytes in 1 blocks are possibly lost in loss record 462 of 510</text>
     <leakedbytes>184</leakedbytes>
     <leakedblocks>1</leakedblocks>
   </xwhat>
@@ -1454,6 +1612,10 @@
 </error>
 
 <errorcounts>
+  <pair>
+    <count>935</count>
+    <unique>0x2</unique>
+  </pair>
   <pair>
     <count>2</count>
     <unique>0x0</unique>
