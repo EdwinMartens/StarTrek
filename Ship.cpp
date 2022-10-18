@@ -31,6 +31,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 
 extern Starfleet * g_pStarfleet;
 extern TEnterprise   * g_pEnterprise;
+extern Communication * g_pCommunication;
 
 TShip::TShip()
 {
@@ -862,6 +863,10 @@ void TShip::Release(TShip * a_pBaseTarget)
 			m_blReleasing=false;
 			m_pEngine->Sort();
 			m_pTarget=NULL;
+			if (m_ID == ID_PLAYER)
+            {
+               g_pCommunication->AddMessage(6,CREW_SULU," Captain, you have the helm !");
+            }
 		}
 		else
         {

@@ -1271,24 +1271,24 @@ void TEnterprise::draw_engineering()
     nStartX-=100;
     for (int i=0;i < m_nTorpedoes;i++)
     {
-        al_draw_bitmap(g_pPhotonCasing, nStartX+(20*i), 35, 0);
+        al_draw_bitmap(g_pPhotonCasing, nStartX+(20*i), 30, 0);
     }
-	al_draw_text(FontManager::GetFont(FONT::SMALL),m_pEngine->m_clWHITE, nStartX, 20, 0,"Torpedoes");
+	al_draw_text(FontManager::GetFont(FONT::SMALL),m_pEngine->m_clWHITE, nStartX, 10, 0,"Torpedoes");
 
 	for (int i=0;i < m_nProbes;i++)
     {
-        al_draw_bitmap(g_pProbeCasing, nStartX+100+((m_nTorpedoes) * 20)  +(24*i), 35, 0);
+        al_draw_bitmap(g_pProbeCasing, nStartX+100+((m_nTorpedoes) * 20)  +(24*i), 30, 0);
     }
-	al_draw_text(FontManager::GetFont(FONT::SMALL),m_pEngine->m_clWHITE, nStartX+100+((m_nTorpedoes) * 20), 20, 0,"Probes");
+	al_draw_text(FontManager::GetFont(FONT::SMALL),m_pEngine->m_clWHITE, nStartX+100+((m_nTorpedoes) * 20), 10, 0,"Probes");
 
-	al_draw_text(FontManager::GetFont(FONT::SMALL),m_pEngine->m_clWHITE, nStartX, 82, 0,"Crew");
+	al_draw_text(FontManager::GetFont(FONT::SMALL),m_pEngine->m_clWHITE, nStartX, 76, 0,"Crew");
 	for (int i=0; i < (m_nCrew/2); i++)
     {
         ALLEGRO_COLOR col = m_pEngine->m_clGREEN;
         if (i< 150) col = m_pEngine->m_clYELLOW;
         if (i< 60) col = m_pEngine->m_clRED;
 
-        al_draw_line(nStartX +(2*i),97,nStartX+(2*i),112, col,1);
+        al_draw_line(nStartX +(2*i),90,nStartX+(2*i),100, col,1);
     }
 
 }
