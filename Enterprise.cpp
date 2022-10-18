@@ -1268,7 +1268,7 @@ void TEnterprise::draw_engineering()
         al_draw_filled_rectangle(nStartX, 716, nStartX+(m_nShieldEnergy*5), 736,m_pEngine->m_clGREEN);
     }
 
-
+    nStartX-=100;
     for (int i=0;i < m_nTorpedoes;i++)
     {
         al_draw_bitmap(g_pPhotonCasing, nStartX+(20*i), 35, 0);
