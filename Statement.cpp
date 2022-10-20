@@ -120,6 +120,7 @@ void CStatement::OnMouseButtonDown(const ALLEGRO_MOUSE_EVENT & a_MouseEvent)
      {
         bool blFound = false;
         vector<CAnswer *>::const_iterator p = m_vAnswer.begin();
+        bool blDialogShouldEnd = false;
         while ((p!= m_vAnswer.end()) && (!blFound))
         {
             if ((*p)->MouseOver(m_nX, m_nY,a_MouseEvent.x,a_MouseEvent.y))
@@ -135,12 +136,17 @@ void CStatement::OnMouseButtonDown(const ALLEGRO_MOUSE_EVENT & a_MouseEvent)
                     else
                     {
                         m_pParent->SetResult((*p)->m_nValue);
-                        m_pParent->EndDialog();
+                        blDialogShouldEnd = true;
                     }
                     blFound = true;
                 }
             }
             p++;
+        }
+
+        if (blDialogShouldEnd)
+        {
+            m_pParent->EndDialog();
         }
      }
 }

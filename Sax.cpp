@@ -196,22 +196,25 @@ bool XMLParser::Read(ifstream & a_XMLStream)
 
         if ((!blReadingSymbol) && (chRead != '?') && (chRead != '/') && (chRead != '!')  && (chRead != '>'))
         {
+            char appendText[2];
+            appendText[0] = chRead;
+            appendText[1] = '\0';
             switch (m_ReadingMode)
             {
               case RM_TEXT:
-                strContent.append(&chRead);
+                strContent.append(appendText);
               break;
 
               case RM_CONTEXT:
-                   strScheme.append(&chRead);
+                   strScheme.append(appendText);
               break;
 
               case RM_START_TAG:
-                   strStartTag.append(&chRead);
+                   strStartTag.append(appendText);
               break;
 
               case RM_END_TAG:
-                   strEndTag.append(&chRead);
+                   strEndTag.append(appendText);
               break;
 
               default:
@@ -219,7 +222,6 @@ bool XMLParser::Read(ifstream & a_XMLStream)
               break;
             }
         }
-
 
       if (nIndex > MAX_SYMBOL_SIZE)
        {

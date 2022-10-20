@@ -1454,17 +1454,13 @@
 	"WindowDialog.h"
 	<allegro5/allegro_primitives.h>
 
-1631460677 source:/home/edwin/Programming/StarTrek_Linux/Sax.cpp
-	"Sax.h"
-	<strings.h>
-	<iostream>
-	<sstream>
+1666279009 source:/home/edwin/Programming/StarTrek_Linux/Sax.cpp
 	"Sax.h"
 	<strings.h>
 	<iostream>
 	<sstream>
 
-1663168335 source:/home/edwin/Programming/StarTrek_Linux/Ship.cpp
+1666091832 source:/home/edwin/Programming/StarTrek_Linux/Ship.cpp
 	<cmath>
 	<algorithm>
 	"Ship.h"
@@ -1475,9 +1471,7 @@
 	"Starfleet.h"
 	"Enterprise.h"
 
-1637422310 source:/home/edwin/Programming/StarTrek_Linux/SoundManager.cpp
-	<stdio.h>
-	"SoundManager.h"
+1666272632 source:/home/edwin/Programming/StarTrek_Linux/SoundManager.cpp
 	<stdio.h>
 	"SoundManager.h"
 
@@ -1531,7 +1525,7 @@
 
 1631460678 /home/edwin/Programming/StarTrek_Linux/version.h
 
-1661872612 source:/home/edwin/Programming/StarTrek_Linux/Statement.cpp
+1666279366 source:/home/edwin/Programming/StarTrek_Linux/Statement.cpp
 	<iostream>
 	"types.h"
 	"Statement.h"
