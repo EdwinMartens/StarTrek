@@ -27,7 +27,7 @@ friend class CDialog;
                       ALLEGRO_COLOR a_AnswerColor,
                       ALLEGRO_COLOR a_AnswerColorHighlight);
 
-    CStatement(int a_nId);
+    CStatement(int a_nId, int a_nX, int a_nY);
     ~CStatement();
     void AddText(string a_strText);
     void SetImage(string a_strImagePath);

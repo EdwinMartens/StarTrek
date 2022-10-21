@@ -22,11 +22,11 @@ void CStatement::INIT(ALLEGRO_FONT * a_pFont,
 }
 
 
-CStatement::CStatement(int a_nId)
+CStatement::CStatement(int a_nId, int a_nX, int a_nY)
 {
     m_nId = a_nId;
-    m_nX = 20;
-    m_nY = 30;
+    m_nX = a_nX;
+    m_nY = a_nY;
     m_nAnswerY = 200;
     m_pImage = NULL;
     m_pParent = NULL;
@@ -95,7 +95,7 @@ void CStatement::Draw()
 
     if (m_pImage != NULL)
     {
-        al_draw_bitmap(m_pImage,1000 - al_get_bitmap_width(m_pImage),25,0);
+        al_draw_bitmap(m_pImage,m_nX+(980 - al_get_bitmap_width(m_pImage)),m_nY,0);
     }
 
 

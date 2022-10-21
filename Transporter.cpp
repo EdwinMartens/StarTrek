@@ -5,6 +5,7 @@
 
 extern TEnterprise * g_pEnterprise;
 extern Communication * g_pCommunication;
+extern TEngine       * g_pEngine;
 
 static std::vector<ALLEGRO_BITMAP *> g_lstInventoryImages;
 ALLEGRO_COLOR g_BeamColor;
@@ -23,6 +24,9 @@ CTransporter::CTransporter()
     m_nKnobOffset = 0;
     m_blBeamUp = false;
     m_pSelection = NULL;
+
+    m_nKnobX = g_pEngine->m_nScreenMidX-85;
+    m_nKnobY = 550;
 }
 
 CTransporter::CTransporter(ifstream & a_LoadStream)
@@ -36,6 +40,8 @@ CTransporter::CTransporter(ifstream & a_LoadStream)
     m_nKnobOffset = 0;
     m_blBeamUp = false;
     m_pSelection = NULL;
+    m_nKnobX = g_pEngine->m_nScreenMidX-85;
+    m_nKnobY = 550;
 
 
     a_LoadStream.read((char*)& m_blBeamUp, sizeof (m_blBeamUp));
@@ -311,9 +317,7 @@ void CTransporter::drawInventory()
 
 void CTransporter::drawKnob()
 {
-    int nX = 425;
-    int nY = 550;
-    al_draw_bitmap(g_pTransporterControl,nX ,nY + m_nKnobOffset,0);
+    al_draw_bitmap(g_pTransporterControl,m_nKnobX ,m_nKnobY + m_nKnobOffset,0);
 }
 
 
@@ -339,7 +343,7 @@ TResponse CTransporter::ProcessMouseEvent(const ALLEGRO_MOUSE_EVENT & mouse_even
             m_lstInventory.push_back(m_TransporterItem);
             m_State = TS_EMPTY;
         }
-        else if ((mouse_event.x > 425) && (mouse_event.x < 500) && (mouse_event.y >550) && (mouse_event.y < 570))
+        else if ((mouse_event.x > m_nKnobX) && (mouse_event.x < m_nKnobX+75) && (mouse_event.y >550) && (mouse_event.y < 570))
         {
             if (!a_blShield)
             {

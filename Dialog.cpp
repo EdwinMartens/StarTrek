@@ -3,16 +3,20 @@
 
 extern SCREEN_MODE g_nScreenMode;
 
-CDialog::CDialog()
+CDialog::CDialog(TEngine * a_pEngine)
 {
    m_sIndex = 0;
    m_blBusy = false;
+   m_pEngine = a_pEngine;
+   m_nXOffset = m_pEngine->m_nScreenMidX-490;
+   m_nYOffset = 30;
 }
 
 CDialog::~CDialog()
 {
     Clear();
 }
+
 
 void CDialog::SetResult(int a_nResult)
 {

@@ -6,6 +6,7 @@
 #include <allegro5/allegro.h>
 #include "types.h"
 #include "Statement.h"
+#include "Engine.h"
 
 
 using namespace std;
@@ -16,7 +17,7 @@ class CStatement;
 class CDialog
 {
 public:
-    CDialog();
+    CDialog(TEngine * a_pEngine);
     ~CDialog();
 
     void EndDialog();
@@ -36,11 +37,14 @@ public:
 protected:
 
 private:
+    int m_nXOffset;
+    int m_nYOffset;
     int m_nResult;
     bool m_blBusy;
     size_t m_sIndex;
     vector<CStatement * > m_vStatement;
-
+    TEngine * m_pEngine;
+friend class CDialogParser;
 };
 
 

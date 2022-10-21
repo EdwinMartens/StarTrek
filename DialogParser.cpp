@@ -63,7 +63,7 @@ void CDialogParser::StartNode(string & a_strNodeName, string & a_strAttributes)
 
             if (nId != -1)
             {
-                m_pReadingStatement = new CStatement(nId);
+                m_pReadingStatement = new CStatement(nId,m_pDialog->m_nXOffset,m_pDialog->m_nYOffset);
                 m_pReadingStatement->SetImage(strIMG);
             }
 

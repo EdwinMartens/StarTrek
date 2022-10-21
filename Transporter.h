@@ -104,6 +104,8 @@ private:
     TInventoryItem * m_pSelection;
     bool m_blBeamUp;
     ALLEGRO_LOCKED_REGION * pLockedRegion;
+    int m_nKnobX;
+    int m_nKnobY;
 
 protected:
     void addToInventory(TInventoryItem a_Item);

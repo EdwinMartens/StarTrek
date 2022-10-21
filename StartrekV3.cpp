@@ -1861,7 +1861,7 @@ void DoGame()
 
          case MODE_COMMUNICATION:
               g_pEnterprise->draw_communication();
-              g_pEnterprise->GetTransporter()->draw(130,480,250,g_pDisplay);
+              g_pEnterprise->GetTransporter()->draw(g_pEngine->m_nScreenMidX - 260,480,250,g_pDisplay);
               #ifdef _DEBUG
               al_draw_text(FontManager::GetFont(FONT::DBG),al_map_rgb(255,255,255), 10, 10, 0,g_szMouse);
               #endif // DEBUG

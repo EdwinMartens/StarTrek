@@ -30,6 +30,7 @@ extern bool g_blGodMode;
 extern Communication * g_pCommunication;
 extern Universe * g_pUniverse;
 extern SCREEN_MODE g_nScreenMode;
+extern TEngine       * g_pEngine;
 
 ALLEGRO_BITMAP * g_pEnterpriseBitmap    = NULL;
 ALLEGRO_BITMAP * g_pEngineeringBitmap   = NULL;
@@ -103,7 +104,7 @@ TEnterprise::TEnterprise()
 
     SetImage(g_pEnterpriseBitmap);
 	m_pTransporter = new CTransporter();
-    m_pDialog      = new CDialog();
+    m_pDialog      = new CDialog(g_pEngine);
     m_ScanInfo.m_Valid = false;
     m_MissionCritical = MC_SURVIVE;
 }
@@ -122,7 +123,7 @@ TEnterprise::TEnterprise(ifstream & a_LoadStream, ID a_id )
    m_pTransportTarget = NULL;
 
    SetImage(g_pEnterpriseBitmap);
-   m_pDialog      = new CDialog();
+   m_pDialog      = new CDialog(g_pEngine);
 
    m_dViewDistance	   = SECTORSIZE;
    m_ID                = ID_PLAYER;
@@ -420,16 +421,6 @@ void TEnterprise::DoEngineering()
 	{
 		m_nPhaserEnergy-=2;
 		m_nPhaserFireTimer=5;
-
-		/*
-		if (m_pTarget!=NULL)
-		{
-			m_dTargetDistance = Distance(m_dX,m_dY,m_pTarget->GetX(),m_pTarget->GetY());
-			float Eeff=m_nPhaserPower/(m_dTargetDistance+1);
-			if (Eeff>10) Eeff=10;
-			m_pTarget->CalcPhaserDamage(Eeff,m_nPreferedTarget);
-		}
-        */
 	}
 	if ((m_nPhaserEnergy<=0)||(m_lstHealth[HLT_PHASER]<=20)) StopPhaser();
 
@@ -586,7 +577,7 @@ void TEnterprise::Do_ai()
                 m_lstHealth[i] = m_nMaxHealth;
             }
         }
-	m_nEnergy  = 10000;
+        m_nEnergy  = 10000;
     }
 
 
