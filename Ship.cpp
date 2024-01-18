@@ -371,6 +371,19 @@ void TShip::Explode()
             break;
 
             default:
+                switch (m_Member)
+                {
+                    case MEM_ROMULAN:
+                        event.m_Type = ET_ROMULAN_DESTROYED;
+                    break;
+                    case MEM_KLINGON:
+                        event.m_Type = ET_KLINGON_DESTROYED;
+                    break;
+
+                    default:
+                        event.m_Type = ET_IGNORE;
+                }
+
             break;
         }
 
