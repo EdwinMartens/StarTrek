@@ -106,7 +106,7 @@ TEnterprise::TEnterprise()
 	m_pTransporter = new CTransporter();
     m_pDialog      = new CDialog(g_pEngine);
     m_ScanInfo.m_Valid = false;
-    m_MissionCritical = MC_SURVIVE;
+    m_MissionCritical = MC_ENTERPRISE;
 }
 
 TEnterprise::TEnterprise(ifstream & a_LoadStream, ID a_id )
@@ -161,6 +161,7 @@ TEnterprise::TEnterprise(ifstream & a_LoadStream, ID a_id )
    {
         m_blPlayed[i] = false;
    }
+   m_MissionCritical = MC_ENTERPRISE;
 
    #ifdef _DEBUG
 	std::cout << "-Enterprise loaded\n";
@@ -202,6 +203,19 @@ void TEnterprise::Save(ofstream & a_SaveStream)
    #endif // _DEBUG
 }
 
+
+bool TEnterprise::CrewIsComplete()
+{
+    bool blResult = true;
+    for (int i =0; i < CREW_END; i++)
+    {
+        if (! m_blHasCrewMember[i])
+        {
+            blResult = false;
+        }
+    }
+    return blResult;
+}
 
 TEnterprise::~TEnterprise()
 {
@@ -249,6 +263,13 @@ void TEnterprise::CheatRandomDamage()
 		if (m_lstHealth[i] < 0 ) m_lstHealth[i]=0;
 	}
 }
+
+
+void TEnterprise::ResetTransportAnnouncement()
+{
+    m_blTransportAnnounced = false;
+}
+
 
 
 void TEnterprise::DoEngineering()
@@ -498,9 +519,6 @@ void TEnterprise::DoEngineering()
         g_pCommunication->AddMessage(10,CREW_SCOTTY," The warpcore is a pile of junk !");
    }
 
-
-
-
    m_nEnergy = m_nEnergy > 0 ? m_nEnergy : 0;
 }
 
@@ -567,7 +585,6 @@ void TEnterprise::SignalTargetDesytoyed()
 
 void TEnterprise::Do_ai()
 {
-
     if (g_blGodMode)
     {
         for (size_t i=0;i< m_lstHealth.size();i++)
@@ -875,6 +892,12 @@ void TEnterprise::Do_ai()
 
 		}
 
+        if (! m_blTransportAnnounced)
+        {
+            m_blTransportAnnounced = AnnounceTransportTarget();
+        }
+
+
 		if ((m_blDocked)&&(!m_blReleasing)&&(m_pEngine->m_blKeys[RELEASE]))
 		{
 			g_pCommunication->AddMessage(5,CREW_SULU,"Taking her out of dock, captain");
@@ -932,6 +955,52 @@ void TEnterprise::Do_ai()
         m_nRepairTimer=60;
     }
 
+}
+
+
+bool TEnterprise::AnnounceTransportTarget()
+{
+    bool blAnnounced = false;
+
+    TSprite * pSprite =  g_pEngine->SeekClosestTransportTarget(m_dX,m_dY);
+    if (pSprite != NULL)
+    {
+        double distance = Distance(m_dX,m_dY,pSprite->GetX(),pSprite->GetY());
+        if (distance < 150)
+        {
+            TSpaceObject * pPlanet = (TSpaceObject *) pSprite;
+            if (pPlanet->HasInventoryItem())
+            {
+                TInventoryItem item  = pPlanet->GetInventoryItem();
+                if (item.m_blValid)
+                {
+                    switch (item.imageID)
+                    {
+                        case INV_SPOCK:
+                            g_pCommunication->AddMessage(11,CREW_SCOTTY,"Mister Spock is ready to beam up captain");
+                            blAnnounced = true;
+                        break;
+
+                        case INV_SAREK:
+                            g_pCommunication->AddMessage(11,CREW_SCOTTY,"Ambassador Sarek is ready to beam up captain");
+                            blAnnounced = true;
+                        break;
+
+                        case INV_GORKON:
+                            g_pCommunication->AddMessage(11,CREW_SCOTTY,"Ambassador Gorkon is ready to beam up captain");
+                            blAnnounced = true;
+                        break;
+
+                        default:
+                            g_pCommunication->AddMessage(11,CREW_SCOTTY,"Object is locked, ready to transport");
+                            blAnnounced = true;
+                    }
+                }
+            }
+        }
+    }
+
+    return blAnnounced;
 }
 
 

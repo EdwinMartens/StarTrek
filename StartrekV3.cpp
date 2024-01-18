@@ -195,6 +195,7 @@
 #include "SaveSlots.h"
 #include "Transporter.h"
 #include "Starfleet.h"
+#include "Mission.h"
 
 
 //FILE  * g_pFile;
@@ -219,6 +220,7 @@ ALLEGRO_PATH * g_pScreenshotPath = NULL;
 /// The display for graphics...
 ALLEGRO_DISPLAY * g_pDisplay = NULL;
 
+ALLEGRO_BITMAP * g_pIcon = NULL;
 
 /// The event queue
 ALLEGRO_EVENT_QUEUE *	g_pEventQueue = NULL;
@@ -379,11 +381,13 @@ void NewGame()
     if (g_pStarfleet!= NULL)
     {
         g_pStarfleet->sendMessage(GAMESTART);
+        CMission * pMission = new CMission(MT_CREW_COMPLETE,50,"Beam Spock onboard from earth","Spock is aboard, we have a full crewstaff !","You failed to get Mr Spock");
+        g_pStarfleet->NewMission(pMission);
     }
 }
 
 
-void DoGameOver()
+void DoGameOver(MissionEvent event)
 {
     if (g_pMenu != NULL)
     {
@@ -400,6 +404,8 @@ void DoGameOver()
     }
     Log("GAME STATE TO MENU");
     al_show_mouse_cursor(g_pDisplay);
+
+    std::string strReason = event.m_strMessage;
 }
 
 
@@ -688,6 +694,7 @@ bool InitObjects()
  */
 void DeInitObjects()
 {
+    delete g_pIcon;
     TStarbase::DeInit();
     TSpaceObject::DeInit();
     TAnimation::DeInit();
@@ -709,7 +716,6 @@ bool Setup()
 	{
         InitLog(); // Rude log system for debugging
         Log("Allegro Initialized");
-
         g_pSavePath = al_get_standard_path(ALLEGRO_RESOURCES_PATH);
         al_append_path_component(g_pSavePath, "Save");
         g_pScreenshotPath = al_get_standard_path(ALLEGRO_RESOURCES_PATH);;
@@ -780,7 +786,15 @@ bool Setup()
 			al_init_image_addon();
 			al_install_keyboard();
 			al_install_mouse();
-			Log("Add ons installed");
+			Log("Addons installed");
+
+			ALLEGRO_PATH * pIconPath = al_get_standard_path(ALLEGRO_RESOURCES_PATH);
+            al_set_path_filename(pIconPath,"startrek.png");
+            string strIconPath = "Loading Icon from : ";
+            strIconPath.append(al_path_cstr(pIconPath,ALLEGRO_NATIVE_PATH_SEP));
+            Log(strIconPath);
+            g_pIcon = al_load_bitmap(al_path_cstr(pIconPath,ALLEGRO_NATIVE_PATH_SEP));
+            al_set_display_icon(g_pDisplay,g_pIcon);
 
 			// Init Sound manager
 			SoundManager::Init_SoundManager(RESERVED_SAMPLES);
@@ -1207,6 +1221,7 @@ void CheckSectorBounds()
         // in a new sector, store the old one and build a new...
         if (blNewSector)
         {
+            g_pEnterprise->ResetTransportAnnouncement();
             int nOldSectorState = g_pUniverse->GetSectorState(g_pEnterprise->m_nSectorPositionX,g_pEnterprise->m_nSectorPositionY);
 
             g_pUniverse->StoreSector(g_pEnterprise->m_nSectorPositionX,g_pEnterprise->m_nSectorPositionY,g_pEngine);
@@ -1233,6 +1248,7 @@ void CheckSectorBounds()
             NewSector(g_pEnterprise->m_nSectorPositionX,g_pEnterprise->m_nSectorPositionY);
 
             int nNewSectorState = g_pUniverse->GetSectorState(g_pEnterprise->m_nSectorPositionX,g_pEnterprise->m_nSectorPositionY);
+
 
             if ((nOldSectorState != MEM_NEUTRAL_ZONE)&&((nNewSectorState == MEM_NEUTRAL_ZONE)))
             {
@@ -1272,6 +1288,46 @@ void CheckSectorBounds()
 
 
             }
+
+            if (g_pStarfleet != NULL)
+            {
+                MissionEvent event;
+                event.m_Type = ET_SECTOR_ENTERED;
+                event.m_Goal_Member = MEM_NONE;
+                switch (nNewSectorState)
+                {
+                    case MEM_NEUTRAL_ZONE:
+                         event.m_Sector_Member = MEM_NEUTRAL_ZONE;
+                    break;
+
+                    case MEM_FEDERATION:
+                         event.m_Sector_Member = MEM_FEDERATION;
+                    break;
+
+                    case MEM_ROMULAN:
+                         event.m_Sector_Member = MEM_ROMULAN;
+                    break;
+
+                    case MEM_KLINGON:
+                         event.m_Sector_Member = MEM_KLINGON;
+
+                    break;
+
+                    case MEM_NEUTRAL:
+                         event.m_Sector_Member = MEM_NONE;
+                    break;
+                }
+
+
+                if (g_pEnterprise != NULL)
+                {
+                    event.m_nSectorX = g_pEnterprise->GetX();
+                    event.m_nSectorY = g_pEnterprise->GetY();
+                }
+
+                g_pStarfleet->PostEvent(event);
+            }
+
     //
 
 #ifdef _DEBUG

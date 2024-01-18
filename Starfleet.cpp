@@ -15,13 +15,14 @@ extern Universe      * g_pUniverse;
 ALLEGRO_PATH   * pStarfleetConversationPath = NULL;
 ALLEGRO_FS_ENTRY * pStarfleetDialogs = NULL;
 
-void (* g_pGameOverFunc)() = NULL;
+void (* g_pGameOverFunc)(MissionEvent event) = NULL;
 
 
 Starfleet::Starfleet()
 {
     m_pDialog = NULL;
     m_lstEvents.clear();
+    m_pCurrentMission = NULL;
 }
 
 
@@ -79,7 +80,7 @@ void Starfleet::StartDialog()
  }
 
 
-void Starfleet::PostEvent(missionEvent event)
+void Starfleet::PostEvent(MissionEvent event)
 {
      m_lstEvents.push_back(event);
 }
@@ -87,39 +88,67 @@ void Starfleet::PostEvent(missionEvent event)
 
 void Starfleet::CheckMission()
 {
-     bool blMissionFail = false;
-     bool blGameOver = true;
+     bool blGameOver = false;
+     MissionEvent GameOverEvent;
      if (!m_lstEvents.empty())
      {
         for (std::size_t i = 0; i < m_lstEvents.size(); i++)
         {
-            missionEvent event = m_lstEvents.at(i);
+            MissionEvent event = m_lstEvents.at(i);
 
-            if (event.m_blFailMission)
+            switch(event.m_Type)
             {
-
-
-                blMissionFail = true;
+                case ET_GAME_OVER:
+                    GameOverEvent = event;
+                    blGameOver = true;
+                break;
             }
-         else
+
+            if ((m_pCurrentMission != NULL) && ((m_pCurrentMission->GetMissionState() == MS_CONTINUE)))
             {
+                MISSIONSTATE state = m_pCurrentMission->check_Mission(event);
+
+                switch (state)
+                {
+                    case MS_CONTINUE:
+
+                    break;
+
+                    case MS_SUCCESS:
+                        g_pCommunication->AddMessage(0,CREW_KIRK,m_pCurrentMission->getSuccessMessage().c_str());
+
+                    break;
+
+                    case MS_FAIL:
+
+                    break;
+                }
 
             }
         }
      }
 
-     if (blMissionFail)
+     if (blGameOver)
      {
          m_lstEvents.clear();
          if (g_pGameOverFunc != NULL)
          {
-             g_pGameOverFunc();
+             g_pGameOverFunc(GameOverEvent);
          }
      }
 }
 
 
-void Starfleet::SetGameoverFunc(void (* a_pGameOverFunc)())
+void Starfleet::NewMission(CMission * a_pMission)
+{
+    if (m_pCurrentMission != NULL)
+    {
+        delete m_pCurrentMission;
+    }
+    m_pCurrentMission = a_pMission;
+}
+
+void Starfleet::SetGameoverFunc(void (* a_pGameOverFunc)(MissionEvent event))
 {
      g_pGameOverFunc= a_pGameOverFunc;
 }

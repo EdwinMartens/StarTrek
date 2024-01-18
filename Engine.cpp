@@ -712,11 +712,6 @@ void TEngine::Folow(TSprite * const a_pSprite)
 	m_dY=a_pSprite->m_dY;
 }
 
-
-
-
-
-
 void TEngine::DrawHud(TShip * const a_pPlayer)
 {
 	if ((a_pPlayer!=NULL) && (!a_pPlayer->m_blDestroyed) && (a_pPlayer->m_pTarget!=NULL) && (a_pPlayer->m_blDocked==false))
@@ -760,6 +755,10 @@ TSprite * TEngine::Seek(int a_nID, double a_dViewDistance, double a_dX, double a
 	}
 	return target;
 }
+
+
+
+
 
 
 TSprite * TEngine::Seek(int a_nID, double a_dViewDistance, double a_dX, double a_dY,double a_dAngle, double a_dRadius)

@@ -1,6 +1,7 @@
 Allegro Initialized
 Display created
-Add ons installed
+Addons installed
+Loading Icon from : /home/edwin/Programming/StarTrek_Linux/bin/Debug/startrek.png
 SoundManager Initializes
 Sounds loaded
 Event sources registered
@@ -10,9 +11,14 @@ Game engine created
 Paralax created
 Key Mapper created
 GAME STATE TO MENU
-Gamestate to GS_LOAD
+Enterprise created
 Create communications ***
 Communication created
+Delete old universe
+Create new universe Object
+Generate random universe
+Set enterprise position
+New universe generated
+New Sector
 GAME STATE TO GAME
-Gamestate to GS_SAVE
-GAME STATE TO GAME
+Dialog opened

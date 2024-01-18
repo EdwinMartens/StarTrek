@@ -104,6 +104,7 @@
 enum MISSION_CRITICAL
 {
     MC_NONE,
+    MC_ENTERPRISE,
     MC_SURVIVE,
     MC_DESTROY,
     MC_REACH
@@ -157,6 +158,19 @@ enum PARTICLE_EFFECT
 {
     EFF_NORMAL,
     EFF_PROBE
+};
+
+
+enum crewmember
+{
+     CREW_KIRK   = 0,
+     CREW_SPOCK  = 1,
+     CREW_MCCOY  = 2,
+     CREW_SCOTTY = 3,
+     CREW_UHURA  = 4,
+     CREW_SULU   = 5,
+     CREW_CHECOV = 6,
+     CREW_END
 };
 
 enum MEMBER
@@ -268,6 +282,40 @@ enum AI
     AI_ESCORT,
     AI_HIDE,
     AI_MAX
+};
+
+
+enum GENERICMESSAGE
+{
+    GAMESTART = 0,
+    CONGRATULATIONS,
+    FORBIDDEN,
+    GENERICMESSAGE_END
+};
+
+enum EventType
+{
+    ET_GAME_OVER,
+    ET_FAILED,
+    ET_LOCATION_REACHED,
+    ET_TARGET_DESTROYED,
+    ET_OBJECT_ABOARD,
+    ET_OBJECT_DELIVERED,
+    ET_SECTOR_ENTERED,
+    ET_EXPLORED,
+    ET_NEW_FEDERATION_MEMBER
+};
+
+
+struct MissionEvent
+{
+    EventType m_Type;
+    MEMBER m_Sector_Member;
+    MEMBER m_Goal_Member;
+    int m_AUX;
+    int m_nSectorX;
+    int m_nSectorY;
+    std::string m_strMessage;
 };
 
 

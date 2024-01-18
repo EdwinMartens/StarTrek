@@ -80,6 +80,7 @@ private:
     bool m_blSelfDestruct;
     bool m_blPlayed[PLAYED_END];
     bool m_blHasCrewMember[CREW_END];
+    bool m_blTransportAnnounced = false;
     TScanInfo m_ScanInfo;
 
 	NAVIGATION_MODE m_NavigationMode;
@@ -90,7 +91,7 @@ private:
     void DrawTacticalInfo(const Sector & a_sector,int a_nX, int a_nY, int a_nSizeX, int a_nSizeY);
     void DrawNavigationLegenda(int a_nX, int a_nY);
     void draw_probeScan();
-
+    bool AnnounceTransportTarget();
 
 
 public:
@@ -125,7 +126,8 @@ public:
     bool HasCrewMember(crewmember member);
     void SetCrewMember(crewmember member);
     void ResetCrewMember(crewmember member);
-
+    void ResetTransportAnnouncement();
+    bool CrewIsComplete();
 
     void   IncNavX();
     void   DecNavX();

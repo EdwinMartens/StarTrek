@@ -343,7 +343,7 @@ void TShip::Explode()
 		    m_pEngine->Add(pAnimation);
         }
 
-        missionEvent event;
+        MissionEvent event;
         //event.m_strObject = m_strName;
         if (g_pEnterprise != NULL)
         {
@@ -353,15 +353,21 @@ void TShip::Explode()
 
         switch (m_MissionCritical)
         {
+            case MC_ENTERPRISE:
+                 event.m_Type = ET_GAME_OVER;
+                 event.m_strMessage ="Enterprise was destroyed !";
+            break;
+
             case MC_DESTROY:
-                event.m_blFailMission=false;
+                event.m_Type = ET_TARGET_DESTROYED;
             break;
 
             case MC_SURVIVE:
-                event.m_blFailMission=true;
+                event.m_Type = ET_FAILED;
             break;
 
             case MC_REACH:
+
             break;
 
             default:

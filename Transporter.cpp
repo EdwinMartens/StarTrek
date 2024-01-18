@@ -1,9 +1,10 @@
 #include "Transporter.h"
 #include "SoundManager.h"
 #include "Enterprise.h"
-#include "Communication.h"
+#include "Starfleet.h"
 
 extern TEnterprise * g_pEnterprise;
+extern Starfleet * g_pStarfleet;
 extern Communication * g_pCommunication;
 extern TEngine       * g_pEngine;
 
@@ -274,6 +275,18 @@ void CTransporter::addToInventory(TInventoryItem a_Item)
          g_pEnterprise->SetCrewMember(CREW_SPOCK);
          g_pCommunication->AddMessage(12,CREW_KIRK,"Welcome aboard mr Spock");
          g_pCommunication->AddMessage(13,CREW_SPOCK,"Thank you sir !");
+
+         MissionEvent event;
+         event.m_Type = ET_OBJECT_ABOARD;
+         event.m_Goal_Member = MEM_NONE;
+
+         if (g_pEnterprise != NULL)
+         {
+            event.m_nSectorX = g_pEnterprise->GetX();
+            event.m_nSectorY = g_pEnterprise->GetY();
+         }
+
+         g_pStarfleet->PostEvent(event);
      }
      else
      {

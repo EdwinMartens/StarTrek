@@ -49,17 +49,7 @@
 
 using namespace std;
 
-enum crewmember
-{
-     CREW_KIRK   = 0,
-     CREW_SPOCK  = 1,
-     CREW_MCCOY  = 2,
-     CREW_SCOTTY = 3,
-     CREW_UHURA  = 4,
-     CREW_SULU   = 5,
-     CREW_CHECOV = 6,
-     CREW_END
-};
+
 
 class Communication;
 
