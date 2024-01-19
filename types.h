@@ -51,7 +51,7 @@
 
 
 #define RESERVED_SAMPLES     8
-#define CLOAK_DELAY        900
+#define CLOAK_DELAY        600
 #define MAX_ENERGY       10000
 #define MAX_TORPEDOES       25
 #define MAX_PROBES          10

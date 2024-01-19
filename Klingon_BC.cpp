@@ -194,7 +194,7 @@ switch(m_AI)
                m_dWaypointX=rand()% (SECTORSIZE * 60 / 100 );
                m_dWaypointY=rand()% (SECTORSIZE * 60  / 100 );
            }
-		   if ((m_nCloakCharge>=CLOAK_DELAY)&&((m_lstHealth[HLT_CLOAK]>60)||(m_nEnergy>500))&&((m_CloakState == CS_UNCLOAKED)||(m_CloakState == CS_DECLOAKING)))
+		   if ((m_nCloakCharge>=CLOAK_DELAY)&&((m_lstHealth[HLT_CLOAK]>60)||(m_nEnergy>50))&&((m_CloakState == CS_UNCLOAKED)||(m_CloakState == CS_DECLOAKING)))
 			  {
 					m_CloakState = CS_CLOAKING;
 			  }

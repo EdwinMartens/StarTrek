@@ -189,6 +189,11 @@ TShip::TShip(ifstream & a_LoadStream,ID a_id)
 	m_blEvading = false;
 	m_blShieldOn          = true;
 
+	if (m_CloakState == CS_CLOAKED)
+    {
+        m_nTranslucency = 255;
+    }
+
 	#ifdef _DEBUG
 	std::cout << "-- Ship loaded\n";
 	#endif // _DEBUG
@@ -239,6 +244,9 @@ void TShip::Save(ofstream & a_SaveStream)
          int Health = m_lstHealth[(HEALTH)i];
          a_SaveStream.write((char*)& Health, sizeof (Health));
     }
+
+
+
     #ifdef _DEBUG
 	std::cout << "-- Ship saved\n";
 	#endif // _DEBUG
@@ -633,17 +641,27 @@ void TShip::DoEngineering()
 
         if ((m_lstHealth.size()>HLT_CLOAK)&&(m_nCloakCounter<=0))
         {
-            if (((m_lstHealth[HLT_CLOAK]<60)||(m_nEnergy<500))&&(m_CloakState = CS_CLOAKED))
-            {
-            m_CloakState = CS_DECLOAKING;
-            }
-
             DoCloak();
             m_nCloakCounter=5;
         }
         else if (m_nCloakCounter>0)
         {
             m_nCloakCounter--;
+        }
+
+        if (m_CloakState == CS_CLOAKED)
+        {
+            if ((m_lstHealth[HLT_CLOAK]<60)||(m_nEnergy< 50))
+            {
+                double V = CalcVolume();
+                SoundManager::PlaySound(SOUND::DECLOACK,V);
+                m_CloakState = CS_DECLOAKING;
+                m_nCloakCharge=0;
+            }
+            else
+            {
+                m_nEnergy -= 50;
+            }
         }
     }
 }

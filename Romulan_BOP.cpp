@@ -218,7 +218,7 @@ void TRomulanBop::Do_ai()
             }
    }
 
-if (((m_lstHealth[HLT_HULL]<60)||(m_lstHealth[HLT_PHOTON]<40)||(m_nTorpedoes==0)) && (m_pTarget!=NULL))
+if (((m_lstHealth[HLT_HULL]<40)||((m_lstHealth[HLT_PHOTON]<40) && (m_lstHealth[HLT_PHASER]<40))||(m_nTorpedoes==0)) && (m_pTarget!=NULL))
    {
 	  if (! TryEnterDocking())
       {
@@ -456,7 +456,7 @@ switch(m_AI)
                  }
 
 
-				 if (m_dTargetDistance<200) m_AI=AI_EVADE;
+				 if (m_dTargetDistance<150) m_AI=AI_EVADE;
 			  }
 
            }
@@ -487,11 +487,11 @@ switch(m_AI)
            t=sangleseek-m_dAngle;
            if (t<0) t=-t;
            if ((m_dTargetDistance<=600)&&(m_dTargetDistance>150)&&(t<0.2))
-              {
-                 fire_photon();
-              }
+           {
+               fire_photon();
+           }
 
-              if (m_dTargetDistance>800) m_AI=AI_CHASE;
+              if (m_dTargetDistance>500) m_AI=AI_CHASE;
            }
         else
            {
@@ -579,13 +579,6 @@ if (m_nEnergy>0)
    }
 }
 
-if (((m_nEnergy<20)||(m_lstHealth[HLT_CLOAK]<50))&&((m_CloakState == CS_CLOAKED)||(m_CloakState == CS_CLOAKING)))
-{
-	double V = CalcVolume();
-    SoundManager::PlaySound(SOUND::DECLOACK,V);
-	m_CloakState = CS_DECLOAKING;
-	m_nCloakCharge=0;
-}
 
 if (m_dSpeed>(m_dMaxSpeed*m_lstHealth[HLT_IMPULSE])/100)
     {
