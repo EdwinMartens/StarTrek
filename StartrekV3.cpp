@@ -381,7 +381,7 @@ void NewGame()
     if (g_pStarfleet!= NULL)
     {
         g_pStarfleet->sendMessage(GAMESTART);
-        CMission * pMission = new CMission(MT_CREW_COMPLETE,50,"Beam Spock onboard from earth","Spock is aboard, we have a full crewstaff !","You failed to get Mr Spock");
+        CMission * pMission = new CMission(MT_CREW_COMPLETE,50,"Beam Spock onboard from earth","Spock is onboard, we have a full crewstaff !","You failed to get Mr Spock");
         g_pStarfleet->NewMission(pMission);
     }
 }
@@ -849,10 +849,6 @@ bool Setup()
                 Log("Could not create menu");
 				return false;
             }
-
-
-
-
 
             // Create game engine
             g_pEngine = new TEngine(g_nScreenWidth,g_nScreenHeight);
@@ -1476,6 +1472,10 @@ void KeyDown(int a_nKey)
 	{
 	    g_pEngine->m_blKeys[SEEK_FRIEND] = true;
 	}
+	else if (g_pKeyMapper->IsKey(a_nKey,SEEK_BASE))
+	{
+	    g_pEngine->m_blKeys[SEEK_BASE] = true;
+	}
 	else if (g_pKeyMapper->IsKey(a_nKey,SCREEN_MAIN))
 	{
 	    al_hide_mouse_cursor(g_pDisplay);
@@ -1616,6 +1616,10 @@ void KeyUp(int a_nKey)
         else if (g_pKeyMapper->IsKey(a_nKey,SEEK_FRIEND))
         {
             g_pEngine->m_blKeys[SEEK_FRIEND] = false;
+        }
+        else if (g_pKeyMapper->IsKey(a_nKey,SEEK_BASE))
+        {
+            g_pEngine->m_blKeys[SEEK_BASE] = false;
         }
         else
         {

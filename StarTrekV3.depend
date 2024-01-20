@@ -959,13 +959,7 @@
 	<math.h>
 	<math.h>
 
-1631460677 /home/edwin/Programming/StarTrek_Linux/KeyMapper.h
-	<allegro5/allegro.h>
-	<allegro5/allegro_font.h>
-	<allegro5/allegro_ttf.h>
-	<string>
-	<iostream>
-	<fstream>
+1705755110 /home/edwin/Programming/StarTrek_Linux/KeyMapper.h
 	<allegro5/allegro.h>
 	<allegro5/allegro_font.h>
 	<allegro5/allegro_ttf.h>
@@ -1325,7 +1319,7 @@
 	"types.h"
 	"Engine.h"
 
-1704725417 source:/home/edwin/Programming/StarTrek_Linux/Enterprise.cpp
+1705755775 source:/home/edwin/Programming/StarTrek_Linux/Enterprise.cpp
 	"Enterprise.h"
 	"Bullet.h"
 	"Probe.h"
@@ -1346,8 +1340,7 @@
 	<stdio.h>
 	"FontManager.h"
 
-1631460677 source:/home/edwin/Programming/StarTrek_Linux/KeyMapper.cpp
-	"KeyMapper.h"
+1705756757 source:/home/edwin/Programming/StarTrek_Linux/KeyMapper.cpp
 	"KeyMapper.h"
 
 1705669296 source:/home/edwin/Programming/StarTrek_Linux/Klingon_BC.cpp
@@ -1409,7 +1402,7 @@
 	"Enterprise.h"
 	<fstream>
 
-1705664284 source:/home/edwin/Programming/StarTrek_Linux/Romulan_BOP.cpp
+1705669951 source:/home/edwin/Programming/StarTrek_Linux/Romulan_BOP.cpp
 	"StarTrekV3.h"
 	"Romulan_BOP.h"
 	"Bullet.h"
@@ -1459,7 +1452,7 @@
 	"Bullet.h"
 	"SoundManager.h"
 
-1704715004 source:/home/edwin/Programming/StarTrek_Linux/StartrekV3.cpp
+1705755711 source:/home/edwin/Programming/StarTrek_Linux/StartrekV3.cpp
 	<stdio.h>
 	<iostream>
 	<time.h>

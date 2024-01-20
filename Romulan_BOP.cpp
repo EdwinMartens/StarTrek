@@ -210,7 +210,6 @@ void TRomulanBop::Do_ai()
                 }
             }
 
-           //preferedtarget=HLT_SENSOR+1;
 
            if (m_nTask==TSK_STANDARD)
 			{

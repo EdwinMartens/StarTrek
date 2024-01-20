@@ -619,19 +619,40 @@ void TEnterprise::Do_ai()
              (m_lstHealth[HLT_SENSOR]<30)||
              (m_lstHealth[HLT_COMPUTER]<30)) m_pTarget=NULL;
 
-		if (m_pEngine->m_blKeys[SEEK_TARGET])
-        {
+            if ((m_pEngine->m_blKeys[SEEK_TARGET]) || (m_pEngine->m_blKeys[SEEK_FRIEND]) || (m_pEngine->m_blKeys[SEEK_BASE]))
+            {
+                m_pTarget = NULL;
             if (!m_blDocked)
             {
                 if (m_lstHealth[HLT_SENSOR]>30)
                 {
                     if (m_lstHealth[HLT_COMPUTER]>30)
                     {
-                        m_blPlayed[TARGET_DESTROYED] = false;
-                        m_pTarget = (TShip*)m_pEngine->Seek(m_Member,true,m_dViewDistance,m_dX,m_dY);
-                        if (m_pTarget!=NULL)
+                        if (m_pEngine->m_blKeys[SEEK_TARGET])
                         {
-                            g_pCommunication->AddMessage(11,CREW_SPOCK," Phasers locked on target");
+                            m_blPlayed[TARGET_DESTROYED] = false;
+                            m_pTarget = (TShip*)m_pEngine->Seek(m_Member,true,m_dViewDistance,m_dX,m_dY);
+
+                            if (m_pTarget!=NULL)
+                            {
+                                g_pCommunication->AddMessage(11,CREW_SPOCK," Phasers locked on target");
+                            }
+                        }
+                        else if (m_pEngine->m_blKeys[SEEK_FRIEND])
+                        {
+                            m_pTarget = (TShip*)m_pEngine->Seek(m_Member,false,m_dViewDistance,m_dX,m_dY);
+                        }
+                        else
+                        {
+                            m_pTarget = (TShip*)m_pEngine->Seekstarbase(m_Member,false,m_dViewDistance,m_dX,m_dY);
+                            if (m_pTarget==NULL)
+                            {
+                                g_pCommunication->AddMessage(11,CREW_CHECOV," There is no federation base in this sector captain ! ");
+                            }
+                            else
+                            {
+                                g_pCommunication->AddMessage(11,CREW_CHECOV," Course laid in sir !");
+                            }
                         }
                     }
                     else
@@ -651,31 +672,7 @@ void TEnterprise::Do_ai()
             }
 
         }
-        else if (m_pEngine->m_blKeys[SEEK_FRIEND])
-        {
-            if (!m_blDocked)
-            {
-                if (m_lstHealth[HLT_SENSOR]>30)
-                {
-                    if (m_lstHealth[HLT_COMPUTER]>30)
-                    {
-                        m_pTarget = (TShip*)m_pEngine->Seek(m_Member,false,m_dViewDistance,m_dX,m_dY);
-                    }
-                    else
-                    {
-                        g_pCommunication->AddMessage(11,CREW_SPOCK," The computer is having trouble");
-                    }
-                }
-                else
-                {
-                    g_pCommunication->AddMessage(12,CREW_SPOCK," Our sensors are in a weak condition");
-                }
-            }
-            else
-            {
-                g_pCommunication->AddMessage(13,CREW_SPOCK," We are docked jim !");
-            }
-        }
+
 
         if (m_pTarget != NULL)
         {

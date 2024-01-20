@@ -26,6 +26,7 @@ void TKeyMapper::SetDefaultMapping()
     m_KeyMap[PHOTON_BACK]           = ALLEGRO_KEY_LSHIFT;
     m_KeyMap[SEEK_TARGET]           = ALLEGRO_KEY_T;
     m_KeyMap[SEEK_FRIEND]           = ALLEGRO_KEY_F;
+    m_KeyMap[SEEK_BASE]             = ALLEGRO_KEY_B;
     m_KeyMap[DOCK]                  = ALLEGRO_KEY_D;
     m_KeyMap[RELEASE]               = ALLEGRO_KEY_R;
     m_KeyMap[SCREEN_MAIN]           = ALLEGRO_KEY_F1;
@@ -117,6 +118,10 @@ void TKeyMapper::DrawMapping()
 
              case SEEK_FRIEND:
                   strMessage = "Press a key to select closest friend";
+                  break;
+
+             case SEEK_BASE:
+                  strMessage = "Press a key to select a federation base";
                   break;
 
              case TARGET_UP:
@@ -240,6 +245,10 @@ void TKeyMapper::DrawMapping()
 
              case SEEK_FRIEND:
                   strKey = "Select closest friend";
+                  break;
+
+             case SEEK_BASE:
+                  strKey = "Select federation base";
                   break;
 
              case TARGET_UP:

@@ -61,6 +61,7 @@ enum KEYS{
            PHASER,
            SEEK_TARGET,
            SEEK_FRIEND,
+           SEEK_BASE,
            TARGET_UP,
            TARGET_DOWN,
            DOCK,
